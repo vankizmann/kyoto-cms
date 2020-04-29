@@ -18,6 +18,8 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->singleton('kyoto', function () {
             return new KyotoInstance();
         });
+
+        app('kyoto')->register();
     }
 
     /**

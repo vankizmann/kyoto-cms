@@ -2,9 +2,9 @@
 
 namespace Kyoto\Application;
 
-use Kyoto\Support\InstanceInitializer;
+use Kyoto\Support\Instance\InstanceElement;
 
-class KyotoInstance extends InstanceInitializer
+class KyotoInstance extends InstanceElement
 {
     use Plugins\LanguagePlugin;
 }

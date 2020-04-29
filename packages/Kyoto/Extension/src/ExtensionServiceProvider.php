@@ -17,7 +17,7 @@ class ExtensionServiceProvider extends ServiceProvider
             return new ExtensionInstance();
         });
 
-        app('kyoto.extension')->initialize();
+        app('kyoto.extension')->register();
     }
 
     /**

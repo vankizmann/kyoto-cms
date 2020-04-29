@@ -1,11 +1,15 @@
 <?php
 
-namespace Kyoto\Support;
+namespace Kyoto\Support\Instance;
 
-class InstanceInitializer
+class InstanceElement
 {
-
     public function __construct()
+    {
+        //
+    }
+
+    public function register()
     {
         foreach ( class_uses_recursive(static::class) as $trait ) {
             $this->registerTrait($trait);

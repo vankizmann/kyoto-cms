@@ -48,11 +48,15 @@ class RouteElement
         return $this->server;
     }
 
-    public function getSegments($limit = null)
+    public function getSegments($limit = null, $localized = false)
     {
         $segments = explode('/', $this->getPath());
 
         $segments = array_filter($segments);
+
+        if ( ! $localized && preg_match('/^[a-z]{2}$/', $segments[0]) ) {
+            array_shift($segments);
+        }
 
         if ( $limit < 0 ) {
             $limit = count($segments) + $limit;
