@@ -1,0 +1,49 @@
+{
+    "name": "kyoto/support",
+    "description": "Description",
+    "keywords": [
+        "kyoto", "kyoto-support"
+    ],
+    "homepage": "https://github.com/vankizmann/kyoto-support",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduard Kizmann",
+            "email": "kizmann@kyoto-cms.com",
+            "homepage": "https://kyoto-cms.com"
+        }
+    ],
+    "require": {
+        "php" : "^7.2",
+        "illuminate/support": "~5.5.5|~5.6.0|~5.7.0|~5.8.0|^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.5.3|~3.6.0|~3.7.0|~3.8.0|^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kyoto\\Support\\": "src/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kyoto\\Support\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
