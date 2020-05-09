@@ -6,7 +6,8 @@ use Kyoto\Extension\Config\ExtensionConfig;
 
 class TranslationLoader extends LoaderElement
 {
-    public function registerExtension(ExtensionConfig $config)
+
+    public function bootExtension(ExtensionConfig $config)
     {
         $path = str_join('/', $config->path, 'resources/lang');
 

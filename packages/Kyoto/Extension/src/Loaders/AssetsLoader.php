@@ -1,15 +1,15 @@
 <?php
 
-namespace Liro\Module\Loaders;
+namespace Kyoto\Extension\Loaders;
 
-use Liro\Module\Module\Module;
+use Kyoto\Extension\Config\ExtensionConfig;
 
-class AssetsLoader implements LoaderInterface
+class AssetsLoader extends LoaderElement
 {
 
-    public function load(Module $module)
+    public function bootExtension(ExtensionConfig $config)
     {
-        $manifest = str_join('/', $module->path, 'mix-manifest.json');
+        $manifest = str_join('/', $config->path, 'mix-manifest.json');
 
         if ( file_exists($manifest) ) {
 
@@ -17,26 +17,35 @@ class AssetsLoader implements LoaderInterface
 
             foreach ( json_decode($manifestBody) as $source => $target) {
 
-                $source = $module->name . '::' . preg_replace('#/public/#', '', $source);
-                $target = $module->name . '::' . preg_replace('#/public/#', '', $target);
+                $source = $config->name . '::' . preg_replace('#/public/#', '', $source);
+                $target = $config->name . '::' . preg_replace('#/public/#', '', $target);
 
-                app('web.assets')->addManifest($source, $target);
+                app('kyoto.assets')->addManifest($source, $target);
             }
         }
 
-        $publicPath = public_path("web/{$module->name}");
+        $publicPath = public_path("extensions/{$config->name}");
 
-        if ( ! file_exists($publicPath) && file_exists("{$module->path}/public") ) {
-            app()->make('files')->link("{$module->path}/public", $publicPath);
+        if ( ! file_exists($publicPath) && file_exists("{$config->path}/public") ) {
+            $this->linkRecursive("{$config->path}/public", $publicPath);
         }
 
-        app('web.assets')->addNamespace($module->name, $publicPath);
+        app('kyoto.assets')->addNamespace($config->name, $publicPath);
 
-        foreach ( $module->get('imports', []) as $extension => $imports ) {
-            app('web.assets')->export($extension, $imports);
+        return $config;
+    }
+
+    public function linkRecursive($path, $publicPath)
+    {
+        if ( ! file_exists($path) || file_exists($publicPath) ) {
+            return;
         }
 
-        return $module;
+        if ( ! file_exists(dirname($publicPath)) ) {
+            app()->make('files')->makeDirectory(dirname($publicPath), 0755, true);
+        }
+
+        app()->make('files')->link($path, $publicPath);
     }
 
 }

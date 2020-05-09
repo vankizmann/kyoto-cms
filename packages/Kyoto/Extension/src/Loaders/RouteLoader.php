@@ -1,19 +1,21 @@
 <?php
 
-namespace Liro\Module\Loaders;
+namespace Kyoto\Extension\Loaders;
 
-use Liro\Module\Module\Module;
+use Kyoto\Extension\Config\ExtensionConfig;
 
-class RouteLoader implements LoaderInterface
+class RouteLoader extends LoaderElement
 {
 
-    public function load(Module $module)
+    public function bootExtension(ExtensionConfig $config)
     {
-        foreach ( $module->get('routes', []) as $key => $options ) {
-            app('web.menu')->registerRoute($key, $options);
+        $routePath = str_join('/', $config->path, 'routes.php');
+
+        if ( file_exists($routePath) ) {
+            require_once($routePath);
         }
 
-        return $module;
+        return $config;
     }
 
 }

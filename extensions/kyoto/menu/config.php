@@ -34,24 +34,4 @@ return [
 
     ],
 
-    'routes' => [
-
-        'kyoto/menu::domain' => [
-            Liro\Web\Menu\Http\Connectors\DomainConnector::class
-        ],
-
-        'kyoto/menu::menu' => [
-            Liro\Web\Menu\Http\Connectors\MenuConnector::class
-        ],
-
-        'kyoto/menu::redirect' => [
-            Liro\Web\Menu\Http\Connectors\RedirectConnector::class
-        ],
-
-        'kyoto/menu::vue' => [
-            Liro\Web\Menu\Http\Connectors\VueConnector::class
-        ],
-
-    ],
-
 ];

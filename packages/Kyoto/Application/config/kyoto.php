@@ -7,8 +7,8 @@ return [
     /**
      * Kyoto autoload modules
      */
-    'extensionAutoload' => [
-        'kyoto/menu'
+    'extensionLoad' => [
+        'kyoto/installer'
     ],
 
     /**

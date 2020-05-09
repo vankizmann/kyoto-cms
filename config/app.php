@@ -166,8 +166,9 @@ return [
          * Package Service Providers...
          */
         \Kyoto\Application\ApplicationServiceProvider::class,
-        \Kyoto\Extension\ExtensionServiceProvider::class,
         \Kyoto\Routing\RoutingServiceProvider::class,
+        \Kyoto\Assets\AssetsServiceProvider::class,
+        \Kyoto\Extension\ExtensionServiceProvider::class,
 
         /*
          * Application Service Providers...

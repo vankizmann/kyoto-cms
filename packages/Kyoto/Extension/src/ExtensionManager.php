@@ -5,20 +5,22 @@ namespace Kyoto\Extension;
 use Kyoto\Extension\Config\ExtensionConfig;
 use Kyoto\Support\Instance\InstanceElement;
 
-class ExtensionInstance extends InstanceElement
+class ExtensionManager extends InstanceElement
 {
 
     public $extensionPath = null;
 
     public $extensionLoaders = [
         Loaders\AutoloadLoader::class,
-        Loaders\ServiceProviderLoader::class,
+        Loaders\RouteLoader::class,
+        Loaders\AssetsLoader::class,
+        Loaders\TranslationLoader::class,
+        Loaders\ViewLoader::class,
         Loaders\MigrationLoader::class,
         Loaders\MiddlewareLoader::class,
-        Loaders\TranslationLoader::class,
     ];
 
-    public $extensionAutoload = null;
+    public $extensionLoad = null;
 
     public $extensionConfigs = [];
 
@@ -29,7 +31,7 @@ class ExtensionInstance extends InstanceElement
     public function __construct()
     {
         $this->extensionPath = config('kyoto.extensionPath');
-        $this->extensionAutoload = config('kyoto.extensionAutoload');
+        $this->extensionLoad = config('kyoto.extensionLoad');
 
         foreach ( $this->extensionLoaders as $loader ) {
             $this->registeredLoaders[] = app()->make($loader);
@@ -49,7 +51,7 @@ class ExtensionInstance extends InstanceElement
         }
 
         foreach ( $this->registeredLoaders as $loader ) {
-            foreach ( $this->registeredConfigs as &$config ) {
+            foreach ( $this->getActiveConfigs() as &$config ) {
                 $config = $loader->registerExtension($config);
             }
         }
@@ -60,12 +62,19 @@ class ExtensionInstance extends InstanceElement
     public function boot()
     {
         foreach ( $this->registeredLoaders as $loader ) {
-            foreach ( $this->registeredConfigs as &$config ) {
+            foreach ( $this->getActiveConfigs() as &$config ) {
                 $config = $loader->bootExtension($config);
             }
         }
 
         parent::boot();
+    }
+
+    public function getActiveConfigs()
+    {
+        return array_filter($this->registeredConfigs, function ($config) {
+            return in_array($config->name, $this->extensionLoad);
+        });
     }
 
 }

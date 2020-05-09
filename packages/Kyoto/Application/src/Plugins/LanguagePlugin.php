@@ -23,7 +23,7 @@ trait LanguagePlugin
      *
      * @var array
      */
-    public $locales = ['en'];
+    public $locales = ['en', 'de'];
 
     /**
      * Register language plugin

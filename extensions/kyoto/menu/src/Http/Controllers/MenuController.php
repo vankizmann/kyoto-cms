@@ -1,18 +1,16 @@
 <?php
 
-namespace Liro\Web\Menu\Http\Controllers;
+namespace Web\Kyoto\Menu\Http\Controllers;
 
-use App\Database\Menu;
+//use App\Database\Menu;
 use App\Http\Controllers\Controller;
-use Liro\Web\Menu\Http\Requests\MenuUpdateRequest;
+//use Liro\Web\Menu\Http\Requests\MenuUpdateRequest;
 
 class MenuController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        parent::__construct();
-
-        $this->middleware(['web']);
+        return view('kyoto/menu::test');
     }
 
     public function toArray($item)

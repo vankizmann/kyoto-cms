@@ -14,8 +14,4 @@
 use Illuminate\Support\Facades\Route;
 use Kyoto\Routing\InflectedRouter;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::fallback(InflectedRouter::ROUTER_ACTION);

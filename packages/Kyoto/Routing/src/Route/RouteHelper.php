@@ -1,6 +1,6 @@
 <?php
 
-namespace Liro\Support\Routing;
+namespace Kyoto\Routing\Route;
 
 use Illuminate\Support\Arr;
 

@@ -14,7 +14,7 @@ class ExtensionServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('kyoto.extension', function () {
-            return new ExtensionInstance();
+            return new ExtensionManager();
         });
 
         app('kyoto.extension')->register();

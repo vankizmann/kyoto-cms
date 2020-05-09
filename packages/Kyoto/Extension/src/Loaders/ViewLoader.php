@@ -1,21 +1,19 @@
 <?php
 
-namespace Liro\Module\Loaders;
+namespace Kyoto\Extension\Loaders;
 
-use Liro\Module\Module\Module;
+use Kyoto\Extension\Config\ExtensionConfig;
 
-class ViewLoader implements LoaderInterface
+class ViewLoader extends LoaderElement
 {
 
-    public function load(Module $module)
+    public function bootExtension(ExtensionConfig $config)
     {
-        $basePath = str_join('/', $module->path,
-            'resources/views');
+        $basePath = str_join('/', $config->path, 'resources/views');
 
-        app('view')->addNamespace($module->name,
-            $basePath);
+        app('view')->addNamespace($config->name, $basePath);
 
-        return $module;
+        return $config;
     }
 
 }

@@ -4,8 +4,6 @@ namespace Kyoto\Routing\Reflection;
 
 use Illuminate\Support\Str;
 use Kyoto\Routing\Route\RouteElement;
-use ReflectionClass;
-use ReflectionMethod;
 
 class ReflectionElement
 {
@@ -82,7 +80,7 @@ class ReflectionElement
     public function getReflectionClass()
     {
         if ( ! $this->reflectionClass ) {
-            $this->reflectionClass = new ReflectionClass($this->getClassName());
+            $this->reflectionClass = new \ReflectionClass($this->getClassName());
         }
 
         return $this->reflectionClass;
@@ -95,7 +93,7 @@ class ReflectionElement
         }
 
         $reflectionMethods = $this->getReflectionClass()
-            ->getMethods(ReflectionMethod::IS_PUBLIC);
+            ->getMethods(\ReflectionMethod::IS_PUBLIC);
 
         return array_filter($reflectionMethods, function ($method) {
             return $method->class === $this->getClassName();

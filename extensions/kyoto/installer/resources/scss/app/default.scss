@@ -1,0 +1,103 @@
+@import "~nano-ui/src/root/vars";
+
+[v-cloak] {
+    display: none;
+}
+
+::selection {
+    background: rgba(#E4FC5B, 0.5);
+}
+
+* {
+    outline: none !important;
+}
+
+html, body {
+    overflow: hidden;
+    font-size: 15px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    color: $color-black;
+    background-color: $--color-background;
+    background-size: cover;
+    background-position: center center;
+}
+
+div, a {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $--color-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 3.2rem
+}
+
+h2 {
+    font-size: 2.4rem
+}
+
+h3 {
+    font-size: 1.8rem
+}
+
+h4 {
+    font-size: 1.3rem
+}
+
+h5 {
+    font-size: 1.0rem
+}
+
+h6 {
+    font-size: 0.9rem
+}
+
+p {
+    color: $--color-black;
+    font-size: 1.0rem;
+}
+
+th {
+    font-weight: normal;
+}
+
+.full-height {
+    position: relative;
+    min-height: 100%;
+}
+
+.full-height--fixed {
+    height: 100%;
+}
+
+.full-height-child,
+.auto-height-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-height-child > * {
+    width: 100%;
+    min-height: 0 !important;
+    flex: 1 0 auto !important;
+}
+
+.auto-height-child > * {
+    width: 100%;
+    max-height: 100% !important;
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+}
