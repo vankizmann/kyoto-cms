@@ -4,7 +4,7 @@ window.Vue = Vue;
 import Nano from "nano-js";
 Nano.install(Vue.prototype);
 
-import VueNano from 'nano-ui';
+import VueNano from "nano-ui";
 Vue.use(VueNano, {
     checked:        'far fa-check',
     intermediate:   'far fa-minus',
@@ -33,7 +33,7 @@ Vue.use(VueNano, {
     deactivate:     'far fa-times'
 });
 
-import VueRouter from 'vue-router';
+import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import Axios from "axios";
@@ -41,13 +41,21 @@ Vue.$http = Vue.prototype.$http = Axios;
 
 require('./config/axios');
 
+import KyoInstaller from "./installer";
+Vue.component(KyoInstaller.name, KyoInstaller);
+
+import KyoFormsEnv from "./forms/env";
+Vue.component(KyoFormsEnv.name, KyoFormsEnv);
+
+import KyoTabsLaravel from "./tabs/laravel";
+Vue.component(KyoTabsLaravel.name, KyoTabsLaravel);
+
+import KyoTabsDatabase from "./tabs/database";
+Vue.component(KyoTabsDatabase.name, KyoTabsDatabase);
+
+import KyoTabsWebsite from "./tabs/website";
+Vue.component(KyoTabsWebsite.name, KyoTabsWebsite);
+
 Nano.Dom.ready(() => {
-
-    let options = {};
-
-    // if ( Nano.Dom.find('#app').attr('data-root') ) {
-    //     options = require('./layout/WebBackendRoot').default;
-    // }
-
-    window.App = new Vue(options).$mount('#app');
+    window.App = new Vue({}).$mount('#app');
 });

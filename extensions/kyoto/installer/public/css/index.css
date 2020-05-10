@@ -6987,11 +6987,11 @@ readers do not read off random characters that represent icons */
 }
 
 .n-chart__wrapper .n-grid-dots circle {
-  fill: #4C84FF;
+  fill: #3d19b4;
 }
 
 .n-chart__wrapper .n-grid-chart polyline {
-  stroke: #4C84FF;
+  stroke: #3d19b4;
 }
 
 .n-chart__wrapper .n-grid-chart polygon {
@@ -6999,8 +6999,8 @@ readers do not read off random characters that represent icons */
 }
 
 .n-chart__wrapper #n-gradient {
-  --color-stop: rgba(76, 132, 255, 0.1);
-  --color-start: rgba(76, 132, 255, 0.4);
+  --color-stop: rgba(61, 25, 180, 0.1);
+  --color-start: rgba(61, 25, 180, 0.4);
 }
 
 .n-notification__wrapper {
@@ -7082,7 +7082,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-notification.n-notification--primary .n-notification__icon {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-notification.n-notification--success .n-notification__icon {
@@ -7364,7 +7364,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-draggable.n-dragover > .n-draggable__empty {
-  background: rgba(76, 132, 255, 0.15);
+  background: rgba(61, 25, 180, 0.15);
 }
 
 .n-draggable.n-nodrop > .n-draggable__empty {
@@ -7381,7 +7381,7 @@ readers do not read off random characters that represent icons */
   width: 100%;
   height: 0;
   margin-top: -1px;
-  border-bottom: 1px solid #4C84FF;
+  border-bottom: 1px solid #3d19b4;
   transition: visibility 0ms 100ms;
   transform: translateY(-9999px);
 }
@@ -7396,7 +7396,7 @@ readers do not read off random characters that represent icons */
   padding: 4px 12px;
   border-radius: 500px;
   color: #ffffff;
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 /**
@@ -7412,7 +7412,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-draggable-item.n-current {
-  background: rgba(76, 132, 255, 0.1);
+  background: rgba(61, 25, 180, 0.1);
 }
 
 .n-draggable-item.n-ghost:after {
@@ -7424,7 +7424,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-draggable-item.n-dragover {
-  background: rgba(76, 132, 255, 0.1);
+  background: rgba(61, 25, 180, 0.1);
   transition: background 0ms;
 }
 
@@ -7489,7 +7489,7 @@ readers do not read off random characters that represent icons */
   position: absolute;
   display: none;
   border-radius: 500px;
-  border: 2px solid #4C84FF;
+  border: 2px solid #3d19b4;
   border-bottom-color: transparent;
   -webkit-animation: LoadingSpinner 1s linear infinite;
           animation: LoadingSpinner 1s linear infinite;
@@ -7763,13 +7763,13 @@ readers do not read off random characters that represent icons */
 
 .n-button.n-button--input:hover,
 .n-button.n-button--input:focus {
-  color: #6696ff;
+  color: #451cca;
   background: transparent;
   border-color: transparent;
 }
 
 .n-button.n-button--input:active {
-  color: #3372ff;
+  color: #35169e;
   background: transparent;
   border-color: transparent;
 }
@@ -7785,22 +7785,22 @@ readers do not read off random characters that represent icons */
  */
 .n-button.n-button--link {
   font-size: 14px;
-  color: #4C84FF;
+  color: #3d19b4;
   transition: 0.15s color;
 }
 
 .n-button.n-button--link:hover,
 .n-button.n-button--link:focus {
-  color: #1961ff;
+  color: #2e1387;
 }
 
 .n-button.n-button--link.n-button--primary {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-button.n-button--link.n-button--primary:hover,
 .n-button.n-button--link.n-button--primary:focus {
-  color: #1961ff;
+  color: #2e1387;
 }
 
 .n-button.n-button--link.n-button--success {
@@ -7858,49 +7858,49 @@ readers do not read off random characters that represent icons */
  */
 .n-button.n-button--primary:not(.n-button--link) {
   color: #ffffff;
-  background: #4C84FF;
-  border-color: #4C84FF;
+  background: #3d19b4;
+  border-color: #3d19b4;
 }
 
 .n-button.n-button--primary:not(.n-button--link):hover,
 .n-button.n-button--primary:not(.n-button--link):focus {
-  background: #6696ff;
-  border-color: #6696ff;
+  background: #451cca;
+  border-color: #451cca;
 }
 
 .n-button.n-button--primary:not(.n-button--link):active {
-  background: #3372ff;
-  border-color: #3372ff;
+  background: #35169e;
+  border-color: #35169e;
 }
 
 .n-disabled .n-button.n-button--primary:not(.n-button--link),
 .n-disabled .n-button.n-button--primary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--primary:not(.n-button--link):focus {
-  background: #4C84FF;
-  border-color: #4C84FF;
+  background: #3d19b4;
+  border-color: #3d19b4;
 }
 
 /**
  * Button primary plain
  */
 .n-button.n-button--plain.n-button--primary:not(.n-button--link) {
-  color: #4C84FF;
-  background: rgba(76, 132, 255, 0.1);
-  border-color: rgba(76, 132, 255, 0.25);
+  color: #3d19b4;
+  background: rgba(61, 25, 180, 0.1);
+  border-color: rgba(61, 25, 180, 0.25);
 }
 
 .n-button.n-button--plain.n-button--primary:not(.n-button--link):hover,
 .n-button.n-button--plain.n-button--primary:not(.n-button--link):focus,
 .n-button.n-button--plain.n-button--primary:not(.n-button--link):active {
-  background: rgba(76, 132, 255, 0.2);
-  border-color: rgba(76, 132, 255, 0.25);
+  background: rgba(61, 25, 180, 0.2);
+  border-color: rgba(61, 25, 180, 0.25);
 }
 
 .n-disabled .n-button.n-button--plain.n-button--primary:not(.n-button--link),
 .n-disabled .n-button.n-button--plain.n-button--primary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--plain.n-button--primary:not(.n-button--link):focus {
-  background: rgba(76, 132, 255, 0.1);
-  border-color: rgba(76, 132, 255, 0.25);
+  background: rgba(61, 25, 180, 0.1);
+  border-color: rgba(61, 25, 180, 0.25);
 }
 
 /**
@@ -7914,14 +7914,14 @@ readers do not read off random characters that represent icons */
 
 .n-button.n-button--secondary:not(.n-button--link):hover,
 .n-button.n-button--secondary:not(.n-button--link):focus {
-  color: #4C84FF;
-  background: rgba(76, 132, 255, 0.1);
-  border-color: #4C84FF;
+  color: #3d19b4;
+  background: rgba(61, 25, 180, 0.1);
+  border-color: #3d19b4;
 }
 
 .n-button.n-button--secondary:not(.n-button--link):active {
-  background: rgba(76, 132, 255, 0.15);
-  border-color: #3372ff;
+  background: rgba(61, 25, 180, 0.15);
+  border-color: #35169e;
 }
 
 .n-disabled .n-button.n-button--secondary:not(.n-button--link),
@@ -7944,9 +7944,9 @@ readers do not read off random characters that represent icons */
 .n-button.n-button--plain.n-button--secondary:not(.n-button--link):hover,
 .n-button.n-button--plain.n-button--secondary:not(.n-button--link):focus,
 .n-button.n-button--plain.n-button--secondary:not(.n-button--link):active {
-  color: #4C84FF;
-  background: rgba(76, 132, 255, 0.1);
-  border-color: rgba(76, 132, 255, 0.25);
+  color: #3d19b4;
+  background: rgba(61, 25, 180, 0.1);
+  border-color: rgba(61, 25, 180, 0.25);
 }
 
 .n-disabled .n-button.n-button--plain.n-button--secondary:not(.n-button--link),
@@ -8235,7 +8235,7 @@ readers do not read off random characters that represent icons */
 
 .n-input:hover,
 .n-input:focus {
-  border: 1px solid #4C84FF;
+  border: 1px solid #3d19b4;
 }
 
 .n-disabled .n-input {
@@ -8325,7 +8325,7 @@ readers do not read off random characters that represent icons */
 
 .n-textarea:hover,
 .n-textarea:focus {
-  border: 1px solid #4C84FF;
+  border: 1px solid #3d19b4;
 }
 
 .n-disabled .n-textarea {
@@ -8376,7 +8376,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-switch__wrapper:not(.n-disabled) .n-switch.n-switch--primary {
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 .n-switch__wrapper:not(.n-disabled) .n-switch.n-switch--success {
@@ -8495,7 +8495,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-checkbox:hover .n-checkbox__checkbox {
-  border-color: #4C84FF;
+  border-color: #3d19b4;
 }
 
 .n-checkbox.n-disabled .n-checkbox__checkbox {
@@ -8519,8 +8519,8 @@ readers do not read off random characters that represent icons */
 .n-checkbox.n-checked:not(.n-disabled) .n-checkbox__checkbox,
 .n-checkbox.n-intermediate:not(.n-disabled) .n-checkbox__checkbox {
   color: #ffffff;
-  border-color: #4C84FF;
-  background: #4C84FF;
+  border-color: #3d19b4;
+  background: #3d19b4;
 }
 
 .n-checkbox .n-checkbox__checkbox span {
@@ -8550,7 +8550,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-checkbox.n-checked .n-checkbox__label {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-checkbox.n-disabled .n-checkbox__label {
@@ -8621,7 +8621,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-radio:hover .n-radio__radio {
-  border-color: #4C84FF;
+  border-color: #3d19b4;
 }
 
 .n-radio.n-disabled .n-radio__radio {
@@ -8642,8 +8642,8 @@ readers do not read off random characters that represent icons */
 
 .n-radio.n-checked .n-radio__radio,
 .n-radio.n-intermediate .n-radio__radio {
-  border-color: #4C84FF;
-  background: #4C84FF;
+  border-color: #3d19b4;
+  background: #3d19b4;
 }
 
 .n-radio .n-radio__radio span {
@@ -8695,7 +8695,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-radio.n-checked .n-radio__label {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-radio.n-disabled .n-radio__label {
@@ -8745,7 +8745,7 @@ readers do not read off random characters that represent icons */
 
 .n-select:hover,
 .n-select.n-open {
-  border: 1px solid #4C84FF;
+  border: 1px solid #3d19b4;
 }
 
 .n-select.n-select--default {
@@ -8836,7 +8836,7 @@ readers do not read off random characters that represent icons */
 
 .n-select.n-select--multiple .n-select__item {
   color: #ffffff;
-  background: #4C84FF;
+  background: #3d19b4;
   padding: 3px 6px;
   border-radius: 2px;
 }
@@ -8919,11 +8919,11 @@ readers do not read off random characters that represent icons */
 }
 
 .n-select-option.n-select-option--current {
-  background: rgba(76, 132, 255, 0.1);
+  background: rgba(61, 25, 180, 0.1);
 }
 
 .n-select-option.n-select-option--active {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-cascader__wrapper {
@@ -8975,7 +8975,7 @@ readers do not read off random characters that represent icons */
 
 .n-cascader:hover,
 .n-cascader.n-open {
-  border: 1px solid #4C84FF;
+  border: 1px solid #3d19b4;
 }
 
 .n-cascader.n-cascader--default {
@@ -9135,7 +9135,7 @@ readers do not read off random characters that represent icons */
 
 .n-datepicker:hover,
 .n-datepicker.n-open {
-  border: 1px solid #4C84FF;
+  border: 1px solid #3d19b4;
 }
 
 .n-datepicker {
@@ -9359,7 +9359,7 @@ readers do not read off random characters that represent icons */
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-selected span {
   color: #ffffff;
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day:not(:first-child):not(:last-child).n-between,
@@ -9433,7 +9433,7 @@ readers do not read off random characters that represent icons */
 
 .n-datepicker__body .n-datepicker__year .n-datepicker__month.n-selected span {
   color: #ffffff;
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 .n-datepicker__body .n-datepicker__decade {
@@ -9469,7 +9469,7 @@ readers do not read off random characters that represent icons */
 
 .n-datepicker__body .n-datepicker__decade .n-datepicker__year.n-selected span {
   color: #ffffff;
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 .n-timepicker__wrapper {
@@ -9502,7 +9502,7 @@ readers do not read off random characters that represent icons */
 
 .n-timepicker:hover,
 .n-timepicker.n-open {
-  border: 1px solid #4C84FF;
+  border: 1px solid #3d19b4;
 }
 
 .n-timepicker {
@@ -9635,7 +9635,7 @@ readers do not read off random characters that represent icons */
 
 .n-timepicker__panel .n-timepicker__item.n-active span {
   color: #ffffff;
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 .n-transfer {
@@ -9987,12 +9987,12 @@ readers do not read off random characters that represent icons */
 
 .n-popover-option:not(.n-button__wrapper).n-active,
 .n-popover-option.n-button__wrapper.n-active > .n-button.n-button--link {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-popover-option:not(.n-button__wrapper).n-current,
 .n-popover-option.n-button__wrapper.n-current > .n-button.n-button--link {
-  background: rgba(76, 132, 255, 0.1);
+  background: rgba(61, 25, 180, 0.1);
 }
 
 body.n-open {
@@ -10191,7 +10191,7 @@ body.n-open {
 }
 
 .n-confirm.n-confirm--primary .n-confirm__icon {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-confirm.n-confirm--success .n-confirm__icon {
@@ -10365,7 +10365,7 @@ body.n-open {
 }
 
 .n-table .n-table-column.is-sorted.is-desc .n-table-column__sort div:before {
-  border-top-color: #4C84FF;
+  border-top-color: #3d19b4;
 }
 
 .n-table .n-table-column .n-table-column__sort div:after {
@@ -10382,7 +10382,7 @@ body.n-open {
 }
 
 .n-table .n-table-column.is-sorted.is-asc .n-table-column__sort div:after {
-  border-bottom-color: #4C84FF;
+  border-bottom-color: #3d19b4;
 }
 
 .n-table .n-table-column .n-table-column__label {
@@ -10524,7 +10524,7 @@ body.n-open {
 }
 
 .n-table-filter.n-table-filter--asc .n-table-filter__sort span:before {
-  border-bottom-color: #4C84FF;
+  border-bottom-color: #3d19b4;
 }
 
 .n-table-filter__sort span:after {
@@ -10533,7 +10533,7 @@ body.n-open {
 }
 
 .n-table-filter.n-table-filter--desc .n-table-filter__sort span:after {
-  border-top-color: #4C84FF;
+  border-top-color: #3d19b4;
 }
 
 .n-table-filter__label {
@@ -10560,7 +10560,7 @@ body.n-open {
 }
 
 .n-table__column.n-table__column--filtered .n-table-filter__label {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-table-filter__label span {
@@ -10726,7 +10726,7 @@ body.n-open {
   left: 0;
   width: 100px;
   height: 2px;
-  background: #4C84FF;
+  background: #3d19b4;
   transition: transform 0.3s ease;
   transform-origin: 0 50%;
 }
@@ -10753,7 +10753,7 @@ body.n-open {
 }
 
 .n-tabs__tab.n-active .n-tabs__tab-icon span {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-tabs__tab-label span {
@@ -10765,7 +10765,7 @@ body.n-open {
 }
 
 .n-tabs__tab.n-active .n-tabs__tab-label span {
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 .n-tabs__body {
@@ -10925,7 +10925,7 @@ body.n-open {
   width: 100%;
   font-size: 5vw;
   background: #F4F6FA;
-  color: rgba(76, 132, 255, 0.5);
+  color: rgba(61, 25, 180, 0.5);
   border-radius: 3px;
 }
 
@@ -10967,7 +10967,7 @@ body.n-open {
 
 .n-file-list-item__progress > span {
   height: 4px;
-  background: #4C84FF;
+  background: #3d19b4;
 }
 
 .n-file-list-item.n-file-list-item--done .n-file-list-item__progress > span {
@@ -22811,11 +22811,11 @@ body.n-open {
 }
 
 ::-moz-selection {
-  background: rgba(228, 252, 91, 0.5);
+  background: rgba(61, 25, 180, 0.15);
 }
 
 ::selection {
-  background: rgba(228, 252, 91, 0.5);
+  background: rgba(61, 25, 180, 0.15);
 }
 
 * {
@@ -22844,7 +22844,7 @@ div, a {
 
 a {
   text-decoration: none;
-  color: #4C84FF;
+  color: #3d19b4;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22884,6 +22884,12 @@ th {
   font-weight: normal;
 }
 
+.info {
+  padding-top: 10px;
+  font-size: 13px;
+  color: #757786;
+}
+
 .full-height {
   position: relative;
   min-height: 100%;
@@ -22914,22 +22920,44 @@ th {
 
 .installer {
   overflow: hidden;
-  background: #ffffff;
-  border-radius: 4px;
-  margin: 50px auto;
-  max-width: 640px;
+  width: 100%;
+  height: 100vh;
 }
 
-.installer-logo {
-  padding: 50px 0;
+.installer__background {
+  position: relative;
+  background-image: url("../img/space-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.installer-logo img {
+.installer__background img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: block;
-  margin: 0 auto;
+  transform: translate(-50%, -50%);
 }
 
-.installer h1 {
-  color: #4C84FF;
+.installer__introduction {
+  padding: 120px 60px 70px;
+}
+
+.installer__introduction h1 {
+  color: #3d19b4;
   font-size: 32px;
+}
+
+.installer__formular {
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+.installer__formular .n-tabs__header-inner {
+  padding: 0 60px;
+}
+
+.installer__formular .n-tabs__body {
+  padding: 30px 60px;
 }

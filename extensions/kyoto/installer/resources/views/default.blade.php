@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kyoto Installer</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
 
     {{ app('kyoto.assets')->style('installer-style', 'kyoto/installer::css/index.css') }}
@@ -14,23 +16,15 @@
 
     {!! app('kyoto.assets')->output() !!}
 </head>
-<body style="background-image: url('{{ asset('kyoto/installer::img/space-background.jpg') }}');">
-    <div class="container">
-        <div class="installer" id="app">
-            <div class="installer-logo">
-                <img width="160" src="{{ asset('kyoto/installer::img/kyoto-white.svg') }}" alt="{{ env('APP_NAME') }}">
+<body>
+    <div id="app">
+        <div class="installer grid grid--row">
+            <div class="installer__background col--2-5">
+                <img width="130" src="{{ asset('kyoto/installer::img/kyoto-white.svg') }}" alt="{{ env('APP_NAME') }}">
             </div>
-            <n-tabs>
-                <n-tabs-item name="default" label="Laravel">
-                    123
-                </n-tabs-item>
-                <n-tabs-item name="database" label="Database">
-                    321
-                </n-tabs-item>
-                <n-tabs-item name="website" label="Website">
-                    asd
-                </n-tabs-item>
-            </n-tabs>
+            <div class="installer__formular col--3-5">
+                <kyo-installer></kyo-installer>
+            </div>
         </div>
     </div>
 </body>

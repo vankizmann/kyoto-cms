@@ -5,7 +5,7 @@
 }
 
 ::selection {
-    background: rgba(#E4FC5B, 0.5);
+    background: rgba($color-primary, 0.15);
 }
 
 * {
@@ -72,6 +72,12 @@ p {
 
 th {
     font-weight: normal;
+}
+
+.info {
+    padding-top: 10px;
+    font-size: 13px;
+    color: $--color-gray-60;
 }
 
 .full-height {

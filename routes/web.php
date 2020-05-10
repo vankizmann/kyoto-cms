@@ -14,4 +14,5 @@
 use Illuminate\Support\Facades\Route;
 use Kyoto\Routing\InflectedRouter;
 
-Route::fallback(InflectedRouter::ROUTER_ACTION);
+Route::any('{any}', InflectedRouter::ROUTER_ACTION)
+    ->where('any', '.*?');
