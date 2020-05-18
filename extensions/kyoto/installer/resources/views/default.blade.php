@@ -18,11 +18,11 @@
 </head>
 <body>
     <div id="app">
-        <div class="installer grid grid--row">
-            <div class="installer__background col--2-5">
+        <div class="kyo-installer grid grid--row">
+            <div class="kyo-installer__background col--2-5">
                 <img width="130" src="{{ asset('kyoto/installer::img/kyoto-white.svg') }}" alt="{{ env('APP_NAME') }}">
             </div>
-            <div class="installer__formular col--3-5">
+            <div class="kyo-installer__formular col--3-5">
                 <kyo-installer></kyo-installer>
             </div>
         </div>

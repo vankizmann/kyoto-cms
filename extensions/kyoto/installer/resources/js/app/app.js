@@ -44,6 +44,9 @@ require('./config/axios');
 import KyoInstaller from "./installer";
 Vue.component(KyoInstaller.name, KyoInstaller);
 
+import KyoElementStatus from "./element/status";
+Vue.component(KyoElementStatus.name, KyoElementStatus);
+
 import KyoFormsEnv from "./forms/env";
 Vue.component(KyoFormsEnv.name, KyoFormsEnv);
 

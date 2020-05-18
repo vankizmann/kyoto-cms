@@ -17,6 +17,15 @@ class InstallerController extends Controller
         return view('kyoto/installer::default');
     }
 
+    public function laravel(Request $req)
+    {
+        if ( ! $req->input('APP_NAME') ) {
+            return response()->json(null, 418);
+        }
+
+        return response()->json(null, 200);
+    }
+
     public function database(Request $req)
     {
         $opts = [
@@ -33,14 +42,30 @@ class InstallerController extends Controller
             }
 
         } catch (\Exception $exception) {
-            return response()->json(null, 500);
+            return response()->json(null, 418);
         }
 
         return response()->json(null, 200);
     }
 
-    public function test($id)
+    public function website(Request $req)
     {
-        dd($id);
+        if ( ! $req->input('KYO_TITLE') ) {
+            return response()->json(null, 418);
+        }
+
+        if ( ! $req->input('KYO_USER') ) {
+            return response()->json(null, 418);
+        }
+
+        if ( ! $req->input('KYO_PASS') ) {
+            return response()->json(null, 418);
+        }
+
+        if ( ! $req->input('KYO_MAIL') ) {
+            return response()->json(null, 418);
+        }
+
+        return response()->json(null, 200);
     }
 }

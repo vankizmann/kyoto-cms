@@ -1710,6 +1710,64 @@ module.exports = function isBuffer (obj) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/element/status.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/element/status.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'KyoElementStatus',
+  props: {
+    value: {
+      "default": function _default() {
+        return false;
+      },
+      type: [Boolean]
+    }
+  },
+  computed: {
+    classList: function classList() {
+      return ['kyo-status', this.veValue ? 'kyo-status--success' : 'kyo-status--danger'];
+    }
+  },
+  data: function data() {
+    return {
+      veValue: this.value
+    };
+  },
+  watch: {
+    value: function value() {
+      if (this.veValue !== this.value) {
+        this.veValue = this.value;
+      }
+    }
+  },
+  methods: {
+    setValue: function setValue(value) {
+      this.$emit('input', this.veValue = value);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/forms/env.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/forms/env.vue?vue&type=script&lang=js& ***!
@@ -1756,8 +1814,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoInstaller'
+  name: 'KyoInstaller',
+  data: function data() {
+    return {
+      LV_STATUS: false,
+      DB_STATUS: false,
+      KY_STATUS: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.Event.bind('LV_ERROR', function (res) {
+      _this.$refs.LV_STATUS.setValue(!res);
+    });
+    this.Event.bind('DB_ERROR', function (res) {
+      _this.$refs.DB_STATUS.setValue(!res);
+    });
+    this.Event.bind('KY_ERROR', function (res) {
+      _this.$refs.KY_STATUS.setValue(!res);
+    });
+  }
 });
 
 /***/ }),
@@ -1805,11 +1908,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoTabsDatabase',
+  inject: {
+    NTabs: {
+      "default": undefined
+    }
+  },
   data: function data() {
     var form = {
       DB_HOST: 'localhost',
@@ -1818,25 +1923,46 @@ __webpack_require__.r(__webpack_exports__);
       DB_PASSWORD: 'root',
       DB_PREFIX: ''
     };
+    var errors = {};
     return {
-      status: 'ERROR',
-      form: form
+      form: form,
+      errors: errors
     };
   },
+  beforeMount: function beforeMount() {
+    this.testValidate();
+  },
   mounted: function mounted() {
-    this.$refs.form.$on('change', this.Any.debounce(this.test, 500));
-    this.test();
+    this.$refs.form.$on('change', this.Any.debounce(this.testQuery, 500));
+    this.NTabs.$on('hook:mounted', this.testQuery);
   },
   methods: {
-    test: function test() {
-      var url = '/web/kyoto/installer/http/controllers/installer/database';
-      this.$http.post(url, this.form).then(this.testDone, this.testError);
+    testValidate: function testValidate() {
+      var errors = {};
+
+      if (this.Any.isEmpty(this.form.DB_NAME)) {
+        errors.DB_NAME = this.trans('Database is required!');
+      }
+
+      if (this.Any.isEmpty(this.form.DB_USERNAME)) {
+        errors.DB_USERNAME = this.trans('User is required!');
+      }
+
+      if (this.Any.isEmpty(this.form.DB_HOST)) {
+        errors.DB_HOST = this.trans('Host is required!');
+      }
+
+      this.errors = errors;
+    },
+    testQuery: function testQuery() {
+      this.testValidate();
+      this.$http.post('/web/kyoto/installer/http/controllers/installer/database', this.form).then(this.testDone, this.testError);
     },
     testDone: function testDone() {
-      this.status = 'OK';
+      this.Event.fire('DB_ERROR', false);
     },
     testError: function testError() {
-      this.status = 'ERROR';
+      this.Event.fire('DB_ERROR', true);
     }
   }
 });
@@ -1887,7 +2013,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoTabsLaravel'
+  name: 'KyoTabsLaravel',
+  inject: {
+    NTabs: {
+      "default": undefined
+    }
+  },
+  data: function data() {
+    var form = {
+      APP_NAME: 'kyoto',
+      APP_LOCAL: false,
+      APP_DEBUG: false,
+      APP_KEY: '',
+      APP_URL: ''
+    };
+    var errors = {};
+    return {
+      form: form,
+      errors: errors
+    };
+  },
+  beforeMount: function beforeMount() {
+    this.testValidate();
+  },
+  mounted: function mounted() {
+    this.$refs.form.$on('change', this.Any.debounce(this.testQuery, 500));
+    this.NTabs.$on('hook:mounted', this.testQuery);
+  },
+  methods: {
+    testValidate: function testValidate() {
+      var errors = {};
+
+      if (this.Any.isEmpty(this.form.APP_NAME)) {
+        errors.APP_NAME = this.trans('Name is required!');
+      }
+
+      this.errors = errors;
+    },
+    testQuery: function testQuery() {
+      this.testValidate();
+      this.$http.post('/web/kyoto/installer/http/controllers/installer/laravel', this.form).then(this.testDone, this.testError);
+    },
+    testDone: function testDone() {
+      this.Event.fire('LV_ERROR', false);
+    },
+    testError: function testError() {
+      this.Event.fire('LV_ERROR', true);
+    }
+  }
 });
 
 /***/ }),
@@ -1930,7 +2103,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoTabsWebsite'
+  name: 'KyoTabsWebsite',
+  inject: {
+    NTabs: {
+      "default": undefined
+    }
+  },
+  data: function data() {
+    var form = {
+      KYO_TITLE: '',
+      KYO_USER: '',
+      KYO_PASS: '',
+      KYO_MAIL: ''
+    };
+    var errors = {};
+    return {
+      form: form,
+      errors: errors
+    };
+  },
+  beforeMount: function beforeMount() {
+    this.testValidate();
+  },
+  mounted: function mounted() {
+    this.$refs.form.$on('change', this.Any.debounce(this.testQuery, 500));
+    this.NTabs.$on('hook:mounted', this.testQuery);
+  },
+  methods: {
+    testValidate: function testValidate() {
+      var errors = {};
+
+      if (this.Any.isEmpty(this.form.KYO_TITLE)) {
+        errors.KYO_TITLE = this.trans('Title is required!');
+      }
+
+      if (this.Any.isEmpty(this.form.KYO_USER) || !this.form.KYO_USER.match(/^.{3,}$/)) {
+        errors.KYO_USER = this.trans('User is required and must be at contain at least 3 chars!');
+      }
+
+      if (this.Any.isEmpty(this.form.KYO_PASS) || !this.form.KYO_PASS.match(/^.{6,}$/)) {
+        errors.KYO_PASS = this.trans('Password is required and must be at contain at least 6 chars!');
+      }
+
+      if (this.Any.isEmpty(this.form.KYO_MAIL) || !this.form.KYO_MAIL.match(/^[^@]+@[^.]{2,}\.[A-Za-z]{2,}$/)) {
+        errors.KYO_MAIL = this.trans('Email is required and must be valid!');
+      }
+
+      this.errors = errors;
+    },
+    testQuery: function testQuery() {
+      this.testValidate();
+      this.$http.post('/web/kyoto/installer/http/controllers/installer/website', this.form).then(this.testDone, this.testError);
+    },
+    testDone: function testDone() {
+      this.Event.fire('KY_ERROR', false);
+    },
+    testError: function testError() {
+      this.Event.fire('KY_ERROR', true);
+    }
+  }
 });
 
 /***/ }),
@@ -13323,6 +13554,38 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/element/status.vue?vue&type=template&id=470a9cde&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/element/status.vue?vue&type=template&id=470a9cde& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { class: _vm.classList }, [
+    _c("span", { staticClass: "kyo-status__state" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "kyo-status__title" }, [_vm._t("default")], 2),
+    _vm._v(" "),
+    _vm.$slots.info
+      ? _c("div", { staticClass: "kyo-status__info" }, [_vm._t("info")], 2)
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/forms/env.vue?vue&type=template&id=09f7cf91&":
 /*!*****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/forms/env.vue?vue&type=template&id=09f7cf91& ***!
@@ -13408,14 +13671,144 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("kyo-forms-env")], 1)
+  return _c(
+    "div",
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "n-tabs",
+        { ref: "tabs" },
+        [
+          _c(
+            "n-tabs-item",
+            {
+              attrs: {
+                name: "default",
+                label: _vm.trans("Laravel"),
+                "keep-alive": true,
+                preload: true
+              }
+            },
+            [
+              _c(
+                "kyo-element-status",
+                {
+                  ref: "LV_STATUS",
+                  attrs: { slot: "label" },
+                  slot: "label",
+                  model: {
+                    value: _vm.LV_STATUS,
+                    callback: function($$v) {
+                      _vm.LV_STATUS = $$v
+                    },
+                    expression: "LV_STATUS"
+                  }
+                },
+                [
+                  _c("span", [_vm._v(_vm._s(_vm.trans("Laravel")))]),
+                  _vm._v(" "),
+                  _c("span", { attrs: { slot: "info" }, slot: "info" }, [
+                    _vm._v(_vm._s(_vm.trans("State of laravel configuration")))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("kyo-tabs-laravel")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "n-tabs-item",
+            {
+              attrs: {
+                name: "database",
+                label: _vm.trans("Database"),
+                "keep-alive": true,
+                preload: true
+              }
+            },
+            [
+              _c(
+                "kyo-element-status",
+                {
+                  ref: "DB_STATUS",
+                  attrs: { slot: "label" },
+                  slot: "label",
+                  model: {
+                    value: _vm.DB_STATUS,
+                    callback: function($$v) {
+                      _vm.DB_STATUS = $$v
+                    },
+                    expression: "DB_STATUS"
+                  }
+                },
+                [
+                  _c("span", [_vm._v(_vm._s(_vm.trans("Database")))]),
+                  _vm._v(" "),
+                  _c("span", { attrs: { slot: "info" }, slot: "info" }, [
+                    _vm._v(_vm._s(_vm.trans("State of database configuration")))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("kyo-tabs-database")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "n-tabs-item",
+            {
+              attrs: {
+                name: "website",
+                label: _vm.trans("Website"),
+                "keep-alive": true,
+                preload: true
+              }
+            },
+            [
+              _c(
+                "kyo-element-status",
+                {
+                  ref: "KY_STATUS",
+                  attrs: { slot: "label" },
+                  slot: "label",
+                  model: {
+                    value: _vm.KY_STATUS,
+                    callback: function($$v) {
+                      _vm.KY_STATUS = $$v
+                    },
+                    expression: "KY_STATUS"
+                  }
+                },
+                [
+                  _c("span", [_vm._v(_vm._s(_vm.trans("Website")))]),
+                  _vm._v(" "),
+                  _c("span", { attrs: { slot: "info" }, slot: "info" }, [
+                    _vm._v(_vm._s(_vm.trans("State of website configuration")))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("kyo-tabs-website")
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "installer__introduction" }, [
+    return _c("div", { staticClass: "kyo-installer__introduction" }, [
       _c("h1", [_vm._v("Enviroment")]),
       _vm._v(" "),
       _c("p", [_vm._v("Basic configuration to prepare for final installation")])
@@ -13445,26 +13838,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "n-form",
-    { ref: "form", attrs: { form: _vm.form } },
+    { ref: "form", attrs: { form: _vm.form, errors: _vm.errors } },
     [
       _c(
         "n-form-item",
-        [
-          _c(
-            "n-button",
-            {
-              staticStyle: { width: "100%" },
-              attrs: { type: _vm.status === "OK" ? "success" : "danger" }
-            },
-            [_vm._v("Status")]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "n-form-item",
-        { attrs: { label: "Name" } },
+        { attrs: { label: "Database", prop: "DB_NAME" } },
         [
           _c("n-input", {
             attrs: { placeholder: "kyoto" },
@@ -13488,7 +13866,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "User" } },
+        { attrs: { label: "User", prop: "DB_USERNAME" } },
         [
           _c("n-input", {
             attrs: { placeholder: "root" },
@@ -13512,7 +13890,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Password" } },
+        { attrs: { label: "Password", prop: "DB_PASSWORD" } },
         [
           _c("n-input", {
             attrs: { placeholder: "root", "native-type": "password" },
@@ -13534,7 +13912,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Host" } },
+        { attrs: { label: "Host", prop: "DB_HOST" } },
         [
           _c("n-input", {
             attrs: { placeholder: "localhost" },
@@ -13558,7 +13936,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Prefix" } },
+        { attrs: { label: "Prefix", prop: "DB_PREFIX" } },
         [
           _c("n-input", {
             attrs: { placeholder: "kyo_" },
@@ -13607,12 +13985,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "n-form",
+    { ref: "form", attrs: { form: _vm.form, errors: _vm.errors } },
     [
       _c(
         "n-form-item",
-        { attrs: { label: "Name" } },
+        { attrs: { label: "Name", prop: "APP_NAME" } },
         [
-          _c("n-input", { attrs: { placeholder: "kyoto", value: "kyoto" } }),
+          _c("n-input", {
+            attrs: { placeholder: "kyoto" },
+            model: {
+              value: _vm.form.APP_NAME,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "APP_NAME", $$v)
+              },
+              expression: "form.APP_NAME"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v("\n            The name of your application\n        ")
@@ -13623,9 +14011,21 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Enviroment" } },
+        { attrs: { label: "Enviroment", prop: "APP_LOCAL" } },
         [
-          _c("n-switch", [_vm._v("Enable local mode")]),
+          _c(
+            "n-switch",
+            {
+              model: {
+                value: _vm.form.APP_LOCAL,
+                callback: function($$v) {
+                  _vm.$set(_vm.form, "APP_LOCAL", $$v)
+                },
+                expression: "form.APP_LOCAL"
+              }
+            },
+            [_vm._v("Enable local mode")]
+          ),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -13638,9 +14038,21 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Debug" } },
+        { attrs: { label: "Debug", prop: "APP_DEBUG" } },
         [
-          _c("n-switch", [_vm._v("Enable debug mode")]),
+          _c(
+            "n-switch",
+            {
+              model: {
+                value: _vm.form.APP_DEBUG,
+                callback: function($$v) {
+                  _vm.$set(_vm.form, "APP_DEBUG", $$v)
+                },
+                expression: "form.APP_DEBUG"
+              }
+            },
+            [_vm._v("Enable debug mode")]
+          ),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -13653,9 +14065,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "URL" } },
+        { attrs: { label: "URL", prop: "APP_URL" } },
         [
-          _c("n-input", { attrs: { placeholder: "https://localhost" } }),
+          _c("n-input", {
+            attrs: { placeholder: "https://localhost" },
+            model: {
+              value: _vm.form.APP_URL,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "APP_URL", $$v)
+              },
+              expression: "form.APP_URL"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -13668,9 +14089,17 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Key" } },
+        { attrs: { label: "Key", prop: "APP_KEY" } },
         [
-          _c("n-input"),
+          _c("n-input", {
+            model: {
+              value: _vm.form.APP_KEY,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "APP_KEY", $$v)
+              },
+              expression: "form.APP_KEY"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -13708,12 +14137,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "n-form",
+    { ref: "form", attrs: { form: _vm.form, errors: _vm.errors } },
     [
       _c(
         "n-form-item",
-        { attrs: { label: "Title" } },
+        { attrs: { label: "Title", prop: "KYO_TITLE" } },
         [
-          _c("n-input", { attrs: { placeholder: "My Website" } }),
+          _c("n-input", {
+            attrs: { placeholder: "My Website" },
+            model: {
+              value: _vm.form.KYO_TITLE,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "KYO_TITLE", $$v)
+              },
+              expression: "form.KYO_TITLE"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v("\n            The title of your website\n        ")
@@ -13724,9 +14163,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "User" } },
+        { attrs: { label: "User", prop: "KYO_USER" } },
         [
-          _c("n-input", { attrs: { placeholder: "admin" } }),
+          _c("n-input", {
+            attrs: { placeholder: "admin" },
+            model: {
+              value: _vm.form.KYO_USER,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "KYO_USER", $$v)
+              },
+              expression: "form.KYO_USER"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -13739,9 +14187,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "Password" } },
+        { attrs: { label: "Password", prop: "KYO_PASS" } },
         [
-          _c("n-input", { attrs: { "native-type": "password" } }),
+          _c("n-input", {
+            attrs: { "native-type": "password" },
+            model: {
+              value: _vm.form.KYO_PASS,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "KYO_PASS", $$v)
+              },
+              expression: "form.KYO_PASS"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -13754,9 +14211,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "n-form-item",
-        { attrs: { label: "E-Mail" } },
+        { attrs: { label: "E-Mail", prop: "KYO_MAIL" } },
         [
-          _c("n-input", { attrs: { placeholder: "your@email.com" } }),
+          _c("n-input", {
+            attrs: { placeholder: "your@email.com" },
+            model: {
+              value: _vm.form.KYO_MAIL,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "KYO_MAIL", $$v)
+              },
+              expression: "form.KYO_MAIL"
+            }
+          }),
           _vm._v(" "),
           _c("p", { staticClass: "info" }, [
             _vm._v(
@@ -28856,10 +29322,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _installer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./installer */ "./resources/js/app/installer.vue");
-/* harmony import */ var _forms_env__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./forms/env */ "./resources/js/app/forms/env.vue");
-/* harmony import */ var _tabs_laravel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tabs/laravel */ "./resources/js/app/tabs/laravel.vue");
-/* harmony import */ var _tabs_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./tabs/database */ "./resources/js/app/tabs/database.vue");
-/* harmony import */ var _tabs_website__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tabs/website */ "./resources/js/app/tabs/website.vue");
+/* harmony import */ var _element_status__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./element/status */ "./resources/js/app/element/status.vue");
+/* harmony import */ var _forms_env__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./forms/env */ "./resources/js/app/forms/env.vue");
+/* harmony import */ var _tabs_laravel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./tabs/laravel */ "./resources/js/app/tabs/laravel.vue");
+/* harmony import */ var _tabs_database__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tabs/database */ "./resources/js/app/tabs/database.vue");
+/* harmony import */ var _tabs_website__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tabs/website */ "./resources/js/app/tabs/website.vue");
 
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_0___default.a;
 
@@ -28902,13 +29369,15 @@ __webpack_require__(/*! ./config/axios */ "./resources/js/app/config/axios.js");
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_installer__WEBPACK_IMPORTED_MODULE_5__["default"].name, _installer__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_forms_env__WEBPACK_IMPORTED_MODULE_6__["default"].name, _forms_env__WEBPACK_IMPORTED_MODULE_6__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_element_status__WEBPACK_IMPORTED_MODULE_6__["default"].name, _element_status__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_tabs_laravel__WEBPACK_IMPORTED_MODULE_7__["default"].name, _tabs_laravel__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_forms_env__WEBPACK_IMPORTED_MODULE_7__["default"].name, _forms_env__WEBPACK_IMPORTED_MODULE_7__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_tabs_database__WEBPACK_IMPORTED_MODULE_8__["default"].name, _tabs_database__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_tabs_laravel__WEBPACK_IMPORTED_MODULE_8__["default"].name, _tabs_laravel__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_tabs_website__WEBPACK_IMPORTED_MODULE_9__["default"].name, _tabs_website__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_tabs_database__WEBPACK_IMPORTED_MODULE_9__["default"].name, _tabs_database__WEBPACK_IMPORTED_MODULE_9__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_tabs_website__WEBPACK_IMPORTED_MODULE_10__["default"].name, _tabs_website__WEBPACK_IMPORTED_MODULE_10__["default"]);
 nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
   window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({}).$mount('#app');
 });
@@ -28963,6 +29432,75 @@ axios__WEBPACK_IMPORTED_MODULE_1___default.a.interceptors.response.use(function 
 
   return Promise.reject(error.response);
 });
+
+/***/ }),
+
+/***/ "./resources/js/app/element/status.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/app/element/status.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _status_vue_vue_type_template_id_470a9cde___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./status.vue?vue&type=template&id=470a9cde& */ "./resources/js/app/element/status.vue?vue&type=template&id=470a9cde&");
+/* harmony import */ var _status_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./status.vue?vue&type=script&lang=js& */ "./resources/js/app/element/status.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _status_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _status_vue_vue_type_template_id_470a9cde___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _status_vue_vue_type_template_id_470a9cde___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/app/element/status.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/app/element/status.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/app/element/status.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_status_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./status.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/element/status.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_status_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/app/element/status.vue?vue&type=template&id=470a9cde&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/app/element/status.vue?vue&type=template&id=470a9cde& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_status_vue_vue_type_template_id_470a9cde___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./status.vue?vue&type=template&id=470a9cde& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/element/status.vue?vue&type=template&id=470a9cde&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_status_vue_vue_type_template_id_470a9cde___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_status_vue_vue_type_template_id_470a9cde___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -29359,8 +29897,8 @@ if (console && console.log) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/installer/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/installer/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
+__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/installer/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/installer/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
 
 
 /***/ })

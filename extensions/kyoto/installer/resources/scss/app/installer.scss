@@ -1,12 +1,12 @@
 @import "~nano-ui/src/root/vars";
 
-.installer {
+.kyo-installer {
     overflow: hidden;
     width: 100%;
     height: 100vh;
 }
 
-.installer__background {
+.kyo-installer__background {
     position: relative;
     background-image: url('../img/space-background.jpg');
     background-position: center;
@@ -14,7 +14,7 @@
     background-repeat: no-repeat;
 }
 
-.installer__background img {
+.kyo-installer__background img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,24 +22,32 @@
     transform: translate(-50%, -50%);
 }
 
-.installer__introduction {
-    padding: 120px 60px 70px;
+.kyo-installer__introduction {
+    padding: 120px 60px 20px;
 }
 
-.installer__introduction h1 {
+.kyo-installer__introduction h1 {
     color: $--color-primary;
     font-size: 32px;
 }
 
-.installer__formular {
+.kyo-installer__formular {
     background-color: $--color-white;
     overflow-y: auto;
 }
 
-.installer__formular .n-tabs__header-inner {
+.kyo-installer__formular .n-tabs__header-inner {
     padding: 0 60px;
 }
 
-.installer__formular .n-tabs__body {
+.kyo-installer__formular .n-tabs__body {
     padding: 30px 60px;
+}
+
+.kyo-installer__formular .n-form-item {
+    margin-bottom: 25px;
+}
+
+.kyo-installer__status {
+    padding: 20px 60px 40px;
 }

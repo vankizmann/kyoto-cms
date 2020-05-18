@@ -22885,7 +22885,7 @@ th {
 }
 
 .info {
-  padding-top: 10px;
+  padding-top: 5px;
   font-size: 13px;
   color: #757786;
 }
@@ -22918,13 +22918,13 @@ th {
   flex: 1 1 auto !important;
 }
 
-.installer {
+.kyo-installer {
   overflow: hidden;
   width: 100%;
   height: 100vh;
 }
 
-.installer__background {
+.kyo-installer__background {
   position: relative;
   background-image: url("../img/space-background.jpg");
   background-position: center;
@@ -22932,7 +22932,7 @@ th {
   background-repeat: no-repeat;
 }
 
-.installer__background img {
+.kyo-installer__background img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -22940,24 +22940,64 @@ th {
   transform: translate(-50%, -50%);
 }
 
-.installer__introduction {
-  padding: 120px 60px 70px;
+.kyo-installer__introduction {
+  padding: 120px 60px 20px;
 }
 
-.installer__introduction h1 {
+.kyo-installer__introduction h1 {
   color: #3d19b4;
   font-size: 32px;
 }
 
-.installer__formular {
+.kyo-installer__formular {
   background-color: #ffffff;
   overflow-y: auto;
 }
 
-.installer__formular .n-tabs__header-inner {
+.kyo-installer__formular .n-tabs__header-inner {
   padding: 0 60px;
 }
 
-.installer__formular .n-tabs__body {
+.kyo-installer__formular .n-tabs__body {
   padding: 30px 60px;
+}
+
+.kyo-installer__formular .n-form-item {
+  margin-bottom: 25px;
+}
+
+.kyo-installer__status {
+  padding: 20px 60px 40px;
+}
+
+.kyo-status {
+  position: relative;
+  display: block;
+  padding: 10px 0 10px 25px;
+}
+
+.kyo-status .kyo-status__state {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 500px;
+  background-color: #8b8c99;
+  transform: translateY(-50%);
+  transition: background 300ms ease;
+}
+
+.kyo-status.kyo-status--success .kyo-status__state {
+  background-color: #15C478;
+}
+
+.kyo-status.kyo-status--danger .kyo-status__state {
+  background-color: #F4424B;
+}
+
+.kyo-status .kyo-status__info span {
+  color: #757786 !important;
+  font-size: 12px;
 }
