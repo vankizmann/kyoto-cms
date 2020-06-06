@@ -1901,12 +1901,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoPagesLaravel',
   data: function data() {
@@ -13779,22 +13773,22 @@ var render = function() {
         [
           _c(
             "n-form-item",
-            { attrs: { label: "Application name", prop: "APP_NAME" } },
+            { attrs: { label: "Application url", prop: "APP_URL" } },
             [
               _c("n-input", {
-                attrs: { placeholder: "kioto" },
+                attrs: { placeholder: "https://localhost" },
                 model: {
-                  value: _vm.form.APP_NAME,
+                  value: _vm.form.APP_URL,
                   callback: function($$v) {
-                    _vm.$set(_vm.form, "APP_NAME", $$v)
+                    _vm.$set(_vm.form, "APP_URL", $$v)
                   },
-                  expression: "form.APP_NAME"
+                  expression: "form.APP_URL"
                 }
               }),
               _vm._v(" "),
               _c("p", { staticClass: "info" }, [
                 _vm._v(
-                  "\n                The name of your application incase you use laravel\n            "
+                  "\n                Leave if you want to autocomplete the application url\n            "
                 )
               ])
             ],
@@ -13841,30 +13835,6 @@ var render = function() {
                 },
                 [_vm._v("Use debug mode")]
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "n-form-item",
-            { attrs: { label: "Application url", prop: "APP_URL" } },
-            [
-              _c("n-input", {
-                attrs: { placeholder: "https://localhost" },
-                model: {
-                  value: _vm.form.APP_URL,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "APP_URL", $$v)
-                  },
-                  expression: "form.APP_URL"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", { staticClass: "info" }, [
-                _vm._v(
-                  "\n                Leave if you want to autocomplete the application url\n            "
-                )
-              ])
             ],
             1
           ),

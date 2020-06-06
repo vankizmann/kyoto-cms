@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Database\Menu;
+use Illuminate\Support\Facades\Cache;
+use Kyoto\Menu\Models\Menu;
 
 class BackendMenuTableSeeder extends Seeder
 {
@@ -18,9 +19,9 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::redirect',
+            'type'      => 'kyoto/menu::redirect',
             'layout'    => null,
-            'extend'    => ['url' => ':http://:domain/:locale/backend'],
+            'option'    => ['url' => ':http://:domain/:locale/backend'],
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Redirect',
@@ -34,8 +35,8 @@ class BackendMenuTableSeeder extends Seeder
         $menus['root'] = Menu::create([
             'id'        => $routes['root'],
             'ident'     => 'web-backend',
-            'type'      => 'web-menu::domain',
-            'layout'    => 'web-backend::default',
+            'type'      => 'kyoto/menu::domain',
+            'layout'    => 'kyoto/backend::default',
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'liro-cms.com',
@@ -46,8 +47,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-auth::login',
-            'layout'    => 'web-backend::login',
+            'type'      => 'kyoto/user::login',
+            'layout'    => 'kyoto/backend::login',
             'state'     => 1,
             'hide'      => 1,
             'title'     => 'Login',
@@ -59,8 +60,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-auth::logout',
-            'layout'    => 'web-backend::login',
+            'type'      => 'kyoto/user::logout',
+            'layout'    => 'kyoto/backend::login',
             'state'     => 1,
             'hide'      => 1,
             'title'     => 'Logout',
@@ -74,8 +75,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' => $routes['dashboard']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['dashboard']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 1,
@@ -88,9 +89,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $menus['dashboard'] = Menu::create([
             'id'        => $routes['dashboard'],
-            'type'      => 'web-menu::vue',
-            'icon'      => 'web-dashboard::img/icon-dashboard.svg',
-            'extend'    => ['component' => 'WebDashboardIndex'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'WebDashboardIndex'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -103,8 +103,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' => $routes['dashboard']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['dashboard']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -119,8 +119,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' => $routes['page']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['page']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -133,9 +133,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $menus['page'] = Menu::create([
             'id'        => $routes['page'],
-            'type'      => 'web-menu::vue',
-            'icon'      => 'web-page::img/icon-page.svg',
-            'extend'    => ['component' => 'WebPageIndex'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'WebPageIndex'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -148,8 +147,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $tmp = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' =>  $routes['page']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' =>  $routes['page']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -162,8 +161,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['component' =>  'WebPageEdit'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'WebPageEdit'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 1,
@@ -176,8 +175,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $tmp = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['component' => 'WebMenuIndex'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'WebMenuIndex'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -190,8 +189,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['component' =>  'WebMenuEdit'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'WebMenuEdit'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 1,
@@ -206,8 +205,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' => $routes['user']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['user']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -220,9 +219,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $menus['user'] = Menu::create([
             'id'        => $routes['user'],
-            'type'      => 'web-menu::vue',
-            'icon'      => 'web-user::img/icon-user.svg',
-            'extend'    => ['component' => 'WebUserIndex'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'WebUserIndex'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -235,8 +233,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $tmp = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' =>  $routes['user']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' =>  $routes['user']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -251,8 +249,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' => $routes['language']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['language']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -265,9 +263,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $menus['language'] = Menu::create([
             'id'        => $routes['language'],
-            'type'      => 'web-menu::vue',
-            'icon'      => 'web-language::img/icon-language.svg',
-            'extend'    => ['component' => 'WebLanguageIndex'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'WebLanguageIndex'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -280,8 +277,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $tmp = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['redirect' =>  $routes['language']],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' =>  $routes['language']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -289,13 +286,13 @@ class BackendMenuTableSeeder extends Seeder
             'slug'      => '/languages',
             'matrix'    => 1,
             'guard'     => 1,
-            'parent_id' => $routes['language'],
+            'parent'    => $menus['language'],
         ]);
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['component' =>  'WebLanguageEdit'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'WebLanguageEdit'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 1,
@@ -308,8 +305,8 @@ class BackendMenuTableSeeder extends Seeder
 
         $tmp = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['component' => 'WebTranslationIndex'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'WebTranslationIndex'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -322,8 +319,8 @@ class BackendMenuTableSeeder extends Seeder
 
         Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::vue',
-            'extend'    => ['component' =>  'WebTranslationEdit'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'WebTranslationEdit'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 1,

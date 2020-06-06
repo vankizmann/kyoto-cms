@@ -12,12 +12,13 @@ class ExtensionManager extends InstanceElement
 
     public $extensionLoaders = [
         Loaders\AutoloadLoader::class,
+        Loaders\ServiceProviderLoader::class,
         Loaders\RouteLoader::class,
         Loaders\AssetsLoader::class,
         Loaders\TranslationLoader::class,
         Loaders\ViewLoader::class,
-        Loaders\MigrationLoader::class,
         Loaders\MiddlewareLoader::class,
+        Loaders\ConnectorLoader::class,
     ];
 
     public $extensionLoad = null;

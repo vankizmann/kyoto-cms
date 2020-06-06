@@ -4,10 +4,10 @@
             <h1>Laravel</h1>
         </div>
         <n-form ref="form" :form="form" :errors="errors">
-            <n-form-item label="Application name" prop="APP_NAME">
-                <n-input placeholder="kioto" v-model="form.APP_NAME"></n-input>
+            <n-form-item label="Application url" prop="APP_URL">
+                <n-input v-model="form.APP_URL" placeholder="https://localhost"></n-input>
                 <p class="info">
-                    The name of your application incase you use laravel
+                    Leave if you want to autocomplete the application url
                 </p>
             </n-form-item>
             <n-form-item label="Enviroment" prop="APP_ENV">
@@ -15,12 +15,6 @@
             </n-form-item>
             <n-form-item label="Reporting" prop="APP_DEBUG">
                 <n-switch v-model="form.APP_DEBUG" :on-value="true" :off-value="false">Use debug mode</n-switch>
-            </n-form-item>
-            <n-form-item label="Application url" prop="APP_URL">
-                <n-input v-model="form.APP_URL" placeholder="https://localhost"></n-input>
-                <p class="info">
-                    Leave if you want to autocomplete the application url
-                </p>
             </n-form-item>
             <n-form-item label="Application key" prop="APP_KEY">
                 <n-input v-model="form.APP_KEY"></n-input>

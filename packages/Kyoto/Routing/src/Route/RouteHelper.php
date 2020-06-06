@@ -39,7 +39,7 @@ class RouteHelper
 
     public static function findLocales($route, $glue = '/')
     {
-        return array_intersect(app('web.manager')->getLocales(),
+        return array_intersect(app('kyoto')->getLocales(),
             explode($glue, $route));
     }
 
@@ -63,30 +63,52 @@ class RouteHelper
 
     public static function replaceProtocol($route, $protocol = null)
     {
-        if ( strpos($route, ':http') || strpos($route, '{http}') ) {
-            $route =  preg_replace('/({http}|:http)/', $protocol ?:
-                app('web.manager')->getProtocol(), $route);
+        if ( ! $protocol ) {
+            $protocol = app('kyoto')->getProtocol();
         }
+
+        $route = str_replace('{http}', $protocol, $route);
+        $route = str_replace(':http', $protocol, $route);
+
+        return $route;
+
+        $route = preg_replace('/^({http}|:http)/', $protocol ?:
+            app('kyoto')->getProtocol(), $route);
 
         return $route;
     }
 
     public static function replaceDomain($route, $domain = null)
     {
-        if ( strpos($route, ':domain') || strpos($route, '{domain}') ) {
-            $route =  preg_replace('/({domain}|:domain)/', $domain ?:
-                app('web.manager')->getDomain(), $route);
+        if ( ! $domain ) {
+            $domain = app('kyoto')->getDomain();
         }
+
+        $route = str_replace('{domain}', $domain, $route);
+        $route = str_replace(':domain', $domain, $route);
+
+        return $route;
+
+        $route = preg_replace('/({domain}|:domain)/', $domain ?:
+            app('kyoto')->getDomain(), $route);
 
         return $route;
     }
 
     public static function replaceLocale($route, $locale = null)
     {
-        if ( strpos($route, ':locale') || strpos($route, '{locale}') ) {
-            $route = preg_replace('/({locale}|:locale)/', $locale ?:
-                app('web.manager')->getLocale(), $route);
+        if ( ! $locale ) {
+            $locale = app('kyoto')->getLocale();
         }
+
+        $route = str_replace('{locale}', $locale, $route);
+        $route = str_replace(':locale', $locale, $route);
+
+        return $route;
+
+        $route = preg_replace('/({locale}|:locale)/', $locale ?:
+            app('kyoto')->getLocale(), $route);
+
         return $route;
     }
 
@@ -97,9 +119,43 @@ class RouteHelper
 
     public static function replaceAll($route, $protocol = null, $domain = null, $locale = null)
     {
-        $route = self::replaceProtocol($route, $protocol);
-        $route = self::replaceDomain($route, $domain);
-        $route = self::replaceLocale($route, $locale);
+        $route = preg_replace_callback('/\{[^\/:]+\}/', function ($match) {
+
+            $final = trim($match[0], '{}');
+
+            if ( $final === 'http' ) {
+                return app('kyoto')->getProtocol();
+            }
+
+            if ( $final === 'domain' ) {
+                return app('kyoto')->getDomain();
+            }
+
+            if ( $final === 'locale' ) {
+                return app('kyoto')->getLocale();
+            }
+
+            return $match[0];
+        }, $route);
+
+        $route = preg_replace_callback('/:[^\/:]+/', function ($match) {
+
+            $final = ltrim($match[0], ':');
+
+            if ( $final === 'http' ) {
+                return app('kyoto')->getProtocol();
+            }
+
+            if ( $final === 'domain' ) {
+                return app('kyoto')->getDomain();
+            }
+
+            if ( $final === 'locale' ) {
+                return app('kyoto')->getLocale();
+            }
+
+            return $match[0];
+        }, $route);
 
         return $route;
     }
@@ -110,7 +166,7 @@ class RouteHelper
             return $name;
         }
 
-        return app('web.manager')->getLocale() . '.' . $name;
+        return app('kyoto')->getLocale() . '.' . $name;
     }
 
     public static function removeLocale($route)
@@ -123,7 +179,7 @@ class RouteHelper
 
     public static function getHost()
     {
-        return app('web.manager')->getProtocol() . '://' . app('web.manager')->getDomain();
+        return app('kyoto')->getProtocol() . '://' . app('kyoto')->getDomain();
     }
 
     public static function getRoute()
@@ -138,14 +194,36 @@ class RouteHelper
 
     public static function isRoute($route, $compare = null)
     {
-        $route = self::replaceAll($route);
+        if ( ! $compare ) {
+            $compare = self::getFullRoute();
+        }
+
+        $lastMatch = substr($route, $position = strrpos($route, '/'));
+
+        if ( strpos($lastMatch, ':') || strpos($lastMatch, '{') ) {
+            $lastMatch = substr($route, strrpos($route, '/'), $position * -1);
+        }
+
+        if ( strpos($lastMatch, ':') || strpos($lastMatch, '{') ) {
+            $lastMatch = substr($route, strrpos($route, '/'), $position * -1);
+        }
+
+        if ( $lastMatch && ! strpos($compare, $lastMatch) ) {
+            return false;
+        }
+
+        $route = preg_quote(self::replaceAll($route), '/');
 
         $route = preg_replace_callback('/\\\\\/\\\{[^\/]+\\\}/', function ($splits) {
             return preg_match('/\?/', $splits[0]) ? '(.*)?' : '(.*)';
-        }, preg_quote($route, '/'));
+        }, $route);
 
-        return preg_match('/^' . $route . '\/?$/',
-            $compare ?: self::getFullRoute());
+        $route = preg_replace_callback('/\\\\\/\\\:[^\/]+/', function ($splits) {
+            return preg_match('/\?/', $splits[0]) ? '(.*)?' : '(.*)';
+        }, $route);
+
+
+        return !! preg_match('/^' . $route . '\/?$/', $compare);
     }
 
     public static function isOptionsRoute($options, $compare = null)
@@ -154,7 +232,7 @@ class RouteHelper
             'domain' => self::getHost()
         ];
 
-        $route = app('web.manager')->getProtocol() . '://' .
+        $route = app('kyoto')->getProtocol() . '://' .
             str_join('/', $options['domain'], $options['route']);
 
         return self::isRoute($route, $compare);

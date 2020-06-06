@@ -11,7 +11,7 @@ class InstallerController extends Controller
 {
     public function __construct()
     {
-        if ( file_exists(base_path('.install')) ) {
+        if ( app('kyoto')->isReady() ) {
             abort(404);
         }
 
@@ -32,13 +32,13 @@ class InstallerController extends Controller
             'APP_NAME'      => $env->get('APP_NAME', 'Laravel'),
             'APP_ENV'       => $env->get('APP_ENV', 'local'),
             'APP_DEBUG'     => $env->get('APP_DEBUG', false),
-            'APP_HOST'      => $env->get('APP_HOST', ''),
+            'APP_URL'       => $env->get('APP_URL', ''),
             'APP_KEY'       => $env->get('APP_KEY', ''),
 
             'DB_DATABASE'   => $env->get('DB_DATABASE', 'laravel'),
             'DB_USERNAME'   => $env->get('DB_USERNAME', 'root'),
             'DB_PASSWORD'   => $env->get('DB_PASSWORD', 'root'),
-            'DB_HOST'       => $env->get('DB_HOST', '127.0.0.1'),
+            'DB_HOST'       => $env->get('DB_HOST', 'localhost'),
 
             'KYO_TITLE'     => $env->get('KYO_TITLE', ''),
             'KYO_USERNAME'  => $env->get('KYO_USERNAME', 'admin'),
@@ -46,6 +46,10 @@ class InstallerController extends Controller
             'KYO_EMAIL'     => $env->get('KYO_EMAIL', ''),
 
         ];
+
+        if ( empty($data['APP_URL']) ) {
+            $data['APP_URL'] = request()->getSchemeAndHttpHost();
+        }
 
         return response()->json($data, 200);
     }
@@ -133,28 +137,33 @@ class InstallerController extends Controller
 
     public function setup()
     {
+        set_time_limit(360);
+
         $env = new EnvEditor;
 
         try {
 
-            if ( $env->get('APP_KEY') === 'base64:EXjQjGJAPf/sF6p0u6e+psji7VdgiI6+OrQXF2c5S9A=' ) {
+            $key = 'base64:EXjQjGJAPf/sF6p0u6e+psji7VdgiI6+OrQXF2c5S9A=';
+
+            if ( $env->get('APP_KEY') === $key ) {
 
                 // Generate new key
                 Artisan::call('key:generate');
             }
 
             // Mirgate database
-            Artisan::call('migrate:refresh', ['--path' => 'database/migrations']);
+            Artisan::call('migrate:refresh', [
+                '--path' => 'database/migrations'
+            ]);
 
             foreach ( app('kyoto.extension')->getActiveConfigs() as $config ) {
                 $config->install();
             }
 
-            //Artisan::call('migrate', ['--path' => 'database/migrations']);
-
-//            file_put_contents(base_path('.install'), date('Y-m-d H:i:s'));
+            app('kyoto')->setReady();
 
         } catch (\Exception $exception) {
+
             return response()->json($exception->getMessage(), 500);
         }
 

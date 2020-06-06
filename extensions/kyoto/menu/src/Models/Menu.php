@@ -3,24 +3,23 @@
 namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
-use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class Menu extends \Kyoto\Support\Database\Model
 {
     use Node;
 
     protected $table = 'menus';
 
     protected $fillable = [
-        'state', 'hide', 'type', 'icon', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'extend'
+        'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
     ];
 
     protected $fields = [
-        'config'
+        //'config'
     ];
 
     protected $appends = [
-        'connector', 'final_layout', 'icon_url', 'options'
+        //'connector', 'final_layout', 'icon_url', 'options'
     ];
 
     protected $hidden = [
@@ -40,13 +39,12 @@ class Menu extends Model
         'state'         => null,
         'hide'          => null,
         'type'          => null,
-        'icon'          => null,
         'layout'        => null,
         'title'         => null,
         'slug'          => null,
         'route'         => null,
         'path'          => null,
-        'extend'        => null,
+        'option'        => null,
         'guard'         => null
     ];
 
@@ -55,14 +53,36 @@ class Menu extends Model
         'state'         => 'integer',
         'hide'          => 'integer',
         'type'          => 'string',
-        'icon'          => 'string',
         'layout'        => 'string',
         'title'         => 'string',
         'slug'          => 'string',
         'route'         => 'string',
         'path'          => 'string',
-        'extend'        => 'array',
+        'option'        => 'array',
         'guard'         => 'integer'
     ];
+
+    protected static function boot()
+    {
+        self::saved(function () {
+            if ( app('kyoto')->isReady() ) {
+                app('kyoto.menu')->update();
+            }
+        });
+
+        parent::boot();
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $parentPath = null;
+
+        if ( $this->parent ) {
+            $parentPath = rtrim($this->parent->path, '/');
+        }
+
+        $this->attributes['path'] = str_join('/', $parentPath,
+            $this->attributes['slug'] = trim($value, '/'));
+    }
 
 }

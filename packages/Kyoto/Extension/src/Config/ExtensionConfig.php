@@ -15,7 +15,9 @@ class ExtensionConfig extends DataMapper
     public function __construct($path)
     {
         $this->path = dirname($path);
+
         $this->rath = str_replace(base_path(), '', $this->path);
+
         $this->boot();
     }
 
@@ -32,11 +34,22 @@ class ExtensionConfig extends DataMapper
 
     public function install()
     {
-        if ( file_exists(str_join('/', $this->path, 'database/migrations')) ) {
-            Artisan::call('migrate', ['--path' => str_join('/', $this->rath, 'database/migrations')]);
+        if ( ! file_exists(str_join('/', $this->path, 'database/migrations')) ) {
+            return $this;
         }
 
+        Artisan::call('migrate:refresh', [
+            '--path' => str_join('/', $this->rath, 'database/migrations')
+        ]);
+
         foreach ( $this->get('seeds', []) as $seed ) {
+
+            $path = str_join('/', $this->path, 'database/seeds', "{$seed}.php");
+
+            if ( file_exists($path) ) {
+                require_once $path;
+            }
+
             Artisan::call('db:seed', ['--class' => $seed]);
         }
 

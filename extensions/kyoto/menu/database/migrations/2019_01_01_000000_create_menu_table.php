@@ -25,10 +25,7 @@ class CreateMenuTable extends Migration
             $table->string('type')
                 ->nullable();
 
-            $table->string('icon')
-                ->nullable();
-
-            $table->string('extend')
+            $table->string('option')
                 ->nullable();
 
             $table->string('layout')

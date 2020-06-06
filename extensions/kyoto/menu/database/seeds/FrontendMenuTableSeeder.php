@@ -1,8 +1,7 @@
 <?php
 
-use App\Database\MenuLocale;
 use Illuminate\Database\Seeder;
-use App\Database\Menu;
+use Kyoto\Menu\Models\Menu;
 
 class FrontendMenuTableSeeder extends Seeder
 {
@@ -11,9 +10,9 @@ class FrontendMenuTableSeeder extends Seeder
     {
         $tmp = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::redirect',
+            'type'      => 'kyoto/menu::redirect',
             'layout'    => null,
-            'extend'    => ['url' => ':http://:domain/:locale'],
+            'option'    => ['url' => ':http://:domain/:locale'],
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Redirect',
@@ -29,7 +28,7 @@ class FrontendMenuTableSeeder extends Seeder
 
         $root = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-menu::domain',
+            'type'      => 'kyoto/menu::domain',
             'layout'    => 'layout',
             'state'     => 1,
             'hide'      => 0,
@@ -41,7 +40,7 @@ class FrontendMenuTableSeeder extends Seeder
         $home = Menu::create([
             'id'        => uuid(),
             'ident'     => 'web-home',
-            'type'      => 'web-page::page',
+            'type'      => 'kyoto/page::page',
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -52,19 +51,19 @@ class FrontendMenuTableSeeder extends Seeder
             'parent'    => $root,
         ]);
 
-        $home->localize('de')->update([
-            'title'         => 'Startseite',
-            'slug'          => '/startseite'
-        ]);
-
-        $home->localize('da')->update([
-            'title'         => 'Hjem',
-            'slug'          => '/hjem'
-        ]);
+//        $home->localize('de')->update([
+//            'title'         => 'Startseite',
+//            'slug'          => '/startseite'
+//        ]);
+//
+//        $home->localize('da')->update([
+//            'title'         => 'Hjem',
+//            'slug'          => '/hjem'
+//        ]);
 
         $login = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-auth::login',
+            'type'      => 'kyoto/user::login',
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -77,7 +76,7 @@ class FrontendMenuTableSeeder extends Seeder
 
         $demo = Menu::create([
             'id'        => uuid(),
-            'type'      => 'web-page::page',
+            'type'      => 'kyoto/page::page',
             'layout'    => 'demo',
             'state'     => 1,
             'hide'      => 0,
@@ -88,12 +87,12 @@ class FrontendMenuTableSeeder extends Seeder
             'parent'    => $root,
         ]);
 
-        foreach ( range(0, 600) as $index ) {
+        foreach ( range(0, 10) as $index ) {
             Menu::create([
                 'id'     => uuid(),
-                'type'   => 'web-menu::redirect',
+                'type'   => 'kyoto/menu::redirect',
                 'layout' => null,
-                'extend' => ['url' => 'http://wieistmeineip.de'],
+                'option' => ['url' => 'http://wieistmeineip.de'],
                 'state'  => 1,
                 'hide'   => 0,
                 'title'  => 'Home',

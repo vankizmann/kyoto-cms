@@ -1,6 +1,6 @@
 <?php
 
-namespace Web\Kyoto\Menu;
+namespace Kyoto\Menu;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,17 @@ class MenuServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->singleton('kyoto.connector', function () {
+            return new ConnectorManager();
+        });
+
+        if ( ! app('kyoto')->isReady() ) {
+            return;
+        }
+
+        app()->singleton('kyoto.menu', function () {
+            return new MenuManager();
+        });
     }
 
     /**
