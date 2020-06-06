@@ -54,7 +54,7 @@ class RouteElement
 
         $segments = array_filter($segments);
 
-        if ( ! $localized && preg_match('/^[a-z]{2}$/', $segments[0]) ) {
+        if ( ! $localized && count($segments) && preg_match('/^[a-z]{2}$/', $segments[0]) ) {
             array_shift($segments);
         }
 

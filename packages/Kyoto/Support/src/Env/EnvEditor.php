@@ -33,14 +33,22 @@ class EnvEditor
 
     public function set($key, $value)
     {
-        $targetLine = strtoupper($key) . '=' . $value;
-
-        if ( ! $this->has($key) ) {
-            $this->content .= "\n" . $targetLine;
+        if ( $value === true || $value === false ) {
+            $value = $value ? 'true' : 'false';
         }
 
-        $this->content = preg_replace('/(^|\n)' . preg_quote(strtoupper($key)) .
-            '=.*?(\n)/', "$1{$targetLine}$2", $this->content);
+        $target = strtoupper($key) . '=' . $value;
+
+        if ( ! $this->has($key) ) {
+            $this->content .= "\n" . $target;
+        }
+
+        $callback = function ($matches) use ($target) {
+            return $matches[1] . $target . $matches[2];
+        };
+
+        $this->content = preg_replace_callback('/(^|\n)' . preg_quote(strtoupper($key)) .
+            '=.*?(\n)/', $callback, $this->content);
     }
 
     public function get($key, $fallback = null)
@@ -52,7 +60,13 @@ class EnvEditor
         preg_match('/(^|\n)' . preg_quote(strtoupper($key)) .
             '="?(.*?)"?\n/', $this->content, $matches);
 
-        return trim($matches[1]);
+        $value = trim(last($matches));
+
+        if ( $value === 'true' || $value === 'false' ) {
+            return filter_var($value, FILTER_VALIDATE_BOOLEAN);
+        }
+
+        return $value;
     }
 
     public function has($key)

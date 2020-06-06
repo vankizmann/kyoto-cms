@@ -7,30 +7,10 @@ return [
     'type'          => 'package',
 
     'autoload' => [
-        'Web\\Kyoto\\Menu\\' => 'src/'
+        'Kyoto\\Menu\\' => 'src/'
     ],
 
-    'providers' => [
-        \Web\Kyoto\Menu\MenuServiceProvider::class
-    ],
-
-    'imports' => [
-
-        'WebMenuTree' => [
-            'kyoto/menu::js/web-menu.js'
-        ],
-
-        'WebMenuIndex' => [
-            'kyoto/menu::js/web-menu.js'
-        ],
-
-        'WebMenuEdit' => [
-            'kyoto/menu::js/web-menu.js'
-        ],
-
-        'WebMenuShow' => [
-            'kyoto/menu::js/web-menu.js'
-        ]
+    'seeds' => [
 
     ],
 

@@ -2,17 +2,20 @@
 
 namespace Kyoto\Extension\Config;
 
+use Illuminate\Support\Facades\Artisan;
 use Kyoto\Support\Mapper\DataMapper;
 
 class ExtensionConfig extends DataMapper
 {
     public $path;
+    public $rath;
 
     public $data;
 
     public function __construct($path)
     {
         $this->path = dirname($path);
+        $this->rath = str_replace(base_path(), '', $this->path);
         $this->boot();
     }
 
@@ -29,8 +32,12 @@ class ExtensionConfig extends DataMapper
 
     public function install()
     {
-        foreach ( $this->get('migrations.install', []) as $migration ) {
-            app()->call($migration, [$this]);
+        if ( file_exists(str_join('/', $this->path, 'database/migrations')) ) {
+            Artisan::call('migrate', ['--path' => str_join('/', $this->rath, 'database/migrations')]);
+        }
+
+        foreach ( $this->get('seeds', []) as $seed ) {
+            Artisan::call('db:seed', ['--class' => $seed]);
         }
 
         return $this;
@@ -38,8 +45,8 @@ class ExtensionConfig extends DataMapper
 
     public function uninstall()
     {
-        foreach ( $this->get('migrations.uninstall', []) as $migration ) {
-            app()->call($migration, [$this]);
+        if ( file_exists(str_join('/', $this->path, 'database/migrations')) ) {
+            Artisan::call('migrate:rollback', ['--path' => str_join('/', $this->rath, 'database/migrations')]);
         }
 
         return $this;

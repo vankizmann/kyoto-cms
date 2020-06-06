@@ -13,7 +13,7 @@ class RoutingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/router.php', 'router');
+        //
     }
 
     /**
@@ -23,9 +23,7 @@ class RoutingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../config/router.php' => config_path('router.php'),
-        ]);
+        //
     }
 
 }

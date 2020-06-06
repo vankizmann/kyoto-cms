@@ -44,21 +44,41 @@ require('./config/axios');
 import KyoInstaller from "./installer";
 Vue.component(KyoInstaller.name, KyoInstaller);
 
-import KyoElementStatus from "./element/status";
-Vue.component(KyoElementStatus.name, KyoElementStatus);
+import KyoPagesLaravel from "./pages/laravel";
+Vue.component(KyoPagesLaravel.name, KyoPagesLaravel);
 
-import KyoFormsEnv from "./forms/env";
-Vue.component(KyoFormsEnv.name, KyoFormsEnv);
+import KyoPagesDatabase from "./pages/database";
+Vue.component(KyoPagesDatabase.name, KyoPagesDatabase);
 
-import KyoTabsLaravel from "./tabs/laravel";
-Vue.component(KyoTabsLaravel.name, KyoTabsLaravel);
+import KyoPagesWebsite from "./pages/website";
+Vue.component(KyoPagesWebsite.name, KyoPagesWebsite);
 
-import KyoTabsDatabase from "./tabs/database";
-Vue.component(KyoTabsDatabase.name, KyoTabsDatabase);
+import KyoPagesSetup from "./pages/setup";
+Vue.component(KyoPagesSetup.name, KyoPagesSetup);
 
-import KyoTabsWebsite from "./tabs/website";
-Vue.component(KyoTabsWebsite.name, KyoTabsWebsite);
+let routes = [
+    {
+        path: '/', name: 'home', redirect: 'laravel'
+    },
+    {
+        path: '/laravel', name: 'laravel', component: KyoPagesLaravel
+    },
+    {
+        path: '/database', name: 'database', component: KyoPagesDatabase
+    },
+    {
+        path: '/website', name: 'website', component: KyoPagesWebsite
+    },
+    {
+        path: '/setup', name: 'setup', component: KyoPagesSetup
+    }
+];
+
+let router = new VueRouter({
+    base: 'installer', mode: 'history', routes: routes
+});
+
 
 Nano.Dom.ready(() => {
-    window.App = new Vue({}).$mount('#app');
+    window.App = new Vue({ router }).$mount('#app');
 });

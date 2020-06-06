@@ -1,8 +1,8 @@
 $color-white:           #ffffff;
-$color-black:           #181827;
+$color-black:           #101727;
 
-$color-light:           #F4F6FA;
-$color-dark:            #212238;
+$color-light:           #ffffff;
+$color-dark:            #091D3C;
 
 $color-gray-05:         mix($color-dark, $color-light, 0.05 * 100%);
 $color-gray-10:         mix($color-dark, $color-light, 0.10 * 100%);
@@ -24,8 +24,8 @@ $color-gray-85:         mix($color-dark, $color-light, 0.85 * 100%);
 $color-gray-90:         mix($color-dark, $color-light, 0.90 * 100%);
 $color-gray-95:         mix($color-dark, $color-light, 0.95 * 100%);
 
-$color-primary:         #3d19b4;
-$color-secondary:       #3d19b4;
+$color-primary:         #4B5BD8;
+$color-secondary:       #4B5BD8;
 
 $color-success:         #15C478;
 $color-warning:         #FFA13D;
@@ -36,10 +36,10 @@ $color-background:      #F4F6FA;
 
 $box-shadow:            0 0 4px rgba($color-black, 0.125);
 
-$radius-small:          2px;
-$radius-medium:         3px;
-$radius-large:          4px;
-$radius-extended:       15px;
+$radius-small:          4px;
+$radius-medium:         6px;
+$radius-large:          8px;
+$radius-extended:       20px;
 
 $button-height:         38px;
 $button-ratio:          0.5;
@@ -61,5 +61,3 @@ $select-height:         38px;
 
 @import "./app/default";
 @import "./app/installer";
-@import "./app/status";
-

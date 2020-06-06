@@ -1,6 +1,6 @@
 <?php
 
-namespace Web\Kyoto\Menu\Http\Controllers;
+namespace Kyoto\Menu\Http\Controllers;
 
 //use App\Database\Menu;
 use App\Http\Controllers\Controller;
@@ -10,6 +10,7 @@ class MenuController extends Controller
 {
     public function index()
     {
+        dd('yay');
         return view('kyoto/menu::test');
     }
 
