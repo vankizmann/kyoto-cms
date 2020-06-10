@@ -1,6 +1,6 @@
 <?php
 
-namespace Web\Kyoto\Installer\Http\Controllers;
+namespace Kyoto\Installer\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

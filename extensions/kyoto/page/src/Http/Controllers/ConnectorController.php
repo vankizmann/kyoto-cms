@@ -1,6 +1,6 @@
 <?php
 
-namespace Kyoto\Menu\Http\Controllers;
+namespace Kyoto\Page\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
@@ -11,9 +11,9 @@ class ConnectorController extends Controller
         $this->middleware(['web']);
     }
 
-    public function redirect()
+    public function page()
     {
-        return redirect(app('kyoto')->getMenu('option.url'), app('kyoto')->getMenu('option.status', 301));
+        return view('kyoto/page::page');
     }
 
 }

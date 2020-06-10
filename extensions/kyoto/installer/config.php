@@ -7,7 +7,7 @@ return [
     'type'          => 'package',
 
     'autoload' => [
-        'Web\\Kyoto\\Installer\\' => 'src/'
+        'Kyoto\\Installer\\' => 'src/'
     ],
 
 ];

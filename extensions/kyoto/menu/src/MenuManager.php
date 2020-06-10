@@ -32,7 +32,7 @@ class MenuManager {
     public function update()
     {
         file_put_contents(storage_path(self::CACHE_PATH),
-            "<?php \n return " . var_export(Menu::all()->toArray(), true) . ";");
+            "<?php \n return " . var_export(Menu::where('type', '!=', 'kyoto/menu::domain')->get()->toArray(), true) . ";");
     }
 
     public function findByUrl($url = null)

@@ -1,8 +1,10 @@
 <?php
 
-namespace Kyoto\Menu\Connectors;
+namespace Kyoto\Page\Connectors;
 
-class RedirectConnector extends ConnectorElement
+use Kyoto\Menu\Connectors\ConnectorElement;
+
+class PageConnector extends ConnectorElement
 {
     /**
      * Provide router options.
@@ -12,12 +14,8 @@ class RedirectConnector extends ConnectorElement
      */
     public function route($menu)
     {
-        if ( ! isset($menu['option']['url']) ) {
-            return null;
-        }
-
         return [
-            'uses' => 'Kyoto\Menu\Http\Controllers\ConnectorController@redirect'
+            'uses' => 'Kyoto\Page\Http\Controllers\ConnectorController@page'
         ];
     }
 

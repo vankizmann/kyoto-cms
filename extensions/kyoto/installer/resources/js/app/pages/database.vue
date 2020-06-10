@@ -65,7 +65,7 @@
                     onDone: () => this.load = false,
                 };
 
-                this.$http.get('/web/kyoto/installer/http/controllers/installer/env', opts)
+                this.$http.get('/kyoto/installer/http/controllers/installer/env', opts)
                     .then((res) => this.form = res.data, () => window.location.reload());
             },
 
@@ -92,7 +92,7 @@
             {
                 this.validate();
 
-                this.$http.post('/web/kyoto/installer/http/controllers/installer/database', this.form)
+                this.$http.post('/kyoto/installer/http/controllers/installer/database', this.form)
                     .then(() => this.valid = true, () => this.valid = false);
             }
 

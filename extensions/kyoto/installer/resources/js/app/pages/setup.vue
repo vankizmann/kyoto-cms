@@ -38,7 +38,7 @@
                     onDone: () => this.load = false,
                 };
 
-                this.$http.get('/web/kyoto/installer/http/controllers/installer/setup', opts)
+                this.$http.get('/kyoto/installer/http/controllers/installer/setup', opts)
                     .then((res) => this.form = res.data, () => null);
             },
 

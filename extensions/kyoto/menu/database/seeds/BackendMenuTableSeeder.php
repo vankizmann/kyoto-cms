@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Cache;
 use Kyoto\Menu\Models\Menu;
 
 class BackendMenuTableSeeder extends Seeder
@@ -21,7 +20,7 @@ class BackendMenuTableSeeder extends Seeder
             'id'        => uuid(),
             'type'      => 'kyoto/menu::redirect',
             'layout'    => null,
-            'option'    => ['url' => ':http://:domain/:locale/backend'],
+            'option'    => ['url' => ':http://:domain/:locale/backend', 'status' => 302],
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Redirect',

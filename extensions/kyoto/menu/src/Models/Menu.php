@@ -85,4 +85,13 @@ class Menu extends \Kyoto\Support\Database\Model
             $this->attributes['slug'] = trim($value, '/'));
     }
 
+    public function getLayoutAttribute()
+    {
+        if ( ! $this->attributes['layout'] && $this->parent ) {
+            return $this->parent->layout;
+        }
+
+        return $this->attributes['layout'];
+    }
+
 }

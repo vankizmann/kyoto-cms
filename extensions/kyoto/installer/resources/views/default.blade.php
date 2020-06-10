@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Installer</title>
 
     <link rel="shortcut icon" href="{{ asset('kyoto/installer::fav/favicon.ico') }}" />
@@ -13,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('kyoto/installer::fav/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('kyoto/installer::fav/site.webmanifest"') }}">
     <link rel="mask-icon" href="{{ asset('kyoto/installer::fav/safari-pinned-tab.svg') }}" color="#4b5bd8">
+
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
@@ -20,8 +22,8 @@
 
     {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
 
-    {{ app('kyoto.assets')->style('installer-style', 'kyoto/installer::css/index.css') }}
-    {{ app('kyoto.assets')->script('installer-script', 'kyoto/installer::js/index.js') }}
+    {{ app('kyoto.assets')->script('script', 'kyoto/installer::js/index.js') }}
+    {{ app('kyoto.assets')->style('style', 'kyoto/installer::css/index.css') }}
 
 
     {!! app('kyoto.assets')->output() !!}

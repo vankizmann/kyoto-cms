@@ -1822,7 +1822,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this.load = false;
         }
       };
-      this.$http.get('/web/kyoto/installer/http/controllers/installer/env', opts).then(function (res) {
+      this.$http.get('/kyoto/installer/http/controllers/installer/env', opts).then(function (res) {
         return _this.form = res.data;
       }, function () {
         return window.location.reload();
@@ -1849,7 +1849,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.validate();
-      this.$http.post('/web/kyoto/installer/http/controllers/installer/database', this.form).then(function () {
+      this.$http.post('/kyoto/installer/http/controllers/installer/database', this.form).then(function () {
         return _this2.valid = true;
       }, function () {
         return _this2.valid = false;
@@ -1929,7 +1929,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this.load = false;
         }
       };
-      this.$http.get('/web/kyoto/installer/http/controllers/installer/env', opts).then(function (res) {
+      this.$http.get('/kyoto/installer/http/controllers/installer/env', opts).then(function (res) {
         return _this.form = res.data;
       }, function () {
         return window.location.reload();
@@ -1948,7 +1948,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.validate();
-      this.$http.post('/web/kyoto/installer/http/controllers/installer/laravel', this.form).then(function () {
+      this.$http.post('/kyoto/installer/http/controllers/installer/laravel', this.form).then(function () {
         return _this2.valid = true;
       }, function () {
         return _this2.valid = false;
@@ -2008,7 +2008,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this.load = false;
         }
       };
-      this.$http.get('/web/kyoto/installer/http/controllers/installer/setup', opts).then(function (res) {
+      this.$http.get('/kyoto/installer/http/controllers/installer/setup', opts).then(function (res) {
         return _this.form = res.data;
       }, function () {
         return null;
@@ -2091,7 +2091,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this.load = false;
         }
       };
-      this.$http.get('/web/kyoto/installer/http/controllers/installer/env', opts).then(function (res) {
+      this.$http.get('/kyoto/installer/http/controllers/installer/env', opts).then(function (res) {
         return _this.form = res.data;
       }, function () {
         return window.location.reload();
@@ -2122,7 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.validate();
-      this.$http.post('/web/kyoto/installer/http/controllers/installer/website', this.form).then(function () {
+      this.$http.post('/kyoto/installer/http/controllers/installer/website', this.form).then(function () {
         return _this2.valid = true;
       }, function () {
         return _this2.valid = false;
