@@ -1,5 +1,5 @@
 @extends(app('kyoto')->getLayout())
 
 @section('content')
-    hi!
+    @php dump(app('kyoto')->getMenu()->toArray()) @endphp
 @endsection

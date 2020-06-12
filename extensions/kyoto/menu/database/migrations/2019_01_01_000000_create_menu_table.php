@@ -37,9 +37,6 @@ class CreateMenuTable extends Migration
             $table->string('slug')
                 ->nullable();
 
-            $table->string('route')
-                ->nullable();
-
             $table->string('path')
                 ->nullable();
 

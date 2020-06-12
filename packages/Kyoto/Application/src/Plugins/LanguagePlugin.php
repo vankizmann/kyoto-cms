@@ -23,7 +23,7 @@ trait LanguagePlugin
      *
      * @var array
      */
-    public $locales = ['en', 'de'];
+    public $locales = ['en', 'de', 'da'];
 
     /**
      * Register language plugin
@@ -141,6 +141,24 @@ trait LanguagePlugin
     public function setLocales($locales)
     {
         $this->locales = $locales;
+    }
+
+    /**
+     * Run script inside diffrent locale
+     *
+     * @param $locale
+     * @param $callback
+     * @return mixed
+     */
+    public function localized($locale, $callback)
+    {
+        $initialLocal = $this->locale;
+
+        $this->setLocale($locale);
+        $result = $callback($locale);
+        $this->setLocale($initialLocal);
+
+        return $result;
     }
 
 }

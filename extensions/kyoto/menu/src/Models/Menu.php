@@ -3,15 +3,16 @@
 namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
+use Kyoto\Support\Database\Traits\Translatable;
 
 class Menu extends \Kyoto\Support\Database\Model
 {
-    use Node;
+    use Node, Translatable;
 
     protected $table = 'menus';
 
     protected $fillable = [
-        'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
+        'state', 'hide', 'type', 'layout', 'title', 'slug', 'path', 'guard', 'option'
     ];
 
     protected $fields = [
@@ -27,7 +28,7 @@ class Menu extends \Kyoto\Support\Database\Model
     ];
 
     protected $localized = [
-        'layout', 'title', 'slug', 'route', 'path'
+        'title', 'slug', 'path'
     ];
 
     protected $relationships = [
@@ -42,7 +43,6 @@ class Menu extends \Kyoto\Support\Database\Model
         'layout'        => null,
         'title'         => null,
         'slug'          => null,
-        'route'         => null,
         'path'          => null,
         'option'        => null,
         'guard'         => null
@@ -56,7 +56,6 @@ class Menu extends \Kyoto\Support\Database\Model
         'layout'        => 'string',
         'title'         => 'string',
         'slug'          => 'string',
-        'route'         => 'string',
         'path'          => 'string',
         'option'        => 'array',
         'guard'         => 'integer'
@@ -64,7 +63,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     protected static function boot()
     {
-        self::saved(function () {
+        static::saved(function () {
             if ( app('kyoto')->isReady() ) {
                 app('kyoto.menu')->update();
             }
@@ -73,12 +72,23 @@ class Menu extends \Kyoto\Support\Database\Model
         parent::boot();
     }
 
+    public function getParentAttribute()
+    {
+        $parentNode = $this->parent()->first();
+
+        if ( $parentNode ) {
+            return $parentNode->localized($this->forceLocale);
+        }
+
+        return $parentNode;
+    }
+
     public function setSlugAttribute($value)
     {
         $parentPath = null;
 
         if ( $this->parent ) {
-            $parentPath = rtrim($this->parent->path, '/');
+            $parentPath = $this->parent->path;
         }
 
         $this->attributes['path'] = str_join('/', $parentPath,

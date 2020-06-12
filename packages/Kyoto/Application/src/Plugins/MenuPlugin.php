@@ -52,7 +52,7 @@ trait MenuPlugin
 
     public function getLayout()
     {
-        return data_get($this->menu, 'layout') ?: 'kyoto/backend::default';
+        return data_get($this->menu, 'layout') ?: 'kyoto/theme::default';
     }
 
 }

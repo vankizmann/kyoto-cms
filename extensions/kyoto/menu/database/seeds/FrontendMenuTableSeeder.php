@@ -51,15 +51,15 @@ class FrontendMenuTableSeeder extends Seeder
             'parent'    => $root,
         ]);
 
-//        $home->localize('de')->update([
-//            'title'         => 'Startseite',
-//            'slug'          => '/startseite'
-//        ]);
-//
-//        $home->localize('da')->update([
-//            'title'         => 'Hjem',
-//            'slug'          => '/hjem'
-//        ]);
+        $home->localized('de')->update([
+            'title'         => 'Startseite',
+            'slug'          => '/'
+        ]);
+
+        $home->localized('da')->update([
+            'title'         => 'Hjem',
+            'slug'          => '/'
+        ]);
 
         $login = Menu::create([
             'id'        => uuid(),
@@ -77,14 +77,47 @@ class FrontendMenuTableSeeder extends Seeder
         $demo = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/page::page',
-            'layout'    => 'demo',
+            'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
-            'title'     => 'Demo',
-            'slug'      => '/demo',
+            'title'     => 'Demo EN',
+            'slug'      => '/demo-en',
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $root,
+        ]);
+
+        $demo->localized('de')->update([
+            'title'         => 'Demo DE',
+            'slug'          => '/demo-de'
+        ]);
+
+        $demo->localized('da')->update([
+            'title'         => 'Demo DA',
+            'slug'          => '/demo-da'
+        ]);
+
+        $test = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/page::page',
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Test EN',
+            'slug'      => '/test-en',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $demo,
+        ]);
+
+        $test->localized('de')->update([
+            'title'         => 'Test DE',
+            'slug'          => '/test-de'
+        ]);
+
+        $test->localized('da')->update([
+            'title'         => 'Test DA',
+            'slug'          => '/test-da'
         ]);
 
         foreach ( range(0, 10) as $index ) {

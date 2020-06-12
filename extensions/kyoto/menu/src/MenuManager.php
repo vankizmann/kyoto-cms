@@ -2,15 +2,22 @@
 
 namespace Kyoto\Menu;
 
+use function foo\func;
 use Kyoto\Menu\Models\Menu;
 use Kyoto\Routing\Route\RouteHelper;
+use Kyoto\Support\Php\PhpEditor;
 
 class MenuManager {
 
-    const CACHE_PATH = 'framework/cache/kyo_menus.php';
+    const CACHE_PATH = 'kyoto/menu';
 
     public $cached = [
         //
+    ];
+
+    public $exclude = [
+        'kyoto/menu::domain',
+        'kyoto/menu::menu'
     ];
 
     public function __construct()
@@ -20,24 +27,36 @@ class MenuManager {
 
     public function load()
     {
-        $path = storage_path(self::CACHE_PATH);
+        foreach ( app('kyoto')->getLocales() as $locale ) {
 
-        if ( ! file_exists($path) ) {
-            $this->update();
+            $path = storage_path(str_join('/',
+                self::CACHE_PATH, "{$locale}.php"));
+
+            if ( ! file_exists($path) ) {
+                $this->update($locale);
+            }
+
+            $this->cached[$locale] = (new PhpEditor($path))->load();
         }
-
-        $this->cached = require $path;
     }
 
-    public function update()
+    public function update($locale)
     {
-        file_put_contents(storage_path(self::CACHE_PATH),
-            "<?php \n return " . var_export(Menu::where('type', '!=', 'kyoto/menu::domain')->get()->toArray(), true) . ";");
+        app('kyoto')->localized($locale, function ($locale) {
+
+            $menus = Menu::whereNotIn('type', $this->exclude)
+                ->get()->toArray();
+
+            $path = storage_path(str_join('/',
+                self::CACHE_PATH, "{$locale}.php"));
+
+            (new PhpEditor($path))->save($menus);
+        });
     }
 
     public function findByUrl($url = null)
     {
-        foreach ( $this->cached as $menu ) {
+        foreach ( $this->cached[app()->getLocale()] as $menu ) {
             if ( RouteHelper::isRoute($menu['path'], $url) ) {
                 return $menu;
             }

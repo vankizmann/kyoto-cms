@@ -2,8 +2,9 @@
 
 namespace Kyoto\Support\Database\Traits;
 
-use Liro\Support\Database\Eloquent\Builder;
-use Liro\Support\Database\Scopes\TranslateScope;
+use Illuminate\Support\Str;
+use Kyoto\Support\Database\Eloquent\Builder;
+use Kyoto\Support\Database\Scopes\TranslateScope;
 
 trait Translatable
 {
@@ -41,7 +42,16 @@ trait Translatable
 
     public function getLocale()
     {
-        return $this->forceLocale ?: request()->query('locale', app()->getLocale());
+        if ( ! $this->exists && ! $this->forceLocale ) {
+            $this->forceLocale = app('kyoto')->getFallbackLocale();
+        }
+
+        return $this->forceLocale ?: app('kyoto')->getLocale();
+    }
+
+    public function setLocale($locale)
+    {
+        $this->forceLocale = $locale;
     }
 
     public function getLocaleClass()
@@ -66,7 +76,7 @@ trait Translatable
 
     public function isBaseLocale()
     {
-        return app('web.language')->getBaseLocale() === $this->getLocale();
+        return app('kyoto')->getFallbackLocale() === $this->getLocale();
     }
 
     public function getTranslation($locale = null)
@@ -116,16 +126,22 @@ trait Translatable
         return $translation;
     }
 
-    public function setLocalizedAttribute($key, $value)
+    public function setLocalizedAttribute($key, $value, $translation = null)
     {
         if ( ! $this->exists || $this->isBaseLocale() ) {
             return $this->attributes[$key] = $value;
         }
 
-        $translation = $this->getFirstOrNewTranslation();
+        if ( ! $translation ) {
+            $translation = $this->getFirstOrNewTranslation();
+        }
 
         if ( $this->attributes[$key] === $value ) {
             $value = null;
+        }
+
+        if ( $translation->hasSetMutator($key) ) {
+            return $translation->{'set' . Str::studly($key) . 'Attribute'}($value, $this);
         }
 
         return $translation->setAttribute($key, $value);
@@ -143,7 +159,7 @@ trait Translatable
 
         unset($attributes['_locale']);
 
-        if ( ! $this->exists ) {
+        if ( $this->isBaseLocale() || ! $this->exists ) {
             return $attributes;
         }
 
@@ -178,11 +194,7 @@ trait Translatable
                 continue;
             }
 
-            if ( $attributes[$key] === $this->attributes[$key] ) {
-                $attributes[$key] = null;
-            }
-
-            $translation->setAttribute($key, $attributes[$key]);
+            $this->setLocalizedAttribute($key, $attributes[$key], $translation);
 
             unset($attributes[$key]);
         }
@@ -190,31 +202,36 @@ trait Translatable
         return parent::fill($attributes);
     }
 
-    public function newEloquentBuilder($query)
-    {
-        return new Builder($query);
-    }
-
     public function getAttribute($key)
     {
         $value = parent::getAttribute($key);
 
-        if ( ! in_array($key, $this->getLocalizedColumns()) ) {
+        if ( $this->isBaseLocale() || ! in_array($key, $this->getLocalizedColumns()) ) {
             return $value;
         }
 
-        return data_get($this->getTranslation(), $key) ?: $value;
+        $translation = $this->getTranslation();
+
+        if ( ! $translation || ! $translation->exists ) {
+            return $value;
+        }
+
+        if ( $translation->hasGetMutator($key) ) {
+            return $translation->{'get' . Str::studly($key) . 'Attribute'}($this);
+        }
+
+        return $translation->getAttribute($key);
     }
 
-    public function localize($locale = null)
+    public function localized($locale = null)
     {
         if ( empty($locale) ) {
             $locale = $this->getLocale();
         }
 
-        $clone = clone $this->load('translations');
+        $clone = clone $this;
 
-        $clone->forceLocale = $locale;
+        $clone->setLocale($locale);
 
         return $clone;
     }
