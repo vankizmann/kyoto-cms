@@ -26,9 +26,21 @@ class PhpEditor
         return $this->content = include $this->path;
     }
 
+    public static function loadFile($path, $fallback = null)
+    {
+        return (new self($path))->load($fallback);
+    }
+
     public function save($data)
     {
         file_put_contents($this->path, "<?php \n return " . var_export($data, true) . ";");
+
+        return $this;
+    }
+
+    public static function saveFile($path, $data)
+    {
+        return (new self($path))->save($data);
     }
 
 }

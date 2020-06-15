@@ -34,15 +34,17 @@ class BackendMenuTableSeeder extends Seeder
         $menus['root'] = Menu::create([
             'id'        => $routes['root'],
             'ident'     => 'web-backend',
-            'type'      => 'kyoto/menu::domain',
+            'type'      => 'kyoto/backend::admin',
             'layout'    => 'kyoto/backend::default',
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'liro-cms.com',
-            'slug'      => ':http://:domain/:locale/backend',
+            'slug'      => ':http://:domain/:locale/backend/:any?',
             'guard'     => 0,
             'parent_id' => null,
         ]);
+
+        return;
 
         Menu::create([
             'id'        => uuid(),

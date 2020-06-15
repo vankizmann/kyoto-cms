@@ -21,6 +21,11 @@ return [
 
     'connectors' => [
         'redirect' => \Kyoto\Menu\Connectors\RedirectConnector::class
+    ],
+
+    'backend' => [
+        'kyoto/menu::js/backend.js',
+        'kyoto/menu::css/backend.css'
     ]
 
 ];

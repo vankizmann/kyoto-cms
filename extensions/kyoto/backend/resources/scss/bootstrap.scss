@@ -1,0 +1,62 @@
+$color-white:           #ffffff;
+$color-black:           #101727;
+
+$color-light:           #ffffff;
+$color-dark:            #091D3C;
+
+$color-gray-05:         mix($color-dark, $color-light, 0.05 * 100%);
+$color-gray-10:         mix($color-dark, $color-light, 0.10 * 100%);
+$color-gray-15:         mix($color-dark, $color-light, 0.15 * 100%);
+$color-gray-20:         mix($color-dark, $color-light, 0.20 * 100%);
+$color-gray-25:         mix($color-dark, $color-light, 0.25 * 100%);
+$color-gray-30:         mix($color-dark, $color-light, 0.30 * 100%);
+$color-gray-35:         mix($color-dark, $color-light, 0.35 * 100%);
+$color-gray-40:         mix($color-dark, $color-light, 0.40 * 100%);
+$color-gray-45:         mix($color-dark, $color-light, 0.45 * 100%);
+$color-gray-50:         mix($color-dark, $color-light, 0.50 * 100%);
+$color-gray-55:         mix($color-dark, $color-light, 0.55 * 100%);
+$color-gray-60:         mix($color-dark, $color-light, 0.60 * 100%);
+$color-gray-65:         mix($color-dark, $color-light, 0.65 * 100%);
+$color-gray-70:         mix($color-dark, $color-light, 0.70 * 100%);
+$color-gray-75:         mix($color-dark, $color-light, 0.75 * 100%);
+$color-gray-80:         mix($color-dark, $color-light, 0.80 * 100%);
+$color-gray-85:         mix($color-dark, $color-light, 0.85 * 100%);
+$color-gray-90:         mix($color-dark, $color-light, 0.90 * 100%);
+$color-gray-95:         mix($color-dark, $color-light, 0.95 * 100%);
+
+$color-primary:         #4B5BD8;
+$color-secondary:       #4B5BD8;
+
+$color-success:         #15C478;
+$color-warning:         #FFA13D;
+$color-danger:          #F4424B;
+$color-info:            #62686d;
+
+$color-background:      #F4F6FA;
+
+$box-shadow:            0 0 4px rgba($color-black, 0.125);
+
+$radius-small:          4px;
+$radius-medium:         6px;
+$radius-large:          8px;
+$radius-extended:       20px;
+
+$button-height:         38px;
+$button-ratio:          0.5;
+$input-height:          38px;
+$select-height:         38px;
+
+@import '~backpack.css';
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+//@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import "~nano-ui/src/index";
+
+@import "./mixins/media";
+@import "./mixins/grid";
+@import "./mixins/space";
+
+@import "./app/default";

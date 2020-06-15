@@ -61,6 +61,11 @@ class FrontendMenuTableSeeder extends Seeder
             'slug'          => '/'
         ]);
 
+        $home->localized('ru')->update([
+            'title'         => 'Начните',
+            'slug'          => '/'
+        ]);
+
         $login = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/user::login',
@@ -73,6 +78,20 @@ class FrontendMenuTableSeeder extends Seeder
             'guard'     => 0,
             'parent'    => $root,
         ]);
+
+        Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/page::page',
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Hmm',
+            'slug'      => '/hm/:any',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $root,
+        ]);
+
 
         $demo = Menu::create([
             'id'        => uuid(),
@@ -92,9 +111,9 @@ class FrontendMenuTableSeeder extends Seeder
             'slug'          => '/demo-de'
         ]);
 
-        $demo->localized('da')->update([
-            'title'         => 'Demo DA',
-            'slug'          => '/demo-da'
+        $demo->localized('ru')->update([
+            'title'         => 'Demo RU',
+            'slug'          => '/demo-ru'
         ]);
 
         $test = Menu::create([

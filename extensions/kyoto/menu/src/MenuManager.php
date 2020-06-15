@@ -11,7 +11,7 @@ class MenuManager {
 
     const CACHE_PATH = 'kyoto/menu';
 
-    public $cached = [
+    public $menus = [
         //
     ];
 
@@ -36,7 +36,7 @@ class MenuManager {
                 $this->update($locale);
             }
 
-            $this->cached[$locale] = (new PhpEditor($path))->load();
+            $this->menus[$locale] = PhpEditor::loadFile($path);
         }
     }
 
@@ -44,19 +44,19 @@ class MenuManager {
     {
         app('kyoto')->localized($locale, function ($locale) {
 
-            $menus = Menu::whereNotIn('type', $this->exclude)
+            $menus = Menu::enabled()->whereNotIn('type', $this->exclude)
                 ->get()->toArray();
 
             $path = storage_path(str_join('/',
                 self::CACHE_PATH, "{$locale}.php"));
 
-            (new PhpEditor($path))->save($menus);
+            PhpEditor::saveFile($path, $menus);
         });
     }
 
     public function findByUrl($url = null)
     {
-        foreach ( $this->cached[app()->getLocale()] as $menu ) {
+        foreach ( $this->menus[app()->getLocale()] as $menu ) {
             if ( RouteHelper::isRoute($menu['path'], $url) ) {
                 return $menu;
             }

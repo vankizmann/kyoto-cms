@@ -43,8 +43,8 @@ trait LanguagePlugin
      */
     public function bootLanguagePlugin()
     {
-        if ( app('cache')->has('kyoto.locales') ) {
-            $this->locales = app('cache')->get('kyoto.locales');
+        if ( app('kyoto')->isReady() ) {
+            $this->locales = app('kyoto.language')->getLocales();
         }
 
         // Set base language
@@ -159,6 +159,17 @@ trait LanguagePlugin
         $this->setLocale($initialLocal);
 
         return $result;
+    }
+
+    /**
+     * Run script inside diffrent locale
+     *
+     * @param $callback
+     * @return mixed
+     */
+    public function fallbackLocalized($callback)
+    {
+        return $this->localized($this->getFallbackLocale(), $callback);
     }
 
 }

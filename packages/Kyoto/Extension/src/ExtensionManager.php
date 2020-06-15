@@ -19,6 +19,7 @@ class ExtensionManager extends InstanceElement
         Loaders\ViewLoader::class,
         Loaders\MiddlewareLoader::class,
         Loaders\ConnectorLoader::class,
+        Loaders\BackendLoader::class,
     ];
 
     public $extensionLoad = null;

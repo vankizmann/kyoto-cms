@@ -10,4 +10,12 @@ return [
         'Kyoto\\Backend\\' => 'src/'
     ],
 
+    'providers' => [
+        \Kyoto\Backend\BackendServiceProvider::class
+    ],
+
+    'connectors' => [
+        'admin' => \Kyoto\Backend\Connectors\AdminConnector::class
+    ]
+
 ];

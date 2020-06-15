@@ -9,6 +9,7 @@ return [
      */
     'extensionLoad' => [
         'kyoto/installer',
+        'kyoto/language',
         'kyoto/menu',
         'kyoto/page',
         'kyoto/backend',

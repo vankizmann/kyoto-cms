@@ -9,9 +9,8 @@ class ViewLoader extends LoaderElement
 
     public function bootExtension(ExtensionConfig $config)
     {
-        $basePath = str_join('/', $config->path, 'resources/views');
-
-        app('view')->addNamespace($config->name, $basePath);
+        app('view')->addNamespace($config->name,
+            str_join('/', $config->path, 'resources/views'));
 
         return $config;
     }

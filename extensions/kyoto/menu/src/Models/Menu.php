@@ -4,15 +4,17 @@ namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
 use Kyoto\Support\Database\Traits\Translatable;
+use Kyoto\Support\Database\Traits\Hide;
+use Kyoto\Support\Database\Traits\State;
 
 class Menu extends \Kyoto\Support\Database\Model
 {
-    use Node, Translatable;
+    use Node, State, Hide, Translatable;
 
     protected $table = 'menus';
 
     protected $fillable = [
-        'state', 'hide', 'type', 'layout', 'title', 'slug', 'path', 'guard', 'option'
+        'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
     ];
 
     protected $fields = [
@@ -43,6 +45,7 @@ class Menu extends \Kyoto\Support\Database\Model
         'layout'        => null,
         'title'         => null,
         'slug'          => null,
+        'route'         => null,
         'path'          => null,
         'option'        => null,
         'guard'         => null
@@ -56,6 +59,7 @@ class Menu extends \Kyoto\Support\Database\Model
         'layout'        => 'string',
         'title'         => 'string',
         'slug'          => 'string',
+        'route'         => 'string',
         'path'          => 'string',
         'option'        => 'array',
         'guard'         => 'integer'
