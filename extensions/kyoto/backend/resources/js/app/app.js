@@ -41,44 +41,22 @@ Vue.$http = Vue.prototype.$http = Axios;
 
 require('./config/axios');
 
-import KyoInstaller from "./installer";
-Vue.component(KyoInstaller.name, KyoInstaller);
+import KyoBackend from "./backend";
+Vue.component(KyoBackend.name, KyoBackend);
 
-import KyoPagesLaravel from "./pages/laravel";
-Vue.component(KyoPagesLaravel.name, KyoPagesLaravel);
-
-import KyoPagesDatabase from "./pages/database";
-Vue.component(KyoPagesDatabase.name, KyoPagesDatabase);
-
-import KyoPagesWebsite from "./pages/website";
-Vue.component(KyoPagesWebsite.name, KyoPagesWebsite);
-
-import KyoPagesSetup from "./pages/setup";
-Vue.component(KyoPagesSetup.name, KyoPagesSetup);
-
-let routes = [
+window.Routes = [
     {
-        path: '/', name: 'home', redirect: 'laravel'
-    },
-    {
-        path: '/laravel', name: 'laravel', component: KyoPagesLaravel
-    },
-    {
-        path: '/database', name: 'database', component: KyoPagesDatabase
-    },
-    {
-        path: '/website', name: 'website', component: KyoPagesWebsite
-    },
-    {
-        path: '/setup', name: 'setup', component: KyoPagesSetup
+        path: '/', name: 'home', redirect: window.userRedirect
     }
 ];
 
-let router = new VueRouter({
-    base: 'installer', mode: 'history', routes: routes
-});
-
-
 Nano.Dom.ready(() => {
+
+    console.log(window.Routes);
+
+    let router = new VueRouter({
+        base: window.basePath, mode: 'history', routes: window.Routes
+    });
+
     window.App = new Vue({ router }).$mount('#app');
 });

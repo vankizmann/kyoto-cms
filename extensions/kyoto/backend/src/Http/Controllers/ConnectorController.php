@@ -8,7 +8,7 @@ class ConnectorController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['web']);
+        $this->middleware(['web', 'guarded']);
     }
 
     public function admin()

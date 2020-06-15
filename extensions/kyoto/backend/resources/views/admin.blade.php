@@ -1,5 +1,5 @@
 @extends(app('kyoto')->getLayout())
 
 @section('content')
-    APP
+    <kyo-backend></kyo-backend>
 @endsection

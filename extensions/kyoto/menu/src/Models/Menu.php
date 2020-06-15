@@ -14,7 +14,7 @@ class Menu extends \Kyoto\Support\Database\Model
     protected $table = 'menus';
 
     protected $fillable = [
-        'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
+        'state', 'hide', 'type', 'layout', 'title', 'slug', 'path', 'guard', 'option'
     ];
 
     protected $fields = [
@@ -45,7 +45,6 @@ class Menu extends \Kyoto\Support\Database\Model
         'layout'        => null,
         'title'         => null,
         'slug'          => null,
-        'route'         => null,
         'path'          => null,
         'option'        => null,
         'guard'         => null
@@ -59,7 +58,6 @@ class Menu extends \Kyoto\Support\Database\Model
         'layout'        => 'string',
         'title'         => 'string',
         'slug'          => 'string',
-        'route'         => 'string',
         'path'          => 'string',
         'option'        => 'array',
         'guard'         => 'integer'

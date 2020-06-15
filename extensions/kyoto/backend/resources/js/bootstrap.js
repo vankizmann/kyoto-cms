@@ -10,6 +10,6 @@ window.Nano = Nano;
 require('./app/app');
 
 if ( console && console.log ) {
-    console.log('kyoto/installer ready.');
+    console.log('kyoto/backend ready.');
 }
 

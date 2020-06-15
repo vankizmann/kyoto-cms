@@ -20,12 +20,18 @@
 
     {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
 
-    {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
-    {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
 
     <script>
         window.basePath = '{{ app('kyoto.backend')->basePath() }}';
     </script>
+
+    <script>
+        window.userRedirect = 'test';
+    </script>
+
+    {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
+    {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
+
 
     {!! app('kyoto.backend')->output() !!}
 </head>

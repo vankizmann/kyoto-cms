@@ -44,7 +44,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent_id' => null,
         ]);
 
-        return;
 
         Menu::create([
             'id'        => uuid(),
@@ -71,6 +70,8 @@ class BackendMenuTableSeeder extends Seeder
             'guard'     => 0,
             'parent'    => $menus['root'],
         ]);
+
+        return;
 
         $routes['dashboard'] = uuid();
 
