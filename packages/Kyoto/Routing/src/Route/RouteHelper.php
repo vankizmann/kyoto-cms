@@ -63,15 +63,6 @@ class RouteHelper
 
     public static function replaceProtocol($route, $protocol = null)
     {
-        if ( ! $protocol ) {
-            $protocol = app('kyoto')->getProtocol();
-        }
-
-        $route = str_replace('{http}', $protocol, $route);
-        $route = str_replace(':http', $protocol, $route);
-
-        return $route;
-
         $route = preg_replace('/^({http}|:http)/', $protocol ?:
             app('kyoto')->getProtocol(), $route);
 
@@ -80,15 +71,6 @@ class RouteHelper
 
     public static function replaceDomain($route, $domain = null)
     {
-        if ( ! $domain ) {
-            $domain = app('kyoto')->getDomain();
-        }
-
-        $route = str_replace('{domain}', $domain, $route);
-        $route = str_replace(':domain', $domain, $route);
-
-        return $route;
-
         $route = preg_replace('/({domain}|:domain)/', $domain ?:
             app('kyoto')->getDomain(), $route);
 
@@ -97,25 +79,16 @@ class RouteHelper
 
     public static function replaceLocale($route, $locale = null)
     {
-        if ( ! $locale ) {
-            $locale = app('kyoto')->getLocale();
-        }
-
-        $route = str_replace('{locale}', $locale, $route);
-        $route = str_replace(':locale', $locale, $route);
-
-        return $route;
-
         $route = preg_replace('/({locale}|:locale)/', $locale ?:
             app('kyoto')->getLocale(), $route);
 
         return $route;
     }
 
-//    public static function getRoute($route)
-//    {
-//        return self::replaceLocale(self::extractRoute($route));
-//    }
+    public static function getRoute($route)
+    {
+        return self::replaceAll(self::extractRoute($route));
+    }
 
     public static function replaceAll($route, $protocol = null, $domain = null, $locale = null)
     {
@@ -182,14 +155,9 @@ class RouteHelper
         return app('kyoto')->getProtocol() . '://' . app('kyoto')->getDomain();
     }
 
-    public static function getRoute()
-    {
-        return '/' . ltrim(request()->path(), '/');
-    }
-
     public static function getFullRoute()
     {
-        return self::getHost() . self::getRoute();
+        return self::getHost() .'/' . ltrim(request()->path(), '/');
     }
 
     public static function isRoute($route, $compare = null)

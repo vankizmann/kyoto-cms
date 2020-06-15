@@ -26,6 +26,10 @@
     </script>
 
     <script>
+        window.backendRoutes = JSON.parse('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
+    </script>
+
+    <script>
         window.userRedirect = 'test';
     </script>
 

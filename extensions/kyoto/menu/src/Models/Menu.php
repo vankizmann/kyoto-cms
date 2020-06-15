@@ -3,6 +3,7 @@
 namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
+use Kyoto\Routing\Route\RouteHelper;
 use Kyoto\Support\Database\Traits\Translatable;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
@@ -22,7 +23,7 @@ class Menu extends \Kyoto\Support\Database\Model
     ];
 
     protected $appends = [
-        //'connector', 'final_layout', 'icon_url', 'options'
+        'route', //'connector', 'final_layout', 'icon_url', 'options'
     ];
 
     protected $hidden = [
@@ -95,6 +96,11 @@ class Menu extends \Kyoto\Support\Database\Model
 
         $this->attributes['path'] = str_join('/', $parentPath,
             $this->attributes['slug'] = trim($value, '/'));
+    }
+
+    public function getRouteAttribute()
+    {
+        return RouteHelper::getRoute($this->path);
     }
 
     public function getLayoutAttribute()

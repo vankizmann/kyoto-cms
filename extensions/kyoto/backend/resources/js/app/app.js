@@ -45,14 +45,14 @@ import KyoBackend from "./backend";
 Vue.component(KyoBackend.name, KyoBackend);
 
 window.Routes = [
-    {
-        path: '/', name: 'home', redirect: window.userRedirect
-    }
+    // {
+    //     path: '/', name: 'home', redirect: window.userRedirect
+    // }
 ];
 
 Nano.Dom.ready(() => {
 
-    console.log(window.Routes);
+    console.log(window.backendRoutes);
 
     let router = new VueRouter({
         base: window.basePath, mode: 'history', routes: window.Routes

@@ -29625,13 +29625,12 @@ __webpack_require__(/*! ./config/axios */ "./resources/js/app/config/axios.js");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_backend__WEBPACK_IMPORTED_MODULE_5__["default"].name, _backend__WEBPACK_IMPORTED_MODULE_5__["default"]);
-window.Routes = [{
-  path: '/',
-  name: 'home',
-  redirect: window.userRedirect
-}];
+window.Routes = [// {
+  //     path: '/', name: 'home', redirect: window.userRedirect
+  // }
+];
 nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
-  console.log(window.Routes);
+  console.log(window.backendRoutes);
   var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
     base: window.basePath,
     mode: 'history',

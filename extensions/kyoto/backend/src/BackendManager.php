@@ -2,8 +2,6 @@
 
 namespace Kyoto\Backend;
 
-use Kyoto\Routing\Route\RouteHelper;
-
 class BackendManager {
 
     public $scripts = [
@@ -55,9 +53,12 @@ class BackendManager {
 
     public function basePath()
     {
-        $realPath = RouteHelper::replaceAll(app('kyoto')->getMenu('path'));
+        return app('kyoto')->getMenu('route');
+    }
 
-        return preg_replace('/(^https?:\/\/(:domain|(.+?)\.(.+?))\/|\/:(.+?)$)/', '', $realPath);
+    public function backendRoutes()
+    {
+        return app('kyoto')->getMenu()->getDescendants()->toHierarchy()->toArray();
     }
 
 }
