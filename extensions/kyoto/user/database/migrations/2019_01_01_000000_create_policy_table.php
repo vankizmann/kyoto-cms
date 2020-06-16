@@ -15,17 +15,11 @@ class CreatePolicyTable extends Migration
             $table->string('title')
                 ->default('');
 
-            $table->string('class')
-                ->default('')->nullable();
+            $table->string('type')
+                ->default('');
 
-            $table->string('method')
-                ->default('')->nullable();
-
-            $table->string('module')
-                ->default('')->nullable();
-
-            $table->integer('depth')
-                ->default(0)->nullable();
+            $table->string('action')
+                ->default('');
 
             $table->timestamps();
         });

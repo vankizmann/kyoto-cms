@@ -18,11 +18,17 @@ class CreateRoleTable extends Migration
             $table->string('description')
                 ->default('');
 
-            $table->string('access')
-                ->default('');
+            $table->uuid('parent_id')
+                ->nullable();
 
-            $table->integer('guard')
-                ->default(0);
+            $table->integer('left')
+                ->nullable();
+
+            $table->integer('right')
+                ->nullable();
+
+            $table->integer('depth')
+                ->nullable();
 
             $table->timestamps();
         });

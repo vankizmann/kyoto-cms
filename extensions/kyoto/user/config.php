@@ -11,7 +11,9 @@ return [
     ],
 
     'seeds' => [
+        PolicyTableSeeder::class,
         UserTableSeeder::class,
+        RoleTableSeeder::class,
     ],
 
     'providers' => [
@@ -23,7 +25,7 @@ return [
     ],
 
     'connectors' => [
-//        'login' => \Kyoto\User\Connectors\LoginConnector::class,
+        'login' => \Kyoto\User\Connectors\LoginConnector::class,
 //        'logout' => \Kyoto\User\Connectors\LogoutConnector::class
     ],
 
