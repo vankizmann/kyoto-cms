@@ -15,11 +15,29 @@ class MenuRouter implements RouterInterface
             return null;
         }
 
-        $menu = app('kyoto.menu')->findByUrl();
+        $menu = app('kyoto.menu')->getMenuByUrl();
+
+        $login = app('kyoto.user')->unguarded(function () {
+
+            $baseMenu = app('kyoto.menu')->getMenuByUrl();
+
+            if ( ! $baseMenu ) {
+                return null;
+            }
+
+            return $baseMenu->getLogin();
+        });
+
+        if ( $login && ! $menu ) {
+            header('Location: ' . url($login->path));
+            exit;
+        }
 
         if ( ! $menu ) {
-            return null;
+            return $login ?  : null;
         }
+
+        app('kyoto')->setMenu($menu);
 
         /** @var \Kyoto\Menu\Connectors\ConnectorInterface $connector */
         $connector = app('kyoto.connector')->find($menu['type']);

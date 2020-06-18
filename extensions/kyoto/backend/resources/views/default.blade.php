@@ -42,7 +42,7 @@
 <body>
 
     <div id="app" data-root="true">
-        @yield('content')
+        Loading...
     </div>
 
 </body>

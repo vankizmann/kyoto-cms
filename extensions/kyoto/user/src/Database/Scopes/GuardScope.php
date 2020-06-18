@@ -11,27 +11,20 @@ class GuardScope implements Scope
 
     public function apply(Builder $builder, Model $model)
     {
-        $modelClass = get_class($model);
-
-        if ( $model->getUseDepthGuard() ) {
-
-            $guardDepth = app('kyoto.user')
-                ->getPolicyDepth($modelClass);
-
-            $userId = app('kyoto.user')
-                ->getUser('id', null);
-
-            $builder->where(function ($query) use ($model, $guardDepth, $userId) {
-
-                if ( method_exists($model, 'skipGuardedBuilder') ) {
-                    $query = $model->skipGuardedBuilder($query);
-                }
-
-                $query
-                    ->orWhere($model->getDepthGuardColumn(), '>=', $guardDepth)
-                    ->orWhere($model->getDepthGuardColumn(), '=', 0);
-            });
+        if ( ! $model->getUseDepthGuard() ) {
+            return $builder;
         }
+
+        $builder->where(function ($query) use ($model) {
+
+            if ( method_exists($model, 'skipGuardedBuilder') ) {
+                $query = $model->skipGuardedBuilder($query);
+            }
+
+            $query->whereNotBetween($model->getDepthGuardColumn(), [
+                1, app('kyoto.user')->getGateDepth()
+            ]);
+        });
 
         return $builder;
     }

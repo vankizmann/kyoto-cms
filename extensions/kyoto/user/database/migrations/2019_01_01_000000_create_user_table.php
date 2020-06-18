@@ -12,6 +12,12 @@ class CreateUserTable extends Migration
 
             $table->uuid('id');
 
+            $table->uuid('role_id')
+                ->nullable();
+
+            $table->uuid('gate_id')
+                ->nullable();
+
             $table->integer('state')
                 ->default(0);
 
@@ -23,9 +29,6 @@ class CreateUserTable extends Migration
 
             $table->string('password')
                 ->default('');
-
-            $table->integer('guard')
-                ->default(0);
 
             $table->rememberToken();
             $table->timestamps();

@@ -37,8 +37,8 @@ class User extends Model
         'password', 'remember_token',
     ];
 
-    protected $appends = [
-        'role_ids'
+    protected $relations = [
+        'role', 'gate'
     ];
 
     protected $attributes = [
@@ -47,7 +47,6 @@ class User extends Model
         'name'     => null,
         'email'    => null,
         'password' => null,
-        'guard'    => null,
     ];
 
     protected $casts = [
@@ -56,12 +55,16 @@ class User extends Model
         'name'     => 'string',
         'email'    => 'string',
         'password' => 'string',
-        'guard'    => 'integer',
     ];
 
-    public function roles()
+    public function role()
     {
-        return $this->belongsToMany(Role::class, 'user_to_role', 'user_id', 'role_id');
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function gate()
+    {
+        return $this->belongsTo(Gate::class, 'gate_id');
     }
 
 //    public function getPoliciesAttribute()

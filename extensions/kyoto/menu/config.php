@@ -20,7 +20,8 @@ return [
     ],
 
     'connectors' => [
-        'redirect' => \Kyoto\Menu\Connectors\RedirectConnector::class
+        'redirect' => \Kyoto\Menu\Connectors\RedirectConnector::class,
+        'vue' => \Kyoto\Menu\Connectors\VueConnector::class
     ],
 
     'backend' => [

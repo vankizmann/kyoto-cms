@@ -37,6 +37,10 @@ class EnvEditor
             $value = $value ? 'true' : 'false';
         }
 
+        if ( preg_match('/\s/', $value) ) {
+            $value = "\"{$value}\"";
+        }
+
         $target = strtoupper($key) . '=' . $value;
 
         if ( ! $this->has($key) ) {

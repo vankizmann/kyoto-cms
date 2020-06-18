@@ -10,26 +10,19 @@ trait MenuPlugin
 
     public $root = null;
 
-    /**
-     * Register ready plugin
-     *
-     * @return void
-     */
-    public function bootMenuPlugin()
+    public function setMenu($menu = null)
     {
-        if ( ! $this->isReady() ) {
-            return;
+        $this->menu = $menu ?: app('kyoto.menu')->getMenuByUrl();
+
+        if ( ! $this->menu ) {
+            abort(404);
         }
 
-        $menu = app('kyoto.menu')->findByUrl();
+        $this->root = app('kyoto.user')->unguarded(function () {
+            return $this->menu->getRoot();
+        });
 
-        if ( ! $menu ) {
-            return;
-        }
-
-        $this->menu = Menu::findOrFail($menu['id']);
-
-        $this->root = $this->menu->getRoot();
+        return $this->menu;
     }
 
     public function getMenu($key = null, $fallback = null)

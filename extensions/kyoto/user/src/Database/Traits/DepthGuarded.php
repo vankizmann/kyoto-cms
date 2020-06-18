@@ -13,7 +13,7 @@ trait DepthGuarded
     /**
      * @var bool $useGuard
      */
-    protected $useDepthGuard = false;
+    protected $useDepthGuard;
 
     /**
      * @var string $guardColumn
@@ -22,11 +22,19 @@ trait DepthGuarded
 
     public static function bootDepthGuarded()
     {
+        if ( ! app('kyoto')->isReady() ) {
+            return;
+        }
+
         static::addGlobalScope(new GuardScope);
     }
 
     public function getUseDepthGuard()
     {
+        if ( ! isset($this->useDepthGuard) ) {
+            return app('kyoto.user')->isGuarded();
+        }
+
         return $this->useDepthGuard;
     }
 

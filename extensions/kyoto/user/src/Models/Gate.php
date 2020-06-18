@@ -2,14 +2,25 @@
 
 namespace Kyoto\User\Models;
 
+use Baum\NestedSet\Node;
 use Kyoto\Support\Database\Model;
 
-class Role extends Model
+class Gate extends Model
 {
-    protected $table = 'roles';
+    use Node;
+
+    protected $table = 'gates';
 
     protected $guarded = [
         'id',
+    ];
+
+    protected $hidden = [
+        'lft', 'rgt', 'parent_id'
+    ];
+
+    protected $relationships = [
+        'parent', 'childs'
     ];
 
     protected $attributes = [
@@ -26,12 +37,7 @@ class Role extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'role_id');
-    }
-
-    public function policies()
-    {
-        return $this->belongsToMany(Policy::class, 'role_to_policy', 'role_id', 'policy_id');
+        return $this->hasMany(User::class, 'gate_id');
     }
 
 }

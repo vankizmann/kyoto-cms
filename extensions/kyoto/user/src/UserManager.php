@@ -8,7 +8,7 @@ class UserManager
 {
     public $activeUser = null;
 
-    protected $guardState = false;
+    protected $guardState = true;
 
     public function isGuarded()
     {
@@ -50,12 +50,15 @@ class UserManager
         return $result;
     }
 
-    public function getUser($attribute = null, $fallback = null)
+    public function getUser($key = null, $fallback = null)
     {
         $user = $this->activeUser ?: Auth::user();
 
-        return $attribute === null ? $user :
-            data_get($user, $attribute, $fallback);
+        if ( $key === null ) {
+            return $user;
+        }
+
+        return data_get($user, $key, $fallback);
     }
 
     public function setUser($user)
@@ -63,21 +66,9 @@ class UserManager
         $this->activeUser = $user;
     }
 
-    public function getPolicyDepth($class, $fallback = 10000)
+    public function getGateDepth($fallback = 100000)
     {
-        if ( ! $this->getUser() ) {
-            return $this->getUser()->getPolicyDepth($class);
-        }
-
-        return $fallback;
-    }
-
-    public function canPolicyDepth($model)
-    {
-        $className = get_class($model);
-
-        return $model->guard >= $this->getPolicyDepth($className) ||
-            $model->guard === 0;
+        return $this->getUser('gate.depth', $fallback);
     }
 
     public function hasPolicyAction($class, $action, $fallback = false)

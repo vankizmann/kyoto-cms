@@ -24,8 +24,6 @@
 </head>
 <body>
 
-{!! dump($errors) !!}
-{!! dump(request()->input('email')) !!}
 @if(session()->has('success'))
     <h1>{{ session()->get('success') }}</h1>
 @endif

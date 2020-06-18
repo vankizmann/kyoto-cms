@@ -13,16 +13,24 @@ trait ActionGuarded
     /**
      * @var bool $useGuard
      */
-    protected $useActionGuard = true;
+    protected $useActionGuard;
 
     public static function bootActionGuarded()
     {
+        if ( ! app('kyoto')->isReady() ) {
+            return;
+        }
+
         static::observe(new GuardObserver);
     }
 
     public function getUseActionGuard()
     {
-        return app('kyoto.user')->isGuarded() && $this->useActionGuard;
+        if ( ! isset($this->useActionGuard) ) {
+            return app('kyoto.user')->isGuarded();
+        }
+
+        return $this->useActionGuard;
     }
 
     public function disableActionGuard()

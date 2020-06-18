@@ -6,14 +6,9 @@ use App\Http\Controllers\Controller;
 
 class ConnectorController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['guarded']);
-    }
-
     public function admin()
     {
-        return view('kyoto/backend::admin');
+        return view('kyoto/backend::default');
     }
 
 }

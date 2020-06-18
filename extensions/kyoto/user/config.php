@@ -14,6 +14,7 @@ return [
         PolicyTableSeeder::class,
         UserTableSeeder::class,
         RoleTableSeeder::class,
+        GateTableSeeder::class,
     ],
 
     'providers' => [

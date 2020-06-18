@@ -4,7 +4,7 @@ return [
 
     'name'          => 'kyoto/backend',
     'version'       => '1.0.0',
-    'type'          => 'theme',
+    'type'          => 'admin',
 
     'autoload' => [
         'Kyoto\\Backend\\' => 'src/'

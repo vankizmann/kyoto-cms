@@ -1,29 +1,28 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Kyoto\User\Models\Policy;
-use Kyoto\User\Models\Role;
+use Kyoto\User\Models\Gate;
 use Kyoto\User\Models\User;
 
-class RoleTableSeeder extends Seeder
+class GateTableSeeder extends Seeder
 {
 
     public function run()
     {
-        $admin = Role::create([
+        $admin = Gate::create([
             'id'          => uuid(),
             'title'       => 'Administrator',
             'description' => 'A description for administrator',
         ]);
 
-        $admin->policies()->attach(Policy::all());
-
         $admin->users()->save(User::first());
 
-        $manager = Role::create([
+
+        $manager = Gate::create([
             'id'          => uuid(),
             'title'       => 'Manager',
             'description' => 'A description for manager',
+            'parent'      => $admin
         ]);
     }
 

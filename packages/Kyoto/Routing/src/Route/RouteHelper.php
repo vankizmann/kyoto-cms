@@ -85,9 +85,15 @@ class RouteHelper
         return $route;
     }
 
-    public static function getRoute($route)
+    public static function getRoute($route, $locale = true)
     {
-        return self::replaceAll(self::extractRoute($route));
+        $replace = '/^https?:\/\/[^\/]+/';
+
+        if ( ! $locale ) {
+            $replace = '/^https?:\/\/[^\/]+(\/[^\/]{2})?/';
+        }
+
+        return preg_replace($replace, '', self::replaceAll($route));
     }
 
     public static function replaceAll($route, $protocol = null, $domain = null, $locale = null)

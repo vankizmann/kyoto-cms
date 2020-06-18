@@ -7,10 +7,11 @@ use Kyoto\Routing\Route\RouteHelper;
 use Kyoto\Support\Database\Traits\Translatable;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
+use Kyoto\User\Database\Traits\DepthGuarded;
 
 class Menu extends \Kyoto\Support\Database\Model
 {
-    use Node, State, Hide, Translatable;
+    use Node, State, Hide, Translatable, DepthGuarded;
 
     protected $table = 'menus';
 
@@ -73,6 +74,18 @@ class Menu extends \Kyoto\Support\Database\Model
         });
 
         parent::boot();
+    }
+
+    public function getDomain()
+    {
+        return $this->getAncestorsAndSelf()
+            ->where('type', 'kyoto/menu::domain')->first();
+    }
+
+    public function getLogin()
+    {
+        return $this->getDescendants()
+            ->where('type', 'kyoto/user::login')->first();
     }
 
     public function getParentAttribute()

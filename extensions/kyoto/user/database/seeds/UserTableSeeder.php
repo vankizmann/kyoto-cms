@@ -13,8 +13,7 @@ class UserTableSeeder extends Seeder
             'state'    => 1,
             'name'     => env('KYO_USERNAME', 'admin'),
             'email'    => env('KYO_EMAIL', 'admin@email.com'),
-            'password' => env('KYO_PASSWORD', 'password'),
-            'guard'    => 1
+            'password' => env('KYO_PASSWORD', 'password')
         ]);
     }
 
