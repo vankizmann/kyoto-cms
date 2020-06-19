@@ -17,24 +17,8 @@ class MenuRouter implements RouterInterface
 
         $menu = app('kyoto.menu')->getMenuByUrl();
 
-        $login = app('kyoto.user')->unguarded(function () {
-
-            $baseMenu = app('kyoto.menu')->getMenuByUrl();
-
-            if ( ! $baseMenu ) {
-                return null;
-            }
-
-            return $baseMenu->getLogin();
-        });
-
-        if ( $login && ! $menu ) {
-            header('Location: ' . url($login->path));
-            exit;
-        }
-
         if ( ! $menu ) {
-            return $login ?  : null;
+            return $this->notFound();
         }
 
         app('kyoto')->setMenu($menu);
@@ -53,6 +37,26 @@ class MenuRouter implements RouterInterface
         }
 
         return $route->any($url->getPath(), $options);
+    }
+
+    public function notFound()
+    {
+        $login = app('kyoto.user')->unguarded(function () {
+
+            $baseMenu = app('kyoto.menu')->getMenuByUrl();
+
+            if ( ! $baseMenu ) {
+                return null;
+            }
+
+            return $baseMenu->getLogin();
+        });
+
+        if ( ! $login ) {
+            return null;
+        }
+
+        abort(200, '', ['Location' => url($login->path)]);
     }
 
 }

@@ -2,6 +2,8 @@
 
 namespace Kyoto\Backend;
 
+use Kyoto\Routing\Route\RouteHelper;
+
 class BackendManager {
 
     public $scripts = [
@@ -53,12 +55,13 @@ class BackendManager {
 
     public function basePath()
     {
-        return app('kyoto')->getMenu('route');
+        return RouteHelper::getRoute(app('kyoto')->getMenu('path'));
     }
 
     public function backendRoutes()
     {
-        return app('kyoto')->getMenu()->getDescendants()->toHierarchy()->toArray();
+        return app('kyoto')->getMenu()->getDescendants()
+            ->toHierarchy()->toArray();
     }
 
 }

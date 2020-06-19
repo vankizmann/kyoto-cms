@@ -76,15 +76,9 @@ class Menu extends \Kyoto\Support\Database\Model
         parent::boot();
     }
 
-    public function getDomain()
-    {
-        return $this->getAncestorsAndSelf()
-            ->where('type', 'kyoto/menu::domain')->first();
-    }
-
     public function getLogin()
     {
-        return $this->getDescendants()
+        return $this->getRoot()->getDescendants()
             ->where('type', 'kyoto/user::login')->first();
     }
 
@@ -113,7 +107,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     public function getRouteAttribute()
     {
-        return RouteHelper::getRoute($this->path);
+        return str_replace($this->getRoot()->path, '', $this->path);
     }
 
     public function getLayoutAttribute()

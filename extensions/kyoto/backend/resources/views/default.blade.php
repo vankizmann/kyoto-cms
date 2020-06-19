@@ -42,7 +42,7 @@
 <body>
 
     <div id="app" data-root="true">
-        Loading...
+        <kyo-backend>Loading...</kyo-backend>
     </div>
 
 </body>

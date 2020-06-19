@@ -44,18 +44,32 @@ require('./config/axios');
 import KyoBackend from "./backend";
 Vue.component(KyoBackend.name, KyoBackend);
 
-window.Routes = [
-    // {
-    //     path: '/', name: 'home', redirect: window.userRedirect
-    // }
-];
+import KyoDashboard from "./pages/dashboard/dashboard";
+Vue.component(KyoDashboard.name, KyoDashboard);
 
 Nano.Dom.ready(() => {
 
-    console.log(window.backendRoutes);
+    let routes =[];
+
+    Nano.Arr.each(window.backendRoutes, (menu) => {
+
+        if ( ! menu.option.component ) {
+            return;
+        }
+
+        let data = {
+            name: menu.option.component, path: menu.route
+        };
+
+        if ( menu.option.component ) {
+            data.component = Vue.component(menu.option.component);
+        }
+
+        routes.push(data);
+    });
 
     let router = new VueRouter({
-        base: window.basePath, mode: 'history', routes: window.Routes
+        base: window.basePath, mode: 'history', routes
     });
 
     window.App = new Vue({ router }).$mount('#app');
