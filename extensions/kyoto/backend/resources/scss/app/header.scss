@@ -1,22 +1,19 @@
 @import "~nano-ui/src/root/vars";
 
-.kyo-header {
-    //
-}
-
-.kyo-header__top {
-    padding: 10px 20px;
-    border-bottom: 1px solid $--color-gray-05;
-}
-
-.kyo-header__top > .grid > * {
-    height: 38px;
-}
-
-.kyo-header__bot {
-    padding: 10px 20px;
-}
-
-.kyo-header__bot > .grid > * {
+.kyo-header > .grid > * {
     height: 54px;
+}
+
+.kyo-logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.kyo-logo img {
+    display: block;
+    width: 40px;
+    height: auto;
 }

@@ -106,16 +106,3 @@ th {
     min-height: 0 !important;
     flex: 1 1 auto !important;
 }
-
-.n-button.n-button--secondary:not(.n-button--link) {
-    color: $color-primary;
-    background: rgba($color-gray-50, 0.15);
-    border-width: 0;
-    transition: background $transition-medium;
-}
-
-.n-button.n-button--secondary:not(.n-button--link):hover,
-.n-button.n-button--secondary:not(.n-button--link):focus {
-    color: $--color-black;
-    background: rgba($color-gray-50, 0.25);
-}

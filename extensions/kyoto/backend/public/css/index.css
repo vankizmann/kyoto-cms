@@ -900,7 +900,7 @@ textarea,
 }
 @charset "UTF-8";
 /*!
- * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -1455,14 +1455,6 @@ readers do not read off random characters that represent icons */
 
 .fa-bacon:before {
   content: "\F7E5";
-}
-
-.fa-bacteria:before {
-  content: "\F959";
-}
-
-.fa-bacterium:before {
-  content: "\F95A";
 }
 
 .fa-bahai:before {
@@ -2501,10 +2493,6 @@ readers do not read off random characters that represent icons */
   content: "\F2A4";
 }
 
-.fa-deezer:before {
-  content: "\F977";
-}
-
 .fa-delicious:before {
   content: "\F1A5";
 }
@@ -2747,10 +2735,6 @@ readers do not read off random characters that represent icons */
 
 .fa-edge:before {
   content: "\F282";
-}
-
-.fa-edge-legacy:before {
-  content: "\F978";
 }
 
 .fa-edit:before {
@@ -3407,10 +3391,6 @@ readers do not read off random characters that represent icons */
 
 .fa-google-drive:before {
   content: "\F3AA";
-}
-
-.fa-google-pay:before {
-  content: "\F979";
 }
 
 .fa-google-play:before {
@@ -5309,10 +5289,6 @@ readers do not read off random characters that represent icons */
   content: "\F156";
 }
 
-.fa-rust:before {
-  content: "\F97A";
-}
-
 .fa-sad-cry:before {
   content: "\F5B3";
 }
@@ -5519,10 +5495,6 @@ readers do not read off random characters that represent icons */
 
 .fa-simplybuilt:before {
   content: "\F215";
-}
-
-.fa-sink:before {
-  content: "\F96D";
 }
 
 .fa-sistrix:before {
@@ -6173,10 +6145,6 @@ readers do not read off random characters that represent icons */
   content: "\F3FF";
 }
 
-.fa-tiktok:before {
-  content: "\F97B";
-}
-
 .fa-times:before {
   content: "\F00D";
 }
@@ -6425,10 +6393,6 @@ readers do not read off random characters that represent icons */
   content: "\F13E";
 }
 
-.fa-unsplash:before {
-  content: "\F97C";
-}
-
 .fa-untappd:before {
   content: "\F405";
 }
@@ -6547,10 +6511,6 @@ readers do not read off random characters that represent icons */
 
 .fa-users-cog:before {
   content: "\F509";
-}
-
-.fa-users-slash:before {
-  content: "\F973";
 }
 
 .fa-usps:before {
@@ -6934,7 +6894,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -6952,7 +6912,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -7019,11 +6979,11 @@ readers do not read off random characters that represent icons */
 }
 
 .n-chart__wrapper .n-grid-x polyline {
-  stroke: #f3f4f5;
+  stroke: #eff1f4;
 }
 
 .n-chart__wrapper .n-grid-y polyline {
-  stroke: #f3f4f5;
+  stroke: #eff1f4;
 }
 
 .n-chart__wrapper .n-grid-dots circle {
@@ -7098,8 +7058,8 @@ readers do not read off random characters that represent icons */
   background: #ffffff;
   border-radius: 6px;
   transition: transform 0.6s;
-  border: 1px solid #e6e8ec;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.05);
+  border: 1px solid #e3e5e9;
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.05);
 }
 
 .n-notification__wrapper.n-notification__wrapper--top-start .n-notification:not(.n-notification--active),
@@ -7271,7 +7231,7 @@ readers do not read off random characters that represent icons */
   left: 1px;
   right: 1px;
   display: block;
-  background: rgba(132, 142, 158, 0.4);
+  background: rgba(135, 139, 146, 0.4);
   border-radius: 500px;
 }
 
@@ -7289,7 +7249,7 @@ readers do not read off random characters that represent icons */
   position: absolute;
   width: 5px;
   height: 100%;
-  background: rgba(132, 142, 158, 0.5);
+  background: rgba(135, 139, 146, 0.5);
   opacity: 0;
   transition: opacity 200ms;
 }
@@ -7340,7 +7300,7 @@ readers do not read off random characters that represent icons */
   height: 60%;
   max-height: 12px;
   transform: translateY(-50%);
-  background: linear-gradient(30deg, rgba(132, 142, 158, 0.2) 0%, rgba(132, 142, 158, 0.1) 50%, rgba(132, 142, 158, 0.2) 100%);
+  background: linear-gradient(30deg, rgba(135, 139, 146, 0.2) 0%, rgba(135, 139, 146, 0.1) 50%, rgba(135, 139, 146, 0.2) 100%);
   background-size: 400% 400%;
   -webkit-animation: VirtualGhostElement 2s linear infinite;
           animation: VirtualGhostElement 2s linear infinite;
@@ -7400,7 +7360,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-draggable .n-draggable__empty span {
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-draggable.n-dragover > .n-draggable__empty {
@@ -7508,11 +7468,11 @@ readers do not read off random characters that represent icons */
 }
 
 .n-draggable-item__expand > div {
-  color: #5f6c80;
+  color: #656871;
 }
 
 .n-inverse .n-draggable-item__expand > div {
-  color: #a9b0bb;
+  color: #aaadb3;
 }
 
 .n-draggable-item:not(.n-expanded) .n-draggable-item__expand > div {
@@ -7619,7 +7579,7 @@ readers do not read off random characters that represent icons */
   flex: 0 1 auto;
   margin-right: auto;
   font-size: 17px;
-  color: #101727;
+  color: #111721;
   transition: color 0.15s;
 }
 
@@ -7670,12 +7630,12 @@ readers do not read off random characters that represent icons */
 }
 
 .n-form-item__label label {
-  color: #6b778a;
+  color: #70747c;
   font-size: 14px;
 }
 
 .n-inverse .n-form-item__label label {
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 .n-form-item__error {
@@ -7706,9 +7666,9 @@ readers do not read off random characters that represent icons */
 .n-button:not(.n-button--link) {
   padding: 0 19px;
   height: 38px;
-  background: #e6e8ec;
+  background: #e3e5e9;
   font-size: 14px;
-  border: 1px solid #e6e8ec;
+  border: 1px solid #e3e5e9;
   border-radius: 6px;
   transition: 0.15s background, 0.15s border, 0.15s color;
 }
@@ -7726,8 +7686,8 @@ readers do not read off random characters that represent icons */
 
 .n-button:not(.n-button--link):hover,
 .n-button:not(.n-button--link):focus {
-  background: #dadde2;
-  border-color: #dadde2;
+  background: #d8dade;
+  border-color: #d8dade;
 }
 
 .n-disabled .n-button {
@@ -7745,6 +7705,7 @@ readers do not read off random characters that represent icons */
 
 .n-button.n-button--icon span:first-child:last-child {
   margin-right: 0;
+  margin-left: 0;
 }
 
 .n-button.n-button--mini:not(.n-button--link) {
@@ -7796,7 +7757,7 @@ readers do not read off random characters that represent icons */
  * Input
  */
 .n-button.n-button--input {
-  color: #9da5b1;
+  color: #9ea1a8;
   background: transparent;
   border-color: transparent;
 }
@@ -7817,7 +7778,7 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-button.n-button--input:hover,
 .n-disabled .n-button.n-button--input:focus,
 .n-disabled .n-button.n-button--input:active {
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 /**
@@ -7890,7 +7851,7 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-button.n-button--link,
 .n-disabled .n-button.n-button--link:hover,
 .n-disabled .n-button.n-button--link:focus {
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 /**
@@ -7947,9 +7908,9 @@ readers do not read off random characters that represent icons */
  * Button secondary
  */
 .n-button.n-button--secondary:not(.n-button--link) {
-  color: #101727;
+  color: #111721;
   background: transparent;
-  border-color: #dadde2;
+  border-color: #d8dade;
 }
 
 .n-button.n-button--secondary:not(.n-button--link):hover,
@@ -7967,18 +7928,18 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-button.n-button--secondary:not(.n-button--link),
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):focus {
-  color: #101727;
+  color: #111721;
   background: transparent;
-  border-color: #dadde2;
+  border-color: #d8dade;
 }
 
 /**
  * Button secondary plain
  */
 .n-button.n-button--plain.n-button--secondary:not(.n-button--link) {
-  color: #101727;
+  color: #111721;
   background: transparent;
-  border-color: rgba(132, 142, 158, 0.25);
+  border-color: rgba(135, 139, 146, 0.25);
 }
 
 .n-button.n-button--plain.n-button--secondary:not(.n-button--link):hover,
@@ -7992,9 +7953,9 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-button.n-button--plain.n-button--secondary:not(.n-button--link),
 .n-disabled .n-button.n-button--plain.n-button--secondary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--plain.n-button--secondary:not(.n-button--link):focus {
-  color: #101727;
-  background: rgba(132, 142, 158, 0.25);
-  border-color: rgba(132, 142, 158, 0.25);
+  color: #111721;
+  background: rgba(135, 139, 146, 0.25);
+  border-color: rgba(135, 139, 146, 0.25);
 }
 
 /**
@@ -8262,8 +8223,8 @@ readers do not read off random characters that represent icons */
   height: 38px;
   background: #ffffff;
   font-size: 14px;
-  color: #101727;
-  border: 1px solid #dadde2;
+  color: #111721;
+  border: 1px solid #d8dade;
   border-radius: 6px;
   transition: 0.15s border;
 }
@@ -8280,12 +8241,12 @@ readers do not read off random characters that represent icons */
 
 .n-disabled .n-input {
   cursor: not-allowed;
-  background: #f3f4f5;
+  background: #eff1f4;
 }
 
 .n-disabled .n-input:hover,
 .n-disabled .n-input:focus {
-  border-color: #dadde2;
+  border-color: #d8dade;
 }
 
 .n-input__wrapper.n-input--small .n-input {
@@ -8358,7 +8319,7 @@ readers do not read off random characters that represent icons */
   min-height: 34px;
   background: #ffffff;
   font-size: 14px;
-  border: 1px solid #dadde2;
+  border: 1px solid #d8dade;
   border-radius: 6px;
   transition: 0.15s border;
 }
@@ -8370,12 +8331,12 @@ readers do not read off random characters that represent icons */
 
 .n-disabled .n-textarea {
   cursor: not-allowed;
-  background: #f3f4f5;
+  background: #eff1f4;
 }
 
 .n-disabled .n-textarea:hover,
 .n-disabled .n-textarea:focus {
-  border: 1px solid #dadde2;
+  border: 1px solid #d8dade;
 }
 
 .n-textarea.n-textarea--small {
@@ -8402,7 +8363,7 @@ readers do not read off random characters that represent icons */
   width: 40px;
   height: 20px;
   border-radius: 6px;
-  background: #dadde2;
+  background: #d8dade;
   transition: background 400ms ease;
 }
 
@@ -8525,11 +8486,11 @@ readers do not read off random characters that represent icons */
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #dadde2;
+  border: 1px solid #d8dade;
   border-radius: 6px;
   width: 15px;
   height: 15px;
-  color: #848e9e;
+  color: #878b92;
   font-size: 10px;
   background: #ffffff;
 }
@@ -8540,8 +8501,8 @@ readers do not read off random characters that represent icons */
 
 .n-checkbox.n-disabled .n-checkbox__checkbox {
   cursor: not-allowed;
-  background: #f3f4f5;
-  border-color: #dadde2;
+  background: #eff1f4;
+  border-color: #d8dade;
 }
 
 .n-checkbox.n-checkbox--small .n-checkbox__checkbox {
@@ -8580,7 +8541,7 @@ readers do not read off random characters that represent icons */
   overflow: hidden;
   padding-left: 7.5px;
   padding-right: 7.5px;
-  color: #101727;
+  color: #111721;
   text-overflow: ellipsis;
   transition: color 0.12s;
 }
@@ -8595,7 +8556,7 @@ readers do not read off random characters that represent icons */
 
 .n-checkbox.n-disabled .n-checkbox__label {
   cursor: not-allowed;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-checkbox-group {
@@ -8652,7 +8613,7 @@ readers do not read off random characters that represent icons */
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #dadde2;
+  border: 1px solid #d8dade;
   border-radius: 500px;
   width: 16px;
   height: 16px;
@@ -8666,8 +8627,8 @@ readers do not read off random characters that represent icons */
 
 .n-radio.n-disabled .n-radio__radio {
   cursor: not-allowed;
-  background: #f3f4f5;
-  border-color: #dadde2;
+  background: #eff1f4;
+  border-color: #d8dade;
 }
 
 .n-radio.n-radio--small .n-radio__radio {
@@ -8725,7 +8686,7 @@ readers do not read off random characters that represent icons */
   overflow: hidden;
   padding-left: 8px;
   padding-right: 8px;
-  color: #101727;
+  color: #111721;
   text-overflow: ellipsis;
   transition: color 0.12s;
 }
@@ -8740,7 +8701,7 @@ readers do not read off random characters that represent icons */
 
 .n-radio.n-disabled .n-radio__label {
   cursor: not-allowed;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-radio-group {
@@ -8777,8 +8738,8 @@ readers do not read off random characters that represent icons */
   flex-direction: row;
   align-items: center;
   background: #ffffff;
-  color: #101727;
-  border: 1px solid #dadde2;
+  color: #111721;
+  border: 1px solid #d8dade;
   border-radius: 4px;
   transition: 0.15s border;
 }
@@ -8809,8 +8770,8 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-select,
 .n-disabled .n-select:hover {
   cursor: not-allowed;
-  background: #f3f4f5;
-  border-color: #dadde2;
+  background: #eff1f4;
+  border-color: #d8dade;
 }
 
 .n-select__label {
@@ -8834,7 +8795,7 @@ readers do not read off random characters that represent icons */
   width: 0;
   border: 0;
   background: transparent;
-  color: #101727;
+  color: #111721;
 }
 
 .n-select.n-select--disabled .n-select__input {
@@ -8908,23 +8869,23 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   width: 19px;
   height: 19px;
-  color: #848e9e;
+  color: #878b92;
   font-size: 9.31px;
-  background: #e6e8ec;
+  background: #e3e5e9;
   border-radius: 500px;
   transition: color 0.3s, background 0.3s;
   margin: 0 8px 0 0;
 }
 
 .n-select__clear:hover {
-  color: #3a4a63;
-  background: #dadde2;
+  color: #424651;
+  background: #d8dade;
 }
 
 .n-select__angle {
   padding-left: 6px;
   margin-left: auto;
-  color: #9da5b1;
+  color: #9ea1a8;
   transform-style: preserve-3d;
   transition: transform 0.6s;
 }
@@ -8939,7 +8900,7 @@ readers do not read off random characters that represent icons */
   text-overflow: ellipsis;
   padding: 6px 12px;
   text-align: center;
-  color: #6b778a;
+  color: #70747c;
 }
 
 .n-select-option {
@@ -8951,11 +8912,11 @@ readers do not read off random characters that represent icons */
 
 .n-select-option.n-select-option--disabled {
   cursor: not-allowed;
-  color: #b5bbc5;
+  color: #b5b8be;
 }
 
 .n-select-option:hover {
-  background: rgba(132, 142, 158, 0.15);
+  background: rgba(135, 139, 146, 0.15);
 }
 
 .n-select-option.n-select-option--current {
@@ -8992,7 +8953,7 @@ readers do not read off random characters that represent icons */
 
 .n-cascader__items:not(:last-child) {
   box-sizing: content-box;
-  border-right: 1px solid #e6e8ec;
+  border-right: 1px solid #e3e5e9;
 }
 
 .n-cascader__items .n-scrollbar-content {
@@ -9007,8 +8968,8 @@ readers do not read off random characters that represent icons */
   flex-direction: row;
   align-items: center;
   background: #ffffff;
-  color: #101727;
-  border: 1px solid #dadde2;
+  color: #111721;
+  border: 1px solid #d8dade;
   border-radius: 4px;
   transition: 0.15s border;
 }
@@ -9038,9 +8999,9 @@ readers do not read off random characters that represent icons */
 
 .n-disabled .n-cascader {
   cursor: not-allowed;
-  background: #f3f4f5;
-  border-color: #dadde2;
-  color: #848e9e;
+  background: #eff1f4;
+  border-color: #d8dade;
+  color: #878b92;
 }
 
 .n-cascader__label {
@@ -9054,7 +9015,7 @@ readers do not read off random characters that represent icons */
 .n-cascader__placeholder {
   flex: 0 1 auto;
   display: inline-block;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-cascader__item {
@@ -9064,7 +9025,7 @@ readers do not read off random characters that represent icons */
 .n-cascader__item:after {
   content: "/";
   margin: 0 8px;
-  color: #ced2d8;
+  color: #cccfd3;
 }
 
 .n-cascader__item:last-child:after {
@@ -9078,23 +9039,23 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   width: 17px;
   height: 17px;
-  color: #848e9e;
+  color: #878b92;
   font-size: 9.31px;
-  background: #e6e8ec;
+  background: #e3e5e9;
   border-radius: 500px;
   transition: color 0.3s, background 0.3s;
   margin: 0 8px 0 0;
 }
 
 .n-cascader__clear:hover {
-  color: #3a4a63;
-  background: #dadde2;
+  color: #424651;
+  background: #d8dade;
 }
 
 .n-cascader__angle {
   padding-left: 6px;
   margin-left: auto;
-  color: #9da5b1;
+  color: #9ea1a8;
   transform-style: preserve-3d;
   transition: transform 0.6s;
 }
@@ -9109,7 +9070,7 @@ readers do not read off random characters that represent icons */
   text-overflow: ellipsis;
   padding: 6px 12px;
   text-align: center;
-  color: #6b778a;
+  color: #70747c;
 }
 
 .n-cascader__options {
@@ -9117,7 +9078,7 @@ readers do not read off random characters that represent icons */
   display: flex;
   flex-direction: column;
   width: 200px;
-  border-left: 1px solid #e6e8ec;
+  border-left: 1px solid #e3e5e9;
 }
 
 .n-cascader__options:first-child {
@@ -9149,14 +9110,14 @@ readers do not read off random characters that represent icons */
 
 .n-cascader-option__arrow span {
   font-size: 12.25px;
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 .n-datepicker__wrapper {
   position: relative;
   display: inline-flex;
   width: 100%;
-  color: #101727;
+  color: #111721;
 }
 
 .n-datepicker {
@@ -9167,8 +9128,8 @@ readers do not read off random characters that represent icons */
   flex-direction: row;
   align-items: center;
   background: #ffffff;
-  color: #101727;
-  border: 1px solid #dadde2;
+  color: #111721;
+  border: 1px solid #d8dade;
   border-radius: 6px;
   transition: 0.15s border;
 }
@@ -9211,8 +9172,8 @@ readers do not read off random characters that represent icons */
 .n-datepicker.n-disabled,
 .n-datepicker.n-disabled:hover {
   cursor: not-allowed;
-  background: #f3f4f5;
-  border-color: #dadde2;
+  background: #eff1f4;
+  border-color: #d8dade;
 }
 
 .n-datepicker__yearview,
@@ -9228,12 +9189,12 @@ readers do not read off random characters that represent icons */
 
 .n-datepicker__icon {
   flex: 0 0 auto;
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 .n-datepicker__seperator {
   flex: 0 0 auto;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-datepicker__input {
@@ -9246,7 +9207,7 @@ readers do not read off random characters that represent icons */
   width: 100%;
   border: 0;
   background: transparent;
-  color: #101727;
+  color: #111721;
   padding: 0 10.2px;
 }
 
@@ -9266,7 +9227,7 @@ readers do not read off random characters that represent icons */
   display: flex;
   flex-direction: row;
   padding: 10px;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-datepicker__toolbar {
@@ -9299,7 +9260,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-datepicker__display .n-datepicker__month:hover {
-  background: #e6e8ec;
+  background: #e3e5e9;
 }
 
 .n-datepicker__display .n-datepicker__year {
@@ -9310,7 +9271,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-datepicker__display .n-datepicker__year:hover {
-  background: #e6e8ec;
+  background: #e3e5e9;
 }
 
 .n-datepicker__dateview .n-datepicker__legend {
@@ -9326,7 +9287,7 @@ readers do not read off random characters that represent icons */
 .n-datepicker__footer {
   padding: 7.8px 12px;
   text-align: right;
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid #e3e5e9;
 }
 
 .n-datepicker__dateview .n-datepicker__panels {
@@ -9376,11 +9337,11 @@ readers do not read off random characters that represent icons */
   width: 32px;
   height: 32px;
   border-radius: 500px;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day:hover span {
-  background: #e6e8ec;
+  background: #e3e5e9;
 }
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-today span {
@@ -9388,13 +9349,13 @@ readers do not read off random characters that represent icons */
 }
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-current span {
-  color: #101727;
+  color: #111721;
 }
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-arrive span,
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-depart span,
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-between span {
-  background: #e6e8ec;
+  background: #e3e5e9;
 }
 
 .n-datepicker__body .n-datepicker__week .n-datepicker__day.n-selected span {
@@ -9464,7 +9425,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-datepicker__body .n-datepicker__year .n-datepicker__month:hover span {
-  background: #e6e8ec;
+  background: #e3e5e9;
 }
 
 .n-datepicker__body .n-datepicker__year .n-datepicker__month.n-current span {
@@ -9500,7 +9461,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-datepicker__body .n-datepicker__decade .n-datepicker__year:hover span {
-  background: #e6e8ec;
+  background: #e3e5e9;
 }
 
 .n-datepicker__body .n-datepicker__decade .n-datepicker__year.n-current span {
@@ -9516,7 +9477,7 @@ readers do not read off random characters that represent icons */
   position: relative;
   display: inline-flex;
   width: 100%;
-  color: #101727;
+  color: #111721;
 }
 
 .n-popover.n-popover--timepicker {
@@ -9534,8 +9495,8 @@ readers do not read off random characters that represent icons */
   flex-direction: row;
   align-items: center;
   background: #ffffff;
-  color: #101727;
-  border: 1px solid #dadde2;
+  color: #111721;
+  border: 1px solid #d8dade;
   border-radius: 4px;
   transition: 0.15s border;
 }
@@ -9566,8 +9527,8 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-timepicker,
 .n-disabled .n-timepicker:hover {
   cursor: not-allowed;
-  background: #f3f4f5;
-  border-color: #dadde2;
+  background: #eff1f4;
+  border-color: #d8dade;
 }
 
 .n-timepicker .n-button__wrapper {
@@ -9578,12 +9539,12 @@ readers do not read off random characters that represent icons */
 
 .n-timepicker__icon {
   flex: 0 0 auto;
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 .n-timepicker__seperator {
   flex: 0 0 auto;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-timepicker__input {
@@ -9596,7 +9557,7 @@ readers do not read off random characters that represent icons */
   width: 100%;
   border: 0;
   background: transparent;
-  color: #101727;
+  color: #111721;
   padding: 0 10.2px;
 }
 
@@ -9608,7 +9569,7 @@ readers do not read off random characters that represent icons */
   display: flex;
   flex-direction: row;
   padding: 10px;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-timepicker__toolbar {
@@ -9638,7 +9599,7 @@ readers do not read off random characters that represent icons */
 .n-timepicker__footer {
   padding: 10px;
   text-align: right;
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid #e3e5e9;
 }
 
 .n-timepicker__panel {
@@ -9653,7 +9614,7 @@ readers do not read off random characters that represent icons */
 
 .n-timepicker__panel:not(:last-child) {
   box-sizing: content-box;
-  border-right: 1px solid #e6e8ec;
+  border-right: 1px solid #e3e5e9;
 }
 
 .n-timepicker__panel .n-timepicker__item {
@@ -9670,7 +9631,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-timepicker__panel .n-timepicker__item:hover span {
-  background: #F4F6FA;
+  background: #FAFCFF;
 }
 
 .n-timepicker__panel .n-timepicker__item.n-active span {
@@ -9714,7 +9675,7 @@ readers do not read off random characters that represent icons */
   flex-direction: column;
   width: 50%;
   height: 400px;
-  border: 1px solid #e6e8ec;
+  border: 1px solid #e3e5e9;
   border-radius: 6px;
 }
 
@@ -9728,7 +9689,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-inverse .n-transfer__pane {
-  border-color: #223450;
+  border-color: #2b303b;
 }
 
 .n-transfer__header {
@@ -9739,11 +9700,11 @@ readers do not read off random characters that represent icons */
   width: 100%;
   min-height: 48px;
   padding: 8px 14px;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-inverse .n-transfer__header {
-  border-bottom-color: #223450;
+  border-bottom-color: #2b303b;
 }
 
 .n-transfer__header .n-transfer__title {
@@ -9753,11 +9714,11 @@ readers do not read off random characters that represent icons */
 .n-transfer__search {
   flex: 0 0 auto;
   width: 100%;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-inverse .n-transfer__search {
-  border-bottom-color: #223450;
+  border-bottom-color: #2b303b;
 }
 
 .n-transfer__search .n-input {
@@ -9780,7 +9741,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-transfer__item-title {
-  color: #101727;
+  color: #111721;
   margin-left: 15px;
 }
 
@@ -9789,7 +9750,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-transfer__item-count {
-  color: #6b778a;
+  color: #70747c;
   margin-left: 8px;
 }
 
@@ -9802,7 +9763,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-inverse .n-transfer__item-count {
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 .n-file__wrapper {
@@ -9879,43 +9840,43 @@ readers do not read off random characters that represent icons */
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--select > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--cascader > .n-popover__frame {
   font-size: 13px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--datepicker > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--timepicker > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--tooltip > .n-popover__frame {
   color: #ffffff;
   font-size: 12px;
-  background: rgba(16, 23, 39, 0.85);
+  background: rgba(17, 23, 33, 0.85);
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover__header {
@@ -9925,7 +9886,7 @@ readers do not read off random characters that represent icons */
 .n-popover.n-popover--default > .n-popover__frame > .n-popover__header,
 .n-popover.n-popover--filter > .n-popover__frame > .n-popover__header {
   padding: 9px 12px;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-popover.n-popover--select > .n-popover__frame > .n-popover__header {
@@ -9973,12 +9934,12 @@ readers do not read off random characters that represent icons */
 .n-popover.n-popover--default > .n-popover__frame > .n-popover__footer,
 .n-popover.n-popover--filter > .n-popover__frame > .n-popover__footer {
   padding: 9px 12px;
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid #e3e5e9;
 }
 
 .n-popover.n-popover--select > .n-popover__frame > .n-popover__footer {
   padding: 0;
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid #e3e5e9;
 }
 
 .n-popover.n-popover--tooltip > .n-popover__frame > .n-popover__footer {
@@ -10016,7 +9977,7 @@ readers do not read off random characters that represent icons */
 
 .n-popover-option:not(.n-button__wrapper):hover,
 .n-popover-option.n-button__wrapper:hover > .n-button.n-button--link {
-  background: rgba(132, 142, 158, 0.1);
+  background: rgba(135, 139, 146, 0.1);
 }
 
 .n-popover-option:not(.n-button__wrapper).n-disabled,
@@ -10065,7 +10026,7 @@ body.n-open {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(16, 23, 39, 0.8);
+  background: rgba(17, 23, 33, 0.8);
 }
 
 .n-modal__frame {
@@ -10081,11 +10042,11 @@ body.n-open {
   margin: auto;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(16, 23, 39, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
 .n-inverse .n-modal__frame {
-  background: #101727;
+  background: #111721;
 }
 
 .n-modal--center-center > .n-modal__frame {
@@ -10147,7 +10108,7 @@ body.n-open {
 
 .n-modal.n-modal--default .n-modal__header {
   padding: 14px 22px;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-modal.n-modal--closable .n-modal__header {
@@ -10177,7 +10138,7 @@ body.n-open {
 
 .n-modal.n-modal--default .n-modal__footer {
   padding: 14px 22px;
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid #e3e5e9;
 }
 
 .n-modal__close {
@@ -10195,12 +10156,12 @@ body.n-open {
 
 .n-modal__close span {
   font-size: 18px;
-  color: #b5bbc5;
+  color: #b5b8be;
   transition: color 0.15s;
 }
 
 .n-modal__close:hover span {
-  color: #9da5b1;
+  color: #9ea1a8;
 }
 
 .n-confirm {
@@ -10281,11 +10242,11 @@ body.n-open {
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  border: 1px solid #e6e8ec;
+  border: 1px solid #e3e5e9;
 }
 
 .n-inverse .n-table {
-  border-color: #223450;
+  border-color: #2b303b;
 }
 
 .n-table .n-virtualscroller {
@@ -10319,12 +10280,12 @@ body.n-open {
   flex-direction: row;
   align-items: stretch;
   justify-content: stretch;
-  border-bottom: 1px solid #e6e8ec;
-  box-shadow: 0 0 3px rgba(16, 23, 39, 0.1);
+  border-bottom: 1px solid #e3e5e9;
+  box-shadow: 0 0 3px rgba(17, 23, 33, 0.1);
 }
 
 .n-inverse .n-table .n-table__head {
-  border-bottom-color: #223450;
+  border-bottom-color: #2b303b;
 }
 
 .n-table .n-table__body {
@@ -10342,11 +10303,11 @@ body.n-open {
 
 .n-table .n-table__body .n-draggable-item,
 .n-table .n-table__body .n-virtualscroller__item {
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-inverse .n-table .n-table__body .n-draggable-item {
-  border-bottom-color: #223450;
+  border-bottom-color: #2b303b;
 }
 
 .n-table .n-draggable-item__select {
@@ -10364,11 +10325,11 @@ body.n-open {
 }
 
 .n-table .n-table__head .n-table-column {
-  border-left: 1px solid #e6e8ec;
+  border-left: 1px solid #e3e5e9;
 }
 
 .n-table .n-table__head .n-table-column:last-child {
-  border-right: 1px solid #e6e8ec;
+  border-right: 1px solid #e3e5e9;
 }
 
 .n-table .n-table-column.n-fixed {
@@ -10402,7 +10363,7 @@ body.n-open {
   height: 0;
   margin: 0 0 0 -6px;
   border: 4px solid transparent;
-  border-top-color: rgba(132, 142, 158, 0.5);
+  border-top-color: rgba(135, 139, 146, 0.5);
 }
 
 .n-table .n-table-column.is-sorted.is-desc .n-table-column__sort div:before {
@@ -10419,7 +10380,7 @@ body.n-open {
   height: 0;
   margin: -10px 0 0 -6px;
   border: 4px solid transparent;
-  border-bottom-color: rgba(132, 142, 158, 0.5);
+  border-bottom-color: rgba(135, 139, 146, 0.5);
 }
 
 .n-table .n-table-column.is-sorted.is-asc .n-table-column__sort div:after {
@@ -10457,13 +10418,13 @@ body.n-open {
   width: 20px;
   height: 20px;
   text-align: center;
-  color: #47566d;
-  background: #f3f4f5;
+  color: #4e525c;
+  background: #eff1f4;
 }
 
 .n-inverse .n-table .n-table-column .n-table-column__filter > div {
-  color: #c2c7ce;
-  background: #152846;
+  color: #c1c3c9;
+  background: #202430;
 }
 
 .n-table-cell {
@@ -10514,14 +10475,14 @@ body.n-open {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-color: rgba(132, 142, 158, 0.2);
+  background-color: rgba(135, 139, 146, 0.2);
 }
 
 /**
  * Matrix specific styling
  */
 .n-table-column.n-table-column--matrix:nth-last-child(2n+1) {
-  background-color: rgba(9, 29, 60, 0.05);
+  background-color: rgba(20, 25, 37, 0.05);
 }
 
 .n-table-filter {
@@ -10561,7 +10522,7 @@ body.n-open {
 
 .n-table-filter__sort span:before {
   margin-bottom: 1px;
-  border-bottom-color: #ced2d8;
+  border-bottom-color: #cccfd3;
 }
 
 .n-table-filter.n-table-filter--asc .n-table-filter__sort span:before {
@@ -10570,7 +10531,7 @@ body.n-open {
 
 .n-table-filter__sort span:after {
   margin-top: 1px;
-  border-top-color: #ced2d8;
+  border-top-color: #cccfd3;
 }
 
 .n-table-filter.n-table-filter--desc .n-table-filter__sort span:after {
@@ -10620,7 +10581,7 @@ body.n-open {
   align-items: center;
   width: 18px;
   height: 18px;
-  background-color: #f3f4f5;
+  background-color: #eff1f4;
 }
 
 .n-popover.n-popover--filter {
@@ -10651,7 +10612,7 @@ body.n-open {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #6b778a;
+  color: #70747c;
   font-size: 14px;
 }
 
@@ -10753,11 +10714,11 @@ body.n-open {
   position: relative;
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e3e5e9;
 }
 
 .n-inverse .n-tabs__header-inner {
-  border-bottom: 1px solid #223450;
+  border-bottom: 1px solid #2b303b;
 }
 
 .n-tabs__indicator {
@@ -10786,11 +10747,11 @@ body.n-open {
 }
 
 .n-tabs__tab-icon span {
-  color: #b5bbc5;
+  color: #b5b8be;
 }
 
 .n-inverse .n-tabs__tab-label span {
-  color: #536177;
+  color: #595d66;
 }
 
 .n-tabs__tab.n-active .n-tabs__tab-icon span {
@@ -10798,7 +10759,7 @@ body.n-open {
 }
 
 .n-tabs__tab-label span {
-  color: #101727;
+  color: #111721;
 }
 
 .n-inverse .n-tabs__tab-label span {
@@ -10859,7 +10820,7 @@ body.n-open {
 }
 
 .n-info-column__label {
-  color: #6b778a;
+  color: #70747c;
   margin-bottom: 2px;
   font-size: 14px;
 }
@@ -10892,7 +10853,7 @@ body.n-open {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-color: rgba(132, 142, 158, 0.2);
+  background-color: rgba(135, 139, 146, 0.2);
 }
 
 .n-file-list__wrapper {
@@ -10911,7 +10872,7 @@ body.n-open {
 }
 
 .n-file-list__empty span {
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-file-list {
@@ -10955,7 +10916,7 @@ body.n-open {
   align-items: center;
   width: 25px;
   height: 25px;
-  color: #a9b0bb;
+  color: #aaadb3;
   background: rgba(255, 255, 255, 0.5);
 }
 
@@ -10965,7 +10926,7 @@ body.n-open {
   position: relative;
   width: 100%;
   font-size: 5vw;
-  background: #F4F6FA;
+  background: #FAFCFF;
   color: rgba(75, 91, 216, 0.5);
   border-radius: 6px;
 }
@@ -11003,7 +10964,7 @@ body.n-open {
   display: flex;
   width: 100%;
   height: 4px;
-  background: #e2e8f2;
+  background: #e1edff;
 }
 
 .n-file-list-item__progress > span {
@@ -11033,7 +10994,7 @@ body.n-open {
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 15px 5px 0;
-  color: #101727;
+  color: #111721;
 }
 
 .n-file-list-item__meta {
@@ -11050,7 +11011,7 @@ body.n-open {
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0 5px 15px;
-  color: #848e9e;
+  color: #878b92;
 }
 
 .n-map {
@@ -22872,7 +22833,7 @@ html, body {
 body {
   font-family: "Inter", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
-  color: #101727;
+  color: #111721;
   background-color: #ffffff;
   background-size: cover;
   background-position: center center;
@@ -22916,7 +22877,7 @@ h6 {
 }
 
 p {
-  color: #101727;
+  color: #111721;
   font-size: 1rem;
 }
 
@@ -22927,7 +22888,7 @@ th {
 .info {
   padding-top: 5px;
   font-size: 13px;
-  color: #6b778a;
+  color: #70747c;
 }
 
 .full-height {
@@ -22958,45 +22919,93 @@ th {
   flex: 1 1 auto !important;
 }
 
-.n-button.n-button--secondary:not(.n-button--link) {
-  color: #4B5BD8;
-  background: rgba(132, 142, 158, 0.15);
-  border-width: 0;
-  transition: background 0.24s;
+.kyo-backend {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: 275px;
+  padding-top: 5px;
 }
 
-.n-button.n-button--secondary:not(.n-button--link):hover,
-.n-button.n-button--secondary:not(.n-button--link):focus {
-  color: #101727;
-  background: rgba(132, 142, 158, 0.25);
+.kyo-backend:before {
+  content: "\A0";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #4B5BD8;
 }
 
-.kyo-header__top {
-  padding: 10px 20px;
-  border-bottom: 1px solid #f3f4f5;
+.kyo-backend > .kyo-header {
+  flex: 0 0 auto;
+  padding: 10px 30px 10px 40px;
 }
 
-.kyo-header__top > .grid > * {
-  height: 38px;
+.kyo-backend > .kyo-body {
+  flex: 1 0 auto;
 }
 
-.kyo-header__bot {
-  padding: 10px 20px;
+.kyo-backend > .kyo-body > * {
+  padding: 10px 30px 10px 40px;
 }
 
-.kyo-header__bot > .grid > * {
+.kyo-backend > .kyo-sidebar {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 275px;
+  height: calc(100% - 5px);
+  background: #eff1f4;
+}
+
+.kyo-backend__language {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.kyo-titlebar {
+  margin: 20px 0 60px;
+}
+
+.kyo-titlebar h2 {
+  margin-bottom: 0;
+}
+
+.kyo-header > .grid > * {
   height: 54px;
 }
 
-.kyo-mainmenu {
+.kyo-logo {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  margin-right: 10px;
+}
+
+.kyo-logo img {
+  display: block;
+  width: 40px;
+  height: auto;
+}
+
+.kyo-mainmenu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 5px 20px;
 }
 
 .kyo-mainmenu li {
-  font-size: 14px;
+  font-size: 16px;
+  padding: 5px 0;
 }
 
 .kyo-mainmenu li:not(:last-child) {
@@ -23004,11 +23013,11 @@ th {
 }
 
 .kyo-mainmenu li a {
-  color: #536177;
+  color: #595d66;
 }
 
 .kyo-mainmenu li a.router-link-active {
-  color: #4B5BD8;
+  color: #111721;
 }
 
 .kyo-submenu {
@@ -23019,7 +23028,7 @@ th {
 }
 
 .kyo-submenu li {
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .kyo-submenu li:not(:last-child) {
@@ -23027,7 +23036,7 @@ th {
 }
 
 .kyo-submenu li a {
-  color: #536177;
+  color: #595d66;
 }
 
 .kyo-submenu li a.router-link-active {
@@ -23043,6 +23052,10 @@ th {
 
 .kyo-backenduser > span {
   font-size: 14px;
-  color: #536177;
-  margin-right: 15px;
+  color: #595d66;
+  margin-right: 25px;
+}
+
+.kyo-dashboard .n-chart__wrapper {
+  background: #FAFCFF;
 }

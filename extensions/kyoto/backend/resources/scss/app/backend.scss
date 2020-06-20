@@ -1,0 +1,60 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-backend {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-left: 275px;
+    padding-top: 5px;
+}
+
+.kyo-backend:before {
+    content: '\00a0';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: $--color-primary;
+}
+
+.kyo-backend > .kyo-header {
+    flex: 0 0 auto;
+    padding: 10px 30px 10px 40px;
+}
+
+.kyo-backend > .kyo-body {
+    flex: 1 0 auto;
+}
+
+.kyo-backend > .kyo-body > * {
+    padding: 10px 30px 10px 40px;
+}
+
+.kyo-backend > .kyo-sidebar {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 275px;
+    height: calc(100% - 5px);
+    background: $--color-gray-05;
+}
+
+.kyo-backend__language {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+.kyo-titlebar {
+    margin: 20px 0 60px;
+}
+
+.kyo-titlebar h2 {
+    margin-bottom: 0;
+}

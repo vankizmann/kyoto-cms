@@ -1,8 +1,8 @@
 $color-white:           #ffffff;
-$color-black:           #101727;
+$color-black:           #111721;
 
-$color-light:           #ffffff;
-$color-dark:            #091D3C;
+$color-light:           #FAFCFF;
+$color-dark:            #141925;
 
 $color-gray-05:         mix($color-dark, $color-light, 0.05 * 100%);
 $color-gray-10:         mix($color-dark, $color-light, 0.10 * 100%);
@@ -32,7 +32,7 @@ $color-warning:         #FFA13D;
 $color-danger:          #F4424B;
 $color-info:            #62686d;
 
-$color-background:      #F4F6FA;
+$color-background:      #FAFCFF;
 
 $box-shadow:            0 0 4px rgba($color-black, 0.125);
 
@@ -60,6 +60,8 @@ $select-height:         38px;
 @import "./mixins/space";
 
 @import "./app/default";
+@import "./app/backend";
 @import "./app/header";
 @import "./app/menu";
 @import "./app/user";
+@import "./app/dashboard";

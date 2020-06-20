@@ -6,31 +6,33 @@ Nano.install(Vue.prototype);
 
 import VueNano from "nano-ui";
 Vue.use(VueNano, {
-    checked:        'far fa-check',
-    intermediate:   'far fa-minus',
-    clock:          'far fa-clock',
-    calendar:       'far fa-calendar',
-    times:          'far fa-times',
-    success:        'far fa-check-circle',
-    warning:        'far fa-exclamation-circle',
-    danger:         'far fa-times-circle',
-    info:           'far fa-info-circle',
-    angleUp:        'far fa-angle-up',
-    angleRight:     'far fa-angle-right',
-    angleDown:      'far fa-angle-down',
-    angleLeft:      'far fa-angle-left',
-    arrowUp:        'far fa-arrow-up',
-    arrowRight:     'far fa-arrow-right',
-    arrowDown:      'far fa-arrow-down',
-    arrowLeft:      'far fa-arrow-left',
-    create:         'far fa-plus',
-    save:           'far fa-check',
-    delete:         'far fa-trash',
-    archive:        'far fa-archive',
-    action:         'far fa-cog',
-    preview:        'far fa-link',
-    activate:       'far fa-check',
-    deactivate:     'far fa-times'
+    checked:        'fa fa-check',
+    intermediate:   'fa fa-minus',
+    clock:          'fa fa-clock',
+    calendar:       'fa fa-calendar',
+    times:          'fa fa-times',
+    success:        'fa fa-check-circle',
+    warning:        'fa fa-exclamation-circle',
+    danger:         'fa fa-times-circle',
+    info:           'fa fa-info-circle',
+    angleUp:        'fa fa-angle-up',
+    angleRight:     'fa fa-angle-right',
+    angleDown:      'fa fa-angle-down',
+    angleLeft:      'fa fa-angle-left',
+    arrowUp:        'fa fa-arrow-up',
+    arrowRight:     'fa fa-arrow-right',
+    arrowDown:      'fa fa-arrow-down',
+    arrowLeft:      'fa fa-arrow-left',
+    create:         'fa fa-plus',
+    save:           'fa fa-check',
+    delete:         'fa fa-trash',
+    archive:        'fa fa-archive',
+    action:         'fa fa-cog',
+    preview:        'fa fa-link',
+    activate:       'fa fa-check',
+    deactivate:     'fa fa-times'
+}, {
+    iconPosition: 'after'
 });
 
 import VueRouter from "vue-router";
@@ -41,11 +43,23 @@ Vue.$http = Vue.prototype.$http = Axios;
 
 require('./config/axios');
 
-import KyoBackend from "./backend";
+import KyoBackend from "./layout/KyoBackend";
 Vue.component(KyoBackend.name, KyoBackend);
 
-import KyoDashboard from "./pages/dashboard/dashboard";
+import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";
+Vue.component(KyoLayoutMainmenu.name, KyoLayoutMainmenu);
+
+import KyoLayoutSubmenu from "./layout/KyoLayoutSubmenu";
+Vue.component(KyoLayoutSubmenu.name, KyoLayoutSubmenu);
+
+import KyoLayoutLanguage from "./layout/KyoLayoutLanguage";
+Vue.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
+
+import KyoDashboard from "./pages/dashboard/KyoDashboard";
 Vue.component(KyoDashboard.name, KyoDashboard);
+
+import KyoBackendUser from "./user/KyoBackendUser";
+Vue.component(KyoBackendUser.name, KyoBackendUser);
 
 Nano.Dom.ready(() => {
 
