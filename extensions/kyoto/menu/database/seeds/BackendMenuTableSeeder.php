@@ -88,9 +88,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['dashboard'] = Menu::create([
-            'id'        => $routes['dashboard'],
+            'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['component' => 'KyoDashboard'],
+            'option'    => ['redirect' => $routes['dashboard']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -102,9 +102,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         Menu::create([
-            'id'        => uuid(),
+            'id'        => $routes['dashboard'],
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['redirect' => $routes['dashboard']],
+            'option'    => ['component' => 'KyoDashboard'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -132,9 +132,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['page'] = Menu::create([
-            'id'        => $routes['page'],
+            'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['component' => 'KyoPages'],
+            'option'    => ['redirect' =>  $routes['page']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -146,9 +146,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $tmp = Menu::create([
-            'id'        => uuid(),
+            'id'        => $routes['page'],
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['redirect' =>  $routes['page']],
+            'option'    => ['component' => 'KyoPages'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -206,7 +206,7 @@ class BackendMenuTableSeeder extends Seeder
         Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['redirect' => $routes['user']],
+            'option'    => ['redirect' =>  $routes['user']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -218,9 +218,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['user'] = Menu::create([
-            'id'        => $routes['user'],
+            'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['component' => 'KyoUsers'],
+            'option'    => ['redirect' => $routes['user']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -231,10 +231,10 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
-        $tmp = Menu::create([
-            'id'        => uuid(),
+        Menu::create([
+            'id'        => $routes['user'],
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['redirect' =>  $routes['user']],
+            'option'    => ['component' => 'KyoUsers'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -245,12 +245,40 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
+        Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'KyoRoles'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Roles',
+            'slug'      => '/roles',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['user'],
+        ]);
+
+        Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'KyoGates'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Gates',
+            'slug'      => '/gates',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['user'],
+        ]);
+
         $routes['language'] = uuid();
 
         Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['redirect' => $routes['language']],
+            'option'    => ['redirect' =>  $routes['language']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -262,9 +290,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['language'] = Menu::create([
-            'id'        => $routes['language'],
+            'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['component' => 'KyoLanguages'],
+            'option'    => ['redirect' => $routes['language']],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
@@ -276,9 +304,9 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $tmp = Menu::create([
-            'id'        => uuid(),
+            'id'        => $routes['language'],
             'type'      => 'kyoto/menu::vue',
-            'option'    => ['redirect' =>  $routes['language']],
+            'option'    => ['component' => 'KyoLanguages'],
             'layout'    => null,
             'state'     => 1,
             'hide'      => 0,

@@ -1,0 +1,14 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-backenduser {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.kyo-backenduser > span {
+    font-size: 14px;
+    color: $--color-gray-70;
+    margin-right: 15px;
+}

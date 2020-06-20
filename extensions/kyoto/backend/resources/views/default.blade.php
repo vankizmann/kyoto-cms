@@ -26,11 +26,11 @@
     </script>
 
     <script>
-        window.backendRoutes = JSON.parse('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
+        window.backendUser = JSON.parse('{!! json_encode(app('kyoto.backend')->backendUser()) !!}');
     </script>
 
     <script>
-        window.userRedirect = 'test';
+        window.backendRoutes = JSON.parse('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
     </script>
 
     {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}

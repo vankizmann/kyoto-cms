@@ -1,0 +1,22 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-header {
+    //
+}
+
+.kyo-header__top {
+    padding: 10px 20px;
+    border-bottom: 1px solid $--color-gray-05;
+}
+
+.kyo-header__top > .grid > * {
+    height: 38px;
+}
+
+.kyo-header__bot {
+    padding: 10px 20px;
+}
+
+.kyo-header__bot > .grid > * {
+    height: 54px;
+}

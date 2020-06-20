@@ -900,7 +900,7 @@ textarea,
 }
 @charset "UTF-8";
 /*!
- * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -1455,6 +1455,14 @@ readers do not read off random characters that represent icons */
 
 .fa-bacon:before {
   content: "\F7E5";
+}
+
+.fa-bacteria:before {
+  content: "\F959";
+}
+
+.fa-bacterium:before {
+  content: "\F95A";
 }
 
 .fa-bahai:before {
@@ -2493,6 +2501,10 @@ readers do not read off random characters that represent icons */
   content: "\F2A4";
 }
 
+.fa-deezer:before {
+  content: "\F977";
+}
+
 .fa-delicious:before {
   content: "\F1A5";
 }
@@ -2735,6 +2747,10 @@ readers do not read off random characters that represent icons */
 
 .fa-edge:before {
   content: "\F282";
+}
+
+.fa-edge-legacy:before {
+  content: "\F978";
 }
 
 .fa-edit:before {
@@ -3391,6 +3407,10 @@ readers do not read off random characters that represent icons */
 
 .fa-google-drive:before {
   content: "\F3AA";
+}
+
+.fa-google-pay:before {
+  content: "\F979";
 }
 
 .fa-google-play:before {
@@ -5289,6 +5309,10 @@ readers do not read off random characters that represent icons */
   content: "\F156";
 }
 
+.fa-rust:before {
+  content: "\F97A";
+}
+
 .fa-sad-cry:before {
   content: "\F5B3";
 }
@@ -5495,6 +5519,10 @@ readers do not read off random characters that represent icons */
 
 .fa-simplybuilt:before {
   content: "\F215";
+}
+
+.fa-sink:before {
+  content: "\F96D";
 }
 
 .fa-sistrix:before {
@@ -6145,6 +6173,10 @@ readers do not read off random characters that represent icons */
   content: "\F3FF";
 }
 
+.fa-tiktok:before {
+  content: "\F97B";
+}
+
 .fa-times:before {
   content: "\F00D";
 }
@@ -6393,6 +6425,10 @@ readers do not read off random characters that represent icons */
   content: "\F13E";
 }
 
+.fa-unsplash:before {
+  content: "\F97C";
+}
+
 .fa-untappd:before {
   content: "\F405";
 }
@@ -6511,6 +6547,10 @@ readers do not read off random characters that represent icons */
 
 .fa-users-cog:before {
   content: "\F509";
+}
+
+.fa-users-slash:before {
+  content: "\F973";
 }
 
 .fa-usps:before {
@@ -6894,7 +6934,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -6912,7 +6952,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -22918,14 +22958,91 @@ th {
   flex: 1 1 auto !important;
 }
 
-.kyo-mainmenu ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.n-button.n-button--secondary:not(.n-button--link) {
+  color: #4B5BD8;
+  background: rgba(132, 142, 158, 0.15);
+  border-width: 0;
+  transition: background 0.24s;
 }
 
-.kyo-submenu ul {
+.n-button.n-button--secondary:not(.n-button--link):hover,
+.n-button.n-button--secondary:not(.n-button--link):focus {
+  color: #101727;
+  background: rgba(132, 142, 158, 0.25);
+}
+
+.kyo-header__top {
+  padding: 10px 20px;
+  border-bottom: 1px solid #f3f4f5;
+}
+
+.kyo-header__top > .grid > * {
+  height: 38px;
+}
+
+.kyo-header__bot {
+  padding: 10px 20px;
+}
+
+.kyo-header__bot > .grid > * {
+  height: 54px;
+}
+
+.kyo-mainmenu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.kyo-mainmenu li {
+  font-size: 14px;
+}
+
+.kyo-mainmenu li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.kyo-mainmenu li a {
+  color: #536177;
+}
+
+.kyo-mainmenu li a.router-link-active {
+  color: #4B5BD8;
+}
+
+.kyo-submenu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.kyo-submenu li {
+  font-size: 17px;
+}
+
+.kyo-submenu li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.kyo-submenu li a {
+  color: #536177;
+}
+
+.kyo-submenu li a.router-link-active {
+  color: #4B5BD8;
+}
+
+.kyo-backenduser {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.kyo-backenduser > span {
+  font-size: 14px;
+  color: #536177;
+  margin-right: 15px;
 }

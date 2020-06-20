@@ -1,13 +1,47 @@
 @import "~nano-ui/src/root/vars";
 
-.kyo-mainmenu ul {
+.kyo-mainmenu {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-.kyo-submenu ul {
+.kyo-mainmenu li {
+    font-size: 14px;
+}
+
+.kyo-mainmenu li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.kyo-mainmenu li a {
+    color: $--color-gray-70;
+}
+
+.kyo-mainmenu li a.router-link-active {
+    color: $--color-primary;
+}
+
+.kyo-submenu {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.kyo-submenu li {
+    font-size: 17px;
+}
+
+.kyo-submenu li:not(:last-child) {
+    margin-right: 30px;
+}
+
+.kyo-submenu li a {
+    color: $--color-gray-70;
+}
+
+.kyo-submenu li a.router-link-active {
+    color: $--color-primary;
 }

@@ -64,4 +64,9 @@ class BackendManager {
             ->toHierarchy()->values()->toArray();
     }
 
+    public function backendUser()
+    {
+        return app('kyoto.user')->getUser()->toArray();
+    }
+
 }
