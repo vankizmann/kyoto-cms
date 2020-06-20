@@ -61,7 +61,7 @@ class BackendManager {
     public function backendRoutes()
     {
         return app('kyoto')->getMenu()->getDescendants()
-            ->toHierarchy()->toArray();
+            ->toHierarchy()->values()->toArray();
     }
 
 }

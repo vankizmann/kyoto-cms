@@ -1,0 +1,13 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-mainmenu ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.kyo-submenu ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

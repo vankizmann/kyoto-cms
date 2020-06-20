@@ -1,15 +1,26 @@
 <template>
     <div>
-        <router-link to="/dashboard">dashboard</router-link>
-        <router-link to="/pages">pages</router-link>
-        <router-link to="/users">users</router-link>
-        <router-link to="/languages">languages</router-link>
+        <div class="kyo-mainmenu">
+            <KyoLayoutMainmenu></KyoLayoutMainmenu>
+        </div>
+        <div class="kyo-submenu">
+            <KyoLayoutSubmenu></KyoLayoutSubmenu>
+        </div>
+
         <router-view />
     </div>
 </template>
 <script>
+    import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";
+    import KyoLayoutSubmenu from "./layout/KyoLayoutSubmenu";
+
     export default {
 
         name: 'KyoBackend',
+
+        components: {
+            KyoLayoutMainmenu, KyoLayoutSubmenu
+        }
+
     }
 </script>

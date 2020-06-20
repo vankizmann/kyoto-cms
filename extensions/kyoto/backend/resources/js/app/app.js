@@ -51,18 +51,20 @@ Nano.Dom.ready(() => {
 
     let routes =[];
 
-    Nano.Arr.each(window.backendRoutes, (menu) => {
+    Nano.Arr.recursive(window.backendRoutes, 'children', (menu, cascade) => {
 
-        if ( ! menu.option.component ) {
-            return;
-        }
+        let root = Nano.Arr.first(cascade) || menu;
 
         let data = {
-            name: menu.option.component, path: menu.route
+            name: menu.id, path: menu.route, meta: { root, menu }
         };
 
         if ( menu.option.component ) {
             data.component = Vue.component(menu.option.component);
+        }
+
+        if ( menu.option.redirect ) {
+            data.redirect = { name: menu.option.redirect };
         }
 
         routes.push(data);
