@@ -22,10 +22,10 @@ class MenuManager {
 
     public function __construct()
     {
-        $this->load();
+        $this->loadMenus();
     }
 
-    public function load()
+    public function loadMenus()
     {
         foreach ( app('kyoto')->getLocales() as $locale ) {
 
@@ -33,14 +33,14 @@ class MenuManager {
                 self::CACHE_PATH, "{$locale}.php"));
 
             if ( ! file_exists($path) ) {
-                $this->update($locale);
+                $this->updateMenus($locale);
             }
 
             $this->menus[$locale] = PhpEditor::loadFile($path);
         }
     }
 
-    public function update($locale)
+    public function updateMenus($locale)
     {
         app('kyoto')->localized($locale, function ($locale) {
 

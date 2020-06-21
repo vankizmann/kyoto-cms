@@ -1,9 +1,7 @@
 <template>
     <div>
-        <NSelect value="en">
-            <NSelectOption value="en">Englisch</NSelectOption>
-            <NSelectOption value="de">Deutsch</NSelectOption>
-            <NSelectOption value="ru">Russisch</NSelectOption>
+        <NSelect :value="$root.locale" @input="changeLocale">
+            <NSelectOption v-for="lang in languages" :key="lang.id" :value="lang.locale">{{ lang.language }}</NSelectOption>
         </NSelect>
     </div>
 </template>
@@ -16,6 +14,15 @@
 
             languages() {
                 return window.backendLanguages;
+            }
+
+        },
+
+        methods: {
+
+            changeLocale(locale)
+            {
+                this.$root.$emit('locale:change', locale);
             }
 
         }

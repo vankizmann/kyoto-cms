@@ -8,6 +8,10 @@ class LanguageManager {
 
     const CACHE_PATH = 'kyoto/language';
 
+    public $locales = [
+        //
+    ];
+
     public $languages = [
         //
     ];
@@ -15,42 +19,75 @@ class LanguageManager {
     public function __construct()
     {
         app('kyoto')->fallbackLocalized(function () {
-            $this->load();
+            $this->loadLocales();
         });
+
+        app('kyoto')->setLocales($this->locales);
+
+        $this->loadLanguages();
     }
 
-    public function load()
+    public function loadLocales()
     {
         $path = storage_path(str_join('/',
-            self::CACHE_PATH, "languages.php"));
+            self::CACHE_PATH, "locales.php"));
 
         if ( ! file_exists($path) ) {
             $this->updateLocales();
         }
 
-        $this->languages = PhpEditor::loadFile($path, ['en']);
+        $this->locales = PhpEditor::loadFile($path, ['en']);
     }
 
     public function updateLocales()
     {
-        $menus = Language::enabled()->get()
+        $locales = Language::enabled()->get()->pluck('locale')
             ->toArray();
 
         $path = storage_path(str_join('/',
-            self::CACHE_PATH, "languages.php"));
+            self::CACHE_PATH, "locales.php"));
 
-        PhpEditor::saveFile($path, $menus);
+        PhpEditor::saveFile($path, $locales);
+    }
+
+
+    public function loadLanguages()
+    {
+        foreach ( app('kyoto')->getLocales() as $locale ) {
+
+            $path = storage_path(str_join('/',
+                self::CACHE_PATH, "{$locale}.php"));
+
+            if ( ! file_exists($path) ) {
+                $this->updateLanguages($locale);
+            }
+
+            $this->languages[$locale] = PhpEditor::loadFile($path);
+        }
+    }
+
+    public function updateLanguages($locale)
+    {
+        app('kyoto')->localized($locale, function ($locale) {
+
+            $languages = Language::enabled()->get()
+                ->toArray();
+
+            $path = storage_path(str_join('/',
+                self::CACHE_PATH, "{$locale}.php"));
+
+            PhpEditor::saveFile($path, $languages);
+        });
     }
 
     public function getLocales()
     {
-        $locales = [];
+        return $this->locales;
+    }
 
-        foreach ( $this->languages as $language ) {
-            $locales[] = $language['locale'];
-        }
-
-        return $locales;
+    public function getLanguages()
+    {
+        return $this->languages[app()->getLocale()];
     }
 
 }

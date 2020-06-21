@@ -7058,8 +7058,7 @@ readers do not read off random characters that represent icons */
   background: #ffffff;
   border-radius: 6px;
   transition: transform 0.6s;
-  border: 1px solid #e3e5e9;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.05);
+  box-shadow: 0 1px 6px rgba(17, 23, 33, 0.15);
 }
 
 .n-notification__wrapper.n-notification__wrapper--top-start .n-notification:not(.n-notification--active),
@@ -7908,29 +7907,29 @@ readers do not read off random characters that represent icons */
  * Button secondary
  */
 .n-button.n-button--secondary:not(.n-button--link) {
-  color: #111721;
-  background: transparent;
-  border-color: #d8dade;
+  color: #595d66;
+  background: rgba(135, 139, 146, 0.1);
+  border-color: transparent;
 }
 
 .n-button.n-button--secondary:not(.n-button--link):hover,
 .n-button.n-button--secondary:not(.n-button--link):focus {
-  color: #4B5BD8;
-  background: rgba(75, 91, 216, 0.1);
-  border-color: #4B5BD8;
+  color: #111721;
+  background: rgba(135, 139, 146, 0.2);
+  border-color: transparent;
 }
 
 .n-button.n-button--secondary:not(.n-button--link):active {
-  background: rgba(75, 91, 216, 0.15);
-  border-color: #3648d3;
+  background: rgba(135, 139, 146, 0.3);
+  border-color: transparent;
 }
 
 .n-disabled .n-button.n-button--secondary:not(.n-button--link),
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):focus {
-  color: #111721;
-  background: transparent;
-  border-color: #d8dade;
+  color: #595d66;
+  background: rgba(135, 139, 146, 0.1);
+  border-color: transparent;
 }
 
 /**
@@ -8221,12 +8220,12 @@ readers do not read off random characters that represent icons */
   min-width: 0;
   padding: 0 11.4px;
   height: 38px;
-  background: #ffffff;
+  background: rgba(135, 139, 146, 0.1);
   font-size: 14px;
   color: #111721;
-  border: 1px solid #d8dade;
+  border: 1px solid transparent;
   border-radius: 6px;
-  transition: 0.15s border;
+  transition: 0.15s border, 0.15s background;
 }
 
 .n-input.n-input--round {
@@ -8236,17 +8235,13 @@ readers do not read off random characters that represent icons */
 
 .n-input:hover,
 .n-input:focus {
-  border: 1px solid #4B5BD8;
+  background: rgba(135, 139, 146, 0.15);
 }
 
-.n-disabled .n-input {
+.n-disabled .n-input,
+.n-disabled .n-input:hover {
   cursor: not-allowed;
-  background: #eff1f4;
-}
-
-.n-disabled .n-input:hover,
-.n-disabled .n-input:focus {
-  border-color: #d8dade;
+  background: rgba(135, 139, 146, 0.1);
 }
 
 .n-input__wrapper.n-input--small .n-input {
@@ -8737,16 +8732,16 @@ readers do not read off random characters that represent icons */
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #ffffff;
+  background: rgba(135, 139, 146, 0.1);
   color: #111721;
-  border: 1px solid #d8dade;
+  border: 1px solid transparent;
   border-radius: 4px;
   transition: 0.15s border;
 }
 
 .n-select:hover,
 .n-select.n-open {
-  border: 1px solid #4B5BD8;
+  background: rgba(135, 139, 146, 0.15);
 }
 
 .n-select.n-select--default {
@@ -8770,8 +8765,7 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-select,
 .n-disabled .n-select:hover {
   cursor: not-allowed;
-  background: #eff1f4;
-  border-color: #d8dade;
+  background: rgba(135, 139, 146, 0.1);
 }
 
 .n-select__label {
@@ -8803,6 +8797,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-select.n-select--default .n-select__input {
+  top: 1px;
   height: 32px;
   line-height: 32px;
 }
@@ -9840,35 +9835,42 @@ readers do not read off random characters that represent icons */
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
+}
+
+.n-popover.n-popover--custom > .n-popover__frame {
+  font-size: 14px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--select > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--cascader > .n-popover__frame {
   font-size: 13px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--datepicker > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--timepicker > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--tooltip > .n-popover__frame {
@@ -9876,7 +9878,7 @@ readers do not read off random characters that represent icons */
   font-size: 12px;
   background: rgba(17, 23, 33, 0.85);
   border-radius: 6px;
-  box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
+  box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover__header {
@@ -10739,6 +10741,12 @@ body.n-open {
   align-items: center;
   padding: 14px 16px;
   transition: color 0.15s;
+  font-size: 14px;
+}
+
+.n-tabs.n-tabs--small .n-tabs__tab {
+  font-size: 12.25px;
+  padding: 12.25px 14px;
 }
 
 .n-tabs__tab-icon {
@@ -22919,6 +22927,10 @@ th {
   flex: 1 1 auto !important;
 }
 
+.n-popover.n-popover--custom .n-tabs-item {
+  padding: 0 20px 20px;
+}
+
 .kyo-backend {
   position: relative;
   width: 100%;
@@ -22959,7 +22971,7 @@ th {
   top: 5px;
   width: 275px;
   height: calc(100% - 5px);
-  background: #eff1f4;
+  border-right: 1px solid #e3e5e9;
 }
 
 .kyo-backend__language {
@@ -22967,7 +22979,7 @@ th {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px 30px;
 }
 
 .kyo-titlebar {
@@ -23000,7 +23012,7 @@ th {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 5px 20px;
+  padding: 10px 30px;
 }
 
 .kyo-mainmenu li {
@@ -23043,14 +23055,14 @@ th {
   color: #4B5BD8;
 }
 
-.kyo-backenduser {
+.kyo-userpanel {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.kyo-backenduser > span {
+.kyo-userpanel > span {
   font-size: 14px;
   color: #595d66;
   margin-right: 25px;

@@ -44,7 +44,6 @@ Vue.$http = Vue.prototype.$http = Axios;
 require('./config/axios');
 
 import KyoBackend from "./layout/KyoBackend";
-Vue.component(KyoBackend.name, KyoBackend);
 
 import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";
 Vue.component(KyoLayoutMainmenu.name, KyoLayoutMainmenu);
@@ -55,11 +54,12 @@ Vue.component(KyoLayoutSubmenu.name, KyoLayoutSubmenu);
 import KyoLayoutLanguage from "./layout/KyoLayoutLanguage";
 Vue.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
 
+import KyoLayoutUserpanel from "./layout/KyoLayoutUserpanel";
+Vue.component(KyoLayoutUserpanel.name, KyoLayoutUserpanel);
+
 import KyoDashboard from "./pages/dashboard/KyoDashboard";
 Vue.component(KyoDashboard.name, KyoDashboard);
 
-import KyoBackendUser from "./user/KyoBackendUser";
-Vue.component(KyoBackendUser.name, KyoBackendUser);
 
 Nano.Dom.ready(() => {
 
@@ -84,9 +84,9 @@ Nano.Dom.ready(() => {
         routes.push(data);
     });
 
-    let router = new VueRouter({
+    KyoBackend.router = new VueRouter({
         base: window.basePath, mode: 'history', routes
     });
 
-    window.App = new Vue({ router }).$mount('#app');
+    window.App = new Vue(KyoBackend).$mount('#app');
 });

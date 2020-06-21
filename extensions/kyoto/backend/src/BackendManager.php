@@ -64,6 +64,11 @@ class BackendManager {
             ->toHierarchy()->values()->toArray();
     }
 
+    public function backendLanguages()
+    {
+        return app('kyoto.language')->getLanguages();
+    }
+
     public function backendUser()
     {
         return app('kyoto.user')->getUser()->toArray();

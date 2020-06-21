@@ -53,7 +53,7 @@ $select-height:         38px;
 //@import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
-@import "~nano-ui/src/index";
+@import "./nano-ui/index";
 
 @import "./mixins/media";
 @import "./mixins/grid";
@@ -63,5 +63,5 @@ $select-height:         38px;
 @import "./app/backend";
 @import "./app/header";
 @import "./app/menu";
-@import "./app/user";
+@import "./app/userpanel";
 @import "./app/dashboard";

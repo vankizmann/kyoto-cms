@@ -7,9 +7,9 @@
                     <!-- Submenu -->
                 </KyoLayoutSubmenu>
 
-                <KyoBackendUser class="kyo-backenduser col--flex-0-0 col--right">
+                <KyoLayoutUserpanel class="kyo-userpanel col--flex-0-0 col--right">
                     <!-- Backenduser -->
-                </KyoBackendUser>
+                </KyoLayoutUserpanel>
 
             </div>
         </div>
@@ -33,6 +33,18 @@
     export default {
 
         name: 'KyoBackend',
+
+        data()
+        {
+            return {
+                locale: document.documentElement.lang
+            }
+        },
+
+        mounted()
+        {
+            this.$on('locale:change', (val) => this.locale = val);
+        }
 
     }
 </script>

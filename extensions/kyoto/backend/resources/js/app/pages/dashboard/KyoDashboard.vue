@@ -1,5 +1,5 @@
 <template>
-    <div class="kyo-dashboard">
+    <NLoader :visible="true" class="kyo-dashboard">
         <div class="kyo-titlebar">
             <div class="grid grid--row">
 
@@ -15,7 +15,14 @@
         <div class="n-inverse">
             <NChart :height="240" :point-offset="60"></NChart>
         </div>
-    </div>
+        <div>
+            <NForm>
+                <NFormItem label="test">
+                    <NInput placeholder="Type something"></NInput>
+                </NFormItem>
+            </NForm>
+        </div>
+    </NLoader>
 </template>
 <script>
     export default {

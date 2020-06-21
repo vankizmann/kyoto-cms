@@ -1,0 +1,61 @@
+@import "../../../root/vars";
+
+.n-table-cell {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.n-table-column.n-left .n-table-cell {
+    text-align: left;
+}
+
+.n-table-column.n-center .n-table-cell {
+    text-align: center;
+}
+
+.n-table-column.n-right .n-table-cell {
+    text-align: right;
+}
+
+.n-table-column.n-table-column--image .n-table-cell {
+    position: relative;
+    height: 100%;
+}
+
+/**
+ * Image specific styling
+ */
+
+.n-table-column.n-table-column--image {
+    padding: 5px 0;
+}
+
+.n-table-column.n-table-column--image .n-table-cell {
+    position: relative;
+    height: 100%;
+}
+
+.n-table-column.n-table-column--image .n-table-cell > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: rgba($color-gray-50, 0.2);
+}
+
+/**
+ * Matrix specific styling
+ */
+
+.n-table-column.n-table-column--matrix:nth-last-child(2n+1) {
+    background-color: rgba($color-dark, 0.05);
+}

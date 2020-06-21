@@ -30,6 +30,10 @@
     </script>
 
     <script>
+        window.backendLanguages = JSON.parse('{!! json_encode(app('kyoto.backend')->backendLanguages()) !!}');
+    </script>
+
+    <script>
         window.backendRoutes = JSON.parse('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
     </script>
 
