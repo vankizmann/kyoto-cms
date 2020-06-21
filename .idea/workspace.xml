@@ -5,22 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/user/KyoBackendUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/default.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/menu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/userpanel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/bootstrap.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/LanguagePlugin.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/LanguagePlugin.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
+            <state relative-caret-position="2001">
               <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
             </state>
           </provider>
@@ -45,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="586">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -54,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+            <state relative-caret-position="1276">
+              <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -63,17 +48,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
+            <state relative-caret-position="1015">
               <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="638">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -81,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="1421">
               <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
@@ -90,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
+            <state relative-caret-position="1102">
               <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
             </state>
           </provider>
@@ -99,8 +84,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
+            <state relative-caret-position="1798">
               <caret line="62" column="49" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutMainmenu.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -108,17 +102,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/LanguagePlugin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
+            <state relative-caret-position="1102">
               <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+            <state relative-caret-position="638">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -128,6 +122,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
               <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -232,8 +235,8 @@
         <option value="$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php" />
         <option value="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/LanguagePlugin.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/menu.scss" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" />
       </list>
     </option>
   </component>
@@ -338,9 +341,9 @@
       <path value="$PROJECT_DIR$/vendor/baum/baum" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1692" />
+    <option name="width" value="2560" />
     <option name="height" value="1337" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -1143,11 +1146,12 @@
       <workItem from="1592217760008" duration="4733000" />
       <workItem from="1592254654143" duration="2184000" />
       <workItem from="1592382786898" duration="16947000" />
+      <workItem from="1592739467215" duration="237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193423000" />
+    <option name="totallyTimeSpent" value="193816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1337" extended-state="6" />
@@ -1340,13 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutMainmenu.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/header.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -1372,13 +1369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
           <caret line="77" selection-start-line="77" selection-end-line="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1444,20 +1434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/kyoto/language/de.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1472,41 +1448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="62" column="49" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/LanguagePlugin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/nano-ui/notification/src/notification/notification.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -1514,10 +1455,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue">
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        <state relative-caret-position="2001">
+          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1276">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1015">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1421">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1798">
+          <caret line="62" column="49" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutMainmenu.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/LanguagePlugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1528,17 +1525,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss">
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+        <state relative-caret-position="261">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue">
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="586">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
