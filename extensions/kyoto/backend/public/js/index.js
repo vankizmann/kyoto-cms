@@ -1763,6 +1763,11 @@ __webpack_require__.r(__webpack_exports__);
     this.$on('locale:change', function (val) {
       return _this.locale = val;
     });
+  },
+  watch: {
+    'locale': function locale() {
+      this.$emit('locale:changed');
+    }
   }
 });
 

@@ -44,6 +44,14 @@
         mounted()
         {
             this.$on('locale:change', (val) => this.locale = val);
+        },
+
+        watch: {
+
+            'locale': function () {
+                this.$emit('locale:changed');
+            }
+
         }
 
     }

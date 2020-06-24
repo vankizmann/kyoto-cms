@@ -70,10 +70,25 @@ trait Datatable
                 $value = explode(',', $filter['value']);
             }
 
+            if ( $filter['type'] === 'datetime' ) {
+                $value = preg_replace('/^([0-9]{4}\-[0-9]{2}\-[0-9]{2})(.*?)$/', '$1%', $filter['value']);
+            }
+
             $query->where(function ($query) use ($filter, $value, $operator) {
 
                 foreach ( (array) $value as $key => $option ) {
-                   $query->{! $key ? 'where' : 'orWhere'}($filter['property'], $operator, $option);
+
+                    $method = ! $key ? 'where' : 'orWhere';
+
+                    if ( $filter['type']  === 'option' ) {
+                        $method = ! $key ? 'whereIn' : 'orWhereIn';
+                    }
+
+                    if ( $filter['type']  === 'datetime' ) {
+                        $method = ! $key ? 'whereDate' : 'orWhereDate';
+                    }
+
+                    $query->{$method}($filter['property'], $operator, $option);
                 }
 
             });

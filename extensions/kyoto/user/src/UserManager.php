@@ -71,13 +71,18 @@ class UserManager
         return $this->getUser('gate.depth', $fallback);
     }
 
-    public function hasPolicyAction($class, $action, $fallback = false)
+    public function hasPolicyAction($action, $type = 'extension', $fallback = false)
     {
         if ( ! $this->getUser() ) {
-            return $this->getUser()->hasPolicyAction($class, $action);
+            return $fallback;
         }
 
-        return $fallback;
+        if ( is_array($action) ) {
+            $action = implode('@', $action);
+        }
+
+        return !! $this->getUser('role.policies')->whereIn('type', ['*', $type])
+            ->whereIn('action', ['*', $action])->count();
     }
 
 }

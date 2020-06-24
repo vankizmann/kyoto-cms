@@ -1,12 +1,12 @@
 import Vue from 'vue';
 
-import KyoTest from "./pages/test";
-Vue.component(KyoTest.name, KyoTest);
+import KyoUsers from "./pages/KyoUsers";
+Vue.component(KyoUsers.name, KyoUsers);
 
-window.Routes.push({
-    path: '/test', name: 'test', component: Vue.component(KyoTest.name)
-});
+import KyoRoles from "./pages/KyoRoles";
+Vue.component(KyoRoles.name, KyoRoles);
+
 
 if ( console && console.log ) {
-    console.log('kyoto/menu ready.');
+    console.log('kyoto/user ready.');
 }

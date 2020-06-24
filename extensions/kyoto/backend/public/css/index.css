@@ -8482,7 +8482,7 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   align-items: center;
   border: 1px solid #d8dade;
-  border-radius: 6px;
+  border-radius: 4px;
   width: 15px;
   height: 15px;
   color: #878b92;
