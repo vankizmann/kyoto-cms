@@ -38,23 +38,22 @@ $checkbox-radius: $radius-small !default;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $--color-gray-15;
+    border: 1px solid transparent;
     border-radius: $checkbox-radius;
     width: $checkbox-width;
     height: $checkbox-height;
     color: $--color-gray-50;
     font-size: $checkbox-check-size;
-    background: $--color-white;
+    background: rgba($color-gray-50, 0.25);
 }
 
 .n-checkbox:hover .n-checkbox__checkbox {
-    border-color: $--color-primary;
+    background: rgba($color-gray-50, 0.30);
 }
 
 .n-checkbox.n-disabled .n-checkbox__checkbox {
     cursor: not-allowed;
-    background: $--color-gray-05;
-    border-color: $--color-gray-15;
+    background: rgba($color-gray-50, 0.25);
 }
 
 .n-checkbox.n-checkbox--small .n-checkbox__checkbox {

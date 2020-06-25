@@ -4,6 +4,7 @@ namespace Kyoto\Menu\Routers;
 
 use Illuminate\Routing\RouteRegistrar;
 use Kyoto\Routing\Route\RouteElement;
+use Kyoto\Routing\Route\RouteHelper;
 use Kyoto\Routing\Routers\RouterInterface;
 
 class MenuRouter implements RouterInterface
@@ -56,7 +57,15 @@ class MenuRouter implements RouterInterface
             return null;
         }
 
-        abort(200, '', ['Location' => url($login->path)]);
+        $query = [
+            'redirect' => RouteHelper::getPath()
+        ];
+
+        $url = url($login->path);
+
+        abort(200, '', [
+            'Location' => RouteHelper::withQuery($url, $query)
+        ]);
     }
 
 }

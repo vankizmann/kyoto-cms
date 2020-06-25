@@ -161,15 +161,29 @@ class RouteHelper
         return app('kyoto')->getProtocol() . '://' . app('kyoto')->getDomain();
     }
 
-    public static function getFullRoute()
+    public static function getPath()
+    {
+        return '/' . ltrim(request()->path(), '/');
+    }
+
+    public static function getUrl()
     {
         return self::getHost() .'/' . ltrim(request()->path(), '/');
+    }
+
+    public static function withQuery($url, $query = [])
+    {
+        if ( empty($query) ) {
+            return $url;
+        }
+
+        return rtrim($url, '?') . '?' . http_build_query($query);
     }
 
     public static function isRoute($route, $compare = null)
     {
         if ( ! $compare ) {
-            $compare = self::getFullRoute();
+            $compare = self::getUrl();
         }
 
         $lastMatch = substr($route, $position = strrpos($route, '/'));

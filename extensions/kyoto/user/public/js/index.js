@@ -123,6 +123,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoRoles',
   data: function data() {
@@ -294,10 +298,25 @@ var render = function() {
         { staticClass: "grid grid--col" },
         [
           _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
-            _c("div", { staticClass: "grid grid--row" }, [
-              _c("div", { staticClass: "col--flex-0-0 col--left" }, [
+            _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
+              _c("div", { staticClass: "col--flex-0-0" }, [
                 _c("h2", [_vm._v("Roles")])
               ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col--flex-0-1 col--left" },
+                [
+                  _c("NInput", {
+                    attrs: {
+                      size: "large",
+                      placeholder: "Search",
+                      icon: "fa fa-search"
+                    }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -324,6 +343,7 @@ var render = function() {
                 "filter-props": _vm.query.filter,
                 "sort-prop": _vm.query.prop,
                 "sort-dir": _vm.query.dir,
+                "item-height": 40,
                 "allow-drop": function() {
                   return false
                 }

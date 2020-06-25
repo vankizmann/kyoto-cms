@@ -1,7 +1,7 @@
 $color-white:           #ffffff;
 $color-black:           #111721;
 
-$color-light:           #FAFCFF;
+$color-light:           #ffffff;
 $color-dark:            #141925;
 
 $color-gray-05:         mix($color-dark, $color-light, 0.05 * 100%);
@@ -32,14 +32,14 @@ $color-warning:         #FFA13D;
 $color-danger:          #F4424B;
 $color-info:            #62686d;
 
-$color-background:      #FAFCFF;
+$color-background:      #F4F6FA;
 
 $box-shadow:            0 0 4px rgba($color-black, 0.125);
 
 $radius-small:          4px;
-$radius-medium:         6px;
-$radius-large:          8px;
-$radius-extended:       20px;
+$radius-medium:         5px;
+$radius-large:          7px;
+$radius-extended:       17px;
 
 $button-height:         38px;
 $button-ratio:          0.5;

@@ -3,10 +3,14 @@
         <div class="grid grid--col">
 
             <div class="kyo-titlebar col--flex-0-0">
-                <div class="grid grid--row">
+                <div class="grid grid--row grid--middle grid--30">
 
-                    <div class="col--flex-0-0 col--left">
+                    <div class="col--flex-0-0">
                         <h2>Roles</h2>
+                    </div>
+
+                    <div class="col--flex-0-1 col--left">
+                        <NInput size="large" placeholder="Search" icon="fa fa-search"></NInput>
                     </div>
 
                     <div class="col--flex-0-0 col--right">
@@ -15,7 +19,7 @@
                 </div>
             </div>
 
-            <NTable class="col--flex-1-1" :items="result.data" :viewport-height="true" :filter-props.sync="query.filter" :sort-prop.sync="query.prop" :sort-dir.sync="query.dir" :allow-drop="() => false">
+            <NTable class="col--flex-1-1" :items="result.data" :viewport-height="true" :filter-props.sync="query.filter" :sort-prop.sync="query.prop" :sort-dir.sync="query.dir" :item-height="40" :allow-drop="() => false">
                 <NTableColumn type="string" prop="title" label="Title" :fluid="true" :sort="true" :filter="true"></NTableColumn>
                 <NTableColumn type="string" prop="description" label="Description" :fluid="true" :sort="true"></NTableColumn>
                 <NTableColumn type="datetime" prop="updated_at" label="Modified" :sort="true" :filter="true"></NTableColumn>

@@ -1,7 +1,7 @@
 @extends(app('kyoto')->getLayout())
 
 @section('content')
-    <form action="{{ url()->current() }}" method="post">
+    <form action="{{ request()->fullUrl() }}" method="post">
         @csrf
         <div>
             <input name="email" type="text" value="{{ request()->old('email') }}">

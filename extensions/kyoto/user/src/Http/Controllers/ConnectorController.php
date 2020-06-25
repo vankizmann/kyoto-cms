@@ -22,10 +22,10 @@ class ConnectorController extends Controller
         ]);
 
         if ( ! Auth::attempt($data) ) {
-            return back()->withInput()->with('error', trans('Invalid email or password.'));
+            return back()->withInput()->with('error', trans('Invalid credentials'));
         }
 
-        return redirect('/backend');
+        return redirect($request->query('redirect', '/backend'));
     }
 
 }
