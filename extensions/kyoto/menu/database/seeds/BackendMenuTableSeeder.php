@@ -38,14 +38,14 @@ class BackendMenuTableSeeder extends Seeder
             'layout'    => 'kyoto/backend::default',
             'state'     => 1,
             'hide'      => 0,
-            'title'     => 'liro-cms.com',
+            'title'     => 'kyoto-cms.com',
             'slug'      => ':http://:domain/:locale/backend',
             'guard'     => 1,
             'parent_id' => null,
         ]);
 
 
-        Menu::create([
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/user::login',
             'layout'    => 'kyoto/backend::login',
@@ -58,7 +58,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
-        Menu::create([
+        $localize->localized('de')->update([
+            'title'         => 'Anmelden',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/user::logout',
             'layout'    => 'kyoto/backend::login',
@@ -71,6 +75,10 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
+        $localize->localized('de')->update([
+            'title'         => 'Abmelden',
+        ]);
+
         $routes['dashboard'] = uuid();
 
         Menu::create([
@@ -80,7 +88,7 @@ class BackendMenuTableSeeder extends Seeder
             'layout'    => null,
             'state'     => 1,
             'hide'      => 1,
-            'title'     => 'Home',
+            'title'     => 'Redirect',
             'slug'      => '/',
             'matrix'    => 1,
             'guard'     => 1,
@@ -117,7 +125,7 @@ class BackendMenuTableSeeder extends Seeder
 
         $routes['page'] = uuid();
 
-        Menu::create([
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['redirect' => $routes['page']],
@@ -129,6 +137,10 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['dashboard'],
+        ]);
+
+        $localize->localized('de')->update([
+            'title'         => 'Seiten',
         ]);
 
         $menus['page'] = Menu::create([
@@ -145,7 +157,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
-        $tmp = Menu::create([
+        $menus['page']->localized('de')->update([
+            'title'         => 'Seiten',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => $routes['page'],
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoPages'],
@@ -159,7 +175,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['page'],
         ]);
 
-        Menu::create([
+        $temporary->localized('de')->update([
+            'title'         => 'Seiten',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' =>  'KyoPageEdit'],
@@ -170,10 +190,14 @@ class BackendMenuTableSeeder extends Seeder
             'slug'      => '/edit/:id',
             'matrix'    => 1,
             'guard'     => 1,
-            'parent'    => $tmp,
+            'parent'    => $temporary,
         ]);
 
-        $tmp = Menu::create([
+        $localize->localized('de')->update([
+            'title'         => 'Seite bearbeiten',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoMenus'],
@@ -187,7 +211,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['page'],
         ]);
 
-        Menu::create([
+        $temporary->localized('de')->update([
+            'title'         => 'Menüs',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' =>  'KyoMenuEdit'],
@@ -198,12 +226,16 @@ class BackendMenuTableSeeder extends Seeder
             'slug'      => '/edit/:id',
             'matrix'    => 1,
             'guard'     => 1,
-            'parent'    => $tmp,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'         => 'Menü bearbeiten',
         ]);
 
         $routes['user'] = uuid();
 
-        Menu::create([
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['redirect' =>  $routes['user']],
@@ -215,6 +247,10 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['dashboard'],
+        ]);
+
+        $localize->localized('de')->update([
+            'title'         => 'Benutzer',
         ]);
 
         $menus['user'] = Menu::create([
@@ -231,7 +267,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
-        Menu::create([
+        $menus['user']->localized('de')->update([
+            'title'         => 'Benutzer',
+        ]);
+
+        $localize = Menu::create([
             'id'        => $routes['user'],
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoUsers'],
@@ -245,7 +285,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        Menu::create([
+        $localize->localized('de')->update([
+            'title'         => 'Benutzer',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoRoles'],
@@ -259,7 +303,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        Menu::create([
+        $localize->localized('de')->update([
+            'title'         => 'Rollen',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoGates'],
@@ -273,9 +321,31 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
+        $localize->localized('de')->update([
+            'title'         => 'Zugänge',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'KyoPolicies'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Policies',
+            'slug'      => '/policies',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['user'],
+        ]);
+
+        $localize->localized('de')->update([
+            'title'         => 'Rechte',
+        ]);
+
         $routes['language'] = uuid();
 
-        Menu::create([
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['redirect' =>  $routes['language']],
@@ -287,6 +357,10 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['dashboard'],
+        ]);
+
+        $localize->localized('de')->update([
+            'title'         => 'Sprachen',
         ]);
 
         $menus['language'] = Menu::create([
@@ -303,7 +377,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
-        $tmp = Menu::create([
+        $menus['language']->localized('de')->update([
+            'title'         => 'Sprachen',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => $routes['language'],
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoLanguages'],
@@ -317,7 +395,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['language'],
         ]);
 
-        Menu::create([
+        $temporary->localized('de')->update([
+            'title'         => 'Sprachen',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' =>  'KyoLanguageEdit'],
@@ -328,10 +410,14 @@ class BackendMenuTableSeeder extends Seeder
             'slug'      => '/edit/:id',
             'matrix'    => 1,
             'guard'     => 1,
-            'parent'    => $tmp,
+            'parent'    => $temporary,
         ]);
 
-        $tmp = Menu::create([
+        $localize->localized('de')->update([
+            'title'         => 'Sprache bearbeiten',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoTranslations'],
@@ -345,7 +431,11 @@ class BackendMenuTableSeeder extends Seeder
             'parent'   => $menus['language'],
         ]);
 
-        Menu::create([
+        $temporary->localized('de')->update([
+            'title'         => 'Übersetzungen',
+        ]);
+
+        $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' =>  'KyoTranslationEdit'],
@@ -356,7 +446,11 @@ class BackendMenuTableSeeder extends Seeder
             'slug'      => '/edit/:id',
             'matrix'    => 1,
             'guard'     => 1,
-            'parent'    => $tmp,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'         => 'Übersetzung bearbeiten',
         ]);
     }
 

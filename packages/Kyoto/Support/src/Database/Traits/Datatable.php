@@ -2,12 +2,13 @@
 
 namespace Kyoto\Support\Database\Traits;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
 
 trait Datatable
 {
 
-    public function scopeDatatable($query)
+    protected function datatableQuery($query)
     {
         $key = $query->getModel()->getKeyName();
 
@@ -16,14 +17,14 @@ trait Datatable
         );
 
         $search = [
-            'query' => Request::input('search', ''),
-            'columns' => Request::input('search.columns', [$key]),
+            'search' => Request::input('search', ''),
+            'columns' => Request::input('columns', [$key]),
         ];
 
-        if ( $search['query'] !== '' ) {
+        if ( ! empty($search['search']) ) {
             $query->where(function ($query) use ($search) {
                 foreach ( $search['columns'] as $column ) {
-                    $query->orWhere($column, 'LIKE', '%' . $search['query'] . '%');
+                    $query->orWhere($column, 'LIKE', '%' . $search['search'] . '%');
                 }
             });
         }
@@ -56,6 +57,14 @@ trait Datatable
                 $operator = '!=';
             }
 
+            if ( $filter['operator'] === 'lt' ) {
+                $operator = '<=';
+            }
+
+            if ( $filter['operator'] === 'gt' ) {
+                $operator = '>=';
+            }
+
             $value = $filter['value'];
 
             if ( $filter['operator'] === 'li' ) {
@@ -71,7 +80,7 @@ trait Datatable
             }
 
             if ( $filter['type'] === 'datetime' ) {
-                $value = preg_replace('/^([0-9]{4}\-[0-9]{2}\-[0-9]{2})(.*?)$/', '$1%', $filter['value']);
+                $value = Carbon::make($filter['value'])->format('Y-m-d');
             }
 
             $query->where(function ($query) use ($filter, $value, $operator) {
@@ -95,6 +104,13 @@ trait Datatable
 
         }
 
+        return $query;
+    }
+
+    public function scopeDatatable($query)
+    {
+        $query = $this->datatableQuery($query);
+
         $page = (int) Request::input('page', 1);
         $limit = (int) Request::input('limit', 25);
 
@@ -106,6 +122,19 @@ trait Datatable
 
         return [
             'page' => $page, 'limit' => $limit, 'total' => $total, 'data' => $data
+        ];
+    }
+
+    public function scopeDatatree($query)
+    {
+        $query = $this->datatableQuery($query);
+
+        $total = $query->count();
+
+        $data = $query->get()->toHierarchy();
+
+        return [
+            'page' => 1, 'limit' => 0, 'total' => $total, 'data' => $data
         ];
     }
 

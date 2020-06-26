@@ -70,15 +70,15 @@ Nano.Dom.ready(() => {
         let root = Nano.Arr.first(cascade) || menu;
 
         let data = {
-            name: menu.id, path: menu.route, meta: { root, menu }
+            id: menu.id, name: menu.id, path: menu.route, meta: { root, menu }
         };
 
         if ( menu.option.component ) {
-            data.component = Vue.component(menu.option.component);
+            data.component = Vue.component(data.name = menu.option.component);
         }
 
         if ( menu.option.redirect ) {
-            data.redirect = { name: menu.option.redirect };
+            data.redirect = () => Nano.Arr.find(routes, { id: menu.option.redirect });
         }
 
         routes.push(data);

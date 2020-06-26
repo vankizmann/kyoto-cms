@@ -32,7 +32,20 @@
 }
 
 .kyo-backend > .kyo-body > * {
-    padding: 10px 30px 10px 40px;
+    padding: 10px 30px 15px 30px;
+}
+
+.kyo-backend > .kyo-body .kyo-table.n-table {
+    width: calc(100% + 60px);
+    margin: 0 -30px;
+    border: none;
+    border-bottom: 1px solid $--color-gray-10;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.kyo-backend > .kyo-body .kyo-table .n-draggable-item.n-current {
+    background: inherit;
 }
 
 .kyo-backend > .kyo-sidebar {

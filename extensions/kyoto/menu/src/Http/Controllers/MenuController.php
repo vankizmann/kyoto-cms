@@ -4,14 +4,19 @@ namespace Kyoto\Menu\Http\Controllers;
 
 //use App\Database\Menu;
 use App\Http\Controllers\Controller;
+use Kyoto\Menu\Models\Menu;
+
 //use Liro\Web\Menu\Http\Requests\MenuUpdateRequest;
 
 class MenuController extends Controller
 {
     public function index()
     {
-        dd('yay');
-        return view('kyoto/menu::test');
+        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+            abort(403);
+        }
+
+        return response()->json(Menu::datatree());
     }
 
     public function toArray($item)

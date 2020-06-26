@@ -23,9 +23,9 @@ $button-ratio: 0.3 !default;
 .n-button:not(.n-button--link) {
     padding: 0 $button-height * $button-ratio;
     height: $button-height;
-    background: $--color-gray-10;
+    background: rgba($color-gray-50, 0.15);
     font-size: $button-size;
-    border: 1px solid $--color-gray-10;
+    border: 1px solid transparent;
     border-radius: $radius-medium;
     transition: 0.15s background, 0.15s border, 0.15s color;
 }
@@ -43,8 +43,7 @@ $button-ratio: 0.3 !default;
 
 .n-button:not(.n-button--link):hover,
 .n-button:not(.n-button--link):focus {
-    background: $--color-gray-15;
-    border-color: $--color-gray-15;
+    background: rgba($color-gray-50, 0.20);
 }
 
 .n-disabled .n-button {
@@ -272,7 +271,7 @@ $button-ratio: 0.3 !default;
 
 .n-button.n-button--secondary:not(.n-button--link) {
     color:  $--color-gray-70;
-    background: rgba($color-gray-50, 0.10);
+    background: rgba($color-gray-50, 0.15);
     border-color: transparent;
 }
 
@@ -284,7 +283,7 @@ $button-ratio: 0.3 !default;
 }
 
 .n-button.n-button--secondary:not(.n-button--link):active {
-    background: rgba($color-gray-50, 0.30);
+    background: rgba($color-gray-50, 0.25);
     border-color: transparent;
 }
 
@@ -292,7 +291,7 @@ $button-ratio: 0.3 !default;
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):focus {
     color:  $--color-gray-70;
-    background: rgba($color-gray-50, 0.10);
+    background: rgba($color-gray-50, 0.15);
     border-color: transparent;
 }
 

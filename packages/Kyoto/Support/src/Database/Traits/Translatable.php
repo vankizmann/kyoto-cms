@@ -163,12 +163,14 @@ trait Translatable
             return $attributes;
         }
 
-        $translation = $this->getFirstOrNewTranslation();
+        $translation = $this->getTranslation();
+
+        if ( ! $translation ) {
+            return $attributes;
+        }
 
         foreach ( $this->getLocalizedColumns() as $key ) {
-            if ( isset($attributes[$key]) ) {
-                $attributes[$key] = data_get($translation, $key) ?: $attributes[$key];
-            }
+            $attributes[$key] = $this->getAttribute($key, $translation);
         }
 
         return $attributes;
@@ -202,7 +204,7 @@ trait Translatable
         return parent::fill($attributes);
     }
 
-    public function getAttribute($key)
+    public function getAttribute($key, $translation = null)
     {
         $value = parent::getAttribute($key);
 
@@ -210,7 +212,9 @@ trait Translatable
             return $value;
         }
 
-        $translation = $this->getTranslation();
+        if ( ! $translation ) {
+            $translation = $this->getTranslation();
+        }
 
         if ( ! $translation || ! $translation->exists ) {
             return $value;
@@ -220,7 +224,8 @@ trait Translatable
             return $translation->{'get' . Str::studly($key) . 'Attribute'}($this);
         }
 
-        return $translation->getAttribute($key);
+        return empty($localized = $translation->getAttribute($key))
+            ? $value : $localized;
     }
 
     public function localized($locale = null)

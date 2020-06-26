@@ -52,18 +52,15 @@ class FrontendMenuTableSeeder extends Seeder
         ]);
 
         $home->localized('de')->update([
-            'title'         => 'Startseite',
-            'slug'          => '/'
+            'title'         => 'Startseite'
         ]);
 
         $home->localized('da')->update([
             'title'         => 'Hjem',
-            'slug'          => '/'
         ]);
 
         $home->localized('ru')->update([
             'title'         => 'Начните',
-            'slug'          => '/'
         ]);
 
         $login = Menu::create([
@@ -147,7 +144,7 @@ class FrontendMenuTableSeeder extends Seeder
                 'option' => ['url' => 'http://wieistmeineip.de'],
                 'state'  => 1,
                 'hide'   => 0,
-                'title'  => 'Home',
+                'title'  => 'Redirect ' . $index,
                 'slug'   => '/redirect' . $index,
                 'matrix' => 1,
                 'guard'  => 0,

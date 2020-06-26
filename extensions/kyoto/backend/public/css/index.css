@@ -7249,6 +7249,7 @@ readers do not read off random characters that represent icons */
   width: 5px;
   height: 100%;
   background: rgba(138, 140, 146, 0.5);
+  border-radius: 500px;
   opacity: 0;
   transition: opacity 200ms;
 }
@@ -7665,9 +7666,9 @@ readers do not read off random characters that represent icons */
 .n-button:not(.n-button--link) {
   padding: 0 19px;
   height: 38px;
-  background: #e8e8e9;
+  background: rgba(138, 140, 146, 0.15);
   font-size: 14px;
-  border: 1px solid #e8e8e9;
+  border: 1px solid transparent;
   border-radius: 5px;
   transition: 0.15s background, 0.15s border, 0.15s color;
 }
@@ -7685,8 +7686,7 @@ readers do not read off random characters that represent icons */
 
 .n-button:not(.n-button--link):hover,
 .n-button:not(.n-button--link):focus {
-  background: #dcddde;
-  border-color: #dcddde;
+  background: rgba(138, 140, 146, 0.2);
 }
 
 .n-disabled .n-button {
@@ -7908,7 +7908,7 @@ readers do not read off random characters that represent icons */
  */
 .n-button.n-button--secondary:not(.n-button--link) {
   color: #5b5e66;
-  background: rgba(138, 140, 146, 0.1);
+  background: rgba(138, 140, 146, 0.15);
   border-color: transparent;
 }
 
@@ -7920,7 +7920,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-button.n-button--secondary:not(.n-button--link):active {
-  background: rgba(138, 140, 146, 0.3);
+  background: rgba(138, 140, 146, 0.25);
   border-color: transparent;
 }
 
@@ -7928,7 +7928,7 @@ readers do not read off random characters that represent icons */
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):hover,
 .n-disabled .n-button.n-button--secondary:not(.n-button--link):focus {
   color: #5b5e66;
-  background: rgba(138, 140, 146, 0.1);
+  background: rgba(138, 140, 146, 0.15);
   border-color: transparent;
 }
 
@@ -8290,7 +8290,8 @@ readers do not read off random characters that represent icons */
 
 .n-input__wrapper > .n-button__wrapper {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .n-input__wrapper.n-input--icon.n-input--icon-before > .n-button__wrapper {
@@ -8485,18 +8486,18 @@ readers do not read off random characters that represent icons */
   border-radius: 4px;
   width: 15px;
   height: 15px;
-  color: #8a8c92;
+  color: #72757c;
   font-size: 10px;
-  background: rgba(138, 140, 146, 0.25);
+  background: rgba(138, 140, 146, 0.15);
 }
 
 .n-checkbox:hover .n-checkbox__checkbox {
-  background: rgba(138, 140, 146, 0.3);
+  background: rgba(138, 140, 146, 0.2);
 }
 
 .n-checkbox.n-disabled .n-checkbox__checkbox {
   cursor: not-allowed;
-  background: rgba(138, 140, 146, 0.25);
+  background: rgba(138, 140, 146, 0.15);
 }
 
 .n-checkbox.n-checkbox--small .n-checkbox__checkbox {
@@ -10244,6 +10245,7 @@ body.n-open {
   flex-direction: column;
   border-radius: 5px;
   background: #ffffff;
+  border: 1px solid #e8e8e9;
 }
 
 .n-table .n-virtualscroller {
@@ -10278,7 +10280,8 @@ body.n-open {
   align-items: stretch;
   justify-content: stretch;
   border-bottom: 1px solid #e8e8e9;
-  padding: 5px;
+  box-shadow: 0 0 3px rgba(17, 23, 33, 0.1);
+  padding: 5px 30px;
 }
 
 .n-table .n-table__body {
@@ -10296,7 +10299,8 @@ body.n-open {
 
 .n-table .n-table__body .n-draggable-item,
 .n-table .n-table__body .n-virtualscroller__item {
-  margin: 5px;
+  padding: 5px 30px;
+  border-bottom: 1px solid #f3f4f4;
 }
 
 .n-table .n-draggable-item__select {
@@ -10319,8 +10323,8 @@ body.n-open {
   right: 1px;
   top: 50%;
   display: block;
-  width: 3px;
-  height: 30%;
+  width: 2px;
+  height: 20px;
   border-radius: 500px;
   background: #e8e8e9;
   transform: translateY(-50%);
@@ -10387,7 +10391,12 @@ body.n-open {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.n-table .n-table-column.is-sorted .n-table-column__label {
+  color: #4B5BD8;
 }
 
 .n-table .n-table-column.n-left .n-table-column__label {
@@ -10413,8 +10422,9 @@ body.n-open {
   width: 20px;
   height: 20px;
   text-align: center;
-  color: #4f535c;
-  background: #f3f4f4;
+  color: #72757c;
+  background: rgba(138, 140, 146, 0.15);
+  border-radius: 4px;
 }
 
 .n-inverse .n-table .n-table-column .n-table-column__filter > div {
@@ -22956,7 +22966,20 @@ th {
 }
 
 .kyo-backend > .kyo-body > * {
-  padding: 10px 30px 10px 40px;
+  padding: 10px 30px 15px 30px;
+}
+
+.kyo-backend > .kyo-body .kyo-table.n-table {
+  width: calc(100% + 60px);
+  margin: 0 -30px;
+  border: none;
+  border-bottom: 1px solid #e8e8e9;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+
+.kyo-backend > .kyo-body .kyo-table .n-draggable-item.n-current {
+  background: inherit;
 }
 
 .kyo-backend > .kyo-sidebar {

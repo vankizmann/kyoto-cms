@@ -127,6 +127,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoRoles',
   data: function data() {
@@ -135,15 +143,24 @@ __webpack_require__.r(__webpack_exports__);
       limit: 25,
       prop: 'updated_at',
       dir: 'asc',
-      filter: []
+      filter: [],
+      search: '',
+      columns: ['title']
     };
+
+    if (this.$root.storeKyoRoles) {
+      query = this.$root.storeKyoRoles;
+    }
+
     return {
       query: query,
       result: {},
+      selected: [],
       load: true
     };
   },
   mounted: function mounted() {
+    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
     this.fetchItems();
   },
   watch: {
@@ -164,6 +181,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    allowDrag: function allowDrag() {
+      return false;
+    },
+    allowDrop: function allowDrop() {
+      return false;
+    },
     fetchItems: function fetchItems() {
       var _this = this;
 
@@ -176,12 +199,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       var route = this.Route.get('/{locale}/kyoto/user/http/controllers/role/index', this.$root.$data, this.query);
+      this.$root.storeKyoRoles = this.Obj.clone(this.query);
       this.$http.get(route, options).then(this.updateItems, function () {
         return null;
       });
     },
     updateItems: function updateItems(res) {
       this.result = res.data;
+    },
+    deleteItems: function deleteItems() {
+      console.log('DELETE ITEMS');
     }
   }
 });
@@ -240,6 +267,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.$root.$on('locale:changed', this.fetchItems);
     this.fetchItems();
+  },
+  destroyed: function destroyed() {
+    this.$root.$off('locale:changed');
   },
   watch: {
     'query.page': function queryPage() {
@@ -300,7 +330,11 @@ var render = function() {
           _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
             _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
               _c("div", { staticClass: "col--flex-0-0" }, [
-                _c("h2", [_vm._v("Roles")])
+                _c("h2", [
+                  _vm._v(
+                    _vm._s(_vm.Obj.get(_vm.$route, "meta.menu.title", "Roles"))
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c(
@@ -310,8 +344,15 @@ var render = function() {
                   _c("NInput", {
                     attrs: {
                       size: "large",
-                      placeholder: "Search",
+                      placeholder: _vm.trans("Search"),
                       icon: "fa fa-search"
+                    },
+                    model: {
+                      value: _vm.query.search,
+                      callback: function($$v) {
+                        _vm.$set(_vm.query, "search", $$v)
+                      },
+                      expression: "query.search"
                     }
                   })
                 ],
@@ -324,8 +365,58 @@ var render = function() {
                 [
                   _c(
                     "NButton",
-                    { attrs: { type: "primary", icon: "fa fa-cog" } },
-                    [_vm._v("Configure")]
+                    {
+                      attrs: { type: "primary" },
+                      on: {
+                        click: function($event) {
+                          return _vm.$router.push({ name: "KyoUsers" })
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.trans("Add role")) +
+                          "\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "NButton",
+                    {
+                      attrs: {
+                        type: "secondary",
+                        disabled: !_vm.selected.length
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.trans("Delete")) +
+                          "\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "NConfirm",
+                    {
+                      attrs: { type: "danger" },
+                      on: { confirm: _vm.deleteItems }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(
+                            _vm.trans(
+                              "Are you sure you want to delete :count items?",
+                              { count: _vm.selected.length }
+                            )
+                          ) +
+                          "\n                    "
+                      )
+                    ]
                   )
                 ],
                 1
@@ -336,19 +427,22 @@ var render = function() {
           _c(
             "NTable",
             {
-              staticClass: "col--flex-1-1",
+              staticClass: "kyo-table col--flex-1-1",
               attrs: {
                 items: _vm.result.data,
                 "viewport-height": true,
+                selected: _vm.selected,
                 "filter-props": _vm.query.filter,
                 "sort-prop": _vm.query.prop,
                 "sort-dir": _vm.query.dir,
-                "item-height": 40,
-                "allow-drop": function() {
-                  return false
-                }
+                "item-height": 44,
+                "allow-drag": _vm.allowDrag,
+                "allow-drop": _vm.allowDrop
               },
               on: {
+                "update:selected": function($event) {
+                  _vm.selected = $event
+                },
                 "update:filterProps": function($event) {
                   return _vm.$set(_vm.query, "filter", $event)
                 },

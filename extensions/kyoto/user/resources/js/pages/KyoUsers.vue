@@ -44,7 +44,13 @@
         mounted()
         {
             this.$root.$on('locale:changed', this.fetchItems);
+
             this.fetchItems();
+        },
+
+        destroyed()
+        {
+            this.$root.$off('locale:changed');
         },
 
         watch: {

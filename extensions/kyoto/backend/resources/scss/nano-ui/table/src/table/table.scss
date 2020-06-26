@@ -9,7 +9,7 @@ $table-row-height: 40px !default;
     flex-direction: column;
     border-radius: $radius-medium;
     background: $--color-white;
-    //box-shadow: 0 1px 6px rgba($color-black, 0.1);
+    border: 1px solid $--color-gray-10;
 }
 
 .n-table .n-virtualscroller {
@@ -43,10 +43,9 @@ $table-row-height: 40px !default;
     flex-direction: row;
     align-items: stretch;
     justify-content: stretch;
-    //background: $--color-gray-10;
     border-bottom: 1px solid $--color-gray-10;
-    //box-shadow: 0 0 3px rgba($color-black, 0.1);
-    padding: 5px;
+    box-shadow: 0 0 3px rgba($color-black, 0.1);
+    padding: 5px 30px;
 }
 
 .n-table .n-table__body {
@@ -64,7 +63,8 @@ $table-row-height: 40px !default;
 
 .n-table .n-table__body .n-draggable-item,
 .n-table .n-table__body .n-virtualscroller__item {
-    margin: 5px;
+    padding: 5px 30px;
+    border-bottom: 1px solid $--color-gray-05;
 }
 
 .n-table .n-draggable-item__select {

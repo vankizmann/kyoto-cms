@@ -42,18 +42,18 @@ $checkbox-radius: $radius-small !default;
     border-radius: $checkbox-radius;
     width: $checkbox-width;
     height: $checkbox-height;
-    color: $--color-gray-50;
+    color: $--color-gray-60;
     font-size: $checkbox-check-size;
-    background: rgba($color-gray-50, 0.25);
+    background: rgba($color-gray-50, 0.15);
 }
 
 .n-checkbox:hover .n-checkbox__checkbox {
-    background: rgba($color-gray-50, 0.30);
+    background: rgba($color-gray-50, 0.20);
 }
 
 .n-checkbox.n-disabled .n-checkbox__checkbox {
     cursor: not-allowed;
-    background: rgba($color-gray-50, 0.25);
+    background: rgba($color-gray-50, 0.15);
 }
 
 .n-checkbox.n-checkbox--small .n-checkbox__checkbox {
