@@ -4,6 +4,7 @@ namespace Kyoto\Menu\Http\Controllers;
 
 //use App\Database\Menu;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Kyoto\Menu\Models\Menu;
 
 //use Liro\Web\Menu\Http\Requests\MenuUpdateRequest;
@@ -72,13 +73,14 @@ class MenuController extends Controller
         return response()->json($menu);
     }
 
-    public function getEditRoute($id)
+    public function show(Request $request)
     {
-        $menu = Menu::withDepthGuard()->findOrFail($id);
+        $id = $request->query('id');
 
-        return response()->json([
-            'data' => $menu->toArray()
-        ]);
+        $menu = Menu::findOrFail($id)
+            ->toArray();
+
+        return response()->json($menu);
     }
 
     public function postUpdateRoute(MenuUpdateRequest $request, $id)

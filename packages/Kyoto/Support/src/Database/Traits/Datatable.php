@@ -131,7 +131,7 @@ trait Datatable
 
         $total = $query->count();
 
-        $data = $query->get()->toHierarchy();
+        $data = $query->get()->toHierarchy()->values();
 
         return [
             'page' => 1, 'limit' => 0, 'total' => $total, 'data' => $data
