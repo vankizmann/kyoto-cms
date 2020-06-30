@@ -10,28 +10,44 @@
                     </div>
 
                     <div class="col--flex-0-1 col--left">
-                        <NInput v-model="query.search" size="large" :placeholder="trans('Search')" icon="fa fa-search"></NInput>
+                        <NInput v-model="query.search" size="large" :placeholder="trans('Search')" icon="fa fa-search" :icon-disabled="true"></NInput>
                     </div>
 
                     <div class="col--flex-0-0 col--right">
-                        <NButton type="primary" @click="$router.push({ name: 'KyoUsers' })">
+                        <NButtonGroup v-show="selected.length">
+                            <NButton type="secondary" :square="true" icon="fa fa-copy">
+                                <!-- Copy icon -->
+                            </NButton>
+                            <NButton type="secondary" :square="true" icon="fa fa-trash">
+                                <!-- Delete icon -->
+                            </NButton>
+                            <NConfirm type="danger" @confirm="deleteItems">
+                                {{ trans('Are you sure you want to delete :count items?', { count: selected.length }) }}
+                            </NConfirm>
+                        </NButtonGroup>
+                    </div>
+
+                    <div class="col--flex-0-0">
+                        <NButton type="primary" @click="$router.push({ name: 'KyoRoleEdit' })">
                             {{ trans('Add role') }}
                         </NButton>
-                        <NButton type="secondary" :disabled="! selected.length">
-                            {{ trans('Delete') }}
-                        </NButton>
-                        <NConfirm type="danger" @confirm="deleteItems">
-                            {{ trans('Are you sure you want to delete :count items?', { count: selected.length }) }}
-                        </NConfirm>
                     </div>
                 </div>
             </div>
 
             <NTable class="kyo-table col--flex-1-1" :items="result.data" :viewport-height="true" :selected.sync="selected" :filter-props.sync="query.filter" :sort-prop.sync="query.prop" :sort-dir.sync="query.dir" :item-height="44" :allow-drag="allowDrag" :allow-drop="allowDrop">
-                <NTableColumn type="string" prop="title" label="Title" :fluid="true" :sort="true" :filter="true"></NTableColumn>
-                <NTableColumn type="string" prop="description" label="Description" :fluid="true" :sort="true"></NTableColumn>
-                <NTableColumn type="datetime" prop="updated_at" label="Modified" :sort="true" :filter="true"></NTableColumn>
-                <NTableColumn type="datetime" prop="created_at" label="Created" :sort="true" :filter="true"></NTableColumn>
+                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+                <NTableColumn type="string" prop="description" :label="trans('Description')" :fluid="true" :sort="true">
+                    <!-- Column -->
+                </NTableColumn>
+                <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+                <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
             </NTable>
 
             <NPaginator :page.sync="query.page" :limit.sync="query.limit" :total="result.total"></NPaginator>

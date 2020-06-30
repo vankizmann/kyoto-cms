@@ -6,7 +6,7 @@
                 <div class="grid grid--row grid--middle grid--30">
 
                     <div class="col--flex-0-0">
-                        <h2>{{ Obj.get($route, 'meta.menu.title', 'Users') }}</h2>
+                        <h2>{{ Obj.get($route, 'meta.menu.title', 'Gates') }}</h2>
                     </div>
 
                     <div class="col--flex-0-1 col--left">
@@ -28,18 +28,18 @@
                     </div>
 
                     <div class="col--flex-0-0">
-                        <NButton type="primary" @click="$router.push({ name: 'KyoUserEdit' })">
-                            {{ trans('Add user') }}
+                        <NButton type="primary" @click="$router.push({ name: 'KyoRoleEdit' })">
+                            {{ trans('Add gate') }}
                         </NButton>
                     </div>
                 </div>
             </div>
 
             <NTable class="kyo-table col--flex-1-1" :items="result.data" :viewport-height="true" :selected.sync="selected" :filter-props.sync="query.filter" :sort-prop.sync="query.prop" :sort-dir.sync="query.dir" :item-height="44" :allow-drag="allowDrag" :allow-drop="allowDrop">
-                <NTableColumn type="string" prop="email" :label="trans('E-Mail')" :fluid="true" :sort="true" :filter="true">
+                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
-                <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true">
+                <NTableColumn type="string" prop="description" :label="trans('Description')" :fluid="true" :sort="true">
                     <!-- Column -->
                 </NTableColumn>
                 <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true">
@@ -57,16 +57,16 @@
 <script>
     export default {
 
-        name: 'KyoUsers',
+        name: 'KyoGates',
 
         data()
         {
             let query = {
-                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['email']
+                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
             };
 
-            if ( this.$root.storeKyoUsers ) {
-                query = this.$root.storeKyoUsers;
+            if ( this.$root.storeKyoGates ) {
+                query = this.$root.storeKyoGates;
             }
 
             return {
@@ -124,10 +124,10 @@
                     onDone: () => this.load = false
                 };
 
-                let route = this.Route.get('/{locale}/kyoto/user/http/controllers/user/index',
+                let route = this.Route.get('/{locale}/kyoto/user/http/controllers/gate/index',
                     this.$root.$data, this.query);
 
-                this.$root.storeKyoUsers = this.Obj.clone(this.query);
+                this.$root.storeKyoGates = this.Obj.clone(this.query);
 
                 this.$http.get(route, options).then(this.updateItems, () => null);
             },
