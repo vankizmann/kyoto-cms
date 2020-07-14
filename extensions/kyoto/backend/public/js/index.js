@@ -13785,7 +13785,7 @@ function normalizeComponent (
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /*!
-  * vue-router v3.3.3
+  * vue-router v3.3.4
   * (c) 2020 Evan You
   * @license MIT
   */
@@ -15969,10 +15969,13 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
     }
     onAbort && onAbort(err);
   };
+  var lastRouteIndex = route.matched.length - 1;
+  var lastCurrentIndex = current.matched.length - 1;
   if (
     isSameRoute(route, current) &&
     // in the case the route map has been dynamically appended to
-    route.matched.length === current.matched.length
+    lastRouteIndex === lastCurrentIndex &&
+    route.matched[lastRouteIndex] === current.matched[lastCurrentIndex]
   ) {
     this.ensureURL();
     return abort(createNavigationDuplicatedError(current, route))
@@ -16790,7 +16793,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '3.3.3';
+VueRouter.version = '3.3.4';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -28895,6 +28898,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutUserpanel_
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_10__["default"].name, _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_10__["default"]);
 nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
+  window.baseTitle = document.title;
   var routes = [];
   nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Arr.recursive(window.backendRoutes, 'children', function (menu, cascade) {
     var root = nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Arr.first(cascade) || menu;
@@ -28926,6 +28930,9 @@ nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
     base: window.basePath,
     mode: 'history',
     routes: routes
+  });
+  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_5__["default"].router.afterEach(function (to) {
+    nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.title(nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Obj.get(to, 'meta.menu.title', 'Undefined'));
   });
   window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_layout_KyoBackend__WEBPACK_IMPORTED_MODULE_5__["default"]).$mount('#app');
 });
@@ -29445,8 +29452,8 @@ if (console && console.log) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/backend/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/backend/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
+__webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/backend/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/backend/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
 
 
 /***/ })

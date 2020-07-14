@@ -63,6 +63,8 @@ Vue.component(KyoDashboard.name, KyoDashboard);
 
 Nano.Dom.ready(() => {
 
+    window.baseTitle = document.title;
+
     let routes =[];
 
     Nano.Arr.recursive(window.backendRoutes, 'children', (menu, cascade) => {
@@ -86,6 +88,10 @@ Nano.Dom.ready(() => {
 
     KyoBackend.router = new VueRouter({
         base: window.basePath, mode: 'history', routes
+    });
+
+    KyoBackend.router.afterEach((to) => {
+        Nano.Dom.title(Nano.Obj.get(to, 'meta.menu.title', 'Undefined'));
     });
 
     window.App = new Vue(KyoBackend).$mount('#app');

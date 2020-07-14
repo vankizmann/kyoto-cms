@@ -34,7 +34,7 @@
                 <NTableColumn type="datetime" prop="created_at" label="Created" :sort="true" :filter="true"></NTableColumn>
             </NTable>
 
-            <NPaginator :total="result.total" :layout="['count']"></NPaginator>
+            <NPaginator :total="result.total" :layout="['count', 'spacer']"></NPaginator>
         </div>
     </NLoader>
 </template>

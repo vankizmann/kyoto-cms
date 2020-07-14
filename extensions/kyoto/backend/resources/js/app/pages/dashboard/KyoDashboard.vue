@@ -26,6 +26,8 @@
 </template>
 <script>
     export default {
-        name: 'KyoDashboard'
+
+        name: 'KyoDashboard',
+
     }
 </script>
