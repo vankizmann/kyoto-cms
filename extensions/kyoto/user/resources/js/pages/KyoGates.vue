@@ -35,7 +35,20 @@
                 </div>
             </div>
 
-            <NTable class="kyo-table col--flex-1-1" :items="result.data" :viewport-height="true" :selected.sync="selected" :filter-props.sync="query.filter" :sort-prop.sync="query.prop" :sort-dir.sync="query.dir" :item-height="44" :allow-drag="allowDrag" :allow-drop="allowDrop">
+            <NTable
+                class="kyo-table col--flex-1-1"
+                :items="result.data"
+                :viewport-height="true"
+                :expanded.sync="expanded"
+                :selected.sync="selected"
+                :filter-props.sync="query.filter"
+                :sort-prop.sync="query.prop"
+                :sort-dir.sync="query.dir"
+                :item-height="44"
+                :render-expand="true"
+                :allow-drag="allowDrag"
+                :allow-drop="allowDrop"
+            >
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
@@ -50,7 +63,7 @@
                 </NTableColumn>
             </NTable>
 
-            <NPaginator :page.sync="query.page" :limit.sync="query.limit" :total="result.total"></NPaginator>
+            <NPaginator :total="result.total" :layout="['count', 'spacer']"></NPaginator>
         </div>
     </NLoader>
 </template>
@@ -59,90 +72,10 @@
 
         name: 'KyoGates',
 
-        data()
-        {
-            let query = {
-                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
-            };
-
-            if ( this.$root.storeKyoGates ) {
-                query = this.$root.storeKyoGates;
-            }
-
-            return {
-                query, result: {}, selected: [], load: true
-            };
+        urls: {
+            index: '/{locale}/kyoto/user/http/controllers/gate/index'
         },
 
-        mounted()
-        {
-            this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-
-            this.fetchItems();
-        },
-
-        watch: {
-
-            'query.page': function () {
-                this.fetchItems();
-            },
-
-            'query.limit': function () {
-                this.fetchItems();
-            },
-
-            'query.prop': function () {
-                this.fetchItems();
-            },
-
-            'query.dir': function () {
-                this.fetchItems();
-            },
-
-            'query.filter': function () {
-                this.fetchItems();
-            }
-
-        },
-
-        methods: {
-
-            allowDrag()
-            {
-                return false;
-            },
-
-            allowDrop()
-            {
-                return false;
-            },
-
-            fetchItems()
-            {
-                let options = {
-                    onLoad: () => this.load = true,
-                    onDone: () => this.load = false
-                };
-
-                let route = this.Route.get('/{locale}/kyoto/user/http/controllers/gate/index',
-                    this.$root.$data, this.query);
-
-                this.$root.storeKyoGates = this.Obj.clone(this.query);
-
-                this.$http.get(route, options).then(this.updateItems, () => null);
-            },
-
-            updateItems(res)
-            {
-                this.result = res.data;
-            },
-
-            deleteItems()
-            {
-                console.log('DELETE ITEMS');
-            }
-
-        }
-
+        extends: window.KyoIndex
     }
 </script>

@@ -59,90 +59,19 @@
 
         name: 'KyoUsers',
 
-        data()
-        {
+        urls: {
+            index: '/{locale}/kyoto/user/http/controllers/user/index'
+        },
+
+        defaults() {
+
             let query = {
-                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['email']
+                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['name']
             };
 
-            if ( this.$root.storeKyoUsers ) {
-                query = this.$root.storeKyoUsers;
-            }
-
-            return {
-                query, result: {}, selected: [], load: true
-            };
+            return { query };
         },
 
-        mounted()
-        {
-            this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-
-            this.fetchItems();
-        },
-
-        watch: {
-
-            'query.page': function () {
-                this.fetchItems();
-            },
-
-            'query.limit': function () {
-                this.fetchItems();
-            },
-
-            'query.prop': function () {
-                this.fetchItems();
-            },
-
-            'query.dir': function () {
-                this.fetchItems();
-            },
-
-            'query.filter': function () {
-                this.fetchItems();
-            }
-
-        },
-
-        methods: {
-
-            allowDrag()
-            {
-                return false;
-            },
-
-            allowDrop()
-            {
-                return false;
-            },
-
-            fetchItems()
-            {
-                let options = {
-                    onLoad: () => this.load = true,
-                    onDone: () => this.load = false
-                };
-
-                let route = this.Route.get('/{locale}/kyoto/user/http/controllers/user/index',
-                    this.$root.$data, this.query);
-
-                this.$root.storeKyoUsers = this.Obj.clone(this.query);
-
-                this.$http.get(route, options).then(this.updateItems, () => null);
-            },
-
-            updateItems(res)
-            {
-                this.result = res.data;
-            },
-
-            deleteItems()
-            {
-                console.log('DELETE ITEMS');
-            }
-
-        }
-
+        extends: window.KyoIndex
     }
 </script>

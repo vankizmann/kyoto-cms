@@ -14,7 +14,7 @@ class GateController extends Controller
             abort(403);
         }
 
-        return response()->json(Gate::datatable());
+        return response()->json(Gate::datatree());
     }
 
 }

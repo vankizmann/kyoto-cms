@@ -227,92 +227,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoMenus',
-  data: function data() {
-    var query = {
-      page: 1,
-      limit: 25,
-      prop: 'updated_at',
-      dir: 'asc',
-      filter: [],
-      search: '',
-      columns: ['title']
-    };
-
-    if (this.$root.storeKyoRoles) {
-      query = this.$root.storeKyoRoles;
-    }
-
-    return {
-      query: query,
-      result: {},
-      selected: [],
-      load: true
-    };
+  urls: {
+    index: '/{locale}/kyoto/menu/http/controllers/menu/index'
   },
-  mounted: function mounted() {
-    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-    this.$root.$on('locale:changed', this.fetchItems);
-    this.fetchItems();
-  },
-  destroyed: function destroyed() {
-    this.$root.$off('locale:changed');
-  },
-  watch: {
-    'query.page': function queryPage() {
-      this.fetchItems();
-    },
-    'query.limit': function queryLimit() {
-      this.fetchItems();
-    },
-    'query.prop': function queryProp() {
-      this.fetchItems();
-    },
-    'query.dir': function queryDir() {
-      this.fetchItems();
-    },
-    'query.filter': function queryFilter() {
-      this.fetchItems();
-    }
-  },
-  methods: {
-    allowDrag: function allowDrag() {
-      return false;
-    },
-    allowDrop: function allowDrop() {
-      return false;
-    },
-    fetchItems: function fetchItems() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/index', this.$root.$data, this.query);
-      this.$root.storeKyoRoles = this.Obj.clone(this.query);
-      this.$http.get(route, options).then(this.updateItems, function () {
-        return null;
-      });
-    },
-    updateItems: function updateItems(res) {
-      this.result = res.data;
-    },
-    deleteItems: function deleteItems() {
-      console.log('DELETE ITEMS');
-    },
-    gotoEdit: function gotoEdit(row) {
-      this.$router.push({
-        name: 'KyoMenuEdit',
-        params: row
-      });
-    }
-  }
+  "extends": window.KyoIndex
 });
 
 /***/ }),
@@ -596,6 +530,7 @@ var render = function() {
               attrs: {
                 items: _vm.result.data,
                 "viewport-height": true,
+                expanded: _vm.expanded,
                 selected: _vm.selected,
                 "filter-props": _vm.query.filter,
                 "sort-prop": _vm.query.prop,
@@ -606,6 +541,9 @@ var render = function() {
                 "allow-drop": _vm.allowDrop
               },
               on: {
+                "update:expanded": function($event) {
+                  _vm.expanded = $event
+                },
                 "update:selected": function($event) {
                   _vm.selected = $event
                 },
@@ -637,7 +575,6 @@ var render = function() {
                   prop: "title",
                   label: "Title",
                   fluid: true,
-                  sort: true,
                   filter: true
                 }
               }),
@@ -647,8 +584,7 @@ var render = function() {
                   type: "string",
                   prop: "route",
                   label: "Route",
-                  fluid: true,
-                  sort: true
+                  fluid: true
                 }
               }),
               _vm._v(" "),
@@ -657,7 +593,6 @@ var render = function() {
                   type: "datetime",
                   prop: "updated_at",
                   label: "Modified",
-                  sort: true,
                   filter: true
                 }
               }),
@@ -667,7 +602,6 @@ var render = function() {
                   type: "datetime",
                   prop: "created_at",
                   label: "Created",
-                  sort: true,
                   filter: true
                 }
               })

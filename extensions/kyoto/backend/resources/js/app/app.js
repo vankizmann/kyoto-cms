@@ -43,6 +43,11 @@ Vue.$http = Vue.prototype.$http = Axios;
 
 require('./config/axios');
 
+import KyoIndex from "./prototypes/KyoIndex";
+window.KyoIndex = KyoIndex;
+
+console.log('1', window.KyoIndex);
+
 import KyoBackend from "./layout/KyoBackend";
 
 import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";

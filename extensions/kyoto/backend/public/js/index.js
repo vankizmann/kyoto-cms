@@ -28839,12 +28839,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./layout/KyoBackend */ "./resources/js/app/layout/KyoBackend.vue");
-/* harmony import */ var _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./layout/KyoLayoutMainmenu */ "./resources/js/app/layout/KyoLayoutMainmenu.vue");
-/* harmony import */ var _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./layout/KyoLayoutSubmenu */ "./resources/js/app/layout/KyoLayoutSubmenu.vue");
-/* harmony import */ var _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layout/KyoLayoutLanguage */ "./resources/js/app/layout/KyoLayoutLanguage.vue");
-/* harmony import */ var _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layout/KyoLayoutUserpanel */ "./resources/js/app/layout/KyoLayoutUserpanel.vue");
-/* harmony import */ var _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/dashboard/KyoDashboard */ "./resources/js/app/pages/dashboard/KyoDashboard.vue");
+/* harmony import */ var _prototypes_KyoIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./prototypes/KyoIndex */ "./resources/js/app/prototypes/KyoIndex.js");
+/* harmony import */ var _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./layout/KyoBackend */ "./resources/js/app/layout/KyoBackend.vue");
+/* harmony import */ var _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./layout/KyoLayoutMainmenu */ "./resources/js/app/layout/KyoLayoutMainmenu.vue");
+/* harmony import */ var _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layout/KyoLayoutSubmenu */ "./resources/js/app/layout/KyoLayoutSubmenu.vue");
+/* harmony import */ var _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layout/KyoLayoutLanguage */ "./resources/js/app/layout/KyoLayoutLanguage.vue");
+/* harmony import */ var _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./layout/KyoLayoutUserpanel */ "./resources/js/app/layout/KyoLayoutUserpanel.vue");
+/* harmony import */ var _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/dashboard/KyoDashboard */ "./resources/js/app/pages/dashboard/KyoDashboard.vue");
 
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_0___default.a;
 
@@ -28887,16 +28888,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.$http = vue__WEBPACK_IMPORTED_MODULE_
 __webpack_require__(/*! ./config/axios */ "./resources/js/app/config/axios.js");
 
 
+window.KyoIndex = _prototypes_KyoIndex__WEBPACK_IMPORTED_MODULE_5__["default"];
+console.log('1', window.KyoIndex);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_6__["default"].name, _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_7__["default"].name, _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_7__["default"].name, _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_7__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_8__["default"].name, _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_8__["default"].name, _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_9__["default"].name, _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_9__["default"].name, _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_9__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_10__["default"].name, _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_10__["default"].name, _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_10__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_11__["default"].name, _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_11__["default"]);
 nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
   window.baseTitle = document.title;
   var routes = [];
@@ -28926,15 +28930,15 @@ nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
 
     routes.push(data);
   });
-  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_5__["default"].router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
+  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__["default"].router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
     base: window.basePath,
     mode: 'history',
     routes: routes
   });
-  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_5__["default"].router.afterEach(function (to) {
+  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__["default"].router.afterEach(function (to) {
     nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.title(nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Obj.get(to, 'meta.menu.title', 'Undefined'));
   });
-  window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_layout_KyoBackend__WEBPACK_IMPORTED_MODULE_5__["default"]).$mount('#app');
+  window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__["default"]).$mount('#app');
 });
 
 /***/ }),
@@ -29401,6 +29405,159 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoDashboard_vue_vue_type_template_id_7ecb0b65___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/app/prototypes/KyoIndex.js":
+/*!*************************************************!*\
+  !*** ./resources/js/app/prototypes/KyoIndex.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'KyoIndex',
+  urls: {
+    index: null,
+    copy: null,
+    "delete": null
+  },
+  stored: ['expanded', 'selected'],
+  defaults: function defaults() {
+    var query = {
+      page: 1,
+      limit: 25,
+      prop: 'updated_at',
+      dir: 'asc',
+      filter: [],
+      search: '',
+      columns: ['title']
+    };
+    return {
+      query: query
+    };
+  },
+  data: function data() {
+    var _this = this;
+
+    var query = {
+      page: 1,
+      limit: 25,
+      prop: 'updated_at',
+      dir: 'asc',
+      filter: [],
+      search: '',
+      columns: ['title']
+    };
+    var data = this.Obj.assign({
+      query: query,
+      result: {},
+      expanded: [],
+      selected: [],
+      load: true
+    }, this.ctor('defaults').call(this));
+    var storedKeys = this.Arr.merge(this.ctor('stored'), ['query']);
+    this.Arr.each(storedKeys, function (key) {
+      if (_this.Obj.has(_this.$root, _this._storeKey(key))) {
+        _this.Obj.set(data, key, _this.Obj.get(_this.$root, _this._storeKey(key)));
+      }
+    });
+    return data;
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
+    this.$root.$on('locale:changed', this.fetchItems);
+    this.Arr.each(this.ctor('stored'), function (key) {
+      _this2.$watch(key, function (value) {
+        _this2.Obj.set(_this2.$root, _this2._storeKey(key), value);
+      });
+    });
+    this.fetchItems();
+  },
+  destroyed: function destroyed() {
+    this.$root.$off('locale:changed');
+  },
+  watch: {
+    'query.page': function queryPage() {
+      this.fetchItems();
+    },
+    'query.limit': function queryLimit() {
+      this.fetchItems();
+    },
+    'query.prop': function queryProp() {
+      this.fetchItems();
+    },
+    'query.dir': function queryDir() {
+      this.fetchItems();
+    },
+    'query.filter': function queryFilter() {
+      this.fetchItems();
+    }
+  },
+  methods: {
+    _selfName: function _selfName() {
+      var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var suffix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var name = this.ctor('name');
+
+      if (name.match(/ies$/)) {
+        name = name.replace(/ies$/, 'y');
+      }
+
+      if (name.match(/s$/)) {
+        name = name.replace(/s$/, '');
+      }
+
+      return [prefix, name, suffix].join('');
+    },
+    _storeKey: function _storeKey(key) {
+      var exploded = key.split('.');
+      this.Arr.map(exploded, function (key) {
+        return key.charAt(0).toUpperCase() + key.slice(1);
+      });
+      return this._selfName('store', exploded.join(''));
+    },
+    allowDrag: function allowDrag() {
+      return false;
+    },
+    allowDrop: function allowDrop() {
+      return false;
+    },
+    fetchItems: function fetchItems() {
+      var _this3 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this3.load = true;
+        },
+        onDone: function onDone() {
+          return _this3.load = false;
+        }
+      };
+      var route = this.Route.get(this.ctor('urls.index'), this.$root.$data, this.query);
+      this.Obj.set(this.$root, this._selfName('store', 'Query'), this.Obj.clone(this.query));
+      this.$http.get(route, options).then(this.updateItems, function () {
+        return null;
+      });
+    },
+    updateItems: function updateItems(res) {
+      this.result = res.data;
+    },
+    deleteItems: function deleteItems() {
+      console.log('DELETE ITEMS');
+    },
+    gotoEdit: function gotoEdit(row) {
+      this.$router.push({
+        name: this._selfName(null, 'Edit'),
+        params: row
+      });
+    }
+  }
+});
 
 /***/ }),
 

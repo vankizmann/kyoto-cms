@@ -151,82 +151,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoGates',
-  data: function data() {
-    var query = {
-      page: 1,
-      limit: 25,
-      prop: 'updated_at',
-      dir: 'asc',
-      filter: [],
-      search: '',
-      columns: ['title']
-    };
-
-    if (this.$root.storeKyoGates) {
-      query = this.$root.storeKyoGates;
-    }
-
-    return {
-      query: query,
-      result: {},
-      selected: [],
-      load: true
-    };
+  urls: {
+    index: '/{locale}/kyoto/user/http/controllers/gate/index'
   },
-  mounted: function mounted() {
-    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-    this.fetchItems();
-  },
-  watch: {
-    'query.page': function queryPage() {
-      this.fetchItems();
-    },
-    'query.limit': function queryLimit() {
-      this.fetchItems();
-    },
-    'query.prop': function queryProp() {
-      this.fetchItems();
-    },
-    'query.dir': function queryDir() {
-      this.fetchItems();
-    },
-    'query.filter': function queryFilter() {
-      this.fetchItems();
-    }
-  },
-  methods: {
-    allowDrag: function allowDrag() {
-      return false;
-    },
-    allowDrop: function allowDrop() {
-      return false;
-    },
-    fetchItems: function fetchItems() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/user/http/controllers/gate/index', this.$root.$data, this.query);
-      this.$root.storeKyoGates = this.Obj.clone(this.query);
-      this.$http.get(route, options).then(this.updateItems, function () {
-        return null;
-      });
-    },
-    updateItems: function updateItems(res) {
-      this.result = res.data;
-    },
-    deleteItems: function deleteItems() {
-      console.log('DELETE ITEMS');
-    }
-  }
+  "extends": window.KyoIndex
 });
 
 /***/ }),
@@ -591,7 +534,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoUsers',
-  data: function data() {
+  urls: {
+    index: '/{locale}/kyoto/user/http/controllers/user/index'
+  },
+  defaults: function defaults() {
     var query = {
       page: 1,
       limit: 25,
@@ -599,72 +545,13 @@ __webpack_require__.r(__webpack_exports__);
       dir: 'asc',
       filter: [],
       search: '',
-      columns: ['email']
+      columns: ['name']
     };
-
-    if (this.$root.storeKyoUsers) {
-      query = this.$root.storeKyoUsers;
-    }
-
     return {
-      query: query,
-      result: {},
-      selected: [],
-      load: true
+      query: query
     };
   },
-  mounted: function mounted() {
-    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-    this.fetchItems();
-  },
-  watch: {
-    'query.page': function queryPage() {
-      this.fetchItems();
-    },
-    'query.limit': function queryLimit() {
-      this.fetchItems();
-    },
-    'query.prop': function queryProp() {
-      this.fetchItems();
-    },
-    'query.dir': function queryDir() {
-      this.fetchItems();
-    },
-    'query.filter': function queryFilter() {
-      this.fetchItems();
-    }
-  },
-  methods: {
-    allowDrag: function allowDrag() {
-      return false;
-    },
-    allowDrop: function allowDrop() {
-      return false;
-    },
-    fetchItems: function fetchItems() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/user/http/controllers/user/index', this.$root.$data, this.query);
-      this.$root.storeKyoUsers = this.Obj.clone(this.query);
-      this.$http.get(route, options).then(this.updateItems, function () {
-        return null;
-      });
-    },
-    updateItems: function updateItems(res) {
-      this.result = res.data;
-    },
-    deleteItems: function deleteItems() {
-      console.log('DELETE ITEMS');
-    }
-  }
+  "extends": window.KyoIndex
 });
 
 /***/ }),
@@ -819,15 +706,20 @@ var render = function() {
               attrs: {
                 items: _vm.result.data,
                 "viewport-height": true,
+                expanded: _vm.expanded,
                 selected: _vm.selected,
                 "filter-props": _vm.query.filter,
                 "sort-prop": _vm.query.prop,
                 "sort-dir": _vm.query.dir,
                 "item-height": 44,
+                "render-expand": true,
                 "allow-drag": _vm.allowDrag,
                 "allow-drop": _vm.allowDrop
               },
               on: {
+                "update:expanded": function($event) {
+                  _vm.expanded = $event
+                },
                 "update:selected": function($event) {
                   _vm.selected = $event
                 },
@@ -897,19 +789,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("NPaginator", {
-            attrs: {
-              page: _vm.query.page,
-              limit: _vm.query.limit,
-              total: _vm.result.total
-            },
-            on: {
-              "update:page": function($event) {
-                return _vm.$set(_vm.query, "page", $event)
-              },
-              "update:limit": function($event) {
-                return _vm.$set(_vm.query, "limit", $event)
-              }
-            }
+            attrs: { total: _vm.result.total, layout: ["count", "spacer"] }
           })
         ],
         1
