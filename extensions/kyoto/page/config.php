@@ -10,8 +10,17 @@ return [
         'Kyoto\\Page\\' => 'src/'
     ],
 
+    'seeds' => [
+        PageTableSeeder::class
+    ],
+
     'connectors' => [
         'page' => \Kyoto\Page\Connectors\PageConnector::class
+    ],
+
+    'backend' => [
+        'kyoto/page::js/index.js',
+        'kyoto/page::css/index.css'
     ]
 
 ];
