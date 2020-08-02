@@ -59,7 +59,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Anmelden',
+            'title'     => 'Anmelden',
         ]);
 
         $localize = Menu::create([
@@ -76,7 +76,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Abmelden',
+            'title'     => 'Abmelden',
         ]);
 
         $routes['dashboard'] = uuid();
@@ -140,7 +140,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Seiten',
+            'title'     => 'Seiten',
         ]);
 
         $menus['page'] = Menu::create([
@@ -158,7 +158,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['page']->localized('de')->update([
-            'title'         => 'Seiten',
+            'title'     => 'Seiten',
         ]);
 
         $temporary = Menu::create([
@@ -176,7 +176,25 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $temporary->localized('de')->update([
-            'title'         => 'Seiten',
+            'title'     => 'Seiten',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoPageCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Create page',
+            'slug'      => '/create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Seite erstellen',
         ]);
 
         $localize = Menu::create([
@@ -194,7 +212,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Seite bearbeiten',
+            'title'     => 'Seite bearbeiten',
         ]);
 
         $temporary = Menu::create([
@@ -212,7 +230,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $temporary->localized('de')->update([
-            'title'         => 'Menüs',
+            'title'     => 'Menüs',
         ]);
 
         $localize = Menu::create([
@@ -230,7 +248,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Menü bearbeiten',
+            'title'     => 'Menü bearbeiten',
         ]);
 
         $routes['user'] = uuid();
@@ -250,7 +268,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Benutzer',
+            'title'     => 'Benutzer',
         ]);
 
         $menus['user'] = Menu::create([
@@ -268,7 +286,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['user']->localized('de')->update([
-            'title'         => 'Benutzer',
+            'title'     => 'Benutzer',
         ]);
 
         $localize = Menu::create([
@@ -286,7 +304,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Benutzer',
+            'title'     => 'Benutzer',
         ]);
 
         $localize = Menu::create([
@@ -304,7 +322,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Rollen',
+            'title'     => 'Rollen',
         ]);
 
         $localize = Menu::create([
@@ -322,7 +340,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Zugänge',
+            'title'     => 'Zugänge',
         ]);
 
         $localize = Menu::create([
@@ -340,7 +358,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Rechte',
+            'title'     => 'Rechte',
         ]);
 
         $routes['language'] = uuid();
@@ -360,7 +378,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Sprachen',
+            'title'     => 'Sprachen',
         ]);
 
         $menus['language'] = Menu::create([
@@ -378,7 +396,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $menus['language']->localized('de')->update([
-            'title'         => 'Sprachen',
+            'title'     => 'Sprachen',
         ]);
 
         $temporary = Menu::create([
@@ -396,7 +414,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $temporary->localized('de')->update([
-            'title'         => 'Sprachen',
+            'title'     => 'Sprachen',
         ]);
 
         $localize = Menu::create([
@@ -414,7 +432,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Sprache bearbeiten',
+            'title'     => 'Sprache bearbeiten',
         ]);
 
         $temporary = Menu::create([
@@ -428,11 +446,11 @@ class BackendMenuTableSeeder extends Seeder
             'slug'      => '/translations',
             'matrix'    => 1,
             'guard'     => 1,
-            'parent'   => $menus['language'],
+            'parent'    => $menus['language'],
         ]);
 
         $temporary->localized('de')->update([
-            'title'         => 'Übersetzungen',
+            'title'     => 'Übersetzungen',
         ]);
 
         $localize = Menu::create([
@@ -450,7 +468,7 @@ class BackendMenuTableSeeder extends Seeder
         ]);
 
         $localize->localized('de')->update([
-            'title'         => 'Übersetzung bearbeiten',
+            'title'     => 'Übersetzung bearbeiten',
         ]);
     }
 

@@ -1,19 +1,30 @@
+import { Arr, Obj } from 'nano-js';
+
 export default {
 
     name: 'KyoIndex',
 
     urls: {
-        index: null, copy: null, delete: null
+        index: null,
+        copy: null,
+        delete: null
     },
 
     stored: [
-        'expanded', 'selected'
+        'expanded',
+        'selected'
     ],
 
     defaults() {
 
         let query = {
-            page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
+            page: 1,
+            limit: 25,
+            prop: 'updated_at',
+            dir: 'asc',
+            filter: [],
+            search: '',
+            columns: ['title']
         };
 
         return { query };
@@ -22,37 +33,52 @@ export default {
     data()
     {
         let query = {
-            page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
+            page: 1,
+            limit: 25,
+            prop: 'updated_at',
+            dir: 'asc',
+            filter: [],
+            search: '',
+            columns: ['title']
         };
 
-        let data = this.Obj.assign({
-            query, result: {}, expanded: [], selected: [], load: true
-        }, this.ctor('defaults').call(this));
+        let defaults = {
+            query: query,
+            result: {},
+            expanded: [],
+            selected: [],
+            load: true
+        };
 
-        let storedKeys = this.Arr.merge(this.ctor('stored'), ['query']);
+        let data = Obj.assign(defaults,
+            this.ctor('defaults').call(this));
 
-        this.Arr.each(storedKeys, (key) => {
-            if ( this.Obj.has(this.$root, this._storeKey(key)) ) {
-                this.Obj.set(data, key, this.Obj.get(this.$root, this._storeKey(key)));
+        let storedKeys = Arr.merge(this.ctor('stored'),
+            ['query']);
+
+        Arr.each(storedKeys, (key) => {
+            if ( Obj.has(this.$root, this.__store(key)) ) {
+                Obj.set(data, key, Obj.get(this.$root, this.__store(key)));
             }
         });
 
         return data;
     },
 
-    mounted()
+    beforeMount()
     {
-        this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-
-        this.$root.$on('locale:changed', this.fetchItems);
-
-        this.Arr.each(this.ctor('stored'), (key) => {
+        Arr.each(this.ctor('stored'), (key) => {
             this.$watch(key, (value) => {
-                this.Obj.set(this.$root, this._storeKey(key), value);
+                return Obj.set(this.$root, this.__store(key), value);
             });
         });
 
-        this.fetchItems();
+        this.$root.$on('locale:changed', this.loadItems);
+    },
+
+    mounted()
+    {
+        this.loadItems();
     },
 
     destroyed()
@@ -62,31 +88,35 @@ export default {
 
     watch: {
 
+        'query.search': function () {
+            this.loadItems();
+        },
+
         'query.page': function () {
-            this.fetchItems();
+            this.loadItems();
         },
 
         'query.limit': function () {
-            this.fetchItems();
+            this.loadItems();
         },
 
         'query.prop': function () {
-            this.fetchItems();
+            this.loadItems();
         },
 
         'query.dir': function () {
-            this.fetchItems();
+            this.loadItems();
         },
 
         'query.filter': function () {
-            this.fetchItems();
+            this.loadItems();
         }
 
     },
 
     methods: {
 
-        _selfName(prefix = null, suffix = null)
+        __self(prefix = null, suffix = null)
         {
             let name = this.ctor('name');
 
@@ -101,28 +131,39 @@ export default {
             return [prefix, name, suffix].join('');
         },
 
-        _storeKey(key)
+        __store(key)
         {
             let exploded = key.split('.');
 
-            this.Arr.map(exploded, (key) => {
+            Arr.map(exploded, (key) => {
                 return key.charAt(0).toUpperCase() + key.slice(1);
             });
 
-            return this._selfName('store', exploded.join(''));
+            return this.__self('store', exploded.join(''));
         },
 
+        /**
+         * Allow drag function for table
+         * @returns {boolean}
+         */
         allowDrag()
         {
             return false;
         },
 
+        /**
+         * Allow drop function for table
+         * @returns {boolean}
+         */
         allowDrop()
         {
             return false;
         },
 
-        fetchItems()
+        /**
+         * Fetch items from server
+         */
+        loadItems()
         {
             let options = {
                 onLoad: () => this.load = true,
@@ -132,26 +173,60 @@ export default {
             let route = this.Route.get(this.ctor('urls.index'),
                 this.$root.$data, this.query);
 
-            this.Obj.set(this.$root, this._selfName('store', 'Query'),
-                this.Obj.clone(this.query));
+            Obj.set(this.$root, this.__self('store', 'Query'),
+                Obj.clone(this.query));
 
-            this.$http.get(route, options).then(this.updateItems, () => null);
+            this.$http.get(route, options)
+                .then(this.fetchDone, this.fetchError);
         },
 
-        updateItems(res)
+        /**
+         * Function when request succeeds
+         * @param res
+         */
+        fetchDone(res)
         {
             this.result = res.data;
         },
 
-        deleteItems()
+        /**
+         * Function when request fails
+         * @param res
+         */
+        fetchError(res)
         {
-            console.log('DELETE ITEMS');
+            //
         },
 
+        /**
+         * Delete items on server
+         */
+        deleteItems()
+        {
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let query = {
+                items: this.selected
+            };
+
+            let route = this.Route.get(this.ctor('urls.delete'),
+                this.$root.$data);
+
+            this.$http.post(route, query, options)
+                .then(this.loadItems, this.fetchError);
+        },
+
+        /**
+         * Goto edit form
+         * @param row
+         */
         gotoEdit(row)
         {
             this.$router.push({
-                name: this._selfName(null, 'Edit'), params: row
+                name: this.__self(null, 'Edit'), params: row
             });
         }
 

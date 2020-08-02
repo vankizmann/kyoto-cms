@@ -15,7 +15,7 @@
                     </NConfirm>
                 </template>
             </KyoTitlebar>
-            
+
             <NForm class="col--flex-1-0">
                 <NFormItem :label="trans('Title')" prop="title">
                     <NInput v-model="result.title"></NInput>
@@ -31,11 +31,11 @@
 <script>
     export default {
 
-        name: 'KyoPageEdit',
+        name: 'KyoPageCreate',
 
         urls: {
-            show: '/{locale}/kyoto/page/http/controllers/page/show',
-            update: '/{locale}/kyoto/page/http/controllers/page/update'
+            create: '/{locale}/kyoto/page/http/controllers/page/create',
+            store: '/{locale}/kyoto/page/http/controllers/page/store'
         },
 
         data()
@@ -66,12 +66,9 @@
                     onDone: () => this.load = false
                 };
 
-                let query = {
-                    id: this.$route.params.id
-                };
 
-                let route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/show',
-                    this.$root.$data, query);
+                let route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/create',
+                    this.$root.$data);
 
                 this.$http.get(route, options).then(this.updateItem, () => null);
             },

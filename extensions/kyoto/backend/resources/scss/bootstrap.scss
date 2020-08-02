@@ -36,10 +36,10 @@ $color-background:      #F4F6FA;
 
 $box-shadow:            0 0 4px rgba($color-black, 0.125);
 
-$radius-small:          4px;
-$radius-medium:         5px;
-$radius-large:          7px;
-$radius-extended:       17px;
+$radius-small:          2px;
+$radius-medium:         3px;
+$radius-large:          5px;
+$radius-extended:       12px;
 
 $button-height:         38px;
 $button-ratio:          0.5;
@@ -64,4 +64,5 @@ $select-height:         38px;
 @import "./app/header";
 @import "./app/menu";
 @import "./app/userpanel";
+@import "./app/titlebar";
 @import "./app/dashboard";

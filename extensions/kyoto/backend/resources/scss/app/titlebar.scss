@@ -1,0 +1,39 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-titlebar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.kyo-titlebar__back {
+    flex: 0 0 auto;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid $--color-gray-10;
+}
+
+.kyo-titlebar__back i {
+    margin-right: 5px;
+}
+
+.kyo-titlebar__title {
+    flex: 0 0 auto;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+.kyo-titlebar__search {
+    flex: 0 0 auto;
+}
+
+.kyo-titlebar__spacer {
+    flex: 1 1 auto;
+    min-width: 20px;
+}
+
+.kyo-titlebar__action {
+    flex: 0 0 auto;
+}
+

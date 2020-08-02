@@ -6975,7 +6975,7 @@ readers do not read off random characters that represent icons */
 
 .n-chart__wrapper {
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-chart__wrapper .n-grid-x polyline {
@@ -7056,7 +7056,7 @@ readers do not read off random characters that represent icons */
   padding: 15px;
   margin: 10px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: transform 0.6s;
   box-shadow: 0 1px 6px rgba(17, 23, 33, 0.15);
 }
@@ -7669,7 +7669,7 @@ readers do not read off random characters that represent icons */
   background: rgba(138, 140, 146, 0.15);
   font-size: 14px;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: 0.15s background, 0.15s border, 0.15s color;
 }
 
@@ -8196,7 +8196,7 @@ readers do not read off random characters that represent icons */
 .n-button-group .n-cascader__wrapper:first-child:not(:last-child) .n-cascader,
 .n-button-group .n-datepicker__wrapper:first-child:not(:last-child) .n-datepicker,
 .n-button-group .n-timepicker__wrapper:first-child:not(:last-child) .n-timepicker {
-  border-radius: 5px 0 0 5px;
+  border-radius: 3px 0 0 3px;
   margin-left: 0;
 }
 
@@ -8206,7 +8206,7 @@ readers do not read off random characters that represent icons */
 .n-button-group .n-cascader__wrapper:last-child:not(:first-child) .n-cascader,
 .n-button-group .n-datepicker__wrapper:last-child:not(:first-child) .n-datepicker,
 .n-button-group .n-timepicker__wrapper:last-child:not(:first-child) .n-timepicker {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 3px 3px 0;
 }
 
 .n-input__wrapper {
@@ -8224,7 +8224,7 @@ readers do not read off random characters that represent icons */
   font-size: 14px;
   color: #111721;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: 0.15s border, 0.15s background;
 }
 
@@ -8316,7 +8316,7 @@ readers do not read off random characters that represent icons */
   background: #ffffff;
   font-size: 14px;
   border: 1px solid #dcddde;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: 0.15s border;
 }
 
@@ -8358,7 +8358,7 @@ readers do not read off random characters that represent icons */
   display: block;
   width: 40px;
   height: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   background: #dcddde;
   transition: background 400ms ease;
 }
@@ -8409,7 +8409,7 @@ readers do not read off random characters that represent icons */
   margin-top: -7px;
   width: 14px;
   height: 14px;
-  border-radius: 5px;
+  border-radius: 3px;
   background: #ffffff;
   transition: transform 400ms ease;
 }
@@ -8483,7 +8483,7 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   width: 15px;
   height: 15px;
   color: #72757c;
@@ -8735,7 +8735,7 @@ readers do not read off random characters that represent icons */
   background: rgba(138, 140, 146, 0.1);
   color: #111721;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: 0.15s border;
 }
 
@@ -8834,7 +8834,7 @@ readers do not read off random characters that represent icons */
   color: #ffffff;
   background: #4B5BD8;
   padding: 3px 6px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .n-select.n-select--default.n-select--multiple .n-select__item {
@@ -8965,7 +8965,7 @@ readers do not read off random characters that represent icons */
   background: #ffffff;
   color: #111721;
   border: 1px solid #dcddde;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: 0.15s border;
 }
 
@@ -9125,7 +9125,7 @@ readers do not read off random characters that represent icons */
   background: #ffffff;
   color: #111721;
   border: 1px solid #dcddde;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: 0.15s border;
 }
 
@@ -9251,7 +9251,7 @@ readers do not read off random characters that represent icons */
   cursor: pointer;
   padding: 5px 7px;
   text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-datepicker__display .n-datepicker__month:hover {
@@ -9262,7 +9262,7 @@ readers do not read off random characters that represent icons */
   cursor: pointer;
   padding: 5px 7px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-datepicker__display .n-datepicker__year:hover {
@@ -9416,7 +9416,7 @@ readers do not read off random characters that represent icons */
   align-items: center;
   width: 100%;
   height: 36px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-datepicker__body .n-datepicker__year .n-datepicker__month:hover span {
@@ -9452,7 +9452,7 @@ readers do not read off random characters that represent icons */
   align-items: center;
   width: 100%;
   height: 36px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-datepicker__body .n-datepicker__decade .n-datepicker__year:hover span {
@@ -9492,7 +9492,7 @@ readers do not read off random characters that represent icons */
   background: #ffffff;
   color: #111721;
   border: 1px solid #dcddde;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: 0.15s border;
 }
 
@@ -9622,7 +9622,7 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   align-items: center;
   height: 35px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-timepicker__panel .n-timepicker__item:hover span {
@@ -9671,7 +9671,7 @@ readers do not read off random characters that represent icons */
   width: 50%;
   height: 400px;
   border: 1px solid #e8e8e9;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-transfer__pane > .n-checkbox-group {
@@ -9834,42 +9834,42 @@ readers do not read off random characters that represent icons */
 .n-popover.n-popover--filter > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--custom > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--select > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--cascader > .n-popover__frame {
   font-size: 13px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--datepicker > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
 .n-popover.n-popover--timepicker > .n-popover__frame {
   font-size: 14px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
@@ -9877,7 +9877,7 @@ readers do not read off random characters that represent icons */
   color: #ffffff;
   font-size: 12px;
   background: rgba(17, 23, 33, 0.85);
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 8px rgba(17, 23, 33, 0.15);
 }
 
@@ -10043,7 +10043,7 @@ body.n-open {
   max-height: 100%;
   margin: auto;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 1px 3px 1px rgba(17, 23, 33, 0.15);
 }
 
@@ -10171,7 +10171,7 @@ body.n-open {
   flex-direction: column;
   align-items: center;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 18px 22px;
 }
 
@@ -10243,7 +10243,7 @@ body.n-open {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 3px;
   background: #ffffff;
   border: 1px solid #e8e8e9;
 }
@@ -10428,7 +10428,7 @@ body.n-open {
   text-align: center;
   color: #72757c;
   background: rgba(138, 140, 146, 0.15);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .n-inverse .n-table .n-table-column .n-table-column__filter > div {
@@ -10943,7 +10943,7 @@ body.n-open {
   font-size: 5vw;
   background: #F4F6FA;
   color: rgba(75, 91, 216, 0.5);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .n-file-list-item__preview:before {
@@ -23087,6 +23087,43 @@ th {
   font-size: 14px;
   color: #5b5e66;
   margin-right: 25px;
+}
+
+.kyo-titlebar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.kyo-titlebar__back {
+  flex: 0 0 auto;
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid #e8e8e9;
+}
+
+.kyo-titlebar__back i {
+  margin-right: 5px;
+}
+
+.kyo-titlebar__title {
+  flex: 0 0 auto;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.kyo-titlebar__search {
+  flex: 0 0 auto;
+}
+
+.kyo-titlebar__spacer {
+  flex: 1 1 auto;
+  min-width: 20px;
+}
+
+.kyo-titlebar__action {
+  flex: 0 0 auto;
 }
 
 .kyo-dashboard .n-chart__wrapper {
