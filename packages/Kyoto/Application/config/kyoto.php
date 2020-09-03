@@ -12,6 +12,7 @@ return [
         'kyoto/language',
         'kyoto/user',
         'kyoto/menu',
+        'kyoto/media',
         'kyoto/page',
         'kyoto/backend',
         'kyoto/theme'

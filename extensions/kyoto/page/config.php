@@ -4,7 +4,7 @@ return [
 
     'name'          => 'kyoto/page',
     'version'       => '1.0.0',
-    'type'          => 'theme',
+    'type'          => 'package',
 
     'autoload' => [
         'Kyoto\\Page\\' => 'src/'
