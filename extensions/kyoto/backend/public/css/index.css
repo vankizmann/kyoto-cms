@@ -900,7 +900,7 @@ textarea,
 }
 @charset "UTF-8";
 /*!
- * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -1455,14 +1455,6 @@ readers do not read off random characters that represent icons */
 
 .fa-bacon:before {
   content: "\F7E5";
-}
-
-.fa-bacteria:before {
-  content: "\F959";
-}
-
-.fa-bacterium:before {
-  content: "\F95A";
 }
 
 .fa-bahai:before {
@@ -2501,10 +2493,6 @@ readers do not read off random characters that represent icons */
   content: "\F2A4";
 }
 
-.fa-deezer:before {
-  content: "\F977";
-}
-
 .fa-delicious:before {
   content: "\F1A5";
 }
@@ -2747,10 +2735,6 @@ readers do not read off random characters that represent icons */
 
 .fa-edge:before {
   content: "\F282";
-}
-
-.fa-edge-legacy:before {
-  content: "\F978";
 }
 
 .fa-edit:before {
@@ -3407,10 +3391,6 @@ readers do not read off random characters that represent icons */
 
 .fa-google-drive:before {
   content: "\F3AA";
-}
-
-.fa-google-pay:before {
-  content: "\F979";
 }
 
 .fa-google-play:before {
@@ -5309,10 +5289,6 @@ readers do not read off random characters that represent icons */
   content: "\F156";
 }
 
-.fa-rust:before {
-  content: "\F97A";
-}
-
 .fa-sad-cry:before {
   content: "\F5B3";
 }
@@ -5519,10 +5495,6 @@ readers do not read off random characters that represent icons */
 
 .fa-simplybuilt:before {
   content: "\F215";
-}
-
-.fa-sink:before {
-  content: "\F96D";
 }
 
 .fa-sistrix:before {
@@ -6173,10 +6145,6 @@ readers do not read off random characters that represent icons */
   content: "\F3FF";
 }
 
-.fa-tiktok:before {
-  content: "\F97B";
-}
-
 .fa-times:before {
   content: "\F00D";
 }
@@ -6425,10 +6393,6 @@ readers do not read off random characters that represent icons */
   content: "\F13E";
 }
 
-.fa-unsplash:before {
-  content: "\F97C";
-}
-
 .fa-untappd:before {
   content: "\F405";
 }
@@ -6547,10 +6511,6 @@ readers do not read off random characters that represent icons */
 
 .fa-users-cog:before {
   content: "\F509";
-}
-
-.fa-users-slash:before {
-  content: "\F973";
 }
 
 .fa-usps:before {
@@ -6934,7 +6894,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -6952,7 +6912,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -9707,7 +9667,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-timepicker__panel .n-timepicker__item:hover span {
-  background: #F4F6FA;
+  background: #F8F9FB;
 }
 
 .n-timepicker__panel .n-timepicker__item.n-active span {
@@ -11002,7 +10962,7 @@ body.n-open {
   position: relative;
   width: 100%;
   font-size: 5vw;
-  background: #F4F6FA;
+  background: #F8F9FB;
   color: rgba(75, 91, 216, 0.5);
   border-radius: 3px;
 }
@@ -11040,7 +11000,7 @@ body.n-open {
   display: flex;
   width: 100%;
   height: 4px;
-  background: #e2e8f2;
+  background: #e8ebf2;
 }
 
 .n-file-list-item__progress > span {
@@ -22907,10 +22867,10 @@ html, body {
 }
 
 body {
-  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   color: #111721;
-  background-color: #ffffff;
+  background-color: #F8F9FB;
   background-size: cover;
   background-position: center center;
 }
@@ -23188,7 +23148,7 @@ th {
 }
 
 .kyo-dashboard .n-chart__wrapper {
-  background: #F4F6FA;
+  background: #F8F9FB;
 }
 
 .kyo-uploads {

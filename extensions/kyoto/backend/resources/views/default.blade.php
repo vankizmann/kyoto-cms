@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
-    {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap') }}
+    {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') }}
 
 
     <script>
