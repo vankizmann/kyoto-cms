@@ -1,7 +1,9 @@
 <template>
-    <ul>
-        <li v-for="menu in menus" :key="menu.id">
-            <router-link :to="menu.route">{{ menu.title }}</router-link>
+    <ul class="kyo-mainmenu">
+        <li v-for="menu in menus" :key="menu.id" :class="getComponentClass(menu)">
+            <router-link :to="menu.route">
+                <span>{{ menu.title }}</span>
+            </router-link>
         </li>
     </ul>
 </template>
@@ -16,6 +18,15 @@
                 return Nano.Arr.filter(window.backendRoutes, (menu) => {
                     return ! menu.hide;
                 });
+            }
+
+        },
+
+        methods: {
+
+            getComponentClass(menu)
+            {
+                return Nano.Obj.get(menu, 'slug', 'undefined');
             }
 
         }

@@ -136,34 +136,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoGates',
   urls: {
@@ -228,23 +200,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoPolicies',
-  data: function data() {
+  urls: {
+    index: '/{locale}/kyoto/user/http/controllers/policy/index'
+  },
+  defaults: function defaults() {
     var query = {
       page: 1,
       limit: 25,
@@ -254,70 +215,11 @@ __webpack_require__.r(__webpack_exports__);
       search: '',
       columns: ['title']
     };
-
-    if (this.$root.storeKyoPolicies) {
-      query = this.$root.storeKyoPolicies;
-    }
-
     return {
-      query: query,
-      result: {},
-      selected: [],
-      load: true
+      query: query
     };
   },
-  mounted: function mounted() {
-    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-    this.fetchItems();
-  },
-  watch: {
-    'query.page': function queryPage() {
-      this.fetchItems();
-    },
-    'query.limit': function queryLimit() {
-      this.fetchItems();
-    },
-    'query.prop': function queryProp() {
-      this.fetchItems();
-    },
-    'query.dir': function queryDir() {
-      this.fetchItems();
-    },
-    'query.filter': function queryFilter() {
-      this.fetchItems();
-    }
-  },
-  methods: {
-    allowDrag: function allowDrag() {
-      return false;
-    },
-    allowDrop: function allowDrop() {
-      return false;
-    },
-    fetchItems: function fetchItems() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/user/http/controllers/policy/index', this.$root.$data, this.query);
-      this.$root.storeKyoPolicies = this.Obj.clone(this.query);
-      this.$http.get(route, options).then(this.updateItems, function () {
-        return null;
-      });
-    },
-    updateItems: function updateItems(res) {
-      this.result = res.data;
-    },
-    deleteItems: function deleteItems() {
-      console.log('DELETE ITEMS');
-    }
-  }
+  "extends": window.KyoIndex
 });
 
 /***/ }),
@@ -367,29 +269,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoRoles',
-  data: function data() {
+  urls: {
+    index: '/{locale}/kyoto/user/http/controllers/role/index'
+  },
+  defaults: function defaults() {
     var query = {
       page: 1,
       limit: 25,
@@ -399,70 +284,11 @@ __webpack_require__.r(__webpack_exports__);
       search: '',
       columns: ['title']
     };
-
-    if (this.$root.storeKyoRoles) {
-      query = this.$root.storeKyoRoles;
-    }
-
     return {
-      query: query,
-      result: {},
-      selected: [],
-      load: true
+      query: query
     };
   },
-  mounted: function mounted() {
-    this.$watch('query.search', this.Any.debounce(this.fetchItems, 800));
-    this.fetchItems();
-  },
-  watch: {
-    'query.page': function queryPage() {
-      this.fetchItems();
-    },
-    'query.limit': function queryLimit() {
-      this.fetchItems();
-    },
-    'query.prop': function queryProp() {
-      this.fetchItems();
-    },
-    'query.dir': function queryDir() {
-      this.fetchItems();
-    },
-    'query.filter': function queryFilter() {
-      this.fetchItems();
-    }
-  },
-  methods: {
-    allowDrag: function allowDrag() {
-      return false;
-    },
-    allowDrop: function allowDrop() {
-      return false;
-    },
-    fetchItems: function fetchItems() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/user/http/controllers/role/index', this.$root.$data, this.query);
-      this.$root.storeKyoRoles = this.Obj.clone(this.query);
-      this.$http.get(route, options).then(this.updateItems, function () {
-        return null;
-      });
-    },
-    updateItems: function updateItems(res) {
-      this.result = res.data;
-    },
-    deleteItems: function deleteItems() {
-      console.log('DELETE ITEMS');
-    }
-  }
+  "extends": window.KyoIndex
 });
 
 /***/ }),
@@ -476,26 +302,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -579,27 +385,15 @@ var render = function() {
         "div",
         { staticClass: "grid grid--col" },
         [
-          _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
-            _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
-              _c("div", { staticClass: "col--flex-0-0" }, [
-                _c("h2", [
-                  _vm._v(
-                    _vm._s(_vm.Obj.get(_vm.$route, "meta.menu.title", "Gates"))
-                  )
-                ])
-              ]),
-              _vm._v(" "),
+          _c(
+            "KyoTitlebar",
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
+            [
               _c(
-                "div",
-                { staticClass: "col--flex-0-1 col--left" },
+                "template",
+                { slot: "search" },
                 [
-                  _c("NInput", {
-                    attrs: {
-                      size: "large",
-                      placeholder: _vm.trans("Search"),
-                      icon: "fa fa-search",
-                      "icon-disabled": true
-                    },
+                  _c("KyoTitlebarSearch", {
                     model: {
                       value: _vm.query.search,
                       callback: function($$v) {
@@ -613,67 +407,8 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "col--flex-0-0 col--right" },
-                [
-                  _c(
-                    "NButtonGroup",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.selected.length,
-                          expression: "selected.length"
-                        }
-                      ]
-                    },
-                    [
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-copy"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-trash"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "NConfirm",
-                        {
-                          attrs: { type: "danger" },
-                          on: { confirm: _vm.deleteItems }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(
-                                _vm.trans(
-                                  "Are you sure you want to delete :count items?",
-                                  { count: _vm.selected.length }
-                                )
-                              ) +
-                              "\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col--flex-0-0" },
+                "template",
+                { slot: "action" },
                 [
                   _c(
                     "NButton",
@@ -681,68 +416,28 @@ var render = function() {
                       attrs: { type: "primary" },
                       on: {
                         click: function($event) {
-                          return _vm.$router.push({ name: "KyoRoleEdit" })
+                          return _vm.$router.push({ name: "KyoGateCreate" })
                         }
                       }
                     },
                     [
                       _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.trans("Add gate")) +
-                          "\n                    "
+                        "\n                    " +
+                          _vm._s(_vm.trans("Create gate")) +
+                          "\n                "
                       )
                     ]
                   )
                 ],
                 1
               )
-            ])
-          ]),
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
-            "NTable",
-            {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                expanded: _vm.expanded,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "render-expand": true,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:expanded": function($event) {
-                  _vm.expanded = $event
-                },
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                }
-              }
-            },
+            "KyoDatatable",
+            { staticClass: "col--flex-1-1", attrs: { "render-expand": true } },
             [
               _c("NTableColumn", {
                 attrs: {
@@ -786,11 +481,7 @@ var render = function() {
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: { total: _vm.result.total, layout: ["count", "spacer"] }
-          })
+          )
         ],
         1
       )
@@ -827,29 +518,15 @@ var render = function() {
         "div",
         { staticClass: "grid grid--col" },
         [
-          _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
-            _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
-              _c("div", { staticClass: "col--flex-0-0" }, [
-                _c("h2", [
-                  _vm._v(
-                    _vm._s(
-                      _vm.Obj.get(_vm.$route, "meta.menu.title", "Policies")
-                    )
-                  )
-                ])
-              ]),
-              _vm._v(" "),
+          _c(
+            "KyoTitlebar",
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
+            [
               _c(
-                "div",
-                { staticClass: "col--flex-0-1 col--left" },
+                "template",
+                { slot: "search" },
                 [
-                  _c("NInput", {
-                    attrs: {
-                      size: "large",
-                      placeholder: _vm.trans("Search"),
-                      icon: "fa fa-search",
-                      "icon-disabled": true
-                    },
+                  _c("KyoTitlebarSearch", {
                     model: {
                       value: _vm.query.search,
                       callback: function($$v) {
@@ -863,67 +540,8 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "col--flex-0-0 col--right" },
-                [
-                  _c(
-                    "NButtonGroup",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.selected.length,
-                          expression: "selected.length"
-                        }
-                      ]
-                    },
-                    [
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-copy"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-trash"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "NConfirm",
-                        {
-                          attrs: { type: "danger" },
-                          on: { confirm: _vm.deleteItems }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(
-                                _vm.trans(
-                                  "Are you sure you want to delete :count items?",
-                                  { count: _vm.selected.length }
-                                )
-                              ) +
-                              "\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col--flex-0-0" },
+                "template",
+                { slot: "action" },
                 [
                   _c(
                     "NButton",
@@ -931,63 +549,28 @@ var render = function() {
                       attrs: { type: "primary" },
                       on: {
                         click: function($event) {
-                          return _vm.$router.push({ name: "KyoRoleEdit" })
+                          return _vm.$router.push({ name: "KyoPolicyCreate" })
                         }
                       }
                     },
                     [
                       _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.trans("Add policy")) +
-                          "\n                    "
+                        "\n                    " +
+                          _vm._s(_vm.trans("Create policy")) +
+                          "\n                "
                       )
                     ]
                   )
                 ],
                 1
               )
-            ])
-          ]),
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
-            "NTable",
-            {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                }
-              }
-            },
+            "KyoDatatable",
+            { staticClass: "col--flex-1-1" },
             [
               _c("NTableColumn", {
                 attrs: {
@@ -1041,23 +624,7 @@ var render = function() {
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: {
-              page: _vm.query.page,
-              limit: _vm.query.limit,
-              total: _vm.result.total
-            },
-            on: {
-              "update:page": function($event) {
-                return _vm.$set(_vm.query, "page", $event)
-              },
-              "update:limit": function($event) {
-                return _vm.$set(_vm.query, "limit", $event)
-              }
-            }
-          })
+          )
         ],
         1
       )
@@ -1094,27 +661,15 @@ var render = function() {
         "div",
         { staticClass: "grid grid--col" },
         [
-          _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
-            _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
-              _c("div", { staticClass: "col--flex-0-0" }, [
-                _c("h2", [
-                  _vm._v(
-                    _vm._s(_vm.Obj.get(_vm.$route, "meta.menu.title", "Roles"))
-                  )
-                ])
-              ]),
-              _vm._v(" "),
+          _c(
+            "KyoTitlebar",
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
+            [
               _c(
-                "div",
-                { staticClass: "col--flex-0-1 col--left" },
+                "template",
+                { slot: "search" },
                 [
-                  _c("NInput", {
-                    attrs: {
-                      size: "large",
-                      placeholder: _vm.trans("Search"),
-                      icon: "fa fa-search",
-                      "icon-disabled": true
-                    },
+                  _c("KyoTitlebarSearch", {
                     model: {
                       value: _vm.query.search,
                       callback: function($$v) {
@@ -1128,67 +683,8 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "col--flex-0-0 col--right" },
-                [
-                  _c(
-                    "NButtonGroup",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.selected.length,
-                          expression: "selected.length"
-                        }
-                      ]
-                    },
-                    [
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-copy"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-trash"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "NConfirm",
-                        {
-                          attrs: { type: "danger" },
-                          on: { confirm: _vm.deleteItems }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(
-                                _vm.trans(
-                                  "Are you sure you want to delete :count items?",
-                                  { count: _vm.selected.length }
-                                )
-                              ) +
-                              "\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col--flex-0-0" },
+                "template",
+                { slot: "action" },
                 [
                   _c(
                     "NButton",
@@ -1196,63 +692,28 @@ var render = function() {
                       attrs: { type: "primary" },
                       on: {
                         click: function($event) {
-                          return _vm.$router.push({ name: "KyoRoleEdit" })
+                          return _vm.$router.push({ name: "KyoRoleCreate" })
                         }
                       }
                     },
                     [
                       _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.trans("Add role")) +
-                          "\n                    "
+                        "\n                    " +
+                          _vm._s(_vm.trans("Create role")) +
+                          "\n                "
                       )
                     ]
                   )
                 ],
                 1
               )
-            ])
-          ]),
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
-            "NTable",
-            {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                }
-              }
-            },
+            "KyoDatatable",
+            { staticClass: "col--flex-1-1" },
             [
               _c("NTableColumn", {
                 attrs: {
@@ -1296,23 +757,7 @@ var render = function() {
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: {
-              page: _vm.query.page,
-              limit: _vm.query.limit,
-              total: _vm.result.total
-            },
-            on: {
-              "update:page": function($event) {
-                return _vm.$set(_vm.query, "page", $event)
-              },
-              "update:limit": function($event) {
-                return _vm.$set(_vm.query, "limit", $event)
-              }
-            }
-          })
+          )
         ],
         1
       )
@@ -1349,27 +794,15 @@ var render = function() {
         "div",
         { staticClass: "grid grid--col" },
         [
-          _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
-            _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
-              _c("div", { staticClass: "col--flex-0-0" }, [
-                _c("h2", [
-                  _vm._v(
-                    _vm._s(_vm.Obj.get(_vm.$route, "meta.menu.title", "Users"))
-                  )
-                ])
-              ]),
-              _vm._v(" "),
+          _c(
+            "KyoTitlebar",
+            { staticClass: "col--flex-0-0" },
+            [
               _c(
-                "div",
-                { staticClass: "col--flex-0-1 col--left" },
+                "template",
+                { slot: "search" },
                 [
-                  _c("NInput", {
-                    attrs: {
-                      size: "large",
-                      placeholder: _vm.trans("Search"),
-                      icon: "fa fa-search",
-                      "icon-disabled": true
-                    },
+                  _c("KyoTitlebarSearch", {
                     model: {
                       value: _vm.query.search,
                       callback: function($$v) {
@@ -1383,67 +816,8 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "col--flex-0-0 col--right" },
-                [
-                  _c(
-                    "NButtonGroup",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.selected.length,
-                          expression: "selected.length"
-                        }
-                      ]
-                    },
-                    [
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-copy"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("NButton", {
-                        attrs: {
-                          type: "secondary",
-                          square: true,
-                          icon: "fa fa-trash"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "NConfirm",
-                        {
-                          attrs: { type: "danger" },
-                          on: { confirm: _vm.deleteItems }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(
-                                _vm.trans(
-                                  "Are you sure you want to delete :count items?",
-                                  { count: _vm.selected.length }
-                                )
-                              ) +
-                              "\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col--flex-0-0" },
+                "template",
+                { slot: "action" },
                 [
                   _c(
                     "NButton",
@@ -1451,63 +825,28 @@ var render = function() {
                       attrs: { type: "primary" },
                       on: {
                         click: function($event) {
-                          return _vm.$router.push({ name: "KyoUserEdit" })
+                          return _vm.$router.push({ name: "KyoUserCreate" })
                         }
                       }
                     },
                     [
                       _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.trans("Add user")) +
-                          "\n                    "
+                        "\n                    " +
+                          _vm._s(_vm.trans("Create user")) +
+                          "\n                "
                       )
                     ]
                   )
                 ],
                 1
               )
-            ])
-          ]),
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
-            "NTable",
-            {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                }
-              }
-            },
+            "KyoDatatable",
+            { staticClass: "col--flex-1-1" },
             [
               _c("NTableColumn", {
                 attrs: {
@@ -1551,23 +890,7 @@ var render = function() {
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: {
-              page: _vm.query.page,
-              limit: _vm.query.limit,
-              total: _vm.result.total
-            },
-            on: {
-              "update:page": function($event) {
-                return _vm.$set(_vm.query, "page", $event)
-              },
-              "update:limit": function($event) {
-                return _vm.$set(_vm.query, "limit", $event)
-              }
-            }
-          })
+          )
         ],
         1
       )
@@ -2018,8 +1341,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/user/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/user/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/user/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/user/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

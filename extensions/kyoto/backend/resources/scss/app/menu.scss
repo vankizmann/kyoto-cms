@@ -4,24 +4,75 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 10px 30px;
+    margin: auto 0;
 }
 
 .kyo-mainmenu li {
-    font-size: 16px;
-    padding: 5px 0;
-}
-
-.kyo-mainmenu li:not(:last-child) {
-    margin-right: 20px;
+    padding: 0;
 }
 
 .kyo-mainmenu li a {
-    color: $--color-gray-70;
+    position: relative;
+    display: block;
+    color: $--color-black;
+}
+
+.kyo-mainmenu li a:before {
+    content: '\f6e2';
+    display: block;
+    font-size: 26px;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    font-family: "Font Awesome 5 Free", sans-serif;
+}
+
+.kyo-mainmenu li a:after {
+    content: '\00a0';
+    position: absolute;
+    top: 50%;
+    right: -1px;
+    display: block;
+    width: 3px;
+    height: 100%;
+    max-height: 0;
+    transform: translateY(-50%);
+    border-radius: 500px;
+    background: $--color-primary;
+    transition: max-height 0.3s;
+}
+
+.kyo-mainmenu li:hover a:after {
+    max-height: 12px;
+}
+
+.kyo-mainmenu li a.router-link-active:after {
+    max-height: 42px;
+}
+
+.kyo-mainmenu li a span {
+    display: none;
+}
+
+.kyo-mainmenu li.dashboard a:before {
+    content: '\f3fd';
+}
+
+.kyo-mainmenu li.users a:before {
+    content: '\f4fb';
+}
+
+.kyo-mainmenu li.pages a:before {
+    content: '\f1b2';
+}
+
+.kyo-mainmenu li.languages a:before {
+    content: '\f277';
 }
 
 .kyo-mainmenu li a.router-link-active {
-    color: $--color-black;
+    color: $--color-primary;
 }
 
 .kyo-submenu {
@@ -29,10 +80,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-}
-
-.kyo-submenu li {
-    font-size: 14px;
 }
 
 .kyo-submenu li:not(:last-child) {

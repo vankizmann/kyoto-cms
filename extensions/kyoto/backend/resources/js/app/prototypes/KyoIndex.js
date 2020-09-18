@@ -65,6 +65,13 @@ export default {
         return data;
     },
 
+    provide()
+    {
+        return {
+            KyoIndex: this
+        };
+    },
+
     beforeMount()
     {
         Arr.each(this.ctor('stored'), (key) => {

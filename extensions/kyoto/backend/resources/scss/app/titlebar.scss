@@ -5,6 +5,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    padding: 20px 30px;
 }
 
 .kyo-titlebar__back {
@@ -20,8 +21,11 @@
 
 .kyo-titlebar__title {
     flex: 0 0 auto;
-    padding-right: 20px;
     margin-right: 20px;
+}
+
+.kyo-titlebar__title h1 {
+    font-size: 30px;
 }
 
 .kyo-titlebar__search {
@@ -33,7 +37,57 @@
     min-width: 20px;
 }
 
-.kyo-titlebar__action {
+.kyo-titlebar__description {
     flex: 0 0 auto;
 }
+
+.kyo-titlebar__description .n-button.n-button--default {
+    color: $--color-black;
+}
+
+.kyo-titlebar__description .n-button.n-button--default .n-icon {
+    color: $--color-gray-70;
+}
+
+.kyo-titlebar__action {
+    flex: 0 0 auto;
+    margin-left: 30px;
+}
+
+
+/**
+ * Search
+ */
+
+.kyo-titlebar-search {
+    display: flex;
+    flex-direction: row;
+}
+
+.kyo-titlebar-search__input {
+    margin-right: 5px;
+}
+
+.kyo-titlebar-search__input .n-input {
+    border: none;
+    background: transparent;
+}
+
+.kyo-titlebar-search__input .n-button.n-button--default {
+    cursor: default;
+    color: $--color-gray-40;
+    border: none;
+    background: transparent;
+}
+
+.kyo-titlebar-search__clear .n-button.n-button--default {
+    color: $--color-gray-40;
+    border: none;
+    background: transparent;
+}
+
+.kyo-titlebar-search__clear .n-button__wrapper.n-disabled .n-button {
+    opacity: 0;
+}
+
 

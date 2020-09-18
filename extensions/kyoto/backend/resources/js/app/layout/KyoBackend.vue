@@ -3,11 +3,11 @@
         <div class="kyo-header">
             <div class="grid grid--row grid--20">
 
-                <KyoLayoutSubmenu class="kyo-submenu col--flex-0-0 col--left">
+                <KyoLayoutSubmenu class="col--flex-0-0 col--left">
                     <!-- Submenu -->
                 </KyoLayoutSubmenu>
 
-                <KyoLayoutUserpanel class="kyo-userpanel col--flex-0-0 col--right">
+                <KyoLayoutUserpanel class="col--flex-0-0 col--right">
                     <!-- Backenduser -->
                 </KyoLayoutUserpanel>
 
@@ -19,12 +19,9 @@
         </div>
 
         <div class="kyo-sidebar">
-            <KyoLayoutMainmenu class="kyo-mainmenu">
+            <KyoLayoutMainmenu>
                 <!-- Mainmenu -->
             </KyoLayoutMainmenu>
-            <KyoLayoutLanguage class="kyo-backend__language">
-                <!-- Language -->
-            </KyoLayoutLanguage>
         </div>
 
     </div>

@@ -304,14 +304,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoPages',
   urls: {
@@ -605,8 +597,25 @@ var render = function() {
         [
           _c(
             "KyoTitlebar",
-            { staticClass: "col--flex-0-0" },
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
             [
+              _c(
+                "template",
+                { slot: "search" },
+                [
+                  _c("KyoTitlebarSearch", {
+                    model: {
+                      value: _vm.query.search,
+                      callback: function($$v) {
+                        _vm.$set(_vm.query, "search", $$v)
+                      },
+                      expression: "query.search"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c(
                 "template",
                 { slot: "action" },
@@ -624,44 +633,7 @@ var render = function() {
                     [
                       _vm._v(
                         "\n                    " +
-                          _vm._s(_vm.trans("Add page")) +
-                          "\n                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "NButton",
-                    {
-                      attrs: {
-                        type: "secondary",
-                        disabled: !_vm.selected.length
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.trans("Delete")) +
-                          "\n                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "NConfirm",
-                    {
-                      attrs: { type: "danger" },
-                      on: { confirm: _vm.deleteItems }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(
-                            _vm.trans(
-                              "Are you sure you want to delete :count items?",
-                              { count: _vm.selected.length }
-                            )
-                          ) +
+                          _vm._s(_vm.trans("Create page")) +
                           "\n                "
                       )
                     ]
@@ -674,57 +646,19 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "NTable",
+            "KyoDatatable",
             {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                expanded: _vm.expanded,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:expanded": function($event) {
-                  _vm.expanded = $event
-                },
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "row-dblclick": _vm.gotoEdit
-              }
+              staticClass: "col--flex-1-1",
+              on: { "row-dblclick": _vm.gotoEdit }
             },
             [
               _c("NTableColumn", {
                 attrs: {
                   type: "string",
                   prop: "title",
-                  label: "Title",
+                  label: _vm.trans("Title"),
                   fluid: true,
-                  filter: true
+                  sort: true
                 }
               }),
               _vm._v(" "),
@@ -732,7 +666,8 @@ var render = function() {
                 attrs: {
                   type: "datetime",
                   prop: "updated_at",
-                  label: "Modified",
+                  label: _vm.trans("Modified"),
+                  sort: true,
                   filter: true
                 }
               }),
@@ -741,29 +676,14 @@ var render = function() {
                 attrs: {
                   type: "datetime",
                   prop: "created_at",
-                  label: "Created",
+                  label: _vm.trans("Created"),
+                  sort: true,
                   filter: true
                 }
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: {
-              page: _vm.query.page,
-              limit: _vm.query.limit,
-              total: _vm.result.total
-            },
-            on: {
-              "update:page": function($event) {
-                return _vm.$set(_vm.query, "page", $event)
-              },
-              "update:limit": function($event) {
-                return _vm.$set(_vm.query, "limit", $event)
-              }
-            }
-          })
+          )
         ],
         1
       )

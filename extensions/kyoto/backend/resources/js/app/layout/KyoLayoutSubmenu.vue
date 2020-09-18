@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul class="kyo-submenu">
         <li v-for="menu in menus" :key="menu.id">
             <router-link :to="menu.route">{{ menu.title }}</router-link>
         </li>

@@ -225,22 +225,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoMenus',
   urls: {
@@ -426,26 +410,15 @@ var render = function() {
         "div",
         { staticClass: "grid grid--col" },
         [
-          _c("div", { staticClass: "kyo-titlebar col--flex-0-0" }, [
-            _c("div", { staticClass: "grid grid--row grid--middle grid--30" }, [
-              _c("div", { staticClass: "col--flex-0-0" }, [
-                _c("h2", [
-                  _vm._v(
-                    _vm._s(_vm.Obj.get(_vm.$route, "meta.menu.title", "Roles"))
-                  )
-                ])
-              ]),
-              _vm._v(" "),
+          _c(
+            "KyoTitlebar",
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
+            [
               _c(
-                "div",
-                { staticClass: "col--flex-0-1 col--left" },
+                "template",
+                { slot: "search" },
                 [
-                  _c("NInput", {
-                    attrs: {
-                      size: "large",
-                      placeholder: _vm.trans("Search"),
-                      icon: "fa fa-search"
-                    },
+                  _c("KyoTitlebarSearch", {
                     model: {
                       value: _vm.query.search,
                       callback: function($$v) {
@@ -459,8 +432,8 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "col--flex-0-0 col--right" },
+                "template",
+                { slot: "action" },
                 [
                   _c(
                     "NButton",
@@ -468,105 +441,31 @@ var render = function() {
                       attrs: { type: "primary" },
                       on: {
                         click: function($event) {
-                          return _vm.$router.push({ name: "KyoUsers" })
+                          return _vm.$router.push({ name: "KyoMenuCreate" })
                         }
                       }
                     },
                     [
                       _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.trans("Add menu")) +
-                          "\n                    "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "NButton",
-                    {
-                      attrs: {
-                        type: "secondary",
-                        disabled: !_vm.selected.length
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.trans("Delete")) +
-                          "\n                    "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "NConfirm",
-                    {
-                      attrs: { type: "danger" },
-                      on: { confirm: _vm.deleteItems }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(
-                            _vm.trans(
-                              "Are you sure you want to delete :count items?",
-                              { count: _vm.selected.length }
-                            )
-                          ) +
-                          "\n                    "
+                        "\n                    " +
+                          _vm._s(_vm.trans("Create menu")) +
+                          "\n                "
                       )
                     ]
                   )
                 ],
                 1
               )
-            ])
-          ]),
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
-            "NTable",
+            "KyoDatatable",
             {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                expanded: _vm.expanded,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "render-expand": true,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:expanded": function($event) {
-                  _vm.expanded = $event
-                },
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "row-dblclick": _vm.gotoEdit
-              }
+              staticClass: "col--flex-1-1",
+              attrs: { "render-expand": true },
+              on: { "row-dblclick": _vm.gotoEdit }
             },
             [
               _c("NTableColumn", {
@@ -585,7 +484,22 @@ var render = function() {
                   prop: "route",
                   label: "Route",
                   fluid: true
-                }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(value.route || value.slug || "/") +
+                            "\n                "
+                        )
+                      ]
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
@@ -607,11 +521,7 @@ var render = function() {
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: { total: _vm.result.total, layout: ["count", "spacer"] }
-          })
+          )
         ],
         1
       )
@@ -723,7 +633,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -732,7 +647,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -1009,8 +924,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

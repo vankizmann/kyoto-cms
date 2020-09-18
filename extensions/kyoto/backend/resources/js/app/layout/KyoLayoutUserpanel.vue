@@ -1,12 +1,9 @@
 <template>
-    <div>
-        <span>
-            Moin, {{ user.name }}
-        </span>
-        <NButton size="mini" type="secondary" icon="fa fa-ellipsis-v" :square="true">
-            <!-- Icon -->
-        </NButton>
-        <NPopover type="custom" trigger="click" position="bottom-end" :window="true">
+    <div class="kyo-userpanel">
+        <a href="javascript:void(0)">
+            Moin <strong>{{ user.name }}</strong>
+        </a>
+        <NPopover type="userpanel" trigger="click" position="bottom-end" :window="true">
             <NTabs size="small">
                 <NTabsItem label="Notifications" name="default">
                     Notifications

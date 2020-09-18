@@ -65,6 +65,12 @@ Vue.component(KyoLayoutUserpanel.name, KyoLayoutUserpanel);
 import KyoTitlebar from "./helpers/KyoTitlebar";
 Vue.component(KyoTitlebar.name, KyoTitlebar);
 
+import KyoTitlebarSearch from "./helpers/KyoTitlebarSearch";
+Vue.component(KyoTitlebarSearch.name, KyoTitlebarSearch);
+
+import KyoDatatable from "./helpers/KyoDatatable";
+Vue.component(KyoDatatable.name, KyoDatatable);
+
 import KyoDashboard from "./pages/dashboard/KyoDashboard";
 Vue.component(KyoDashboard.name, KyoDashboard);
 

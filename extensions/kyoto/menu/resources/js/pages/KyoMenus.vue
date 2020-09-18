@@ -2,53 +2,37 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <div class="kyo-titlebar col--flex-0-0">
-                <div class="grid grid--row grid--middle grid--30">
+            <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
 
-                    <div class="col--flex-0-0">
-                        <h2>{{ Obj.get($route, 'meta.menu.title', 'Roles') }}</h2>
-                    </div>
+                <template slot="search">
+                    <KyoTitlebarSearch v-model="query.search"></KyoTitlebarSearch>
+                </template>
 
-                    <div class="col--flex-0-1 col--left">
-                        <NInput v-model="query.search" size="large" :placeholder="trans('Search')" icon="fa fa-search"></NInput>
-                    </div>
+                <template slot="action">
+                    <NButton type="primary" @click="$router.push({ name: 'KyoMenuCreate' })">
+                        {{ trans('Create menu') }}
+                    </NButton>
+                </template>
 
-                    <div class="col--flex-0-0 col--right">
-                        <NButton type="primary" @click="$router.push({ name: 'KyoUsers' })">
-                            {{ trans('Add menu') }}
-                        </NButton>
-                        <NButton type="secondary" :disabled="! selected.length">
-                            {{ trans('Delete') }}
-                        </NButton>
-                        <NConfirm type="danger" @confirm="deleteItems">
-                            {{ trans('Are you sure you want to delete :count items?', { count: selected.length }) }}
-                        </NConfirm>
-                    </div>
-                </div>
-            </div>
+            </KyoTitlebar>
 
-            <NTable
-                class="kyo-table col--flex-1-1"
-                :items="result.data"
-                :viewport-height="true"
-                :expanded.sync="expanded"
-                :selected.sync="selected"
-                :filter-props.sync="query.filter"
-                :sort-prop.sync="query.prop"
-                :sort-dir.sync="query.dir"
-                :item-height="44"
-                :render-expand="true"
-                :allow-drag="allowDrag"
-                :allow-drop="allowDrop"
-                @row-dblclick="gotoEdit"
-            >
-                <NTableColumn type="string" prop="title" label="Title" :fluid="true" :filter="true"></NTableColumn>
-                <NTableColumn type="string" prop="route" label="Route" :fluid="true"></NTableColumn>
-                <NTableColumn type="datetime" prop="updated_at" label="Modified" :filter="true"></NTableColumn>
-                <NTableColumn type="datetime" prop="created_at" label="Created" :filter="true"></NTableColumn>
-            </NTable>
+            <KyoDatatable class="col--flex-1-1" :render-expand="true" @row-dblclick="gotoEdit">
+                <NTableColumn type="string" prop="title" label="Title" :fluid="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+                <NTableColumn type="string" prop="route" label="Route" :fluid="true">
+                    <template slot-scope="{ value }">
+                        {{ value.route || value.slug || '/' }}
+                    </template>
+                </NTableColumn>
+                <NTableColumn type="datetime" prop="updated_at" label="Modified" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+                <NTableColumn type="datetime" prop="created_at" label="Created" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+            </KyoDatatable>
 
-            <NPaginator :total="result.total" :layout="['count', 'spacer']"></NPaginator>
         </div>
     </NLoader>
 </template>
