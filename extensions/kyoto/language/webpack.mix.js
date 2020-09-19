@@ -39,17 +39,15 @@ mix.webpackConfig({
  * JS files
  */
 
-mix.js(
-    'resources/js/bootstrap.js',
-    'public/js/web-menu.js'
-).version();
+mix.js('resources/js/bootstrap.js', 'public/js/index.js');
 
 /**
  * CSS files
  */
 
-mix.sass(
-    'resources/sass/bootstrap.scss',
-    'public/css/web-menu.css',
-    { precision: 3 }
-).version();
+mix.sass('resources/sass/bootstrap.scss', 'public/css/index.css', {
+    precision: 3
+});
+
+
+mix.version();

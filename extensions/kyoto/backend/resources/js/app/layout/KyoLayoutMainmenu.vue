@@ -4,6 +4,9 @@
             <router-link :to="menu.route">
                 <span>{{ menu.title }}</span>
             </router-link>
+            <NPopover type="tooltip" :window="true" position="right-center">
+                {{ menu.title }}
+            </NPopover>
         </li>
     </ul>
 </template>

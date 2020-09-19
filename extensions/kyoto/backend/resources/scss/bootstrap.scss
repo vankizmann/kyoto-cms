@@ -46,6 +46,8 @@ $button-ratio:          0.4;
 $input-height:          34px;
 $select-height:         34px;
 
+$form-legend-size:      16px;
+
 @import '~backpack.css';
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
@@ -68,3 +70,4 @@ $select-height:         34px;
 @import "./app/dashboard";
 @import "./app/upload";
 @import "./app/datatable";
+@import "./app/dataform";

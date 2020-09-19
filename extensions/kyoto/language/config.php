@@ -18,5 +18,9 @@ return [
         Kyoto\Language\LanguageServiceProvider::class
     ],
 
+    'backend' => [
+        'kyoto/language::js/index.js',
+        'kyoto/language::css/index.css'
+    ]
 
 ];

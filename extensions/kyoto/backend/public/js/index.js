@@ -1728,6 +1728,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoDatatable',
   inject: {
@@ -2033,6 +2035,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -13527,7 +13532,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'NFormGroup',\n  inject: {\n    NForm: {\n      \"default\": undefined\n    }\n  },\n  props: {\n    value: {\n      \"default\": function _default() {\n        return true;\n      },\n      type: [Boolean]\n    },\n    legend: {\n      \"default\": function _default() {\n        return this.$slots.legend;\n      },\n      type: [String]\n    },\n    align: {\n      \"default\": function _default() {\n        return 'vertical';\n      },\n      type: [String]\n    },\n    checkable: {\n      \"default\": function _default() {\n        return false;\n      },\n      type: [Boolean]\n    },\n    tooltip: {\n      \"default\": function _default() {\n        return this.$slots.tooltip;\n      },\n      type: [String]\n    },\n    tooltipPosition: {\n      \"default\": function _default() {\n        return 'right-center';\n      },\n      type: [String]\n    }\n  },\n  data: function data() {\n    return {\n      nativeValue: this.value\n    };\n  },\n  watch: {\n    value: function value() {\n      if (this.value !== this.nativeValue) {\n        this.nativeValue = this.value;\n      }\n    }\n  },\n  methods: {\n    toggleValue: function toggleValue() {\n      if (this.checkable === false) {\n        return;\n      }\n\n      this.$emit('input', this.nativeValue = !this.nativeValue);\n    }\n  },\n  render: function render($render) {\n    var h = arguments[0];\n    this.$render = $render;\n    var classList = ['n-form-group', 'n-form--' + this.align];\n\n    if (this.checkable === true) {\n      classList.push('n-form-group--checkable');\n    }\n\n    return h(\"fieldset\", {\n      \"class\": classList\n    }, [this.legend && h(\"div\", {\n      \"class\": \"n-form-group__legend\"\n    }, [h(\"legend\", {\n      \"class\": \"n-form-group__label\"\n    }, [this.checkable && h(\"NSwitch\", {\n      \"attrs\": {\n        \"size\": \"small\",\n        \"value\": this.nativeValue\n      },\n      \"on\": {\n        \"input\": this.toggleValue\n      }\n    }), h(\"div\", {\n      \"class\": \"n-form-group__label-text\",\n      \"on\": {\n        \"click\": this.toggleValue\n      }\n    }, [h(\"span\", [this.legend])]), this.tooltip && h(\"NPopover\", {\n      \"attrs\": {\n        \"type\": \"tooltip\",\n        \"position\": this.tooltipPosition\n      }\n    }, [this.tooltip]), this.$slots.actions && h(\"div\", {\n      \"class\": \"n-form-group__actions\"\n    }, [this.$slots.actions])])]), this.nativeValue && h(\"div\", {\n      \"class\": \"n-form-group__body\"\n    }, [this.$slots[\"default\"]])]);\n  }\n});\n\n//# sourceURL=webpack://nano-ui/./src/form/src/form-group/form-group.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'NFormGroup',\n  inject: {\n    NForm: {\n      \"default\": undefined\n    }\n  },\n  props: {\n    value: {\n      \"default\": function _default() {\n        return true;\n      },\n      type: [Boolean]\n    },\n    legend: {\n      \"default\": function _default() {\n        return this.$slots.legend;\n      },\n      type: [String]\n    },\n    icon: {\n      \"default\": function _default() {\n        return null;\n      }\n    },\n    align: {\n      \"default\": function _default() {\n        return 'vertical';\n      },\n      type: [String]\n    },\n    checkable: {\n      \"default\": function _default() {\n        return false;\n      },\n      type: [Boolean]\n    },\n    tooltip: {\n      \"default\": function _default() {\n        return this.$slots.tooltip;\n      },\n      type: [String]\n    },\n    tooltipPosition: {\n      \"default\": function _default() {\n        return 'right-center';\n      },\n      type: [String]\n    }\n  },\n  data: function data() {\n    return {\n      nativeValue: this.value\n    };\n  },\n  watch: {\n    value: function value() {\n      if (this.value !== this.nativeValue) {\n        this.nativeValue = this.value;\n      }\n    }\n  },\n  methods: {\n    toggleValue: function toggleValue() {\n      if (this.checkable === false) {\n        return;\n      }\n\n      this.$emit('input', this.nativeValue = !this.nativeValue);\n    }\n  },\n  render: function render($render) {\n    var h = arguments[0];\n    this.$render = $render;\n    var classList = ['n-form-group', 'n-form--' + this.align];\n\n    if (this.checkable === true) {\n      classList.push('n-form-group--checkable');\n    }\n\n    return h(\"fieldset\", {\n      \"class\": classList\n    }, [this.legend && h(\"div\", {\n      \"class\": \"n-form-group__legend\"\n    }, [h(\"legend\", {\n      \"class\": \"n-form-group__label\"\n    }, [this.checkable && h(\"NSwitch\", {\n      \"attrs\": {\n        \"size\": \"small\",\n        \"value\": this.nativeValue\n      },\n      \"on\": {\n        \"input\": this.toggleValue\n      }\n    }), h(\"div\", {\n      \"class\": \"n-form-group__label-text\",\n      \"on\": {\n        \"click\": this.toggleValue\n      }\n    }, [this.icon && h(\"i\", {\n      \"class\": ['n-icon', this.icon]\n    }), \" \", h(\"span\", [this.legend])]), this.tooltip && h(\"NPopover\", {\n      \"attrs\": {\n        \"type\": \"tooltip\",\n        \"position\": this.tooltipPosition\n      }\n    }, [this.tooltip]), this.$slots.actions && h(\"div\", {\n      \"class\": \"n-form-group__actions\"\n    }, [this.$slots.actions])])]), this.nativeValue && h(\"div\", {\n      \"class\": \"n-form-group__body\"\n    }, [this.$slots[\"default\"]])]);\n  }\n});\n\n//# sourceURL=webpack://nano-ui/./src/form/src/form-group/form-group.js?");
 
 /***/ }),
 
@@ -14859,7 +14864,7 @@ var render = function() {
             "filter-props": _vm.KyoIndex.query.filter,
             "sort-prop": _vm.KyoIndex.query.prop,
             "sort-dir": _vm.KyoIndex.query.dir,
-            "item-height": 44,
+            "item-height": 40,
             "allow-drag": _vm.KyoIndex.allowDrag,
             "allow-drop": _vm.KyoIndex.allowDrop,
             "render-expand": _vm.renderExpand
@@ -15335,7 +15340,15 @@ var render = function() {
         [
           _c("router-link", { attrs: { to: menu.route } }, [
             _c("span", [_vm._v(_vm._s(menu.title))])
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "NPopover",
+            {
+              attrs: { type: "tooltip", window: true, position: "right-center" }
+            },
+            [_vm._v("\n            " + _vm._s(menu.title) + "\n        ")]
+          )
         ],
         1
       )

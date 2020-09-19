@@ -7610,9 +7610,15 @@ readers do not read off random characters that represent icons */
   cursor: default;
   flex: 0 1 auto;
   margin-right: auto;
-  font-size: 17px;
+  font-size: 16px;
   color: #141925;
   transition: color 0.15s;
+}
+
+.n-form-group__label .n-form-group__label-text .n-icon {
+  font-size: 14px;
+  margin-right: 5px;
+  color: #1765F5;
 }
 
 .n-inverse .n-form-group__label .n-form-group__label-text {
@@ -23037,7 +23043,7 @@ th {
   z-index: 100;
   position: relative;
   flex: 1 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .kyo-backend > .kyo-body .n-loader:after {
@@ -23046,7 +23052,7 @@ th {
 
 .kyo-backend > .kyo-sidebar {
   z-index: 200;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   display: flex;
@@ -23187,7 +23193,7 @@ th {
   content: "\A0";
   position: absolute;
   top: -4px;
-  right: -4px;
+  right: -8px;
   display: block;
   width: 10px;
   height: 10px;
@@ -23347,4 +23353,12 @@ th {
   height: 55px;
   color: #141925;
   border-top: 1px solid #e9ebee;
+}
+
+.kyo-dataform {
+  padding: 0 30px;
+}
+
+.kyo-dataform .n-form-group__label .n-form-group__label-text {
+  font-weight: bold;
 }
