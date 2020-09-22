@@ -1971,6 +1971,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoBackend',
   data: function data() {
@@ -15251,7 +15255,9 @@ var render = function() {
         [
           _c("KyoLayoutSubmenu", { staticClass: "col--flex-0-0 col--left" }),
           _vm._v(" "),
-          _c("KyoLayoutUserpanel", { staticClass: "col--flex-0-0 col--right" })
+          _c("KyoLayoutLanguage", { staticClass: "col--flex-0-0" }),
+          _vm._v(" "),
+          _c("KyoLayoutUserpanel", { staticClass: "col--flex-0-0" })
         ],
         1
       )
@@ -15291,10 +15297,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "kyo-localepanel" },
     [
       _c(
         "NSelect",
-        { attrs: { value: _vm.$root.locale }, on: { input: _vm.changeLocale } },
+        {
+          attrs: { value: _vm.$root.locale, size: "small" },
+          on: { input: _vm.changeLocale }
+        },
         _vm._l(_vm.languages, function(lang) {
           return _c(
             "NSelectOption",
@@ -30719,15 +30729,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _prototypes_KyoIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./prototypes/KyoIndex */ "./resources/js/app/prototypes/KyoIndex.js");
-/* harmony import */ var _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./layout/KyoBackend */ "./resources/js/app/layout/KyoBackend.vue");
-/* harmony import */ var _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./layout/KyoLayoutMainmenu */ "./resources/js/app/layout/KyoLayoutMainmenu.vue");
-/* harmony import */ var _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layout/KyoLayoutSubmenu */ "./resources/js/app/layout/KyoLayoutSubmenu.vue");
-/* harmony import */ var _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layout/KyoLayoutLanguage */ "./resources/js/app/layout/KyoLayoutLanguage.vue");
-/* harmony import */ var _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./layout/KyoLayoutUserpanel */ "./resources/js/app/layout/KyoLayoutUserpanel.vue");
-/* harmony import */ var _helpers_KyoTitlebar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers/KyoTitlebar */ "./resources/js/app/helpers/KyoTitlebar.vue");
-/* harmony import */ var _helpers_KyoTitlebarSearch__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./helpers/KyoTitlebarSearch */ "./resources/js/app/helpers/KyoTitlebarSearch.vue");
-/* harmony import */ var _helpers_KyoDatatable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./helpers/KyoDatatable */ "./resources/js/app/helpers/KyoDatatable.vue");
-/* harmony import */ var _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/dashboard/KyoDashboard */ "./resources/js/app/pages/dashboard/KyoDashboard.vue");
+/* harmony import */ var _prototypes_KyoForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./prototypes/KyoForm */ "./resources/js/app/prototypes/KyoForm.js");
+/* harmony import */ var _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./layout/KyoBackend */ "./resources/js/app/layout/KyoBackend.vue");
+/* harmony import */ var _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layout/KyoLayoutMainmenu */ "./resources/js/app/layout/KyoLayoutMainmenu.vue");
+/* harmony import */ var _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layout/KyoLayoutSubmenu */ "./resources/js/app/layout/KyoLayoutSubmenu.vue");
+/* harmony import */ var _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./layout/KyoLayoutLanguage */ "./resources/js/app/layout/KyoLayoutLanguage.vue");
+/* harmony import */ var _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./layout/KyoLayoutUserpanel */ "./resources/js/app/layout/KyoLayoutUserpanel.vue");
+/* harmony import */ var _helpers_KyoTitlebar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./helpers/KyoTitlebar */ "./resources/js/app/helpers/KyoTitlebar.vue");
+/* harmony import */ var _helpers_KyoTitlebarSearch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./helpers/KyoTitlebarSearch */ "./resources/js/app/helpers/KyoTitlebarSearch.vue");
+/* harmony import */ var _helpers_KyoDatatable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./helpers/KyoDatatable */ "./resources/js/app/helpers/KyoDatatable.vue");
+/* harmony import */ var _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/dashboard/KyoDashboard */ "./resources/js/app/pages/dashboard/KyoDashboard.vue");
 
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_0___default.a;
 
@@ -30771,24 +30782,25 @@ __webpack_require__(/*! ./config/axios */ "./resources/js/app/config/axios.js");
 
 
 window.KyoIndex = _prototypes_KyoIndex__WEBPACK_IMPORTED_MODULE_5__["default"];
-console.log('1', window.KyoIndex);
+
+window.KyoForm = _prototypes_KyoForm__WEBPACK_IMPORTED_MODULE_6__["default"];
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_7__["default"].name, _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_8__["default"].name, _layout_KyoLayoutMainmenu__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_8__["default"].name, _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_9__["default"].name, _layout_KyoLayoutSubmenu__WEBPACK_IMPORTED_MODULE_9__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_9__["default"].name, _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_10__["default"].name, _layout_KyoLayoutLanguage__WEBPACK_IMPORTED_MODULE_10__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_10__["default"].name, _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_11__["default"].name, _layout_KyoLayoutUserpanel__WEBPACK_IMPORTED_MODULE_11__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_helpers_KyoTitlebar__WEBPACK_IMPORTED_MODULE_11__["default"].name, _helpers_KyoTitlebar__WEBPACK_IMPORTED_MODULE_11__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_helpers_KyoTitlebar__WEBPACK_IMPORTED_MODULE_12__["default"].name, _helpers_KyoTitlebar__WEBPACK_IMPORTED_MODULE_12__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_helpers_KyoTitlebarSearch__WEBPACK_IMPORTED_MODULE_12__["default"].name, _helpers_KyoTitlebarSearch__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_helpers_KyoTitlebarSearch__WEBPACK_IMPORTED_MODULE_13__["default"].name, _helpers_KyoTitlebarSearch__WEBPACK_IMPORTED_MODULE_13__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_helpers_KyoDatatable__WEBPACK_IMPORTED_MODULE_13__["default"].name, _helpers_KyoDatatable__WEBPACK_IMPORTED_MODULE_13__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_helpers_KyoDatatable__WEBPACK_IMPORTED_MODULE_14__["default"].name, _helpers_KyoDatatable__WEBPACK_IMPORTED_MODULE_14__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_14__["default"].name, _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_14__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_15__["default"].name, _pages_dashboard_KyoDashboard__WEBPACK_IMPORTED_MODULE_15__["default"]);
 nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
   window.baseTitle = document.title;
   var routes = [];
@@ -30818,15 +30830,15 @@ nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
 
     routes.push(data);
   });
-  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__["default"].router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
+  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_7__["default"].router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
     base: window.basePath,
     mode: 'history',
     routes: routes
   });
-  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__["default"].router.afterEach(function (to) {
+  _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_7__["default"].router.afterEach(function (to) {
     nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.title(nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Obj.get(to, 'meta.menu.title', 'Undefined'));
   });
-  window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_layout_KyoBackend__WEBPACK_IMPORTED_MODULE_6__["default"]).$mount('#app');
+  window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_layout_KyoBackend__WEBPACK_IMPORTED_MODULE_7__["default"]).$mount('#app');
 });
 
 /***/ }),
@@ -31503,6 +31515,234 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/app/prototypes/KyoForm.js":
+/*!************************************************!*\
+  !*** ./resources/js/app/prototypes/KyoForm.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var nano_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nano-js */ "./node_modules/nano-js/dist/nano-js.esm.js");
+/* harmony import */ var nano_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nano_js__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'KyoIndex',
+  localized: false,
+  urls: {
+    index: null,
+    copy: null,
+    "delete": null
+  },
+  stored: [//
+  ],
+  defaults: function defaults() {
+    return {
+      result: {},
+      errors: {},
+      load: true
+    };
+  },
+  data: function data() {
+    var _this = this;
+
+    var defaults = {
+      result: {},
+      errors: {},
+      load: true
+    };
+    var data = nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].assign(defaults, this.ctor('defaults').call(this));
+    var storedKeys = this.ctor('stored');
+    nano_js__WEBPACK_IMPORTED_MODULE_0__["Arr"].each(storedKeys, function (key) {
+      if (nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].has(_this.$root, _this.__store(key))) {
+        nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].set(data, key, nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].get(_this.$root, _this.__store(key)));
+      }
+    });
+    return data;
+  },
+  provide: function provide() {
+    return {
+      KyoForm: this
+    };
+  },
+  mounted: function mounted() {
+    this.loadItem();
+
+    if (this.ctor('localized', false)) {
+      this.$root.$on('locale:changed', this.loadItem);
+    }
+  },
+  destroyed: function destroyed() {
+    this.$root.$off('locale:changed');
+  },
+  methods: {
+    __self: function __self() {
+      var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var suffix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var name = this.ctor('name');
+
+      if (name.match(/(Create|Edit)$/)) {
+        name = name.replace(/(Create|Edit)$/, 'Form');
+      }
+
+      return [prefix, name, suffix].join('');
+    },
+    __store: function __store(key) {
+      var exploded = key.split('.');
+      nano_js__WEBPACK_IMPORTED_MODULE_0__["Arr"].map(exploded, function (key) {
+        return key.charAt(0).toUpperCase() + key.slice(1);
+      });
+      return this.__self('store', exploded.join(''));
+    },
+
+    /**
+     * Fetch items from server
+     */
+    loadItem: function loadItem() {
+      var _this2 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this2.load = true;
+        },
+        onDone: function onDone() {
+          return _this2.load = false;
+        }
+      };
+      var query = {};
+
+      if (this.$route.params.id) {
+        query.id = this.$route.params.id;
+      }
+
+      var route = this.Route.get(this.ctor('urls.show'), this.$root.$data, query);
+      this.$http.get(route, options).then(this.fetchDone, this.fetchError);
+    },
+    updateItem: function updateItem() {
+      var _this3 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this3.load = true;
+        },
+        onDone: function onDone() {
+          return _this3.load = false;
+        }
+      };
+      var query = {
+        id: this.$route.params.id
+      };
+      var route = this.Route.get(this.ctor('urls.update'), this.$root.$data, query);
+      this.$http.post(route, this.result, options).then(this.fetchDone, this.fetchError);
+    },
+    updateCloseItem: function updateCloseItem() {
+      var _this4 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this4.load = true;
+        },
+        onDone: function onDone() {
+          return _this4.load = false;
+        }
+      };
+      var query = {
+        id: this.$route.params.id
+      };
+      var route = this.Route.get(this.ctor('urls.update'), this.$root.$data, query);
+      this.$http.post(route, this.result, options).then(this.fetchDoneClose, this.fetchError);
+    },
+    storeItem: function storeItem() {
+      var _this5 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this5.load = true;
+        },
+        onDone: function onDone() {
+          return _this5.load = false;
+        }
+      };
+      var route = this.Route.get(this.ctor('urls.store'), this.$root.$data);
+      this.$http.post(route, this.result, options).then(this.fetchDoneFirst, this.fetchError);
+    },
+    storeItemClose: function storeItemClose() {
+      var _this6 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this6.load = true;
+        },
+        onDone: function onDone() {
+          return _this6.load = false;
+        }
+      };
+      var route = this.Route.get(this.ctor('urls.store'), this.$root.$data);
+      this.$http.post(route, this.result, options).then(this.fetchDoneClose, this.fetchError);
+    },
+
+    /**
+     * Delete items on server
+     */
+    deleteItem: function deleteItem() {
+      var _this7 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this7.load = true;
+        },
+        onDone: function onDone() {
+          return _this7.load = false;
+        }
+      };
+      var query = {
+        id: this.$route.params.id
+      };
+      var route = this.Route.get(this.ctor('urls.delete'), this.$root.$data, query);
+      this.$http.get(route, options).then(this.fetchDoneClose, this.fetchError);
+    },
+
+    /**
+     * Function when request succeeds
+     * @param res
+     */
+    fetchDone: function fetchDone(res) {
+      this.result = nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].get(res.data, 'data', {});
+    },
+    fetchDoneFirst: function fetchDoneFirst(res) {
+      this.result = nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].get(res.data, 'data', {});
+      this.gotoEdit(res.data);
+    },
+    fetchDoneClose: function fetchDoneClose(res) {
+      this.result = nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].get(res.data, 'data', {});
+      this.gotoIndex(res.data);
+    },
+
+    /**
+     * Function when request fails
+     * @param res
+     */
+    fetchError: function fetchError(res) {
+      this.errors = nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].get(res.data, 'errors', {});
+    },
+
+    /**
+     * Goto index
+     */
+    gotoIndex: function gotoIndex() {//
+    },
+
+    /**
+     * Goto edit form
+     */
+    gotoEdit: function gotoEdit() {//
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app/prototypes/KyoIndex.js":
 /*!*************************************************!*\
   !*** ./resources/js/app/prototypes/KyoIndex.js ***!
@@ -31522,6 +31762,7 @@ __webpack_require__.r(__webpack_exports__);
     copy: null,
     "delete": null
   },
+  localized: false,
   stored: ['expanded', 'selected'],
   defaults: function defaults() {
     var query = {
@@ -31578,10 +31819,13 @@ __webpack_require__.r(__webpack_exports__);
         return nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].set(_this2.$root, _this2.__store(key), value);
       });
     });
-    this.$root.$on('locale:changed', this.loadItems);
   },
   mounted: function mounted() {
     this.loadItems();
+
+    if (this.ctor('localized', false)) {
+      this.$root.$on('locale:changed', this.loadItems);
+    }
   },
   destroyed: function destroyed() {
     this.$root.$off('locale:changed');
@@ -31695,7 +31939,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       var query = {
-        items: this.selected
+        ids: this.selected
       };
       var route = this.Route.get(this.ctor('urls.delete'), this.$root.$data);
       this.$http.post(route, query, options).then(this.loadItems, this.fetchError);

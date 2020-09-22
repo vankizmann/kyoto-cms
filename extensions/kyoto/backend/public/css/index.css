@@ -23212,12 +23212,21 @@ th {
   box-shadow: 0 1px 4px rgba(20, 25, 37, 0.1);
 }
 
+.kyo-localepanel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 130px;
+}
+
 .kyo-titlebar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   padding: 20px 30px;
+  margin-bottom: 20px;
 }
 
 .kyo-titlebar__back {
@@ -23359,6 +23368,14 @@ th {
   padding: 0 30px;
 }
 
-.kyo-dataform .n-form-group__label .n-form-group__label-text {
-  font-weight: bold;
+.kyo-dataform .n-form-group__legend {
+  margin-bottom: 10px;
+}
+
+.kyo-dataform .n-form-group__legend .n-form-group__label-text {
+  font-weight: bold !important;
+}
+
+.kyo-dataform .n-form-item {
+  margin-bottom: 28px;
 }

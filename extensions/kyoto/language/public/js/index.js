@@ -125,49 +125,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoPageCreate',
+  name: 'KyoLanguageCreate',
+  localized: true,
   urls: {
-    create: '/{locale}/kyoto/page/http/controllers/page/create',
-    store: '/{locale}/kyoto/page/http/controllers/page/store'
-  },
-  data: function data() {
-    return {
-      result: {},
-      load: true
-    };
-  },
-  mounted: function mounted() {
-    this.$root.$on('locale:changed', this.fetchItem);
-    this.fetchItem();
-  },
-  destroyed: function destroyed() {
-    this.$root.$off('locale:changed');
+    show: '/{locale}/kyoto/language/http/controllers/language/show',
+    store: '/{locale}/kyoto/language/http/controllers/language/store'
   },
   methods: {
-    fetchItem: function fetchItem() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/create', this.$root.$data);
-      this.$http.get(route, options).then(this.updateItem, function () {
-        return null;
+    gotoEdit: function gotoEdit(row) {
+      this.$router.push({
+        name: 'KyoLanguageEdit',
+        params: row.data
       });
+      console.log(row.data);
     },
-    updateItem: function updateItem(res) {
-      this.result = res.data;
-    },
-    deleteItem: function deleteItem() {
-      console.log('DELETE ITEMS');
+    gotoIndex: function gotoIndex() {
+      this.$router.push({
+        name: 'KyoLanguages'
+      });
     }
-  }
+  },
+  "extends": window.KyoForm
 });
 
 /***/ }),
@@ -259,71 +284,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoLanguageEdit',
+  localized: true,
   urls: {
     show: '/{locale}/kyoto/language/http/controllers/language/show',
     update: '/{locale}/kyoto/language/http/controllers/language/update'
   },
-  data: function data() {
-    return {
-      value: {},
-      errors: {},
-      load: true
-    };
-  },
-  mounted: function mounted() {
-    this.$root.$on('locale:changed', this.fetchItem);
-    this.fetchItem();
-  },
-  destroyed: function destroyed() {
-    this.$root.$off('locale:changed');
-  },
   methods: {
-    fetchItem: function fetchItem() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var query = {
-        id: this.$route.params.id
-      };
-      var route = this.Route.get('/{locale}/kyoto/language/http/controllers/language/show', this.$root.$data, query);
-      this.$http.get(route, options).then(this.queryDone, function () {
-        return null;
+    gotoIndex: function gotoIndex() {
+      this.$router.push({
+        name: 'KyoLanguages'
       });
-    },
-    updateItem: function updateItem() {
-      var _this2 = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this2.load = true;
-        },
-        onDone: function onDone() {
-          return _this2.load = false;
-        }
-      };
-      var query = {
-        id: this.$route.params.id
-      };
-      var route = this.Route.get('/{locale}/kyoto/language/http/controllers/language/update', this.$root.$data, query);
-      this.$http.post(route, this.value, options).then(this.queryDone, this.queryError);
-    },
-    queryDone: function queryDone(res) {
-      this.value = Nano.Obj.get(res.data, 'data', {});
-    },
-    queryError: function queryError(res) {
-      this.errors = Nano.Obj.get(res.data, 'errors', {});
-    },
-    deleteItem: function deleteItem() {
-      console.log('DELETE ITEMS');
     }
-  }
+  },
+  "extends": window.KyoForm
 });
 
 /***/ }),
@@ -389,8 +362,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoLanguages',
+  localized: true,
   urls: {
-    index: '/{locale}/kyoto/language/http/controllers/language/index'
+    index: '/{locale}/kyoto/language/http/controllers/language/index',
+    "delete": '/{locale}/kyoto/language/http/controllers/language/delete'
   },
   defaults: function defaults() {
     var query = {
@@ -438,46 +413,47 @@ var render = function() {
             "KyoTitlebar",
             {
               staticClass: "col--flex-0-0",
-              attrs: { link: { name: "KyoPages" } }
+              attrs: { link: { name: "KyoLanguages" } }
             },
             [
               _c(
                 "template",
                 { slot: "action" },
                 [
-                  _c("NButton", { attrs: { type: "primary" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.trans("Save")) +
-                        "\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("NButton", { attrs: { type: "secondary" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.trans("Delete")) +
-                        "\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
                   _c(
-                    "NConfirm",
-                    {
-                      attrs: { type: "danger" },
-                      on: { confirm: _vm.deleteItem }
-                    },
+                    "NButtonGroup",
                     [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(
-                            _vm.trans(
-                              "Are you sure you want to delete this item?"
-                            )
-                          ) +
-                          "\n                "
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.storeItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Apply")) +
+                              "\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.storeItemClose }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Save")) +
+                              "\n                    "
+                          )
+                        ]
                       )
-                    ]
+                    ],
+                    1
                   )
                 ],
                 1
@@ -488,41 +464,231 @@ var render = function() {
           _vm._v(" "),
           _c(
             "NForm",
-            { staticClass: "col--flex-1-0" },
+            {
+              staticClass: "kyo-dataform col--flex-1-0",
+              attrs: { form: _vm.result, errors: _vm.errors }
+            },
             [
               _c(
-                "NFormItem",
-                { attrs: { label: _vm.trans("Title"), prop: "title" } },
+                "NFormGroup",
+                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
                 [
-                  _c("NInput", {
-                    model: {
-                      value: _vm.result.title,
-                      callback: function($$v) {
-                        _vm.$set(_vm.result, "title", $$v)
-                      },
-                      expression: "result.title"
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("State"),
+                                prop: "state"
+                              }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.state,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "state", $$v)
+                                    },
+                                    expression: "result.state"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("Language is enabled")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Hide"), prop: "hide" }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.hide,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "hide", $$v)
+                                    },
+                                    expression: "result.hide"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("Language is hidden")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
-                "NFormItem",
-                { attrs: { label: _vm.trans("Content"), prop: "content" } },
+                "NFormGroup",
+                {
+                  attrs: {
+                    icon: "fa fa-language",
+                    legend: _vm.trans("Language")
+                  }
+                },
                 [
-                  _c("NTextarea", {
-                    attrs: { "auto-rows": true },
-                    model: {
-                      value: _vm.result.content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.result, "content", $$v)
-                      },
-                      expression: "result.content"
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Language"),
+                                prop: "language"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.language,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "language", $$v)
+                                  },
+                                  expression: "result.language"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Country"),
+                                prop: "country"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.country,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "country", $$v)
+                                  },
+                                  expression: "result.country"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Locale"),
+                                prop: "locale"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.locale,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "locale", $$v)
+                                  },
+                                  expression: "result.locale"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Plate"),
+                                prop: "plate"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.plate,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "plate", $$v)
+                                  },
+                                  expression: "result.plate"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
               )
             ],
             1
@@ -596,7 +762,7 @@ var render = function() {
                         "NButton",
                         {
                           attrs: { type: "primary" },
-                          on: { click: _vm.updateItem }
+                          on: { click: _vm.updateCloseItem }
                         },
                         [
                           _vm._v(
@@ -620,7 +786,7 @@ var render = function() {
             "NForm",
             {
               staticClass: "kyo-dataform col--flex-1-0",
-              attrs: { form: _vm.value, errors: _vm.errors }
+              attrs: { form: _vm.result, errors: _vm.errors }
             },
             [
               _c(
@@ -629,7 +795,7 @@ var render = function() {
                 [
                   _c(
                     "div",
-                    { staticClass: "grid grid-row grid--wrap grid--20-20" },
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
                     [
                       _c(
                         "div",
@@ -649,11 +815,11 @@ var render = function() {
                                 {
                                   attrs: { "on-value": 1, "off-value": 0 },
                                   model: {
-                                    value: _vm.value.state,
+                                    value: _vm.result.state,
                                     callback: function($$v) {
-                                      _vm.$set(_vm.value, "state", $$v)
+                                      _vm.$set(_vm.result, "state", $$v)
                                     },
-                                    expression: "value.state"
+                                    expression: "result.state"
                                   }
                                 },
                                 [
@@ -686,11 +852,11 @@ var render = function() {
                                 {
                                   attrs: { "on-value": 1, "off-value": 0 },
                                   model: {
-                                    value: _vm.value.hide,
+                                    value: _vm.result.hide,
                                     callback: function($$v) {
-                                      _vm.$set(_vm.value, "hide", $$v)
+                                      _vm.$set(_vm.result, "hide", $$v)
                                     },
-                                    expression: "value.hide"
+                                    expression: "result.hide"
                                   }
                                 },
                                 [
@@ -723,7 +889,7 @@ var render = function() {
                 [
                   _c(
                     "div",
-                    { staticClass: "grid grid-row grid--wrap grid--20-20" },
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
                     [
                       _c(
                         "div",
@@ -740,11 +906,11 @@ var render = function() {
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.value.language,
+                                  value: _vm.result.language,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.value, "language", $$v)
+                                    _vm.$set(_vm.result, "language", $$v)
                                   },
-                                  expression: "value.language"
+                                  expression: "result.language"
                                 }
                               })
                             ],
@@ -769,11 +935,11 @@ var render = function() {
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.value.country,
+                                  value: _vm.result.country,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.value, "country", $$v)
+                                    _vm.$set(_vm.result, "country", $$v)
                                   },
-                                  expression: "value.country"
+                                  expression: "result.country"
                                 }
                               })
                             ],
@@ -798,11 +964,11 @@ var render = function() {
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.value.locale,
+                                  value: _vm.result.locale,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.value, "locale", $$v)
+                                    _vm.$set(_vm.result, "locale", $$v)
                                   },
-                                  expression: "value.locale"
+                                  expression: "result.locale"
                                 }
                               })
                             ],
@@ -827,11 +993,11 @@ var render = function() {
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.value.plate,
+                                  value: _vm.result.plate,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.value, "plate", $$v)
+                                    _vm.$set(_vm.result, "plate", $$v)
                                   },
-                                  expression: "value.plate"
+                                  expression: "result.plate"
                                 }
                               })
                             ],
@@ -1383,8 +1549,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/language/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/language/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/language/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/language/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

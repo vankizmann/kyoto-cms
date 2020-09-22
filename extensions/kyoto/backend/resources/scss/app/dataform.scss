@@ -4,6 +4,14 @@
     padding: 0 30px;
 }
 
-.kyo-dataform .n-form-group__label .n-form-group__label-text {
-    font-weight: bold;
+.kyo-dataform .n-form-group__legend {
+    margin-bottom: 10px;
+}
+
+.kyo-dataform .n-form-group__legend .n-form-group__label-text {
+    font-weight: bold !important;
+}
+
+.kyo-dataform .n-form-item {
+    margin-bottom: 28px;
 }

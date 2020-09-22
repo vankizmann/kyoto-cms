@@ -21,25 +21,35 @@ class LanguageController extends \App\Http\Controllers\Controller
     {
         $language = new Language;
 
-        return response()->json($language);
+        return response()->json([
+            'data' => $language->toArray()
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(LanguageRequest $request)
     {
-        $language = (new Language)->fill($request->input())->save();
+        $language = Language::create($request->input());
 
-        return response()->json($language);
+        // Save entity
+        $language->save();
+
+        return response()->json([
+            'data' => $language->toArray(), 'message' => trans('Language has been created!')
+        ]);
     }
 
     public function show(Request $request)
     {
-        $id = $request->query('id');
+        $id = $request->query('id', null);
 
-        $language = Language::findOrFail($id)
-            ->toArray();
+        $language = new Language;
+
+        if ( ! empty($id) ) {
+            $language = Language::findOrFail($id);
+        }
 
         return response()->json([
-            'data' => $language
+            'data' => $language->toArray()
         ]);
     }
 
@@ -60,7 +70,7 @@ class LanguageController extends \App\Http\Controllers\Controller
     public function delete()
     {
         foreach ( request()->input('ids', []) as $id ) {
-            Language::findOrFail($id)->update(['state' => -1]);
+            Language::findOrFail($id)->forceDelete();
         }
 
         return response()->json([

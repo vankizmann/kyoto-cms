@@ -109,6 +109,10 @@ trait Translatable
             $translation = $this->getLocaleInstance()->fill($data)
         );
 
+        if ( empty($translation->locale) ) {
+            $translation->locale = $locale;
+        }
+
         return $translation;
     }
 

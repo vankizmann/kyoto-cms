@@ -7,7 +7,11 @@
                     <!-- Submenu -->
                 </KyoLayoutSubmenu>
 
-                <KyoLayoutUserpanel class="col--flex-0-0 col--right">
+                <KyoLayoutLanguage class="col--flex-0-0">
+                    <!-- Backenduser -->
+                </KyoLayoutLanguage>
+
+                <KyoLayoutUserpanel class="col--flex-0-0">
                     <!-- Backenduser -->
                 </KyoLayoutUserpanel>
 

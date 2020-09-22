@@ -1,0 +1,9 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-localepanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 130px;
+}

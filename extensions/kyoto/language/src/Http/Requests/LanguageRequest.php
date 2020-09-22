@@ -28,8 +28,8 @@ class LanguageRequest extends FormRequest {
             'hide'          => 'required|integer',
             'language'      => 'required',
             'country'       => 'required',
-            'locale'        => 'required|size:2',
-            'plate'         => 'required|size:2',
+            'locale'        => 'required|unique|size:2',
+            'plate'         => 'required|unique|size:2',
         ];
     }
 

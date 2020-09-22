@@ -10,6 +10,8 @@ export default {
         delete: null
     },
 
+    localized: false,
+
     stored: [
         'expanded',
         'selected'
@@ -18,13 +20,7 @@ export default {
     defaults() {
 
         let query = {
-            page: 1,
-            limit: 25,
-            prop: 'updated_at',
-            dir: 'asc',
-            filter: [],
-            search: '',
-            columns: ['title']
+            page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
         };
 
         return { query };
@@ -33,21 +29,11 @@ export default {
     data()
     {
         let query = {
-            page: 1,
-            limit: 25,
-            prop: 'updated_at',
-            dir: 'asc',
-            filter: [],
-            search: '',
-            columns: ['title']
+            page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
         };
 
         let defaults = {
-            query: query,
-            result: {},
-            expanded: [],
-            selected: [],
-            load: true
+            query: query, result: {}, expanded: [], selected: [], load: true
         };
 
         let data = Obj.assign(defaults,
@@ -79,13 +65,15 @@ export default {
                 return Obj.set(this.$root, this.__store(key), value);
             });
         });
-
-        this.$root.$on('locale:changed', this.loadItems);
     },
 
     mounted()
     {
         this.loadItems();
+
+        if ( this.ctor('localized', false) ) {
+            this.$root.$on('locale:changed', this.loadItems);
+        }
     },
 
     destroyed()
@@ -216,7 +204,7 @@ export default {
             };
 
             let query = {
-                items: this.selected
+                ids: this.selected
             };
 
             let route = this.Route.get(this.ctor('urls.delete'),

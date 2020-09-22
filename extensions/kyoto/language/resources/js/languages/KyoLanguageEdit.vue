@@ -8,22 +8,22 @@
                         <NButton type="primary" @click="updateItem">
                             {{ trans('Apply') }}
                         </NButton>
-                        <NButton type="primary" @click="updateItem">
+                        <NButton type="primary" @click="updateCloseItem">
                             {{ trans('Save') }}
                         </NButton>
                     </NButtonGroup>
                 </template>
             </KyoTitlebar>
             
-            <NForm :form="value" :errors="errors" class="kyo-dataform col--flex-1-0">
+            <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
                 <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
 
-                    <div class="grid grid-row grid--wrap grid--20-20">
+                    <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('State')" prop="state">
-                                <NSwitch v-model="value.state" :on-value="1" :off-value="0">
+                                <NSwitch v-model="result.state" :on-value="1" :off-value="0">
                                     {{ trans('Language is enabled') }}
                                 </NSwitch>
                             </NFormItem>
@@ -31,7 +31,7 @@
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Hide')" prop="hide">
-                                <NSwitch v-model="value.hide" :on-value="1" :off-value="0">
+                                <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
                                     {{ trans('Language is hidden') }}
                                 </NSwitch>
                             </NFormItem>
@@ -41,29 +41,29 @@
                 </NFormGroup>
 
                 <NFormGroup icon="fa fa-language" :legend="trans('Language')">
-                    <div class="grid grid-row grid--wrap grid--20-20">
+                    <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Language')" prop="language">
-                                <NInput v-model="value.language"></NInput>
+                                <NInput v-model="result.language"></NInput>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Country')" prop="country">
-                                <NInput v-model="value.country"></NInput>
+                                <NInput v-model="result.country"></NInput>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Locale')" prop="locale">
-                                <NInput v-model="value.locale"></NInput>
+                                <NInput v-model="result.locale"></NInput>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Plate')" prop="plate">
-                                <NInput v-model="value.plate"></NInput>
+                                <NInput v-model="result.plate"></NInput>
                             </NFormItem>
                         </div>
 
@@ -79,82 +79,23 @@
 
         name: 'KyoLanguageEdit',
 
+        localized: true,
+
         urls: {
             show: '/{locale}/kyoto/language/http/controllers/language/show',
             update: '/{locale}/kyoto/language/http/controllers/language/update'
         },
 
-        data()
-        {
-            return {
-                value: {}, errors: {}, load: true
-            };
-        },
-
-        mounted()
-        {
-            this.$root.$on('locale:changed', this.fetchItem);
-
-            this.fetchItem();
-        },
-
-        destroyed()
-        {
-            this.$root.$off('locale:changed');
-        },
-
         methods: {
 
-            fetchItem()
+            gotoIndex()
             {
-                let options = {
-                    onLoad: () => this.load = true,
-                    onDone: () => this.load = false
-                };
-
-                let query = {
-                    id: this.$route.params.id
-                };
-
-                let route = this.Route.get('/{locale}/kyoto/language/http/controllers/language/show',
-                    this.$root.$data, query);
-
-                this.$http.get(route, options).then(this.queryDone, () => null);
-            },
-
-            updateItem()
-            {
-                let options = {
-                    onLoad: () => this.load = true,
-                    onDone: () => this.load = false
-                };
-
-                let query = {
-                    id: this.$route.params.id
-                };
-
-                let route = this.Route.get('/{locale}/kyoto/language/http/controllers/language/update',
-                    this.$root.$data, query);
-
-                this.$http.post(route, this.value, options).then(this.queryDone, this.queryError);
-            },
-
-            queryDone(res)
-            {
-                this.value = Nano.Obj.get(res.data, 'data', {});
-            },
-
-            queryError(res)
-            {
-                this.errors = Nano.Obj.get(res.data, 'errors', {});
-            },
-
-            deleteItem()
-            {
-                console.log('DELETE ITEMS');
+                this.$router.push({ name: 'KyoLanguages' });
             }
 
-        }
+        },
+
+        extends: window.KyoForm
 
     }
 </script>

@@ -53,8 +53,11 @@
 
         name: 'KyoLanguages',
 
+        localized: true,
+
         urls: {
-            index: '/{locale}/kyoto/language/http/controllers/language/index'
+            index: '/{locale}/kyoto/language/http/controllers/language/index',
+            delete: '/{locale}/kyoto/language/http/controllers/language/delete'
         },
 
         defaults() {

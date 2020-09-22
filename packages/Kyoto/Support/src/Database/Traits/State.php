@@ -11,7 +11,7 @@ trait State
      *
      * @var bool
      */
-    protected $forceDeleting = false;
+    // protected $forceDelete = false;
 
     /**
      * Boot the soft deleting trait for a model.
@@ -26,6 +26,11 @@ trait State
     public function getStateColumn()
     {
         return 'state';
+    }
+
+    public function forcedDelete()
+    {
+        return isset($this->forceDelete) && $this->forceDelete;
     }
 
     public function scopeDisabled($query)
@@ -66,7 +71,7 @@ trait State
 
     protected function performDeleteOnModel()
     {
-        if ( ! $this->forceDeleting ) {
+        if ( ! $this->forcedDelete() ) {
             return $this->runSoftDelete();
         }
 

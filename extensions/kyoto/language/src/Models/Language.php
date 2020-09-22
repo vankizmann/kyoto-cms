@@ -13,6 +13,8 @@ class Language extends Model
 
     protected $table = 'languages';
 
+    protected $forceDelete = true;
+
     protected $guarded = [
         'id'
     ];

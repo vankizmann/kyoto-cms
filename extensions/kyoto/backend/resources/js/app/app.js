@@ -46,7 +46,8 @@ require('./config/axios');
 import KyoIndex from "./prototypes/KyoIndex";
 window.KyoIndex = KyoIndex;
 
-console.log('1', window.KyoIndex);
+import KyoForm from "./prototypes/KyoForm";
+window.KyoForm = KyoForm;
 
 import KyoBackend from "./layout/KyoBackend";
 

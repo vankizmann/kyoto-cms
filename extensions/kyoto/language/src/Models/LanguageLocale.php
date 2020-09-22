@@ -9,11 +9,12 @@ class LanguageLocale extends Model
     protected $table = 'language_locales';
 
     protected $fillable = [
-        'id', 'foreign_id', 'language', 'country'
+        'id', 'locale', 'foreign_id', 'language', 'country'
     ];
 
     protected $attributes = [
         'id'            => null,
+        'locale'        => null,
         'foreign_id'    => null,
         'language'      => null,
         'country'       => null,
@@ -21,6 +22,7 @@ class LanguageLocale extends Model
 
     protected $casts = [
         'id'            => 'uuid',
+        'locale'        => 'string',
         'foreign_id'    => 'uuid',
         'language'      => 'string',
         'country'       => 'string',
