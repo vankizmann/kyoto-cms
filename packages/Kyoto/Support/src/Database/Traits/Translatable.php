@@ -2,6 +2,7 @@
 
 namespace Kyoto\Support\Database\Traits;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Kyoto\Support\Database\Eloquent\Builder;
 use Kyoto\Support\Database\Scopes\TranslateScope;
@@ -32,12 +33,19 @@ trait Translatable
         static::saving(function ($model) {
 
             foreach ( $model->translations as $translation ) {
-                $translation->save();
+                if ( is_a($translation, Model::class) ) {
+                    $translation->save();
+                }
             }
 
         });
 
         static::addGlobalScope(new TranslateScope);
+    }
+
+    public function translations()
+    {
+        return $this->hasMany($this->getLocaleClass(), 'foreign_id');
     }
 
     public function getLocale()
@@ -67,11 +75,6 @@ trait Translatable
     public function getLocalizedColumns()
     {
         return isset($this->localized) ? $this->localized : [];
-    }
-
-    public function translations()
-    {
-        return $this->hasMany($this->getLocaleClass(), 'foreign_id');
     }
 
     public function isBaseLocale()
@@ -182,7 +185,7 @@ trait Translatable
             $this->forceLocale = $attributes['_locale'];
         }
 
-        unset($attributes['_locale']);
+        unset($attributes['_locale'], $attributes['translations']);
 
         if ( ! $this->exists || $this->isBaseLocale() ) {
             return parent::fill($attributes);

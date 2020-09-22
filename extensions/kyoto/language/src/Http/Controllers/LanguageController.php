@@ -4,6 +4,7 @@ namespace Kyoto\Language\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Kyoto\Language\Models\Language;
+use Kyoto\Language\Http\Requests\LanguageRequest;
 
 class LanguageController extends \App\Http\Controllers\Controller
 {
@@ -18,39 +19,41 @@ class LanguageController extends \App\Http\Controllers\Controller
 
     public function create()
     {
-        $menu = new Language;
+        $language = new Language;
 
-        return response()->json($menu);
+        return response()->json($language);
     }
 
     public function store(Request $request)
     {
-        $menu = (new Language)->fill($request->input())->save();
+        $language = (new Language)->fill($request->input())->save();
 
-        return response()->json($menu);
+        return response()->json($language);
     }
 
     public function show(Request $request)
     {
         $id = $request->query('id');
 
-        $menu = Language::findOrFail($id)
+        $language = Language::findOrFail($id)
             ->toArray();
 
-        return response()->json($menu);
+        return response()->json([
+            'data' => $language
+        ]);
     }
 
-    public function update(Request $request)
+    public function update(LanguageRequest $request)
     {
         $id = $request->query('id');
 
-        $menu = Language::withDepthGuard()
-            ->findOrFail($id);
+        $language = Language::findOrFail($id);
 
-        $menu->fill($request->input())->save();
+        $language->fill($request->input())
+            ->save();
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Language has been updated!')
+            'data' => $language, 'message' => trans('Language has been updated!')
         ]);
     }
 
