@@ -1,7 +1,13 @@
 import Vue from 'vue';
 
-import KyoUsers from "./pages/KyoUsers";
+import KyoUsers from "./pages/user/KyoUsers";
 Vue.component(KyoUsers.name, KyoUsers);
+
+import KyoUserEdit from "./pages/user/KyoUserEdit";
+Vue.component(KyoUserEdit.name, KyoUserEdit);
+
+import KyoUserCreate from "./pages/user/KyoUserCreate";
+Vue.component(KyoUserCreate.name, KyoUserCreate);
 
 import KyoRoles from "./pages/KyoRoles";
 Vue.component(KyoRoles.name, KyoRoles);

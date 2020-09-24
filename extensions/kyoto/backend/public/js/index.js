@@ -1827,13 +1827,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoTitlebar',
   inject: {
     KyoIndex: {
       "default": undefined
     },
-    KyoEdit: {
+    KyoForm: {
       "default": undefined
     }
   },
@@ -1859,6 +1899,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     selected: function selected() {
       return !this.KyoIndex ? 0 : this.KyoIndex.selected.length;
+    },
+    updated: function updated() {
+      return !this.KyoForm ? 'never' : this.Now.make(this.KyoForm.result.updated_at).format();
     }
   },
   data: function data() {
@@ -14991,6 +15034,122 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "kyo-titlebar__spacer" }),
       _vm._v(" "),
+      _vm.KyoForm
+        ? _c(
+            "div",
+            { staticClass: "kyo-titlebar__description" },
+            [
+              _c(
+                "NButton",
+                {
+                  attrs: { link: true, square: true, icon: "fa fa-angle-down" }
+                },
+                [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.trans("Saved at :updated", { updated: _vm.updated })
+                      ) +
+                      "\n        "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "NPopover",
+                {
+                  attrs: {
+                    type: "dropdown",
+                    trigger: "click",
+                    position: "bottom-end",
+                    window: true,
+                    width: 220
+                  }
+                },
+                [
+                  _c("div", { staticClass: "n-popover-label" }, [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.trans("Actions")) +
+                        "\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm.copyEvent
+                    ? _c(
+                        "NButton",
+                        {
+                          staticClass: "n-popover-option",
+                          attrs: {
+                            type: "primary",
+                            link: true,
+                            disabled: !_vm.selected
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.copyView = true
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.trans("Copy item")) +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.copyEvent
+                    ? _c(
+                        "div",
+                        { staticClass: "n-popover-option n-disabled" },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.trans("No actions available")) +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.KyoForm && _vm.deleteEvent
+        ? _c(
+            "div",
+            { staticClass: "kyo-titlebar__delete" },
+            [
+              _c(
+                "NButton",
+                {
+                  attrs: { type: "danger" },
+                  on: {
+                    click: function($event) {
+                      _vm.deleteView = true
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.trans("Delete item")) +
+                      "\n        "
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _vm.KyoIndex
         ? _c(
             "div",
@@ -15021,8 +15180,24 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "NPopover",
-                { attrs: { type: "dropdown", trigger: "click", window: true } },
+                {
+                  attrs: {
+                    type: "dropdown",
+                    trigger: "click",
+                    position: "bottom-end",
+                    window: true,
+                    width: 220
+                  }
+                },
                 [
+                  _c("div", { staticClass: "n-popover-label" }, [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.trans("Actions")) +
+                        "\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
                   _vm.copyEvent
                     ? _c(
                         "NButton",
@@ -15105,59 +15280,113 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "NConfirm",
-        {
-          attrs: { selector: false, type: "warning" },
-          on: { confirm: _vm.confirmCopy },
-          model: {
-            value: _vm.copyView,
-            callback: function($$v) {
-              _vm.copyView = $$v
+      _vm.KyoForm
+        ? _c(
+            "NConfirm",
+            {
+              attrs: { selector: false, type: "warning" },
+              on: { confirm: _vm.confirmCopy },
+              model: {
+                value: _vm.copyView,
+                callback: function($$v) {
+                  _vm.copyView = $$v
+                },
+                expression: "copyView"
+              }
             },
-            expression: "copyView"
-          }
-        },
-        [
-          _vm._v(
-            "\n        " +
-              _vm._s(
-                _vm.choice(
-                  "Do you really want to copy :count items?",
-                  _vm.selected
-                )
-              ) +
-              "\n    "
+            [
+              _vm._v(
+                "\n        " +
+                  _vm._s(_vm.choice("Do you really want to copy this item?")) +
+                  "\n    "
+              )
+            ]
           )
-        ]
-      ),
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "NConfirm",
-        {
-          attrs: { selector: false, type: "danger" },
-          on: { confirm: _vm.confirmDelete },
-          model: {
-            value: _vm.deleteView,
-            callback: function($$v) {
-              _vm.deleteView = $$v
+      _vm.KyoForm
+        ? _c(
+            "NConfirm",
+            {
+              attrs: { selector: false, type: "danger" },
+              on: { confirm: _vm.confirmDelete },
+              model: {
+                value: _vm.deleteView,
+                callback: function($$v) {
+                  _vm.deleteView = $$v
+                },
+                expression: "deleteView"
+              }
             },
-            expression: "deleteView"
-          }
-        },
-        [
-          _vm._v(
-            "\n        " +
-              _vm._s(
-                _vm.choice(
-                  "Do you really want to delete :count items?",
-                  _vm.selected
-                )
-              ) +
-              "\n    "
+            [
+              _vm._v(
+                "\n        " +
+                  _vm._s(
+                    _vm.choice("Do you really want to delete this item?")
+                  ) +
+                  "\n    "
+              )
+            ]
           )
-        ]
-      )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.KyoIndex
+        ? _c(
+            "NConfirm",
+            {
+              attrs: { selector: false, type: "warning" },
+              on: { confirm: _vm.confirmCopy },
+              model: {
+                value: _vm.copyView,
+                callback: function($$v) {
+                  _vm.copyView = $$v
+                },
+                expression: "copyView"
+              }
+            },
+            [
+              _vm._v(
+                "\n        " +
+                  _vm._s(
+                    _vm.choice(
+                      "Do you really want to copy :count items?",
+                      _vm.selected
+                    )
+                  ) +
+                  "\n    "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.KyoIndex
+        ? _c(
+            "NConfirm",
+            {
+              attrs: { selector: false, type: "danger" },
+              on: { confirm: _vm.confirmDelete },
+              model: {
+                value: _vm.deleteView,
+                callback: function($$v) {
+                  _vm.deleteView = $$v
+                },
+                expression: "deleteView"
+              }
+            },
+            [
+              _vm._v(
+                "\n        " +
+                  _vm._s(
+                    _vm.choice(
+                      "Do you really want to delete :count items?",
+                      _vm.selected
+                    )
+                  ) +
+                  "\n    "
+              )
+            ]
+          )
+        : _vm._e()
     ],
     1
   )
@@ -31697,10 +31926,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       var query = {
-        id: this.$route.params.id
+        ids: [this.$route.params.id]
       };
-      var route = this.Route.get(this.ctor('urls.delete'), this.$root.$data, query);
-      this.$http.get(route, options).then(this.fetchDoneClose, this.fetchError);
+      var route = this.Route.get(this.ctor('urls.delete'), this.$root.$data);
+      this.$http.post(route, query, options).then(this.fetchDoneClose, this.fetchError);
     },
 
     /**

@@ -17,27 +17,6 @@ class LanguageController extends \App\Http\Controllers\Controller
         return response()->json(Language::datatable());
     }
 
-    public function create()
-    {
-        $language = new Language;
-
-        return response()->json([
-            'data' => $language->toArray()
-        ]);
-    }
-
-    public function store(LanguageRequest $request)
-    {
-        $language = Language::create($request->input());
-
-        // Save entity
-        $language->save();
-
-        return response()->json([
-            'data' => $language->toArray(), 'message' => trans('Language has been created!')
-        ]);
-    }
-
     public function show(Request $request)
     {
         $id = $request->query('id', null);
@@ -53,6 +32,21 @@ class LanguageController extends \App\Http\Controllers\Controller
         ]);
     }
 
+    public function store(LanguageRequest $request)
+    {
+        $language = Language::create($request->input());
+
+        // Save entity
+        $language->save();
+
+        // Update languages
+        app('kyoto.language')->update();
+
+        return response()->json([
+            'data' => $language->toArray(), 'message' => trans('Language has been created!')
+        ]);
+    }
+
     public function update(LanguageRequest $request)
     {
         $id = $request->query('id');
@@ -61,6 +55,9 @@ class LanguageController extends \App\Http\Controllers\Controller
 
         $language->fill($request->input())
             ->save();
+
+        // Update languages
+        app('kyoto.language')->update();
 
         return response()->json([
             'data' => $language, 'message' => trans('Language has been updated!')
@@ -72,6 +69,9 @@ class LanguageController extends \App\Http\Controllers\Controller
         foreach ( request()->input('ids', []) as $id ) {
             Language::findOrFail($id)->forceDelete();
         }
+
+        // Update languages
+        app('kyoto.language')->update();
 
         return response()->json([
             'data' => [], 'message' => trans('Languages has been deleted!')

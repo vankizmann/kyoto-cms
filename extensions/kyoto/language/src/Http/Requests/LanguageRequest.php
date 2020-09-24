@@ -3,6 +3,7 @@
 namespace Kyoto\Language\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LanguageRequest extends FormRequest {
 
@@ -28,8 +29,8 @@ class LanguageRequest extends FormRequest {
             'hide'          => 'required|integer',
             'language'      => 'required',
             'country'       => 'required',
-            'locale'        => 'required|unique|size:2',
-            'plate'         => 'required|unique|size:2',
+            'locale'        => 'required|size:2|uval:languages',
+            'plate'         => 'required|size:2|uval:languages',
         ];
     }
 

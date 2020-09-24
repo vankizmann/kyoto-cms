@@ -293,10 +293,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/KyoUsers.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/KyoUsers.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserCreate.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/user/KyoUserCreate.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -338,10 +338,230 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'KyoUserCreate',
+  localized: true,
+  urls: {
+    show: '/{locale}/kyoto/user/http/controllers/user/show',
+    store: '/{locale}/kyoto/user/http/controllers/user/store'
+  },
+  methods: {
+    gotoEdit: function gotoEdit(row) {
+      this.$router.push({
+        name: 'KyoUserEdit',
+        params: row.data
+      });
+      console.log(row.data);
+    },
+    gotoIndex: function gotoIndex() {
+      this.$router.push({
+        name: 'KyoUsers'
+      });
+    }
+  },
+  "extends": window.KyoForm
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserEdit.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/user/KyoUserEdit.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'KyoUserEdit',
+  localized: true,
+  urls: {
+    show: '/{locale}/kyoto/user/http/controllers/user/show',
+    update: '/{locale}/kyoto/user/http/controllers/user/update',
+    "delete": '/{locale}/kyoto/user/http/controllers/user/delete'
+  },
+  methods: {
+    gotoIndex: function gotoIndex() {
+      this.$router.push({
+        name: 'KyoUsers'
+      });
+    }
+  },
+  "extends": window.KyoForm
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUsers.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/user/KyoUsers.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoUsers',
+  localized: true,
   urls: {
-    index: '/{locale}/kyoto/user/http/controllers/user/index'
+    index: '/{locale}/kyoto/user/http/controllers/user/index',
+    "delete": '/{locale}/kyoto/user/http/controllers/user/delete'
   },
   defaults: function defaults() {
     var query = {
@@ -351,7 +571,7 @@ __webpack_require__.r(__webpack_exports__);
       dir: 'asc',
       filter: [],
       search: '',
-      columns: ['name']
+      columns: ['email', 'name']
     };
     return {
       query: query
@@ -771,10 +991,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/KyoUsers.vue?vue&type=template&id=a801c660&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/KyoUsers.vue?vue&type=template&id=a801c660& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserCreate.vue?vue&type=template&id=5abb2fe6&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/user/KyoUserCreate.vue?vue&type=template&id=5abb2fe6& ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -796,7 +1016,590 @@ var render = function() {
         [
           _c(
             "KyoTitlebar",
-            { staticClass: "col--flex-0-0" },
+            {
+              staticClass: "col--flex-0-0",
+              attrs: { link: { name: "KyoUsers" } }
+            },
+            [
+              _c(
+                "template",
+                { slot: "action" },
+                [
+                  _c(
+                    "NButtonGroup",
+                    [
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.storeItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Apply")) +
+                              "\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.storeItemClose }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Save")) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "NForm",
+            {
+              staticClass: "kyo-dataform col--flex-1-0",
+              attrs: { form: _vm.result, errors: _vm.errors }
+            },
+            [
+              _c(
+                "NFormGroup",
+                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("State"),
+                                prop: "state"
+                              }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.state,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "state", $$v)
+                                    },
+                                    expression: "result.state"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("User is enabled")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "NFormGroup",
+                { attrs: { icon: "fa fa-user", legend: _vm.trans("User") } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Name"), prop: "name" }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.name,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "name", $$v)
+                                  },
+                                  expression: "result.name"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("E-Mail"),
+                                prop: "email"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.email,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "email", $$v)
+                                  },
+                                  expression: "result.email"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "NFormGroup",
+                { attrs: { icon: "fa fa-key", legend: _vm.trans("Security") } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Password"),
+                                prop: "password"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.password,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "password", $$v)
+                                  },
+                                  expression: "result.password"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Password confirmation"),
+                                prop: "password_confirm"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.password_confirm,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.result,
+                                      "password_confirm",
+                                      $$v
+                                    )
+                                  },
+                                  expression: "result.password_confirm"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserEdit.vue?vue&type=template&id=505f485b&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/user/KyoUserEdit.vue?vue&type=template&id=505f485b& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "NLoader",
+    { staticClass: "full-height-child", attrs: { visible: _vm.load } },
+    [
+      _c(
+        "div",
+        { staticClass: "grid grid--col" },
+        [
+          _c(
+            "KyoTitlebar",
+            {
+              staticClass: "col--flex-0-0",
+              attrs: { link: { name: "KyoUsers" } },
+              on: { delete: _vm.deleteItem }
+            },
+            [
+              _c(
+                "template",
+                { slot: "action" },
+                [
+                  _c(
+                    "NButtonGroup",
+                    [
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.updateItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Apply")) +
+                              "\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.updateCloseItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Save")) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "NForm",
+            {
+              staticClass: "kyo-dataform col--flex-1-0",
+              attrs: { form: _vm.result, errors: _vm.errors }
+            },
+            [
+              _c(
+                "NFormGroup",
+                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("State"),
+                                prop: "state"
+                              }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.state,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "state", $$v)
+                                    },
+                                    expression: "result.state"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("User is enabled")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "NFormGroup",
+                { attrs: { icon: "fa fa-user", legend: _vm.trans("User") } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Name"), prop: "name" }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.name,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "name", $$v)
+                                  },
+                                  expression: "result.name"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("E-Mail"),
+                                prop: "email"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.email,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "email", $$v)
+                                  },
+                                  expression: "result.email"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "NFormGroup",
+                { attrs: { icon: "fa fa-key", legend: _vm.trans("Security") } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Password"),
+                                prop: "password"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.password,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "password", $$v)
+                                  },
+                                  expression: "result.password"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Password confirmation"),
+                                prop: "password_confirm"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.password_confirm,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.result,
+                                      "password_confirm",
+                                      $$v
+                                    )
+                                  },
+                                  expression: "result.password_confirm"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUsers.vue?vue&type=template&id=7745d792&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/user/KyoUsers.vue?vue&type=template&id=7745d792& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "NLoader",
+    { staticClass: "full-height-child", attrs: { visible: _vm.load } },
+    [
+      _c(
+        "div",
+        { staticClass: "grid grid--col" },
+        [
+          _c(
+            "KyoTitlebar",
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
             [
               _c(
                 "template",
@@ -846,7 +1649,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "KyoDatatable",
-            { staticClass: "col--flex-1-1" },
+            {
+              staticClass: "col--flex-1-1",
+              on: { "row-dblclick": _vm.gotoEdit }
+            },
             [
               _c("NTableColumn", {
                 attrs: {
@@ -1027,19 +1833,25 @@ function normalizeComponent (
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _pages_KyoUsers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/KyoUsers */ "./resources/js/pages/KyoUsers.vue");
-/* harmony import */ var _pages_KyoRoles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/KyoRoles */ "./resources/js/pages/KyoRoles.vue");
-/* harmony import */ var _pages_KyoGates__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/KyoGates */ "./resources/js/pages/KyoGates.vue");
-/* harmony import */ var _pages_KyoPolicies__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/KyoPolicies */ "./resources/js/pages/KyoPolicies.vue");
+/* harmony import */ var _pages_user_KyoUsers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/user/KyoUsers */ "./resources/js/pages/user/KyoUsers.vue");
+/* harmony import */ var _pages_user_KyoUserEdit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/user/KyoUserEdit */ "./resources/js/pages/user/KyoUserEdit.vue");
+/* harmony import */ var _pages_user_KyoUserCreate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/user/KyoUserCreate */ "./resources/js/pages/user/KyoUserCreate.vue");
+/* harmony import */ var _pages_KyoRoles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/KyoRoles */ "./resources/js/pages/KyoRoles.vue");
+/* harmony import */ var _pages_KyoGates__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/KyoGates */ "./resources/js/pages/KyoGates.vue");
+/* harmony import */ var _pages_KyoPolicies__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/KyoPolicies */ "./resources/js/pages/KyoPolicies.vue");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoUsers__WEBPACK_IMPORTED_MODULE_1__["default"].name, _pages_KyoUsers__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_user_KyoUsers__WEBPACK_IMPORTED_MODULE_1__["default"].name, _pages_user_KyoUsers__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoRoles__WEBPACK_IMPORTED_MODULE_2__["default"].name, _pages_KyoRoles__WEBPACK_IMPORTED_MODULE_2__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_user_KyoUserEdit__WEBPACK_IMPORTED_MODULE_2__["default"].name, _pages_user_KyoUserEdit__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoGates__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_KyoGates__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_user_KyoUserCreate__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_user_KyoUserCreate__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoPolicies__WEBPACK_IMPORTED_MODULE_4__["default"].name, _pages_KyoPolicies__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoRoles__WEBPACK_IMPORTED_MODULE_4__["default"].name, _pages_KyoRoles__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoGates__WEBPACK_IMPORTED_MODULE_5__["default"].name, _pages_KyoGates__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoPolicies__WEBPACK_IMPORTED_MODULE_6__["default"].name, _pages_KyoPolicies__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
 if (console && console.log) {
   console.log('kyoto/user ready.');
@@ -1254,18 +2066,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/KyoUsers.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/pages/KyoUsers.vue ***!
-  \*****************************************/
+/***/ "./resources/js/pages/user/KyoUserCreate.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/user/KyoUserCreate.vue ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KyoUsers_vue_vue_type_template_id_a801c660___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoUsers.vue?vue&type=template&id=a801c660& */ "./resources/js/pages/KyoUsers.vue?vue&type=template&id=a801c660&");
-/* harmony import */ var _KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoUsers.vue?vue&type=script&lang=js& */ "./resources/js/pages/KyoUsers.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _KyoUserCreate_vue_vue_type_template_id_5abb2fe6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoUserCreate.vue?vue&type=template&id=5abb2fe6& */ "./resources/js/pages/user/KyoUserCreate.vue?vue&type=template&id=5abb2fe6&");
+/* harmony import */ var _KyoUserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoUserCreate.vue?vue&type=script&lang=js& */ "./resources/js/pages/user/KyoUserCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -1274,9 +2086,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _KyoUsers_vue_vue_type_template_id_a801c660___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _KyoUsers_vue_vue_type_template_id_a801c660___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _KyoUserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _KyoUserCreate_vue_vue_type_template_id_5abb2fe6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _KyoUserCreate_vue_vue_type_template_id_5abb2fe6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1286,38 +2098,176 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/pages/KyoUsers.vue"
+component.options.__file = "resources/js/pages/user/KyoUserCreate.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/pages/KyoUsers.vue?vue&type=script&lang=js&":
-/*!******************************************************************!*\
-  !*** ./resources/js/pages/KyoUsers.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
+/***/ "./resources/js/pages/user/KyoUserCreate.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/user/KyoUserCreate.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUsers.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/KyoUsers.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUserCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/pages/KyoUsers.vue?vue&type=template&id=a801c660&":
-/*!************************************************************************!*\
-  !*** ./resources/js/pages/KyoUsers.vue?vue&type=template&id=a801c660& ***!
-  \************************************************************************/
+/***/ "./resources/js/pages/user/KyoUserCreate.vue?vue&type=template&id=5abb2fe6&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/user/KyoUserCreate.vue?vue&type=template&id=5abb2fe6& ***!
+  \**********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_template_id_a801c660___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUsers.vue?vue&type=template&id=a801c660& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/KyoUsers.vue?vue&type=template&id=a801c660&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_template_id_a801c660___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserCreate_vue_vue_type_template_id_5abb2fe6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUserCreate.vue?vue&type=template&id=5abb2fe6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserCreate.vue?vue&type=template&id=5abb2fe6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserCreate_vue_vue_type_template_id_5abb2fe6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_template_id_a801c660___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserCreate_vue_vue_type_template_id_5abb2fe6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/KyoUserEdit.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/pages/user/KyoUserEdit.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _KyoUserEdit_vue_vue_type_template_id_505f485b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoUserEdit.vue?vue&type=template&id=505f485b& */ "./resources/js/pages/user/KyoUserEdit.vue?vue&type=template&id=505f485b&");
+/* harmony import */ var _KyoUserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoUserEdit.vue?vue&type=script&lang=js& */ "./resources/js/pages/user/KyoUserEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _KyoUserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _KyoUserEdit_vue_vue_type_template_id_505f485b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _KyoUserEdit_vue_vue_type_template_id_505f485b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/user/KyoUserEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/KyoUserEdit.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/pages/user/KyoUserEdit.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUserEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/KyoUserEdit.vue?vue&type=template&id=505f485b&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/pages/user/KyoUserEdit.vue?vue&type=template&id=505f485b& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserEdit_vue_vue_type_template_id_505f485b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUserEdit.vue?vue&type=template&id=505f485b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUserEdit.vue?vue&type=template&id=505f485b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserEdit_vue_vue_type_template_id_505f485b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUserEdit_vue_vue_type_template_id_505f485b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/KyoUsers.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/pages/user/KyoUsers.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _KyoUsers_vue_vue_type_template_id_7745d792___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoUsers.vue?vue&type=template&id=7745d792& */ "./resources/js/pages/user/KyoUsers.vue?vue&type=template&id=7745d792&");
+/* harmony import */ var _KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoUsers.vue?vue&type=script&lang=js& */ "./resources/js/pages/user/KyoUsers.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _KyoUsers_vue_vue_type_template_id_7745d792___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _KyoUsers_vue_vue_type_template_id_7745d792___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/user/KyoUsers.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/KyoUsers.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/pages/user/KyoUsers.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUsers.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUsers.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/KyoUsers.vue?vue&type=template&id=7745d792&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/pages/user/KyoUsers.vue?vue&type=template&id=7745d792& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_template_id_7745d792___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoUsers.vue?vue&type=template&id=7745d792& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/user/KyoUsers.vue?vue&type=template&id=7745d792&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_template_id_7745d792___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoUsers_vue_vue_type_template_id_7745d792___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

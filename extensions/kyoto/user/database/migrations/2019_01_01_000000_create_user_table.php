@@ -10,7 +10,8 @@ class CreateUserTable extends Migration
     {
         Schema::create('users', function(Blueprint $table) {
 
-            $table->uuid('id');
+            $table->uuid('id')
+                ->primary();
 
             $table->uuid('role_id')
                 ->nullable();

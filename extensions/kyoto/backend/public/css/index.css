@@ -10032,6 +10032,15 @@ readers do not read off random characters that represent icons */
   padding: 3px 9px;
 }
 
+.n-popover-label {
+  display: flex;
+  width: 100%;
+  line-height: 1.5 !important;
+  font-size: 12.25px;
+  font-weight: bold;
+  padding: 9.8px 14px 5.6px;
+}
+
 .n-popover-option {
   display: flex;
   width: 100%;
@@ -23262,17 +23271,23 @@ th {
   flex: 0 0 auto;
 }
 
-.kyo-titlebar__description .n-button.n-button--default {
-  color: #141925;
+.kyo-titlebar__description .n-button {
+  color: #141925 !important;
+  padding: 8px 10px;
 }
 
-.kyo-titlebar__description .n-button.n-button--default .n-icon {
-  color: #677289;
+.kyo-titlebar__description .n-button .n-icon {
+  color: #677289 !important;
+}
+
+.kyo-titlebar__delete {
+  flex: 0 0 auto;
+  margin-left: 15px;
 }
 
 .kyo-titlebar__action {
   flex: 0 0 auto;
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 /**

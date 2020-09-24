@@ -27,6 +27,13 @@ class LanguageManager {
         $this->loadLanguages();
     }
 
+    public function update()
+    {
+        $this->updateLocales();
+        $this->loadLocales();
+        $this->updateLanguages();
+    }
+
     public function loadLocales()
     {
         $path = storage_path(str_join('/',
@@ -59,14 +66,14 @@ class LanguageManager {
                 self::CACHE_PATH, "{$locale}.php"));
 
             if ( ! file_exists($path) ) {
-                $this->updateLanguages($locale);
+                $this->updateLanguage($locale);
             }
 
             $this->languages[$locale] = PhpEditor::loadFile($path);
         }
     }
 
-    public function updateLanguages($locale)
+    public function updateLanguage($locale)
     {
         app('kyoto')->localized($locale, function ($locale) {
 
@@ -78,6 +85,13 @@ class LanguageManager {
 
             PhpEditor::saveFile($path, $languages);
         });
+    }
+
+    public function updateLanguages()
+    {
+        foreach ( app('kyoto')->getLocales() as $locale ) {
+            $this->updateLanguage($locale);
+        }
     }
 
     public function getLocales()

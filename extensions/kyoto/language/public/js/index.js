@@ -287,7 +287,8 @@ __webpack_require__.r(__webpack_exports__);
   localized: true,
   urls: {
     show: '/{locale}/kyoto/language/http/controllers/language/show',
-    update: '/{locale}/kyoto/language/http/controllers/language/update'
+    update: '/{locale}/kyoto/language/http/controllers/language/update',
+    "delete": '/{locale}/kyoto/language/http/controllers/language/delete'
   },
   methods: {
     gotoIndex: function gotoIndex() {
@@ -733,7 +734,8 @@ var render = function() {
             "KyoTitlebar",
             {
               staticClass: "col--flex-0-0",
-              attrs: { link: { name: "KyoLanguages" } }
+              attrs: { link: { name: "KyoLanguages" } },
+              on: { delete: _vm.deleteItem }
             },
             [
               _c(

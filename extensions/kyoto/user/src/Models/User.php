@@ -2,8 +2,8 @@
 
 namespace Kyoto\User\Models;
 
-use Illuminate\Foundation\Auth\User as Model;
 use Illuminate\Support\Facades\Hash;
+use Kyoto\Support\Database\User as Model;
 use Kyoto\Support\Database\Traits\Castable;
 use Kyoto\Support\Database\Traits\Datatable;
 use Kyoto\Support\Database\Traits\Paginatable;
@@ -13,28 +13,16 @@ class User extends Model
 {
     use Castable, Paginatable, Datatable, State;
 
-    /**
-     * The "type" of the primary key ID.
-     *
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     protected $table = 'users';
+
+    protected $forceDelete = true;
 
     protected $guarded = [
         'id',
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'remember_token',
     ];
 
     protected $relations = [
@@ -67,6 +55,11 @@ class User extends Model
         return $this->belongsTo(Gate::class, 'gate_id');
     }
 
+    public function getPasswordAttribute()
+    {
+        return '';
+    }
+
 //    public function getPoliciesAttribute()
 //    {
 //        return $this->roles()->get()->pluck('policies')->flatten(1);
@@ -91,13 +84,15 @@ class User extends Model
 //
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = Hash::make($value);
+        if ( ! empty($value) ) {
+            $this->attributes['password'] = Hash::make($value);
+        }
     }
 
-    public function getRoleIdsAttribute()
-    {
-        return $this->roles()->get()->pluck('id')->flatten(1);
-    }
+//    public function getRoleIdsAttribute()
+//    {
+//        return $this->roles()->get()->pluck('id')->flatten(1);
+//    }
 //
 //    public function setRoleIdsAttribute($value)
 //    {

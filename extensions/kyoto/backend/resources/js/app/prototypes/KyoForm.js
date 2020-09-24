@@ -187,13 +187,13 @@ export default {
             };
 
             let query = {
-                id: this.$route.params.id
+                ids: [this.$route.params.id]
             };
 
             let route = this.Route.get(this.ctor('urls.delete'),
-                this.$root.$data, query);
+                this.$root.$data);
 
-            this.$http.get(route, options)
+            this.$http.post(route, query, options)
                 .then(this.fetchDoneClose, this.fetchError);
         },
 

@@ -307,7 +307,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Benutzer',
         ]);
 
-        $localize = Menu::create([
+        $temporary = Menu::create([
             'id'        => $routes['user'],
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoUsers'],
@@ -321,11 +321,47 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        $localize->localized('de')->update([
+        $temporary->localized('de')->update([
             'title'     => 'Benutzer',
         ]);
 
         $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoUserCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Create user',
+            'slug'      => '/create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Benutzer erstellen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoUserEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Edit user',
+            'slug'      => '/edit/:id',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Benutzer bearbeiten',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoRoles'],
@@ -339,11 +375,47 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        $localize->localized('de')->update([
+        $temporary->localized('de')->update([
             'title'     => 'Rollen',
         ]);
 
         $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoRoleCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Create role',
+            'slug'      => '/create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Rolle erstellen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoRoleEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Edit role',
+            'slug'      => '/edit/:id',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Rolle bearbeiten',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoGates'],
@@ -357,11 +429,47 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        $localize->localized('de')->update([
+        $temporary->localized('de')->update([
             'title'     => 'Zugänge',
         ]);
 
         $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoGateCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Create gate',
+            'slug'      => '/create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Zugang erstellen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoGateEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Edit gate',
+            'slug'      => '/edit/:id',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Zugang bearbeiten',
+        ]);
+
+        $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
             'option'    => ['component' => 'KyoPolicies'],
@@ -375,8 +483,44 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        $localize->localized('de')->update([
+        $temporary->localized('de')->update([
             'title'     => 'Rechte',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoPolicyCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Create policy',
+            'slug'      => '/create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Recht erstellen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoPolicyEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Edit policy',
+            'slug'      => '/edit/:id',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Recht bearbeiten',
         ]);
 
         $routes['language'] = uuid();

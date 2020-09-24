@@ -42,17 +42,23 @@
     flex: 0 0 auto;
 }
 
-.kyo-titlebar__description .n-button.n-button--default {
-    color: $--color-black;
+.kyo-titlebar__description .n-button {
+    color: $--color-black !important;
+    padding: 8px 10px;
 }
 
-.kyo-titlebar__description .n-button.n-button--default .n-icon {
-    color: $--color-gray-70;
+.kyo-titlebar__description .n-button .n-icon {
+    color: $--color-gray-70 !important;
+}
+
+.kyo-titlebar__delete {
+    flex: 0 0 auto;
+    margin-left: 15px;
 }
 
 .kyo-titlebar__action {
     flex: 0 0 auto;
-    margin-left: 30px;
+    margin-left: 15px;
 }
 
 

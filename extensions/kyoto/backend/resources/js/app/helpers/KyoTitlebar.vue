@@ -21,11 +21,42 @@
             <!-- SPACER -->
         </div>
 
+        <div v-if="KyoForm" class="kyo-titlebar__description">
+
+            <NButton :link="true" :square="true" icon="fa fa-angle-down">
+                {{ trans('Saved at :updated', { updated }) }}
+            </NButton>
+
+            <NPopover type="dropdown" trigger="click" position="bottom-end" :window="true" :width="220">
+                <div class="n-popover-label">
+                    {{ trans('Actions') }}
+                </div>
+                <NButton v-if="copyEvent" class="n-popover-option" type="primary" :link="true" :disabled="! selected" @click="copyView = true">
+                    {{ trans('Copy item') }}
+                </NButton>
+                <div v-if="! copyEvent" class="n-popover-option n-disabled">
+                    {{ trans('No actions available') }}
+                </div>
+            </NPopover>
+
+        </div>
+
+        <div v-if="KyoForm && deleteEvent" class="kyo-titlebar__delete">
+            <NButton type="danger" @click="deleteView = true">
+                {{ trans('Delete item') }}
+            </NButton>
+        </div>
+
         <div v-if="KyoIndex" class="kyo-titlebar__description">
+
             <NButton :link="true" type="default" icon="fa fa-angle-down">
                 {{ choice('No item selected|One item selected|:count items selected', selected) }}
             </NButton>
-            <NPopover type="dropdown" trigger="click" :window="true">
+
+            <NPopover type="dropdown" trigger="click" position="bottom-end" :window="true" :width="220">
+                <div class="n-popover-label">
+                    {{ trans('Actions') }}
+                </div>
                 <NButton v-if="copyEvent" class="n-popover-option" type="warning" :link="true" :disabled="! selected" @click="copyView = true">
                     {{ trans('Copy selection') }}
                 </NButton>
@@ -36,17 +67,26 @@
                     {{ trans('No actions available') }}
                 </div>
             </NPopover>
+
         </div>
 
         <div v-if="action" class="kyo-titlebar__action">
             <slot name="action"></slot>
         </div>
 
-        <NConfirm v-model="copyView" :selector="false" type="warning" @confirm="confirmCopy">
+        <NConfirm v-if="KyoForm" v-model="copyView" :selector="false" type="warning" @confirm="confirmCopy">
+            {{ choice('Do you really want to copy this item?') }}
+        </NConfirm>
+
+        <NConfirm v-if="KyoForm" v-model="deleteView" :selector="false" type="danger" @confirm="confirmDelete">
+            {{ choice('Do you really want to delete this item?') }}
+        </NConfirm>
+
+        <NConfirm v-if="KyoIndex" v-model="copyView" :selector="false" type="warning" @confirm="confirmCopy">
             {{ choice('Do you really want to copy :count items?', selected) }}
         </NConfirm>
 
-        <NConfirm v-model="deleteView" :selector="false" type="danger" @confirm="confirmDelete">
+        <NConfirm v-if="KyoIndex" v-model="deleteView" :selector="false" type="danger" @confirm="confirmDelete">
             {{ choice('Do you really want to delete :count items?', selected) }}
         </NConfirm>
 
@@ -63,7 +103,7 @@
                 default: undefined
             },
 
-            KyoEdit: {
+            KyoForm: {
                 default: undefined
             }
 
@@ -105,6 +145,11 @@
             selected()
             {
                 return ! this.KyoIndex ? 0 : this.KyoIndex.selected.length;
+            },
+
+            updated()
+            {
+                return ! this.KyoForm ? 'never' : this.Now.make(this.KyoForm.result.updated_at).format()
             }
 
         },

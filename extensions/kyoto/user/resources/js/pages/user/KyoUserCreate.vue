@@ -2,19 +2,19 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoLanguages' }" class="col--flex-0-0" @delete="deleteItem">
+            <KyoTitlebar :link="{ name: 'KyoUsers' }" class="col--flex-0-0">
                 <template slot="action">
                     <NButtonGroup>
-                        <NButton type="primary" @click="updateItem">
+                        <NButton type="primary" @click="storeItem">
                             {{ trans('Apply') }}
                         </NButton>
-                        <NButton type="primary" @click="updateCloseItem">
+                        <NButton type="primary" @click="storeItemClose">
                             {{ trans('Save') }}
                         </NButton>
                     </NButtonGroup>
                 </template>
             </KyoTitlebar>
-            
+
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
                 <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
@@ -24,15 +24,7 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('State')" prop="state">
                                 <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                    {{ trans('Language is enabled') }}
-                                </NSwitch>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Hide')" prop="hide">
-                                <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                    {{ trans('Language is hidden') }}
+                                    {{ trans('User is enabled') }}
                                 </NSwitch>
                             </NFormItem>
                         </div>
@@ -40,35 +32,41 @@
                     </div>
                 </NFormGroup>
 
-                <NFormGroup icon="fa fa-language" :legend="trans('Language')">
+                <NFormGroup icon="fa fa-user" :legend="trans('User')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Language')" prop="language">
-                                <NInput v-model="result.language"></NInput>
+                            <NFormItem :label="trans('Name')" prop="name">
+                                <NInput v-model="result.name"></NInput>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Country')" prop="country">
-                                <NInput v-model="result.country"></NInput>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Locale')" prop="locale">
-                                <NInput v-model="result.locale"></NInput>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Plate')" prop="plate">
-                                <NInput v-model="result.plate"></NInput>
+                            <NFormItem :label="trans('E-Mail')" prop="email">
+                                <NInput v-model="result.email"></NInput>
                             </NFormItem>
                         </div>
 
                     </div>
                 </NFormGroup>
+
+                <NFormGroup icon="fa fa-key" :legend="trans('Security')">
+                    <div class="grid grid-row grid--wrap grid--30">
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Password')" prop="password">
+                                <NInput v-model="result.password"></NInput>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Password confirmation')" prop="password_confirm">
+                                <NInput v-model="result.password_confirm"></NInput>
+                            </NFormItem>
+                        </div>
+                    </div>
+                </NFormGroup>
+
             </NForm>
 
         </div>
@@ -77,21 +75,31 @@
 <script>
     export default {
 
-        name: 'KyoLanguageEdit',
+        name: 'KyoUserCreate',
 
         localized: true,
 
         urls: {
-            show: '/{locale}/kyoto/language/http/controllers/language/show',
-            update: '/{locale}/kyoto/language/http/controllers/language/update',
-            delete: '/{locale}/kyoto/language/http/controllers/language/delete'
+            show: '/{locale}/kyoto/user/http/controllers/user/show',
+            store: '/{locale}/kyoto/user/http/controllers/user/store'
         },
 
         methods: {
 
+            gotoEdit(row)
+            {
+                this.$router.push({
+                    name: 'KyoUserEdit', params: row.data
+                });
+
+                console.log(row.data);
+            },
+
             gotoIndex()
             {
-                this.$router.push({ name: 'KyoLanguages' });
+                this.$router.push({
+                    name: 'KyoUsers'
+                });
             }
 
         },
