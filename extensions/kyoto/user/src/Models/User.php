@@ -22,11 +22,15 @@ class User extends Model
     ];
 
     protected $hidden = [
-        'remember_token',
+        'password', 'remember_token',
     ];
 
     protected $relations = [
         'role', 'gate'
+    ];
+
+    protected $appends = [
+        'fooword', 'fooword_confirm'
     ];
 
     protected $attributes = [
@@ -55,11 +59,6 @@ class User extends Model
         return $this->belongsTo(Gate::class, 'gate_id');
     }
 
-    public function getPasswordAttribute()
-    {
-        return '';
-    }
-
 //    public function getPoliciesAttribute()
 //    {
 //        return $this->roles()->get()->pluck('policies')->flatten(1);
@@ -82,6 +81,7 @@ class User extends Model
 //            ->whereIn('method', ['*', $method])->isNotEmpty() ?: false;
 //    }
 //
+
     public function setPasswordAttribute($value)
     {
         if ( ! empty($value) ) {
@@ -89,21 +89,25 @@ class User extends Model
         }
     }
 
-//    public function getRoleIdsAttribute()
-//    {
-//        return $this->roles()->get()->pluck('id')->flatten(1);
-//    }
-//
-//    public function setRoleIdsAttribute($value)
-//    {
-//        $this->saved(function ($model) use ($value) {
-//            $model->roles()->sync($value);
-//        });
-//    }
+    public function getFoowordAttribute()
+    {
+        return '';
+    }
 
-    public function setPasswordConfirmAttribute()
+    public function setFoowordAttribute($value)
+    {
+        $this->setPasswordAttribute($value);
+    }
+
+    public function getFoowordConfirmAttribute()
+    {
+        return '';
+    }
+
+    public function setFoowordConfirmAttribute()
     {
         return;
     }
+
 
 }

@@ -1210,17 +1210,17 @@ var render = function() {
                             {
                               attrs: {
                                 label: _vm.trans("Password"),
-                                prop: "password"
+                                prop: "fooword"
                               }
                             },
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.result.password,
+                                  value: _vm.result.fooword,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.result, "password", $$v)
+                                    _vm.$set(_vm.result, "fooword", $$v)
                                   },
-                                  expression: "result.password"
+                                  expression: "result.fooword"
                                 }
                               })
                             ],
@@ -1239,21 +1239,17 @@ var render = function() {
                             {
                               attrs: {
                                 label: _vm.trans("Password confirmation"),
-                                prop: "password_confirm"
+                                prop: "fooword_confirm"
                               }
                             },
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.result.password_confirm,
+                                  value: _vm.result.fooword_confirm,
                                   callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.result,
-                                      "password_confirm",
-                                      $$v
-                                    )
+                                    _vm.$set(_vm.result, "fooword_confirm", $$v)
                                   },
-                                  expression: "result.password_confirm"
+                                  expression: "result.fooword_confirm"
                                 }
                               })
                             ],
@@ -1502,17 +1498,17 @@ var render = function() {
                             {
                               attrs: {
                                 label: _vm.trans("Password"),
-                                prop: "password"
+                                prop: "fooword"
                               }
                             },
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.result.password,
+                                  value: _vm.result.fooword,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.result, "password", $$v)
+                                    _vm.$set(_vm.result, "fooword", $$v)
                                   },
-                                  expression: "result.password"
+                                  expression: "result.fooword"
                                 }
                               })
                             ],
@@ -1531,21 +1527,17 @@ var render = function() {
                             {
                               attrs: {
                                 label: _vm.trans("Password confirmation"),
-                                prop: "password_confirm"
+                                prop: "fooword_confirm"
                               }
                             },
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.result.password_confirm,
+                                  value: _vm.result.fooword_confirm,
                                   callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.result,
-                                      "password_confirm",
-                                      $$v
-                                    )
+                                    _vm.$set(_vm.result, "fooword_confirm", $$v)
                                   },
-                                  expression: "result.password_confirm"
+                                  expression: "result.fooword_confirm"
                                 }
                               })
                             ],

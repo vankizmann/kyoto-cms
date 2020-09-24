@@ -54,14 +54,14 @@
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Password')" prop="password">
-                                <NInput v-model="result.password"></NInput>
+                            <NFormItem :label="trans('Password')" prop="fooword">
+                                <NInput v-model="result.fooword"></NInput>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Password confirmation')" prop="password_confirm">
-                                <NInput v-model="result.password_confirm"></NInput>
+                            <NFormItem :label="trans('Password confirmation')" prop="fooword_confirm">
+                                <NInput v-model="result.fooword_confirm"></NInput>
                             </NFormItem>
                         </div>
                     </div>

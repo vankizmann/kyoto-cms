@@ -24,11 +24,11 @@ class UserRequest extends FormRequest {
     public function rules()
     {
         return [
-            'state'            => 'required|integer',
-            'name'             => 'required',
-            'email'            => 'required|email',
-            'password'         => 'required_new',
-            'password_confirm' => 'required_with:password|same:password',
+            'state'           => 'required|integer',
+            'name'            => 'required',
+            'email'           => 'required|email',
+            'fooword'         => 'required_new',
+            'fooword_confirm' => 'required_with:fooword|same:fooword',
         ];
     }
 
