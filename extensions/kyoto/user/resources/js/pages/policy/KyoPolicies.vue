@@ -1,5 +1,6 @@
 <template>
     <NLoader :visible="load" class="full-height-child">
+
         <div class="grid grid--col">
 
             <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
@@ -9,20 +10,24 @@
                 </template>
 
                 <template slot="action">
-                    <NButton type="primary" @click="$router.push({ name: 'KyoGateCreate' })">
-                        {{ trans('Create gate') }}
+                    <NButton type="primary" @click="$router.push({ name: 'KyoPolicyCreate' })">
+                        {{ trans('Create policy') }}
                     </NButton>
                 </template>
 
             </KyoTitlebar>
 
-            <KyoDatatable class="col--flex-1-1" :render-expand="true">
+            <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
 
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 
-                <NTableColumn type="string" prop="description" :label="trans('Description')" :fluid="true" :sort="true">
+                <NTableColumn type="string" prop="type" :label="trans('Type')" :fluid="true" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+
+                <NTableColumn type="string" prop="action" :label="trans('Action')" :fluid="true" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 
@@ -42,10 +47,22 @@
 <script>
     export default {
 
-        name: 'KyoGates',
+        name: 'KyoPolicies',
+
+        localized: false,
 
         urls: {
-            index: '/{locale}/kyoto/user/http/controllers/gate/index'
+            index: '/{locale}/kyoto/user/http/controllers/policy/index',
+            delete: '/{locale}/kyoto/user/http/controllers/policy/delete'
+        },
+
+        defaults() {
+
+            let query = {
+                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
+            };
+
+            return { query };
         },
 
         extends: window.KyoIndex

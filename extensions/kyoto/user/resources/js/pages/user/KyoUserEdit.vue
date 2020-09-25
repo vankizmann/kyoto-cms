@@ -50,6 +50,24 @@
                     </div>
                 </NFormGroup>
 
+                <NFormGroup icon="fa fa-user-shield" :legend="trans('Access')">
+                    <div class="grid grid-row grid--wrap grid--30">
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Role')" prop="role_id">
+                                <KyoRoleSelect v-model="result.role_id"></KyoRoleSelect>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Gate')" prop="gate_id">
+                                <KyoGateSelect v-model="result.gate_id"></KyoGateSelect>
+                            </NFormItem>
+                        </div>
+
+                    </div>
+                </NFormGroup>
+
                 <NFormGroup icon="fa fa-key" :legend="trans('Security')">
                     <div class="grid grid-row grid--wrap grid--30">
 
@@ -77,7 +95,7 @@
 
         name: 'KyoUserEdit',
 
-        localized: true,
+        localized: false,
 
         urls: {
             show: '/{locale}/kyoto/user/http/controllers/user/show',

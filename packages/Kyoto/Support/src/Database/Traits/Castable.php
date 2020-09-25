@@ -31,10 +31,6 @@ trait Castable
             return http_build_query($value);
         }
 
-        if ( $this->getCastType($key) === 'uuid' && is_null($value) ) {
-            return uuid();
-        }
-
         return $value;
     }
     /**
@@ -68,10 +64,6 @@ trait Castable
 
         if ( $this->getCastType($key) === 'params' && is_string($value) ) {
             parse_str($value, $result); return $result;
-        }
-
-        if ( $this->getCastType($key) === 'uuid' && is_null($value) ) {
-            return uuid();
         }
 
         if ( $this->getCastType($key) === 'string' && is_null($value) ) {

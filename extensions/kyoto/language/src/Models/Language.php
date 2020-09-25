@@ -34,7 +34,7 @@ class Language extends Model
     ];
 
     protected $casts = [
-        'id'            => 'uuid',
+        'id'            => 'string',
         'state'         => 'integer',
         'hide'          => 'integer',
         'language'      => 'string',
@@ -42,5 +42,16 @@ class Language extends Model
         'locale'        => 'string',
         'plate'         => 'string',
     ];
+
+    protected static function boot()
+    {
+        static::saved(function () {
+            if ( app('kyoto')->isReady() ) {
+                app('kyoto.language')->update();
+            }
+        });
+
+        parent::boot();
+    }
 
 }

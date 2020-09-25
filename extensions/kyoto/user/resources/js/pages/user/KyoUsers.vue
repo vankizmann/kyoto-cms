@@ -23,7 +23,7 @@
                     <!-- Column -->
                 </NTableColumn>
 
-                <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true">
+                <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 
@@ -45,7 +45,7 @@
 
         name: 'KyoUsers',
 
-        localized: true,
+        localized: false,
 
         urls: {
             index: '/{locale}/kyoto/user/http/controllers/user/index',

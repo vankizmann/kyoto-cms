@@ -30,7 +30,7 @@ trait Translatable
      */
     public static function bootTranslatable()
     {
-        static::saving(function ($model) {
+        static::saved(function ($model) {
 
             foreach ( $model->translations as $translation ) {
                 if ( is_a($translation, Model::class) ) {
@@ -41,6 +41,11 @@ trait Translatable
         });
 
         static::addGlobalScope(new TranslateScope);
+    }
+
+    public function initializeTranslatable()
+    {
+        $this->with[] = 'translations';
     }
 
     public function translations()

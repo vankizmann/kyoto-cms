@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Kyoto\Menu\Models\Menu;
 
 class FrontendMenuTableSeeder extends Seeder
@@ -136,7 +137,9 @@ class FrontendMenuTableSeeder extends Seeder
             'slug'          => '/test-da'
         ]);
 
-        foreach ( range(0, 10) as $index ) {
+
+        foreach ( range(0, 400) as $index ) {
+
             Menu::create([
                 'id'     => uuid(),
                 'type'   => 'kyoto/menu::redirect',
@@ -150,7 +153,9 @@ class FrontendMenuTableSeeder extends Seeder
                 'guard'  => 0,
                 'parent' => $root,
             ]);
+
         }
+
 
     }
 

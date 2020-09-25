@@ -30,7 +30,7 @@ class Gate extends Model
     ];
 
     protected $casts = [
-        'id'          => 'uuid',
+        'id'          => 'string',
         'title'       => 'string',
         'description' => 'string',
     ];

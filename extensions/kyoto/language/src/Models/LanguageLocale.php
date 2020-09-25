@@ -21,9 +21,9 @@ class LanguageLocale extends Model
     ];
 
     protected $casts = [
-        'id'            => 'uuid',
+        'id'            => 'string',
         'locale'        => 'string',
-        'foreign_id'    => 'uuid',
+        'foreign_id'    => 'string',
         'language'      => 'string',
         'country'       => 'string',
     ];

@@ -29,6 +29,14 @@
                             </NFormItem>
                         </div>
 
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Reset')" prop="reset">
+                                <NSwitch v-model="result.reset" :on-value="1" :off-value="0">
+                                    {{ trans('Send password reset') }}
+                                </NSwitch>
+                            </NFormItem>
+                        </div>
+
                     </div>
                 </NFormGroup>
 
@@ -44,6 +52,24 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('E-Mail')" prop="email">
                                 <NInput v-model="result.email"></NInput>
+                            </NFormItem>
+                        </div>
+
+                    </div>
+                </NFormGroup>
+
+                <NFormGroup icon="fa fa-user-shield" :legend="trans('Access')">
+                    <div class="grid grid-row grid--wrap grid--30">
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Role')" prop="role_id">
+                                <KyoRoleSelect v-model="result.role_id"></KyoRoleSelect>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Gate')" prop="gate_id">
+                                <KyoGateSelect v-model="result.gate_id"></KyoGateSelect>
                             </NFormItem>
                         </div>
 
@@ -77,7 +103,7 @@
 
         name: 'KyoUserCreate',
 
-        localized: true,
+        localized: false,
 
         urls: {
             show: '/{locale}/kyoto/user/http/controllers/user/show',

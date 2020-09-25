@@ -1901,7 +1901,7 @@ __webpack_require__.r(__webpack_exports__);
       return !this.KyoIndex ? 0 : this.KyoIndex.selected.length;
     },
     updated: function updated() {
-      return !this.KyoForm ? 'never' : this.Now.make(this.KyoForm.result.updated_at).format();
+      return !this.KyoForm ? 0 : this.Now.make(this.KyoForm.result.updated_at).format();
     }
   },
   data: function data() {
@@ -15048,7 +15048,11 @@ var render = function() {
                   _vm._v(
                     "\n            " +
                       _vm._s(
-                        _vm.trans("Saved at :updated", { updated: _vm.updated })
+                        _vm.Any.isEmpty(_vm.updated)
+                          ? _vm.trans("Not saved yet")
+                          : _vm.trans("Saved at :updated", {
+                              updated: _vm.updated
+                            })
                       ) +
                       "\n        "
                   )

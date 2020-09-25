@@ -24,7 +24,7 @@
         <div v-if="KyoForm" class="kyo-titlebar__description">
 
             <NButton :link="true" :square="true" icon="fa fa-angle-down">
-                {{ trans('Saved at :updated', { updated }) }}
+                {{ Any.isEmpty(updated) ? trans('Not saved yet') : trans('Saved at :updated', { updated }) }}
             </NButton>
 
             <NPopover type="dropdown" trigger="click" position="bottom-end" :window="true" :width="220">
@@ -149,7 +149,7 @@
 
             updated()
             {
-                return ! this.KyoForm ? 'never' : this.Now.make(this.KyoForm.result.updated_at).format()
+                return ! this.KyoForm ? 0 : this.Now.make(this.KyoForm.result.updated_at).format()
             }
 
         },

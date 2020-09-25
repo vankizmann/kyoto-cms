@@ -33,7 +33,7 @@ class Media extends \Kyoto\Support\Database\Model
     ];
 
     protected $casts = [
-        'id'            => 'uuid',
+        'id'            => 'string',
         'title'         => 'string',
         'desciption'    => 'string',
         'source'        => 'string',

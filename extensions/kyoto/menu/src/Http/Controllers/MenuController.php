@@ -5,6 +5,7 @@ namespace Kyoto\Menu\Http\Controllers;
 //use App\Database\Menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Kyoto\Menu\Models\Menu;
 
 //use Liro\Web\Menu\Http\Requests\MenuUpdateRequest;
@@ -17,38 +18,11 @@ class MenuController extends Controller
             abort(403);
         }
 
-        return response()->json(Menu::datatree());
-    }
+        DB::beginTransaction();
+        $datatree = Menu::datatree();
+        DB::commit();
 
-    public function toArray($item)
-    {
-        return array_merge($item->toArray(), [
-            'children' => $item->children->map([$this, 'toArray'])
-        ]);
-    }
-
-    public function getTreeRoute()
-    {
-        $query = Menu::with(['children'])->withDepthGuard()->notArchived();
-
-        if ( ! empty(request()->input('search')) ) {
-
-            $query = $query->where('title', 'LIKE',
-                '%' . request()->input('search') . '%');
-
-            foreach ( $query->get() as $menu ) {
-                $query->orWhereIn('id', $menu->getAncestors()->pluck('id'));
-            }
-
-        }
-
-        clock()->startEvent('MenuController.buildMenuTree', 'Build Menu Tree');
-
-        $menus = $query->getTree();
-
-        clock()->endEvent('MenuController.buildMenuTree');
-
-        return response()->json($menus);
+        return response()->json($datatree);
     }
 
     public function getIndexRoute()

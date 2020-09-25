@@ -20,7 +20,7 @@ class Policy extends Model
     ];
 
     protected $casts = [
-        'id'     => 'uuid',
+        'id'     => 'string',
         'title'  => 'string',
         'type'   => 'string',
         'action' => 'string',

@@ -20,7 +20,7 @@ class PageLocale extends Model
     ];
 
     protected $casts = [
-        'id'            => 'uuid',
+        'id'            => 'string',
         'locale'        => 'string',
         'title'         => 'string',
         'content'       => 'string',

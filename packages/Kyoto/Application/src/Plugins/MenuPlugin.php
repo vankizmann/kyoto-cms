@@ -19,7 +19,7 @@ trait MenuPlugin
         }
 
         $this->root = app('kyoto.user')->unguarded(function () {
-            return $this->menu->getRoot();
+            return $this->menu->root();
         });
 
         return $this->menu;
@@ -45,7 +45,24 @@ trait MenuPlugin
 
     public function getLayout()
     {
-        return data_get($this->menu, 'layout') ?: 'kyoto/theme::default';
+        $layout = 'kyoto/theme::default';
+
+        if ( ! $this->menu ) {
+            return $layout;
+        }
+
+        foreach ( app('kyoto.menu')->getMenus() as $menu ) {
+
+            if ( ! empty($menu['layout']) ) {
+                $layout = $menu['layout'];
+            }
+
+            if ( $menu['id'] === $this->menu['id'] ) {
+                break;
+            }
+        }
+
+        return $layout;
     }
 
 }

@@ -20,7 +20,7 @@ class Model extends \Illuminate\Database\Eloquent\Model
      *
      * @var string
      */
-    protected $keyType = 'uuid';
+    protected $keyType = 'string';
 
     /**
      * Relationship keys which are fillable.

@@ -39,9 +39,6 @@ class LanguageController extends \App\Http\Controllers\Controller
         // Save entity
         $language->save();
 
-        // Update languages
-        app('kyoto.language')->update();
-
         return response()->json([
             'data' => $language->toArray(), 'message' => trans('Language has been created!')
         ]);
@@ -56,9 +53,6 @@ class LanguageController extends \App\Http\Controllers\Controller
         $language->fill($request->input())
             ->save();
 
-        // Update languages
-        app('kyoto.language')->update();
-
         return response()->json([
             'data' => $language, 'message' => trans('Language has been updated!')
         ]);
@@ -69,9 +63,6 @@ class LanguageController extends \App\Http\Controllers\Controller
         foreach ( request()->input('ids', []) as $id ) {
             Language::findOrFail($id)->forceDelete();
         }
-
-        // Update languages
-        app('kyoto.language')->update();
 
         return response()->json([
             'data' => [], 'message' => trans('Languages has been deleted!')

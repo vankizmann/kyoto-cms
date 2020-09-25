@@ -20,7 +20,7 @@ class MediaLocale extends Model
     ];
 
     protected $casts = [
-        'id'            => 'uuid',
+        'id'            => 'string',
         'locale'        => 'string',
         'title'         => 'string',
         'description'   => 'string',

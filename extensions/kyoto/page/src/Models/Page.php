@@ -30,7 +30,7 @@ class Page extends \Kyoto\Support\Database\Model
     ];
 
     protected $casts = [
-        'id'            => 'uuid',
+        'id'            => 'string',
         'title'         => 'string',
         'content'       => 'string'
     ];

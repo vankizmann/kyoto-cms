@@ -2,6 +2,8 @@
 
 namespace Kyoto\User\Models;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Kyoto\Support\Database\Model;
 
 class Role extends Model
@@ -12,6 +14,10 @@ class Role extends Model
         'id',
     ];
 
+    protected $appends = [
+        'policies'
+    ];
+
     protected $attributes = [
         'id'          => null,
         'title'       => null,
@@ -19,7 +25,7 @@ class Role extends Model
     ];
 
     protected $casts = [
-        'id'          => 'uuid',
+        'id'          => 'string',
         'title'       => 'string',
         'description' => 'string',
     ];
@@ -29,9 +35,26 @@ class Role extends Model
         return $this->hasMany(User::class, 'role_id');
     }
 
+    public function getUsersAttribute()
+    {
+        return $this->users()->get();
+    }
+
     public function policies()
     {
         return $this->belongsToMany(Policy::class, 'role_to_policy', 'role_id', 'policy_id');
+    }
+
+    public function getPoliciesAttribute()
+    {
+        return $this->policies()->get();
+    }
+
+    public function setPoliciesAttribute($value)
+    {
+        self::saved(function ($model) use ($value) {
+            $model->policies()->sync(collect($value)->pluck('id'));
+        });
     }
 
 }

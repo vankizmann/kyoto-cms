@@ -25,6 +25,9 @@ class CreateMenuLocaleTable extends Migration
             $table->string('slug')
                 ->nullable();
 
+            $table->string('route')
+                ->nullable();
+
             $table->string('path')
                 ->nullable();
 

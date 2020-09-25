@@ -42,7 +42,7 @@ class User extends Model
     ];
 
     protected $casts = [
-        'id'       => 'uuid',
+        'id'       => 'string',
         'state'    => 'integer',
         'name'     => 'string',
         'email'    => 'string',

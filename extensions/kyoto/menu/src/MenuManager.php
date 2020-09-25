@@ -69,6 +69,11 @@ class MenuManager {
         return null;
     }
 
+    public function getMenus()
+    {
+        return $this->menus[app()->getLocale()];
+    }
+
     public function getMenuByUrl($url = null)
     {
         $menu = $this->findByUrl($url);
