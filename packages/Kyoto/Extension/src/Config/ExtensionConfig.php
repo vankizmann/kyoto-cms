@@ -47,10 +47,10 @@ class ExtensionConfig extends DataMapper
             $path = str_join('/', $this->path, 'database/seeds', "{$seed}.php");
 
             if ( file_exists($path) ) {
-                require_once $path;
+                include_once $path;
             }
 
-            Artisan::call('db:seed', ['--class' => $seed]);
+            Artisan::call('db:seed', ['--class' => '\\' . $seed]);
         }
 
         return $this;

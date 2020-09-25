@@ -2,15 +2,11 @@
 
 namespace Kyoto\Menu\Http\Controllers;
 
-//use App\Database\Menu;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Kyoto\Menu\Models\Menu;
+use Kyoto\Menu\Http\Requests\MenuRequest;
 
-//use Liro\Web\Menu\Http\Requests\MenuUpdateRequest;
-
-class MenuController extends Controller
+class MenuController extends \App\Http\Controllers\Controller
 {
     public function index()
     {
@@ -18,94 +14,54 @@ class MenuController extends Controller
             abort(403);
         }
 
-        DB::beginTransaction();
-        $datatree = Menu::datatree();
-        DB::commit();
-
-        return response()->json($datatree);
-    }
-
-    public function getIndexRoute()
-    {
-        $menus = Menu::withDepthGuard()
-            ->datatable();
-
-        return response()->json($menus);
-    }
-
-    public function getCreateRoute()
-    {
-        $menu = new Menu;
-
-        return response()->json($menu);
-    }
-
-    public function postStoreRoute()
-    {
-        $menu = new Menu;
-
-        return response()->json($menu);
+        return response()->json(Menu::datatree());
     }
 
     public function show(Request $request)
     {
+        $id = $request->query('id', null);
+
+        $menu = new Menu;
+
+        if ( ! empty($id) ) {
+            $menu = Menu::findOrFail($id);
+        }
+
+        return response()->json([
+            'data' => $menu
+        ]);
+    }
+
+    public function store(MenuRequest $request)
+    {
+        $menu = Menu::create($request->input());
+
+        // Save entity
+        $menu->save();
+
+        return response()->json([
+            'data' => $menu, 'message' => trans('Menu has been created!')
+        ]);
+    }
+
+    public function update(MenuRequest $request)
+    {
         $id = $request->query('id');
 
-        $menu = Menu::findOrFail($id)
-            ->toArray();
+        $menu = Menu::findOrFail($id);
 
-        return response()->json($menu);
-    }
-
-    public function postUpdateRoute(MenuUpdateRequest $request, $id)
-    {
-        $menu = Menu::withDepthGuard()
-            ->findOrFail($id);
-
-        $menu->fill($request->input())->save();
+        $menu->fill($request->input())
+            ->save();
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Menu has been updated!')
+            'data' => $menu->refresh(), 'message' => trans('Menu has been updated!')
         ]);
     }
 
-    public function postActivateRoute()
+    public function delete()
     {
         foreach ( request()->input('ids', []) as $id ) {
-            Menu::findOrFail($id)->update(['state' => 1]);
-        }
-
-        return response()->json([
-            'data' => [], 'message' => trans('Menus has been activated!')
-        ]);
-    }
-
-    public function postDeactivateRoute()
-    {
-        foreach ( request()->input('ids', []) as $id ) {
-            Menu::findOrFail($id)->update(['state' => 0]);
-        }
-
-        return response()->json([
-            'data' => [], 'message' => trans('Menus has been deactivated!')
-        ]);
-    }
-
-    public function postArchiveRoute()
-    {
-        foreach ( request()->input('ids', []) as $id ) {
-            Menu::findOrFail($id)->update(['state' => 2]);
-        }
-
-        return response()->json([
-            'data' => [], 'message' => trans('Menus has been archived!')
-        ]);
-    }
-
-    public function postDeleteRoute()
-    {
-        foreach ( request()->input('ids', []) as $id ) {
-            Menu::findOrFail($id)->update(['state' => -1]);
+            Menu::findOrFail($id)->forceDelete();
         }
 
         return response()->json([

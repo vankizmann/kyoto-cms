@@ -1,13 +1,13 @@
 import Vue from 'vue';
 
-import KyoTest from "./pages/test";
-Vue.component(KyoTest.name, KyoTest);
-
-import KyoMenus from "./pages/KyoMenus";
+import KyoMenus from "./pages/menu/KyoMenus";
 Vue.component(KyoMenus.name, KyoMenus);
 
-import KyoMenuEdit from "./pages/KyoMenuEdit";
+import KyoMenuEdit from "./pages/menu/KyoMenuEdit";
 Vue.component(KyoMenuEdit.name, KyoMenuEdit);
+
+import KyoMenuCreate from "./pages/menu/KyoMenuCreate";
+Vue.component(KyoMenuCreate.name, KyoMenuCreate);
 
 if ( console && console.log ) {
     console.log('kyoto/menu ready.');

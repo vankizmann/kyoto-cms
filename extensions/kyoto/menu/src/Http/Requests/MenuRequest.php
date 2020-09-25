@@ -1,10 +1,10 @@
 <?php
 
-namespace Liro\Web\Menu\Http\Requests;
+namespace Kyoto\Menu\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MenuStoreRequest extends FormRequest
+class MenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

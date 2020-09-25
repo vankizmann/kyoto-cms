@@ -4,7 +4,6 @@ namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
 use Illuminate\Support\Facades\DB;
-//use Kalnoy\Nestedset\NodeTrait as Node;
 use Kyoto\Support\Database\Traits\Translatable;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
@@ -68,23 +67,26 @@ class Menu extends \Kyoto\Support\Database\Model
     {
         static::saved(function ($model) {
 
-            if ( $model->parent_id ) {
+            if ( $parentNode = $model->parent && $model->isBaseLocale() ) {
 
-                $path = DB::table('menus')->where('id', $model->parent_id)
-                    ->pluck('path')->first();
+                $model->attributes['route'] = $model->slug;
 
-                $route = DB::table('menus')->where('id', $model->parent_id)
-                    ->whereNotNull('parent_id')->pluck('slug')->first();
+                if ( ! empty($parentNode->parent_id) ) {
+                    $model->attributes['route'] = str_join('/', $parentNode->route, $model->slug);
+                }
+
+                if ( $model->attributes['route'] ) {
+                    $model->attributes['route'] = '/' . trim($model->attributes['route'], '/');
+                }
+
+                $model->attributes['path'] = str_join('/', $parentNode->path, $model->slug);
 
                 $data = [
-                    'path' => str_join('/', $path, $model->slug),
-                    'route' => str_join('/', $route, $model->slug)
+                    'path' => $model->attributes['path'], 'route' => $model->attributes['route']
                 ];
 
-                DB::table('menus')->where('id', $model->id)
-                    ->update($data);
+                DB::table('menus')->where('id', $model->id)->update($data);
             }
-
 
             if ( app('kyoto')->isReady() ) {
                 app('kyoto.menu')->update();
@@ -124,9 +126,9 @@ class Menu extends \Kyoto\Support\Database\Model
         return $parentNode;
     }
 
-    public function getRouteAttribute()
+    public function getRouteAttribute2()
     {
-        return "/{$this->attributes['route']}";
+        return '/' . trim($this->attributes['route'], '/');
     }
 
     public function setSlugAttribute($value)
@@ -138,22 +140,33 @@ class Menu extends \Kyoto\Support\Database\Model
         $this->attributes['slug'] = trim($value, '/');;
     }
 
-    public function toArray()
+    public function toArray2()
     {
-        // List out all attributes you want to get, anytime this model is called.
-        $attributes = [];
-        $attributes['id'] = $this->attributes['id'];
-        $attributes['state'] = $this->attributes['state'];
-        $attributes['hide'] = $this->attributes['hide'];
-        $attributes['title'] = $this->attributes['title'];
-        $attributes['path'] = $this->attributes['path'];
-        $attributes['slug'] = $this->attributes['slug'];
-        $attributes['route'] = '/'.$this->attributes['route'];
-        $attributes['type'] = $this->attributes['type'];
-        $attributes['option'] = json_decode($this->attributes['option'] ?: '{}');
-        $attributes['children'] = $this->relations['children']->toArray();
+        $attributes = [
+            'id', 'state', 'hide', 'layout', 'type', 'title', 'path', 'slug', 'updated_at', 'created_at',
+        ];
 
-        return $attributes;
+        $data = [
+            'option' => json_decode($this->attributes['option'] ?: '{}')
+        ];
+
+        foreach ( $attributes as $attribute ) {
+            $data[$attribute] = $this->attributes[$attribute];
+        }
+
+        if ( isset($this->attributes['route']) ) {
+            $data['route'] = $this->getRouteAttribute();
+        }
+
+        if ( ! isset($this->attributes['locale']) ) {
+            $data['_locale'] = $this->getLocale();
+        }
+
+        if ( isset($this->relations['children']) ) {
+            $data['children'] = $this->relations['children']->toArray();
+        }
+
+        return $data;
     }
 
 }

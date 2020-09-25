@@ -25,6 +25,11 @@ class MenuManager {
         $this->loadMenus();
     }
 
+    public function update()
+    {
+        $this->updateMenus();
+    }
+
     public function loadMenus()
     {
         foreach ( app('kyoto')->getLocales() as $locale ) {
@@ -33,14 +38,14 @@ class MenuManager {
                 self::CACHE_PATH, "{$locale}.php"));
 
             if ( ! file_exists($path) ) {
-                $this->updateMenus($locale);
+                $this->updateMenu($locale);
             }
 
             $this->menus[$locale] = PhpEditor::loadFile($path);
         }
     }
 
-    public function updateMenus($locale)
+    public function updateMenu($locale)
     {
         app('kyoto')->localized($locale, function ($locale) {
 
@@ -56,6 +61,13 @@ class MenuManager {
 
             PhpEditor::saveFile($path, $menus);
         });
+    }
+
+    public function updateMenus()
+    {
+        foreach ( app('kyoto')->getLocales() as $locale ) {
+            $this->updateMenu($locale);
+        }
     }
 
     public function findByUrl($url = null)

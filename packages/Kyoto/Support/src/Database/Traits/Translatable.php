@@ -30,9 +30,15 @@ trait Translatable
      */
     public static function bootTranslatable()
     {
+        static::saving(function ($model) {
+
+            $model->translationsBuffer = $model->translations;
+
+        });
+
         static::saved(function ($model) {
 
-            foreach ( $model->translations as $translation ) {
+            foreach ( $model->translationsBuffer as $translation ) {
                 if ( is_a($translation, Model::class) ) {
                     $translation->save();
                 }
@@ -65,6 +71,8 @@ trait Translatable
     public function setLocale($locale)
     {
         $this->forceLocale = $locale;
+
+        return $this;
     }
 
     public function getLocaleClass()
@@ -236,8 +244,7 @@ trait Translatable
             return $translation->{'get' . Str::studly($key) . 'Attribute'}($this);
         }
 
-        return empty($localized = $translation->getAttribute($key))
-            ? $value : $localized;
+        return empty($localized = $translation->getAttribute($key)) ? $value : $localized;
     }
 
     public function localized($locale = null)
