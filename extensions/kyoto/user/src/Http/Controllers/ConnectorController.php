@@ -28,4 +28,9 @@ class ConnectorController extends Controller
         return redirect($request->query('redirect', '/backend'));
     }
 
+    public function logout(Request $request)
+    {
+        return view('kyoto/user::login');
+    }
+
 }

@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b29a395-69e5-470b-8a2d-3dd57070eb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuCreate.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuEdit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenus.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Requests/MenuStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Requests/MenuRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Extension/src/Config/ExtensionConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Extension/src/Config/ExtensionConfig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Translatable.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Translatable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="131">
+              <caret line="69" column="46" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -94,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+            <state relative-caret-position="160">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -130,11 +119,53 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/kyoto/menu/de.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="105" column="26" lean-forward="true" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LoginConnector.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1193" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="30" column="6" lean-forward="true" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.n-in</find>
       <find>n-table-column__label</find>
       <find>Gates</find>
       <find>Starts</find>
@@ -164,6 +195,7 @@
       <find>seed</find>
       <find>login</find>
       <find>localized</find>
+      <find>abmeld</find>
     </findStrings>
     <replaceStrings>
       <replace>Kyoto</replace>
@@ -181,9 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/policy/KyoPolicies.vue" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/gate/KyoGates.vue" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/role/KyoRoles.vue" />
         <option value="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/user/KyoUsers.vue" />
         <option value="$PROJECT_DIR$/extensions/kyoto/user/resources/js/inputs/KyoRoleSelect.vue" />
         <option value="$PROJECT_DIR$/extensions/kyoto/user/resources/js/inputs/KyoGateSelect.vue" />
@@ -230,8 +259,11 @@
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" />
         <option value="$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Translatable.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/user/config.php" />
       </list>
     </option>
   </component>
@@ -1109,6 +1141,42 @@
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Connectors" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="packages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -1299,11 +1367,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/user/resources/js/inputs" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Requests" />
-      <recent name="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers" />
@@ -1403,12 +1471,12 @@
       <workItem from="1600939964256" duration="6974000" />
       <workItem from="1600952431122" duration="4358000" />
       <workItem from="1600969896193" duration="28734000" />
-      <workItem from="1601032699693" duration="9720000" />
+      <workItem from="1601032699693" duration="9970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317256000" />
+    <option name="totallyTimeSpent" value="317506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="977" extended-state="0" />
@@ -1462,34 +1530,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/database/migrations/2019_01_01_000000_create_menu_locale_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Datatable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4002">
-          <caret line="138" column="67" selection-start-line="138" selection-start-column="67" selection-end-line="138" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/Kyoto/Support/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1783,13 +1823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storage/kyoto/menu/de.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="324" column="21" selection-start-line="324" selection-start-column="21" selection-end-line="324" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Translatable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4714">
@@ -1797,17 +1830,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php">
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="160">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php">
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+        <state relative-caret-position="131">
+          <caret line="69" column="46" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/kyoto/menu/de.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="105" column="26" lean-forward="true" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LoginConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1193" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="30" column="6" lean-forward="true" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
         </state>
       </provider>
     </entry>

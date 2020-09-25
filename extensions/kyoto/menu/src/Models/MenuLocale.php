@@ -38,7 +38,7 @@ class MenuLocale extends Model
             $foreign = Menu::findOrFail($model->foreign_id)
                 ->localized($model->locale);
 
-            if ( $parentNode = $foreign->parent && $model->slug ) {
+            if ( ($parentNode = $foreign->parent) && $model->slug ) {
 
                 $model->attributes['route'] = $model->slug;
 

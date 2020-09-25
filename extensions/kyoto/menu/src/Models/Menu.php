@@ -67,7 +67,7 @@ class Menu extends \Kyoto\Support\Database\Model
     {
         static::saved(function ($model) {
 
-            if ( $parentNode = $model->parent && $model->isBaseLocale() ) {
+            if ( ($parentNode = $model->parent) && $model->isBaseLocale() ) {
 
                 $model->attributes['route'] = $model->slug;
 

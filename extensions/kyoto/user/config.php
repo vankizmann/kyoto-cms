@@ -27,7 +27,7 @@ return [
 
     'connectors' => [
         'login' => \Kyoto\User\Connectors\LoginConnector::class,
-//        'logout' => \Kyoto\User\Connectors\LogoutConnector::class
+        'logout' => \Kyoto\User\Connectors\LogoutConnector::class
     ],
 
     'backend' => [
