@@ -19,7 +19,7 @@ trait MenuPlugin
         }
 
         $this->root = app('kyoto.user')->unguarded(function () {
-            return $this->menu->root();
+            return $this->menu->getRoot();
         });
 
         return $this->menu;

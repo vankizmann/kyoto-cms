@@ -97,18 +97,6 @@ class Menu extends \Kyoto\Support\Database\Model
         parent::boot();
     }
 
-    public function getRoot2($key = null, $fallback = null)
-    {
-        $root = $this->newQuery()->whereNull('parent_id')
-            ->where('_lft', '<=', $this->_lft)->orderBy('_lft', 'desc')->first();
-
-        if ( ! empty($key) ) {
-            return data_get($root, $key, $fallback);
-        }
-
-        return $root;
-    }
-
     public function getLogin()
     {
         return $this->getRoot()->getDescendants()
@@ -126,11 +114,6 @@ class Menu extends \Kyoto\Support\Database\Model
         return $parentNode;
     }
 
-    public function getRouteAttribute2()
-    {
-        return '/' . trim($this->attributes['route'], '/');
-    }
-
     public function setSlugAttribute($value)
     {
         if ( empty($this->parent_id) ) {
@@ -138,35 +121,6 @@ class Menu extends \Kyoto\Support\Database\Model
         }
 
         $this->attributes['slug'] = trim($value, '/');;
-    }
-
-    public function toArray2()
-    {
-        $attributes = [
-            'id', 'state', 'hide', 'layout', 'type', 'title', 'path', 'slug', 'updated_at', 'created_at',
-        ];
-
-        $data = [
-            'option' => json_decode($this->attributes['option'] ?: '{}')
-        ];
-
-        foreach ( $attributes as $attribute ) {
-            $data[$attribute] = $this->attributes[$attribute];
-        }
-
-        if ( isset($this->attributes['route']) ) {
-            $data['route'] = $this->getRouteAttribute();
-        }
-
-        if ( ! isset($this->attributes['locale']) ) {
-            $data['_locale'] = $this->getLocale();
-        }
-
-        if ( isset($this->relations['children']) ) {
-            $data['children'] = $this->relations['children']->toArray();
-        }
-
-        return $data;
     }
 
 }
