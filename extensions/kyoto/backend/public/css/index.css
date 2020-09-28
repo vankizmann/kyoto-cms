@@ -7532,7 +7532,7 @@ readers do not read off random characters that represent icons */
 }
 
 .n-loader.n-active .n-loader:before {
-  display: none;
+  display: none !important;
 }
 
 .n-loader.n-loader--default:before {
@@ -10459,6 +10459,10 @@ body.n-open {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.n-table .n-table-column .n-table-column__label.n-table-column__label--sort {
+  cursor: pointer;
 }
 
 .n-table .n-table-column.n-left .n-table-column__label {
@@ -22980,6 +22984,30 @@ th {
   font-weight: normal;
 }
 
+.text--primary {
+  color: #1765F5;
+}
+
+.text--secondary {
+  color: #1765F5;
+}
+
+.text--success {
+  color: #18C478;
+}
+
+.text--warning {
+  color: #FFA13D;
+}
+
+.text--danger {
+  color: #F44257;
+}
+
+.text--info {
+  color: #62686d;
+}
+
 .info {
   padding-top: 5px;
   font-size: 13px;
@@ -23057,6 +23085,30 @@ th {
   border-right: 1px solid #e9ebee;
   background: #ffffff;
   box-shadow: 0 0 8px rgba(20, 25, 37, 0.1);
+}
+
+.kyo-login {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #F8F9FB;
+}
+
+.kyo-login .n-form {
+  flex: 1 0 auto;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(20, 25, 37, 0.1);
+}
+
+.kyo-login .n-button__wrapper {
+  width: 100%;
 }
 
 .kyo-header > .grid > * {
@@ -23211,7 +23263,7 @@ th {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  min-width: 130px;
+  min-width: 160px;
 }
 
 .kyo-titlebar {

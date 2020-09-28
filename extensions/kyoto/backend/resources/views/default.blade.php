@@ -18,9 +18,6 @@
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
-    {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') }}
-
-
     <script>
         window.basePath = '{{ app('kyoto.backend')->basePath() }}';
     </script>
@@ -37,13 +34,16 @@
         window.backendRoutes = JSON.parse('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
     </script>
 
+
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') !!}
+
     {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
 
 
     {!! app('kyoto.backend')->output() !!}
 </head>
-<body>
+<body class="body body--root">
 
     <div id="app" data-root="true">
         <kyo-backend>Loading...</kyo-backend>

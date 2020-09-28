@@ -18,21 +18,16 @@
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
-    {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') !!}
 
+    {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
+
+    {!! app('kyoto.backend')->output() !!}
 </head>
 <body>
 
-@if(session()->has('success'))
-    <h1>{{ session()->get('success') }}</h1>
-@endif
-
-@if(session()->has('error'))
-    <h1>{{ session()->get('error') }}</h1>
-@endif
-
-<div id="app" data-root="true">
+<div id="app" data-root="false">
     @yield('content')
 </div>
 

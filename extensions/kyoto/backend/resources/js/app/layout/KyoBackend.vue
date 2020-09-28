@@ -1,19 +1,19 @@
 <template>
     <div class="kyo-backend">
         <div class="kyo-header">
-            <div class="grid grid--row grid--20">
+            <div class="grid grid--row grid--30">
 
                 <KyoLayoutSubmenu class="col--flex-0-0 col--left">
                     <!-- Submenu -->
                 </KyoLayoutSubmenu>
 
-                <KyoLayoutLanguage class="col--flex-0-0">
-                    <!-- Backenduser -->
-                </KyoLayoutLanguage>
-
                 <KyoLayoutUserpanel class="col--flex-0-0">
                     <!-- Backenduser -->
                 </KyoLayoutUserpanel>
+
+                <KyoLayoutLanguage class="col--flex-0-0">
+                    <!-- Language -->
+                </KyoLayoutLanguage>
 
             </div>
         </div>

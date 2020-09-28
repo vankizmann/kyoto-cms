@@ -1,0 +1,25 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-login {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: $--color-background;
+}
+
+.kyo-login .n-form {
+    flex: 1 0 auto;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: $radius-medium;
+    background: $--color-white;
+    box-shadow: 0 0 8px rgba($--color-black, 0.1);
+}
+
+.kyo-login .n-button__wrapper {
+    width: 100%;
+}

@@ -19,19 +19,19 @@
 
             <KyoDatatable class="col--flex-1-1" :render-expand="true" @row-dblclick="gotoEdit">
 
-                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true">
+                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 
-                <NTableColumn type="string" prop="route" :label="trans('Route')" :fluid="true" :sort="true" :filter="true">
+                <NTableColumn type="string" prop="route" :label="trans('Route')" :fluid="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 
-                <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true">
+                <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 
-                <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :sort="true" :filter="true">
+                <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 

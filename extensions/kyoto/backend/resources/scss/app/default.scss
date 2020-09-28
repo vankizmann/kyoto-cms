@@ -74,6 +74,30 @@ th {
     font-weight: normal;
 }
 
+.text--primary {
+    color: $--color-primary;
+}
+
+.text--secondary {
+    color: $--color-secondary;
+}
+
+.text--success {
+    color: $--color-success;
+}
+
+.text--warning {
+    color: $--color-warning;
+}
+
+.text--danger {
+    color: $--color-danger;
+}
+
+.text--info {
+    color: $--color-info;
+}
+
 .info {
     padding-top: 5px;
     font-size: 13px;

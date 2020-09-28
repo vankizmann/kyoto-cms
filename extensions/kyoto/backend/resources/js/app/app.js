@@ -82,7 +82,7 @@ Nano.Dom.ready(() => {
 
     let routes =[];
 
-    Nano.Arr.recursive(window.backendRoutes, 'children', (menu, cascade) => {
+    Nano.Arr.recursive(window.backendRoutes || [], 'children', (menu, cascade) => {
 
         let root = Nano.Arr.first(cascade) || menu;
 
@@ -109,5 +109,11 @@ Nano.Dom.ready(() => {
         Nano.Dom.title(Nano.Obj.get(to, 'meta.menu.title', 'Undefined'));
     });
 
-    window.App = new Vue(KyoBackend).$mount('#app');
+    let rootComponent = {};
+
+    if ( Nano.Dom.find('#app').attr('data-root') === 'true' ) {
+        rootComponent = KyoBackend;
+    }
+
+    window.App = new Vue(rootComponent).$mount('#app');
 });

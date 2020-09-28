@@ -10,6 +10,8 @@ trait MenuPlugin
 
     public $root = null;
 
+    public $layout = null;
+
     public function setMenu($menu = null)
     {
         $this->menu = $menu ?: app('kyoto.menu')->getMenuByUrl();
@@ -21,6 +23,8 @@ trait MenuPlugin
         $this->root = app('kyoto.user')->unguarded(function () {
             return $this->menu->getRoot();
         });
+
+        $this->setLayout();
 
         return $this->menu;
     }
@@ -43,7 +47,8 @@ trait MenuPlugin
         return $this->root;
     }
 
-    public function getLayout()
+
+    public function setLayout()
     {
         $layout = 'kyoto/theme::default';
 
@@ -62,7 +67,22 @@ trait MenuPlugin
             }
         }
 
-        return $layout;
+        $finderPath = app('view')->getFinder()->find($layout);
+
+        foreach ( app('view')->getFinder()->getHints() as $hint => $path ) {
+            app('view')->prependNamespace($hint, str_join('/', dirname($finderPath), $hint));
+        }
+
+        return $this->layout = $layout;
+    }
+
+    public function getLayout()
+    {
+        if ( ! $this->layout ) {
+            $this->setLayout();
+        }
+
+        return $this->layout;
     }
 
 }
