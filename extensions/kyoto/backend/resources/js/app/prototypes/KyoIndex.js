@@ -156,6 +156,24 @@ export default {
         },
 
         /**
+         * Safezone for table
+         * @returns {number}
+         */
+        safeZone(height)
+        {
+            return height * 0.51;
+        },
+
+        /**
+         * Move event
+         * @returns {void}
+         */
+        onMove(source, target, strategy)
+        {
+            this.moveItems(source, target, strategy);
+        },
+
+        /**
          * Fetch items from server
          */
         loadItems()
@@ -173,6 +191,27 @@ export default {
 
             this.$http.get(route, options)
                 .then(this.fetchDone, this.fetchError);
+        },
+
+        /**
+         * Fetch items from server
+         */
+        moveItems(source, target, strategy)
+        {
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let route = this.Route.get(this.ctor('urls.move'),
+                this.$root.$data);
+
+            let data = {
+                source, target, strategy
+            };
+
+            this.$http.post(route, data, options)
+                .then(this.loadItems, this.fetchError);
         },
 
         /**

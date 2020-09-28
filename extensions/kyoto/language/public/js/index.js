@@ -1115,7 +1115,24 @@ var render = function() {
                   label: _vm.trans("Language"),
                   fluid: true,
                   sort: true
-                }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "KyoLanguageEdit", params: value }
+                          }
+                        },
+                        [_vm._v(_vm._s(value.language))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {

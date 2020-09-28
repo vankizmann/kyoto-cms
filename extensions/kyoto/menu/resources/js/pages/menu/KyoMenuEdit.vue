@@ -55,8 +55,17 @@
                             </NFormItem>
                         </div>
 
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Type')" prop="type">
+                                <NInput v-model="result.type"></NInput>
+                            </NFormItem>
+                        </div>
+
                     </div>
                 </NFormGroup>
+
+                <NConfig :value="result.option" :config="config" :scope="{}"></NConfig>
+
             </NForm>
 
         </div>
@@ -73,6 +82,23 @@
             show: '/{locale}/kyoto/menu/http/controllers/menu/show',
             update: '/{locale}/kyoto/menu/http/controllers/menu/update',
             delete: '/{locale}/kyoto/menu/http/controllers/menu/delete'
+        },
+
+        computed: {
+
+            config()
+            {
+                if ( Nano.Any.isEmpty(this.result.type) ) {
+                    return {};
+                }
+
+                if ( ! Nano.Data.has(this.result.type) ) {
+                    return {};
+                }
+
+                return Nano.Data.get(this.result.type);
+            }
+
         },
 
         methods: {

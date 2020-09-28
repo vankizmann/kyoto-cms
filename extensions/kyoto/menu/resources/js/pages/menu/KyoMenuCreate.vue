@@ -24,7 +24,7 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('State')" prop="state">
                                 <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                    {{ trans('Language is enabled') }}
+                                    {{ trans('Menu is enabled') }}
                                 </NSwitch>
                             </NFormItem>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Hide')" prop="hide">
                                 <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                    {{ trans('Language is hidden') }}
+                                    {{ trans('Menu is hidden') }}
                                 </NSwitch>
                             </NFormItem>
                         </div>
@@ -40,35 +40,26 @@
                     </div>
                 </NFormGroup>
 
-                <NFormGroup icon="fa fa-language" :legend="trans('Language')">
+                <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Language')" prop="language">
-                                <NInput v-model="result.language"></NInput>
+                            <NFormItem :label="trans('Title')" prop="title">
+                                <NInput v-model="result.title"></NInput>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Country')" prop="country">
-                                <NInput v-model="result.country"></NInput>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Locale')" prop="locale">
-                                <NInput v-model="result.locale"></NInput>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Plate')" prop="plate">
-                                <NInput v-model="result.plate"></NInput>
+                            <NFormItem :label="trans('Slug')" prop="slug">
+                                <NInput v-model="result.slug"></NInput>
                             </NFormItem>
                         </div>
 
                     </div>
                 </NFormGroup>
+
+                <NConfig :value="result.option" :config="config" :scope="{}"></NConfig>
+
             </NForm>
 
         </div>
@@ -84,6 +75,23 @@
         urls: {
             show: '/{locale}/kyoto/language/http/controllers/language/show',
             store: '/{locale}/kyoto/language/http/controllers/language/store'
+        },
+
+        computed: {
+
+            config()
+            {
+                if ( Nano.Any.isEmpty(this.result.type) ) {
+                    return {};
+                }
+
+                if ( ! Nano.Data.has(this.result.type) ) {
+                    return {};
+                }
+
+                return Nano.Data.get(this.result.type);
+            }
+
         },
 
         methods: {

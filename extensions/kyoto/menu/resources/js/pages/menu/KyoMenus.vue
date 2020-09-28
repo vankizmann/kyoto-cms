@@ -20,7 +20,7 @@
             <KyoDatatable class="col--flex-1-1" :render-expand="true" @row-dblclick="gotoEdit">
 
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :filter="true">
-                    <!-- Column -->
+                    <router-link slot-scope="{ value }" :to="{ name: 'KyoMenuEdit', params: value }">{{ value.title }}</router-link>
                 </NTableColumn>
 
                 <NTableColumn type="string" prop="route" :label="trans('Route')" :fluid="true" :filter="true">
@@ -49,7 +49,8 @@
 
         urls: {
             index: '/{locale}/kyoto/menu/http/controllers/menu/index',
-            delete: '/{locale}/kyoto/menu/http/controllers/menu/delete'
+            delete: '/{locale}/kyoto/menu/http/controllers/menu/delete',
+            move: '/{locale}/kyoto/menu/http/controllers/menu/move'
         },
 
         defaults() {
@@ -59,6 +60,25 @@
             };
 
             return { query };
+        },
+
+        methods: {
+
+            allowDrag()
+            {
+                return true;
+            },
+
+            allowDrop()
+            {
+                return true;
+            },
+
+            safeZone(height)
+            {
+                return height * 0.26;
+            }
+
         },
 
         extends: window.KyoIndex

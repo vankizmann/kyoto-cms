@@ -2212,11 +2212,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoDashboard'
 });
@@ -14906,6 +14901,7 @@ var render = function() {
           attrs: {
             items: _vm.KyoIndex.result.data,
             "viewport-height": true,
+            "disable-move": true,
             selected: _vm.KyoIndex.selected,
             expanded: _vm.KyoIndex.expanded,
             "filter-props": _vm.KyoIndex.query.filter,
@@ -14914,6 +14910,7 @@ var render = function() {
             "item-height": 40,
             "allow-drag": _vm.KyoIndex.allowDrag,
             "allow-drop": _vm.KyoIndex.allowDrop,
+            "safe-zone": _vm.KyoIndex.safeZone,
             "render-expand": _vm.renderExpand
           },
           on: {
@@ -14941,6 +14938,7 @@ var render = function() {
             "update:sort-dir": function($event) {
               return _vm.$set(_vm.KyoIndex.query, "dir", $event)
             },
+            move: _vm.KyoIndex.onMove,
             "row-dblclick": _vm.rowDblclick
           }
         },
@@ -15727,55 +15725,33 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "NLoader",
-    { staticClass: "kyo-dashboard", attrs: { visible: true } },
+    { attrs: { visible: false } },
     [
-      _c("div", { staticClass: "kyo-titlebar" }, [
-        _c("div", { staticClass: "grid grid--row" }, [
-          _c("div", { staticClass: "col--flex-0-0 col--left" }, [
-            _c("h2", [_vm._v("Dashboard")])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col--flex-0-0 col--right" },
-            [
-              _c(
-                "NButton",
-                { attrs: { type: "secondary", icon: "fa fa-cog" } },
-                [_vm._v("Configure")]
-              )
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "n-inverse" },
-        [_c("NChart", { attrs: { height: 240, "point-offset": 60 } })],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
+        "KyoTitlebar",
         [
           _c(
-            "NForm",
-            [
-              _c(
-                "NFormItem",
-                { attrs: { label: "test" } },
-                [_c("NInput", { attrs: { placeholder: "Type something" } })],
-                1
-              )
-            ],
+            "template",
+            { slot: "action" },
+            [_c("NButton", [_vm._v(_vm._s(_vm.trans("Options")))])],
             1
           )
         ],
-        1
-      )
-    ]
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "kyo-dashboard" }, [
+        _c("div", { staticClass: "grid grid--row grid--30-30" }, [
+          _c(
+            "div",
+            { staticClass: "col--1-1" },
+            [_c("NChart", { attrs: { height: 240, "point-offset": 60 } })],
+            1
+          )
+        ])
+      ])
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -32127,6 +32103,22 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     /**
+     * Safezone for table
+     * @returns {number}
+     */
+    safeZone: function safeZone(height) {
+      return height * 0.51;
+    },
+
+    /**
+     * Move event
+     * @returns {void}
+     */
+    onMove: function onMove(source, target, strategy) {
+      this.moveItems(source, target, strategy);
+    },
+
+    /**
      * Fetch items from server
      */
     loadItems: function loadItems() {
@@ -32143,6 +32135,29 @@ __webpack_require__.r(__webpack_exports__);
       var route = this.Route.get(this.ctor('urls.index'), this.$root.$data, this.query);
       nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].set(this.$root, this.__self('store', 'Query'), nano_js__WEBPACK_IMPORTED_MODULE_0__["Obj"].clone(this.query));
       this.$http.get(route, options).then(this.fetchDone, this.fetchError);
+    },
+
+    /**
+     * Fetch items from server
+     */
+    moveItems: function moveItems(source, target, strategy) {
+      var _this4 = this;
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this4.load = true;
+        },
+        onDone: function onDone() {
+          return _this4.load = false;
+        }
+      };
+      var route = this.Route.get(this.ctor('urls.move'), this.$root.$data);
+      var data = {
+        source: source,
+        target: target,
+        strategy: strategy
+      };
+      this.$http.post(route, data, options).then(this.loadItems, this.fetchError);
     },
 
     /**
@@ -32164,14 +32179,14 @@ __webpack_require__.r(__webpack_exports__);
      * Delete items on server
      */
     deleteItems: function deleteItems() {
-      var _this4 = this;
+      var _this5 = this;
 
       var options = {
         onLoad: function onLoad() {
-          return _this4.load = true;
+          return _this5.load = true;
         },
         onDone: function onDone() {
-          return _this4.load = false;
+          return _this5.load = false;
         }
       };
       var query = {

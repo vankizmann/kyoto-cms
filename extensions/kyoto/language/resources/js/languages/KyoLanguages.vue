@@ -20,7 +20,7 @@
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
 
                 <NTableColumn type="string" prop="language" :label="trans('Language')" :fluid="true" :sort="true">
-                    <!-- Column -->
+                    <router-link slot-scope="{ value }" :to="{ name: 'KyoLanguageEdit', params: value }">{{ value.language }}</router-link>
                 </NTableColumn>
 
                 <NTableColumn type="string" prop="country" :label="trans('Country')" :fluid="true" :sort="true" :filter="true">

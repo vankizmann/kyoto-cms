@@ -1905,7 +1905,22 @@ var render = function() {
                   fluid: true,
                   sort: true,
                   filter: true
-                }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: { to: { name: "KyoGateEdit", params: value } }
+                        },
+                        [_vm._v(_vm._s(value.title))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
@@ -2042,7 +2057,24 @@ var render = function() {
                   fluid: true,
                   sort: true,
                   filter: true
-                }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "KyoPolicyEdit", params: value }
+                          }
+                        },
+                        [_vm._v(_vm._s(value.title))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
@@ -3024,7 +3056,22 @@ var render = function() {
                   fluid: true,
                   sort: true,
                   filter: true
-                }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: { to: { name: "KyoRoleEdit", params: value } }
+                        },
+                        [_vm._v(_vm._s(value.title))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
@@ -3921,19 +3968,34 @@ var render = function() {
               _c("NTableColumn", {
                 attrs: {
                   type: "string",
-                  prop: "email",
-                  label: _vm.trans("E-Mail"),
+                  prop: "name",
+                  label: _vm.trans("Name"),
                   fluid: true,
                   sort: true,
                   filter: true
-                }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: { to: { name: "KyoUserEdit", params: value } }
+                        },
+                        [_vm._v(_vm._s(value.name))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
                 attrs: {
                   type: "string",
-                  prop: "name",
-                  label: _vm.trans("Name"),
+                  prop: "email",
+                  label: _vm.trans("E-Mail"),
                   fluid: true,
                   sort: true,
                   filter: true

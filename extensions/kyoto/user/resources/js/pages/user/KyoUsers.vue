@@ -19,11 +19,11 @@
 
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
 
-                <NTableColumn type="string" prop="email" :label="trans('E-Mail')" :fluid="true" :sort="true" :filter="true">
-                    <!-- Column -->
+                <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true" :filter="true">
+                    <router-link slot-scope="{ value }" :to="{ name: 'KyoUserEdit', params: value }">{{ value.name }}</router-link>
                 </NTableColumn>
 
-                <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true" :filter="true">
+                <NTableColumn type="string" prop="email" :label="trans('E-Mail')" :fluid="true" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 

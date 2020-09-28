@@ -162,21 +162,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoLanguageCreate',
   localized: true,
   urls: {
     show: '/{locale}/kyoto/language/http/controllers/language/show',
     store: '/{locale}/kyoto/language/http/controllers/language/store'
+  },
+  computed: {
+    config: function config() {
+      if (Nano.Any.isEmpty(this.result.type)) {
+        return {};
+      }
+
+      if (!Nano.Data.has(this.result.type)) {
+        return {};
+      }
+
+      return Nano.Data.get(this.result.type);
+    }
   },
   methods: {
     gotoEdit: function gotoEdit(row) {
@@ -270,6 +274,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoMenuEdit',
   localized: true,
@@ -277,6 +290,19 @@ __webpack_require__.r(__webpack_exports__);
     show: '/{locale}/kyoto/menu/http/controllers/menu/show',
     update: '/{locale}/kyoto/menu/http/controllers/menu/update',
     "delete": '/{locale}/kyoto/menu/http/controllers/menu/delete'
+  },
+  computed: {
+    config: function config() {
+      if (Nano.Any.isEmpty(this.result.type)) {
+        return {};
+      }
+
+      if (!Nano.Data.has(this.result.type)) {
+        return {};
+      }
+
+      return Nano.Data.get(this.result.type);
+    }
   },
   methods: {
     gotoIndex: function gotoIndex() {
@@ -346,7 +372,8 @@ __webpack_require__.r(__webpack_exports__);
   localized: true,
   urls: {
     index: '/{locale}/kyoto/menu/http/controllers/menu/index',
-    "delete": '/{locale}/kyoto/menu/http/controllers/menu/delete'
+    "delete": '/{locale}/kyoto/menu/http/controllers/menu/delete',
+    move: '/{locale}/kyoto/menu/http/controllers/menu/move'
   },
   defaults: function defaults() {
     var query = {
@@ -361,6 +388,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       query: query
     };
+  },
+  methods: {
+    allowDrag: function allowDrag() {
+      return true;
+    },
+    allowDrop: function allowDrop() {
+      return true;
+    },
+    safeZone: function safeZone(height) {
+      return height * 0.26;
+    }
   },
   "extends": window.KyoIndex
 });
@@ -486,7 +524,7 @@ var render = function() {
                                 [
                                   _vm._v(
                                     "\n                                " +
-                                      _vm._s(_vm.trans("Language is enabled")) +
+                                      _vm._s(_vm.trans("Menu is enabled")) +
                                       "\n                            "
                                   )
                                 ]
@@ -523,7 +561,7 @@ var render = function() {
                                 [
                                   _vm._v(
                                     "\n                                " +
-                                      _vm._s(_vm.trans("Language is hidden")) +
+                                      _vm._s(_vm.trans("Menu is hidden")) +
                                       "\n                            "
                                   )
                                 ]
@@ -541,12 +579,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "NFormGroup",
-                {
-                  attrs: {
-                    icon: "fa fa-language",
-                    legend: _vm.trans("Language")
-                  }
-                },
+                { attrs: { icon: "fa fa-compass", legend: _vm.trans("Menu") } },
                 [
                   _c(
                     "div",
@@ -560,18 +593,18 @@ var render = function() {
                             "NFormItem",
                             {
                               attrs: {
-                                label: _vm.trans("Language"),
-                                prop: "language"
+                                label: _vm.trans("Title"),
+                                prop: "title"
                               }
                             },
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.result.language,
+                                  value: _vm.result.title,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.result, "language", $$v)
+                                    _vm.$set(_vm.result, "title", $$v)
                                   },
-                                  expression: "result.language"
+                                  expression: "result.title"
                                 }
                               })
                             ],
@@ -588,77 +621,16 @@ var render = function() {
                           _c(
                             "NFormItem",
                             {
-                              attrs: {
-                                label: _vm.trans("Country"),
-                                prop: "country"
-                              }
+                              attrs: { label: _vm.trans("Slug"), prop: "slug" }
                             },
                             [
                               _c("NInput", {
                                 model: {
-                                  value: _vm.result.country,
+                                  value: _vm.result.slug,
                                   callback: function($$v) {
-                                    _vm.$set(_vm.result, "country", $$v)
+                                    _vm.$set(_vm.result, "slug", $$v)
                                   },
-                                  expression: "result.country"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("Locale"),
-                                prop: "locale"
-                              }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.locale,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "locale", $$v)
-                                  },
-                                  expression: "result.locale"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("Plate"),
-                                prop: "plate"
-                              }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.plate,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "plate", $$v)
-                                  },
-                                  expression: "result.plate"
+                                  expression: "result.slug"
                                 }
                               })
                             ],
@@ -670,7 +642,15 @@ var render = function() {
                     ]
                   )
                 ]
-              )
+              ),
+              _vm._v(" "),
+              _c("NConfig", {
+                attrs: {
+                  value: _vm.result.option,
+                  config: _vm.config,
+                  scope: {}
+                }
+              })
             ],
             1
           )
@@ -921,11 +901,45 @@ var render = function() {
                           )
                         ],
                         1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Type"), prop: "type" }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.type,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "type", $$v)
+                                  },
+                                  expression: "result.type"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
                       )
                     ]
                   )
                 ]
-              )
+              ),
+              _vm._v(" "),
+              _c("NConfig", {
+                attrs: {
+                  value: _vm.result.option,
+                  config: _vm.config,
+                  scope: {}
+                }
+              })
             ],
             1
           )
@@ -1029,8 +1043,23 @@ var render = function() {
                   prop: "title",
                   label: _vm.trans("Title"),
                   fluid: true,
-                  sort: true
-                }
+                  filter: true
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: { to: { name: "KyoMenuEdit", params: value } }
+                        },
+                        [_vm._v(_vm._s(value.title))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
@@ -1039,7 +1068,6 @@ var render = function() {
                   prop: "route",
                   label: _vm.trans("Route"),
                   fluid: true,
-                  sort: true,
                   filter: true
                 }
               }),
@@ -1049,7 +1077,6 @@ var render = function() {
                   type: "datetime",
                   prop: "updated_at",
                   label: _vm.trans("Modified"),
-                  sort: true,
                   filter: true
                 }
               }),
@@ -1059,7 +1086,6 @@ var render = function() {
                   type: "datetime",
                   prop: "created_at",
                   label: _vm.trans("Created"),
-                  sort: true,
                   filter: true
                 }
               })
@@ -1213,9 +1239,131 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenuEdit__WE
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
+__webpack_require__(/*! ./configs/vue */ "./resources/js/configs/vue.js");
+
+__webpack_require__(/*! ./configs/redirect */ "./resources/js/configs/redirect.js");
+
 if (console && console.log) {
   console.log('kyoto/menu ready.');
 }
+
+/***/ }),
+
+/***/ "./resources/js/configs/redirect.js":
+/*!******************************************!*\
+  !*** ./resources/js/configs/redirect.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Nano.Data.set('kyoto/menu::redirect', {
+  'NFormGroup:00': {
+    props: {
+      legend: Nano.Locale.trans('Redirect'),
+      icon: 'fa fa-directions'
+    },
+    content: {
+      'div:00': {
+        "class": 'grid grid--row grid--wrap grid--30',
+        content: {
+          'div:00': {
+            "class": 'col--1-1 col--1-2@sm',
+            content: {
+              'NFormItem:00': {
+                props: {
+                  label: Nano.Locale.trans('URL')
+                },
+                content: {
+                  'NInput:00': {
+                    model: {
+                      path: 'url'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          'div:10': {
+            "class": 'col--1-1 col--1-2@sm',
+            content: {
+              'NFormItem:00': {
+                props: {
+                  label: Nano.Locale.trans('Menu')
+                },
+                content: {
+                  'NInput:00': {
+                    model: {
+                      path: 'redirect'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/configs/vue.js":
+/*!*************************************!*\
+  !*** ./resources/js/configs/vue.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Nano.Data.set('kyoto/menu::vue', {
+  'NFormGroup:00': {
+    props: {
+      legend: Nano.Locale.trans('Vue'),
+      icon: 'fab fa-vuejs'
+    },
+    content: {
+      'div:00': {
+        "class": 'grid grid--row grid--wrap grid--30',
+        content: {
+          'div:00': {
+            "class": 'col--1-1 col--1-2@sm',
+            content: {
+              'NFormItem:00': {
+                props: {
+                  label: Nano.Locale.trans('Component')
+                },
+                content: {
+                  'NInput:00': {
+                    model: {
+                      path: 'component'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          'div:10': {
+            "class": 'col--1-1 col--1-2@sm',
+            content: {
+              'NFormItem:00': {
+                props: {
+                  label: Nano.Locale.trans('Menu')
+                },
+                content: {
+                  'NInput:00': {
+                    model: {
+                      path: 'redirect'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+});
 
 /***/ }),
 

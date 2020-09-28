@@ -33,6 +33,16 @@ class MenuLocale extends Model
 
     protected static function boot()
     {
+        static::saving(function ($model) {
+
+            if ( app('kyoto')->isReady() ) {
+                app('kyoto.menu')->clear();
+            }
+
+            $model->fill([
+                'route' => null, 'path' => $model->slug
+            ]);
+        });
         static::saved(function ($model) {
 
             $foreign = Menu::findOrFail($model->foreign_id)

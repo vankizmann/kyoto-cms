@@ -28,6 +28,20 @@ class MenuManager {
     public function update()
     {
         $this->updateMenus();
+
+        return $this;
+    }
+
+    public function clear()
+    {
+        $path = storage_path(str_join('/',
+            self::CACHE_PATH, '*.php'));
+
+        foreach ( glob($path) as $file ) {
+            unlink($file);
+        }
+
+        return $this;
     }
 
     public function loadMenus()

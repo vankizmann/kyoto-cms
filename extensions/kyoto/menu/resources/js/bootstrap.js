@@ -9,6 +9,9 @@ Vue.component(KyoMenuEdit.name, KyoMenuEdit);
 import KyoMenuCreate from "./pages/menu/KyoMenuCreate";
 Vue.component(KyoMenuCreate.name, KyoMenuCreate);
 
+require('./configs/vue');
+require('./configs/redirect');
+
 if ( console && console.log ) {
     console.log('kyoto/menu ready.');
 }

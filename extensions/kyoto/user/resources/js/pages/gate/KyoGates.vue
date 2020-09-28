@@ -20,7 +20,7 @@
             <KyoDatatable class="col--flex-1-1" :render-expand="true" @row-dblclick="gotoEdit">
 
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
-                    <!-- Column -->
+                    <router-link slot-scope="{ value }" :to="{ name: 'KyoGateEdit', params: value }">{{ value.title }}</router-link>
                 </NTableColumn>
 
                 <NTableColumn type="string" prop="description" :label="trans('Description')" :fluid="true" :sort="true" :filter="true">

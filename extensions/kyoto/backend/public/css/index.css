@@ -23098,6 +23098,14 @@ th {
   background: #F8F9FB;
 }
 
+.kyo-login h1 {
+  font-size: 30px;
+}
+
+.kyo-login .n-form-item {
+  margin-bottom: 28px;
+}
+
 .kyo-login .n-form {
   flex: 1 0 auto;
   max-width: 500px;
@@ -23361,8 +23369,8 @@ th {
   opacity: 0;
 }
 
-.kyo-dashboard .n-chart__wrapper {
-  background: #F8F9FB;
+.kyo-dashboard {
+  padding: 30px;
 }
 
 .kyo-uploads {
@@ -23382,6 +23390,10 @@ th {
 
 .kyo-datatable .n-resizer {
   border-radius: 500px;
+}
+
+.kyo-datatable .n-draggable-item.n-current:not(.n-dragover) {
+  background: transparent;
 }
 
 .kyo-datatable .n-table {

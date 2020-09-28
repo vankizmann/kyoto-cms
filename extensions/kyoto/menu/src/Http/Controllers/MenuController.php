@@ -69,4 +69,52 @@ class MenuController extends \App\Http\Controllers\Controller
         ]);
     }
 
+    public function move(Request $request)
+    {
+        $data = $request->only(['source', 'target', 'strategy']);
+
+        if ( $data['strategy'] === 'root' ) {
+
+            foreach ( (array) $data['source'] as $id ) {
+                Menu::findOrFail($id)->makeRoot();
+            }
+
+        }
+
+
+        if ( $data['strategy'] === 'inner' ) {
+
+            $targetNode = Menu::findOrFail($data['target']);
+
+            foreach ( (array) $data['source'] as $id ) {
+                Menu::findOrFail($id)->makeChildOf($targetNode);
+            }
+
+        }
+
+        if ( $data['strategy'] === 'before' ) {
+
+            $targetNode = Menu::findOrFail($data['target']);
+
+            foreach ( (array) $data['source'] as $id ) {
+                Menu::findOrFail($id)->moveToLeftOf($targetNode);
+            }
+
+        }
+
+        if ( $data['strategy'] === 'after' ) {
+
+            $targetNode = Menu::findOrFail($data['target']);
+
+            foreach ( (array) $data['source'] as $id ) {
+                Menu::findOrFail($id)->moveToRightOf($targetNode);
+            }
+
+        }
+
+        return response()->json([
+            'data' => [], 'message' => trans('Menus has been moved!')
+        ]);
+    }
+
 }

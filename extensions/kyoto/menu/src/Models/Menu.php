@@ -59,12 +59,23 @@ class Menu extends \Kyoto\Support\Database\Model
         'slug'          => 'string',
         'route'         => 'string',
         'path'          => 'string',
-        'option'        => 'array',
+        'option'        => 'object',
         'guard'         => 'integer'
     ];
 
     protected static function boot()
     {
+        static::saving(function ($model) {
+
+            if ( app('kyoto')->isReady() ) {
+                app('kyoto.menu')->clear();
+            }
+
+            $model->fill([
+                'route' => null, 'path' => $model->slug
+            ]);
+        });
+
         static::saved(function ($model) {
 
             if ( ($parentNode = $model->parent) && $model->isBaseLocale() ) {
@@ -86,10 +97,6 @@ class Menu extends \Kyoto\Support\Database\Model
                 ];
 
                 DB::table('menus')->where('id', $model->id)->update($data);
-            }
-
-            if ( app('kyoto')->isReady() ) {
-                app('kyoto.menu')->update();
             }
 
         });

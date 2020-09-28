@@ -9,6 +9,10 @@
     border-radius: 500px;
 }
 
+.kyo-datatable .n-draggable-item.n-current:not(.n-dragover) {
+    background: transparent;
+}
+
 .kyo-datatable .n-table {
     flex: 1 1 auto;
     border: none;
