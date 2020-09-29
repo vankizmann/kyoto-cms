@@ -30,7 +30,7 @@ class FrontendMenuTableSeeder extends Seeder
         $root = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::domain',
-            'layout'    => 'kyoto/theme::default',
+            'layout'    => 'kyoto/frontend::default',
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'www.website.com',

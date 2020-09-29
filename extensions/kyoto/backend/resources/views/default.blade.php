@@ -19,7 +19,11 @@
     <meta name="theme-color" content="#ffffff">
 
     <script>
-        window.basePath = '{{ app('kyoto.backend')->basePath() }}';
+        window.backendPaths = {
+            base: '{{ app('kyoto.backend')->basePath() }}',
+            login: '{{ app('kyoto.backend')->loginPath() }}',
+            logout: '{{ app('kyoto.backend')->logoutPath() }}'
+        };
     </script>
 
     <script>

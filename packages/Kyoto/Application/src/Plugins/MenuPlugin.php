@@ -2,8 +2,6 @@
 
 namespace Kyoto\Application\Plugins;
 
-use Kyoto\Menu\Models\Menu;
-
 trait MenuPlugin
 {
     public $menu = null;
@@ -50,7 +48,7 @@ trait MenuPlugin
 
     public function setLayout()
     {
-        $layout = 'kyoto/theme::default';
+        $layout = 'kyoto/frontend::default';
 
         if ( ! $this->menu ) {
             return $layout;

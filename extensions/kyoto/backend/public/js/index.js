@@ -2018,8 +2018,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoBackend',
+  computed: {
+    paths: function paths() {
+      return window.backendPaths;
+    }
+  },
   data: function data() {
     return {
       locale: document.documentElement.lang
@@ -2132,7 +2143,6 @@ __webpack_require__.r(__webpack_exports__);
   name: 'KyoLayoutSubmenu',
   computed: {
     menus: function menus() {
-      console.log(this.$route);
       return Nano.Arr.filter(this.$route.meta.root.children, function (menu) {
         return !menu.hide;
       });
@@ -2174,9 +2184,6 @@ __webpack_require__.r(__webpack_exports__);
     user: function user() {
       return window.backendUser;
     }
-  },
-  mounted: function mounted() {
-    this.Notify('Hello');
   }
 });
 
@@ -15501,7 +15508,20 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "kyo-sidebar" }, [_c("KyoLayoutMainmenu")], 1)
+    _c(
+      "div",
+      { staticClass: "kyo-sidebar" },
+      [
+        _c("KyoLayoutMainmenu"),
+        _vm._v(" "),
+        _c("div", { staticClass: "kyo-logout" }, [
+          _c("a", { attrs: { href: _vm.paths.logout } }, [
+            _c("i", { staticClass: "fa fa-sign-out-alt" })
+          ])
+        ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -31037,7 +31057,7 @@ nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Dom.ready(function () {
     routes.push(data);
   });
   _layout_KyoBackend__WEBPACK_IMPORTED_MODULE_7__["default"].router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
-    base: window.basePath,
+    base: nano_js__WEBPACK_IMPORTED_MODULE_1___default.a.Obj.get(window, 'backendPaths.base', '/'),
     mode: 'history',
     routes: routes
   });

@@ -40,3 +40,12 @@
     background: $--color-white;
     box-shadow: 0 0 8px rgba($--color-black, 0.1);
 }
+
+.kyo-backend .kyo-logout a {
+    display: block;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    font-size: 16px;
+    color: $--color-gray-40;
+}

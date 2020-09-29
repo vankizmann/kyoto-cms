@@ -72,7 +72,7 @@ class Menu extends \Kyoto\Support\Database\Model
             }
 
             $model->fill([
-                'route' => null, 'path' => $model->slug
+                'route' => '/', 'path' => $model->slug
             ]);
         });
 
@@ -80,7 +80,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
             if ( ($parentNode = $model->parent) && $model->isBaseLocale() ) {
 
-                $model->attributes['route'] = $model->slug;
+                $model->attributes['route'] = $model->slug ?: '/';
 
                 if ( ! empty($parentNode->parent_id) ) {
                     $model->attributes['route'] = str_join('/', $parentNode->route, $model->slug);
@@ -104,10 +104,39 @@ class Menu extends \Kyoto\Support\Database\Model
         parent::boot();
     }
 
-    public function getLogin()
+    public function getUnguardedRoot()
     {
-        return $this->getRoot()->getDescendants()
-            ->where('type', 'kyoto/user::login')->first();
+        return app('kyoto.user')->unguarded(function () {
+            return $this->getRoot();
+        });
+    }
+
+    public function getLogin($key = null, $fallback = null)
+    {
+        $login = app('kyoto.user')->unguarded(function () {
+            return $this->getRoot()->getDescendantsAndSelf()
+                ->where('type', 'kyoto/user::login')->first();
+        });
+
+        if ( $login && $key ) {
+            return data_get($login, $key, $fallback);
+        }
+
+        return $login;
+    }
+
+    public function getLogout($key = null, $fallback = null)
+    {
+        $logout = app('kyoto.user')->unguarded(function () {
+            return $this->getRoot()->getDescendantsAndSelf()
+                ->where('type', 'kyoto/user::logout')->first();
+        });
+
+        if ( $logout && $key ) {
+            return data_get($logout, $key, $fallback);
+        }
+
+        return $logout;
     }
 
     public function getParentAttribute()

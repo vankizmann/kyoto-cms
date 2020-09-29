@@ -23087,6 +23087,15 @@ th {
   box-shadow: 0 0 8px rgba(20, 25, 37, 0.1);
 }
 
+.kyo-backend .kyo-logout a {
+  display: block;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  font-size: 16px;
+  color: #a8afbc;
+}
+
 .kyo-login {
   position: relative;
   width: 100%;

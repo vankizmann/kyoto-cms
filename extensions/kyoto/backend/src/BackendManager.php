@@ -58,6 +58,16 @@ class BackendManager {
         return RouteHelper::getRoute(app('kyoto')->getMenu('path'));
     }
 
+    public function loginPath()
+    {
+        return RouteHelper::getRoute(app('kyoto')->getMenu()->getLogin('path'));
+    }
+
+    public function logoutPath()
+    {
+        return RouteHelper::getRoute(app('kyoto')->getMenu()->getLogout('path'));
+    }
+
     public function backendRoutes()
     {
         return app('kyoto')->getMenu()->getDescendants()

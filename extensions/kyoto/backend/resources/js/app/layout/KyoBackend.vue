@@ -23,9 +23,15 @@
         </div>
 
         <div class="kyo-sidebar">
+
             <KyoLayoutMainmenu>
                 <!-- Mainmenu -->
             </KyoLayoutMainmenu>
+
+            <div class="kyo-logout">
+                <a :href="paths.logout"><i class="fa fa-sign-out-alt"></i></a>
+            </div>
+
         </div>
 
     </div>
@@ -34,6 +40,15 @@
     export default {
 
         name: 'KyoBackend',
+
+        computed: {
+
+            paths()
+            {
+                return window.backendPaths;
+            }
+
+        },
 
         data()
         {

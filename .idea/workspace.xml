@@ -2,42 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b29a395-69e5-470b-8a2d-3dd57070eb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/configs/redirect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/configs/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/prototypes/KyoIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/prototypes/KyoIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/dashboard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/dashboard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/datatable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/datatable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/login.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/kyoto/user/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/kyoto/user/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/language/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/language/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/language/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/language/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/language/resources/js/languages/KyoLanguages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/language/resources/js/languages/KyoLanguages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/KyoMenuEdit.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/KyoMenus.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuCreate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuEdit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenus.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenus.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/test.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutSubmenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutSubmenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Connectors/RedirectConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Connectors/RedirectConnector.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/gate/KyoGates.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/gate/KyoGates.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/policy/KyoPolicies.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/policy/KyoPolicies.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/role/KyoRoles.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/role/KyoRoles.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/user/KyoUsers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/user/KyoUsers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/theme/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/theme/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/frontend/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/theme/resources/views/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/frontend/resources/views/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Application/config/kyoto.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Application/config/kyoto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/MenuPlugin.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/MenuPlugin.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,55 +36,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+            <state relative-caret-position="161">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuEdit.vue">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/UserManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+            <state relative-caret-position="212">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            <state relative-caret-position="266">
+              <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/dashboard.scss">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/datatable.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+            <state relative-caret-position="369">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue">
+        <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
+            <state relative-caret-position="456">
+              <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -108,10 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Gates</find>
-      <find>Starts</find>
-      <find>role</find>
-      <find>gate</find>
       <find>provide</find>
       <find>table</find>
       <find>KyoIndex</find>
@@ -138,6 +119,10 @@
       <find>localized</find>
       <find>abmeld</find>
       <find>&quot;info&quot;</find>
+      <find>kyoto/theme</find>
+      <find>basePath</find>
+      <find>Notifica</find>
+      <find>roo</find>
     </findStrings>
     <replaceStrings>
       <replace>Kyoto</replace>
@@ -155,14 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Castable.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/page/src/Models/PageLocale.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/page/src/Models/Page.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Models/Policy.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Models/Gate.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Models/User.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Models/Role.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/media/src/Models/MediaLocale.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/media/src/Models/Media.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/language/src/Models/Language.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/language/src/Models/LanguageLocale.php" />
@@ -170,16 +147,9 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Requests/MenuRequest.php" />
         <option value="$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Translatable.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/user/config.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/localepanel.scss" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" />
-        <option value="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/MenuPlugin.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/bootstrap.scss" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/login.blade.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/default.scss" />
@@ -200,12 +170,27 @@
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/MenuLocale.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/MenuManager.php" />
-        <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" />
         <option value="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuEdit.vue" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/dashboard.scss" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/datatable.scss" />
         <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/frontend/resources/views/default.blade.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/frontend/config.php" />
+        <option value="$PROJECT_DIR$/packages/Kyoto/Application/config/kyoto.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php" />
+        <option value="$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/MenuPlugin.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Connectors/RedirectConnector.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutSubmenu.vue" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" />
+        <option value="$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss" />
       </list>
     </option>
   </component>
@@ -786,17 +771,6 @@
               <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="helpers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="layout" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -829,17 +803,6 @@
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="prototypes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="scss" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -860,27 +823,6 @@
               <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -895,62 +837,47 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="database" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="installer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="installer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="installer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="configs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="installer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -987,7 +914,7 @@
               <item name="menu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Connectors" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1003,6 +930,49 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Connectors" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -1011,7 +981,7 @@
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1019,8 +989,8 @@
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Connectors" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1028,9 +998,8 @@
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1038,8 +1007,29 @@
               <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Middleware" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="extensions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Requests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1058,6 +1048,14 @@
               <item name="packages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Application" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="packages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Kyoto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Application" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="kyoto-cms" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1316,12 +1314,12 @@
       <workItem from="1601223589534" duration="262000" />
       <workItem from="1601240914941" duration="177000" />
       <workItem from="1601317992592" duration="3535000" />
-      <workItem from="1601330180433" duration="5782000" />
+      <workItem from="1601330180433" duration="9315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328980000" />
+    <option name="totallyTimeSpent" value="332513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="977" extended-state="0" />
@@ -1375,166 +1373,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Requests/MenuUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Support/src/Database/Traits/Translatable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5597">
-          <caret line="193" column="9" selection-start-line="193" selection-start-column="9" selection-end-line="193" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LoginConnector.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/localepanel.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/resources/views/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Extension/src/ExtensionManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1399">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Extension/src/Loaders/BackendLoader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/src/KyotoInstance.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/MenuPlugin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2117">
-          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Extension/src/Loaders/ViewLoader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3306">
-          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/kyoto/user/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/default.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="90" column="1" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="40" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/titlebar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/dataform.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/login.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/resources/js/pages/role/KyoRoles.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1581,13 +1419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Connectors/VueConnector.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1678,31 +1509,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/dashboard.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/datatable.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
-          <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/FrontendMenuTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/frontend/resources/views/default.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="75" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/frontend/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/config/kyoto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/installer/src/Http/Controllers/InstallerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="143" column="6" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1713,10 +1572,147 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue">
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/src/BackendManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
+        <state relative-caret-position="495">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/pages/dashboard/KyoDashboard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutMainmenu.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-676" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutSubmenu.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutUserpanel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/Kyoto/Application/src/Plugins/MenuPlugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Connectors/DomainConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1239" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Connectors/VueConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Connectors/VueConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Connectors/RedirectConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/page/src/Http/Controllers/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/page/src/Connectors/PageConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/page/src/Http/Controllers/ConnectorController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Connectors/LogoutConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/Http/Controllers/ConnectorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/user/src/UserManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/menu/src/Models/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensions/kyoto/backend/resources/scss/app/backend.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
         </state>
       </provider>
     </entry>

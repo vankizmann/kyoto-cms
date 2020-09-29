@@ -14,14 +14,8 @@ class LogoutConnector extends ConnectorElement
      */
     public function route($menu)
     {
-        $action = 'logout';
-
-        if ( request()->isMethod('post') ) {
-            $action = 'postLogout';
-        }
-
         return [
-            'uses' => "Kyoto\User\Http\Controllers\ConnectorController@{$action}"
+            'uses' => "Kyoto\User\Http\Controllers\ConnectorController@logout"
         ];
     }
 

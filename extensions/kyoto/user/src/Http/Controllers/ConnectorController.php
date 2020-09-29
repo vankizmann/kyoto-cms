@@ -25,12 +25,16 @@ class ConnectorController extends Controller
             return back()->withInput()->with('error', trans('Invalid credentials'));
         }
 
-        return redirect($request->query('redirect', '/backend'));
+        $fallbackPath = app('kyoto')->getRoot('path');
+
+        return redirect($request->query('redirect', $fallbackPath));
     }
 
     public function logout(Request $request)
     {
-        return view('kyoto/user::login');
+        Auth::logout();
+
+        return redirect(app('kyoto')->getMenu()->getLogin('path'));
     }
 
 }

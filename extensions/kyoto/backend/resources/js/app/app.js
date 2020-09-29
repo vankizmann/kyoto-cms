@@ -102,7 +102,7 @@ Nano.Dom.ready(() => {
     });
 
     KyoBackend.router = new VueRouter({
-        base: window.basePath, mode: 'history', routes
+        base: Nano.Obj.get(window, 'backendPaths.base', '/'), mode: 'history', routes
     });
 
     KyoBackend.router.afterEach((to) => {

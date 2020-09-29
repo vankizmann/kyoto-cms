@@ -22,15 +22,11 @@
 
         computed: {
 
-            user() {
+            user()
+            {
                 return window.backendUser;
             }
 
-        },
-
-        mounted()
-        {
-            this.Notify('Hello');
         }
 
     }

@@ -15,7 +15,7 @@ return [
         'kyoto/media',
         'kyoto/page',
         'kyoto/backend',
-        'kyoto/theme'
+        'kyoto/frontend'
     ],
 
     /**

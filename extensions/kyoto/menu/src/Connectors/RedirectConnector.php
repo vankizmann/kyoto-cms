@@ -12,7 +12,7 @@ class RedirectConnector extends ConnectorElement
      */
     public function route($menu)
     {
-        if ( ! isset($menu['option']['url']) ) {
+        if ( empty($menu->option->url) ) {
             return null;
         }
 

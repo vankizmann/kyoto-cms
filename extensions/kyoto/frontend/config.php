@@ -2,12 +2,12 @@
 
 return [
 
-    'name'          => 'kyoto/theme',
+    'name'          => 'kyoto/frontend',
     'version'       => '1.0.0',
     'type'          => 'theme',
 
     'autoload' => [
-        'Kyoto\\Theme\\' => 'src/'
+        'Kyoto\\Frontend\\' => 'src/'
     ],
 
 ];

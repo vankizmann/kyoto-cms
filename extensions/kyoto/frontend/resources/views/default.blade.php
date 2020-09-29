@@ -9,8 +9,8 @@
 
     {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
 
-    {!! app('kyoto.assets')->script('script', 'kyoto/theme::js/index.js') !!}
-    {!! app('kyoto.assets')->style('style', 'kyoto/theme::css/index.css') !!}
+    {!! app('kyoto.assets')->script('script', 'kyoto/frontend::js/index.js') !!}
+    {!! app('kyoto.assets')->style('style', 'kyoto/frontend::css/index.css') !!}
 
     {!! app('kyoto.assets')->output() !!}
 </head>
