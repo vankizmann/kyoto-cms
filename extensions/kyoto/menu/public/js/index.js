@@ -86,6 +86,75 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'KyoConnectorSelect',
+  props: {
+    value: {
+      "default": function _default() {
+        return null;
+      }
+    }
+  },
+  data: function data() {
+    return {
+      load: false,
+      items: []
+    };
+  },
+  mounted: function mounted() {
+    this.loadConnectors();
+  },
+  methods: {
+    updateInput: function updateInput(value) {
+      this.$emit('input', value);
+    },
+    loadConnectors: function loadConnectors() {
+      var _this = this;
+
+      if (Nano.Data.has('kyo-connectors')) {
+        return this.items = Nano.Data.get('kyo-connectors', []);
+      }
+
+      var options = {
+        onLoad: function onLoad() {
+          return _this.load = true;
+        },
+        onDone: function onDone() {
+          return _this.load = false;
+        }
+      };
+      var route = this.Route.get('/{locale}/kyoto/package/http/controllers/package/connector', this.$root.$data);
+      this.$http.get(route, options).then(this.fetchDone, this.fetchError);
+    },
+    fetchDone: function fetchDone(res) {
+      Nano.Data.set('kyo-connectors', this.items = res.data);
+    },
+    fetchError: function fetchError() {
+      Nano.Any.delay(this.loadConnectors, 1500);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js& ***!
@@ -210,6 +279,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../inputs/KyoConnectorSelect */ "./resources/js/inputs/KyoConnectorSelect.vue");
 //
 //
 //
@@ -283,8 +353,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoMenuEdit',
+  components: {
+    KyoConnectorSelect: _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   localized: true,
   urls: {
     show: '/{locale}/kyoto/menu/http/controllers/menu/show',
@@ -402,6 +476,54 @@ __webpack_require__.r(__webpack_exports__);
   },
   "extends": window.KyoIndex
 });
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "NLoader",
+    { attrs: { visible: _vm.load, size: "small" } },
+    [
+      _c(
+        "NSelect",
+        {
+          key: _vm.UUID(),
+          attrs: { value: _vm.value },
+          on: { input: _vm.updateInput }
+        },
+        [
+          _vm._l(_vm.items, function(item) {
+            return [
+              _c("NSelectOption", { attrs: { value: item.value } }, [
+                _vm._v(_vm._s(item.label))
+              ])
+            ]
+          })
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -913,7 +1035,7 @@ var render = function() {
                               attrs: { label: _vm.trans("Type"), prop: "type" }
                             },
                             [
-                              _c("NInput", {
+                              _c("KyoConnectorSelect", {
                                 model: {
                                   value: _vm.result.type,
                                   callback: function($$v) {
@@ -1364,6 +1486,75 @@ Nano.Data.set('kyoto/menu::vue', {
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/inputs/KyoConnectorSelect.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/inputs/KyoConnectorSelect.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoConnectorSelect.vue?vue&type=template&id=05b97b20& */ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&");
+/* harmony import */ var _KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoConnectorSelect.vue?vue&type=script&lang=js& */ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/inputs/KyoConnectorSelect.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./KyoConnectorSelect.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./KyoConnectorSelect.vue?vue&type=template&id=05b97b20& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

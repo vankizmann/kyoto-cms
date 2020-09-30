@@ -54,7 +54,7 @@ trait MenuPlugin
             return $layout;
         }
 
-        foreach ( app('kyoto.menu')->getMenus() as $menu ) {
+        foreach ( $this->menu->getDescendantsAndSelf() as $menu ) {
 
             if ( ! empty($menu['layout']) ) {
                 $layout = $menu['layout'];

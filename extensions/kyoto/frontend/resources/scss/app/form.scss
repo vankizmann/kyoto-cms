@@ -1,0 +1,17 @@
+@import "../vars";
+
+.kyo-form {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.kyo-form-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.kyo-form-label {
+    color: $color-gray-70;
+    margin-bottom: 5px;
+}

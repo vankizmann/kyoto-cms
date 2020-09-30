@@ -1,20 +1,37 @@
 @extends(app('kyoto')->getLayout())
 
 @section('content')
-    <form action="{{ request()->fullUrl() }}" method="post">
+    <form class="kyo-login kyo-form" action="{{ request()->fullUrl() }}" method="post">
+
         @csrf
-        <div>
-            <input name="email" type="text" value="{{ request()->old('email') }}">
+
+        <div class="kyo-form-item">
+            <h2>{{ kyoto()->getMenu('title') }}</h2>
+        </div>
+
+        <div class="kyo-form-item">
+            <label class="kyo-form-label" for="email">
+                {{ trans('E-Mail-Address') }}
+            </label>
+            <input id="email" class="kyo-input" name="email" type="text" value="{{ request()->old('email') }}">
             @error('email')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="kyo-alert kyo-alert--danger">{{ $message }}</div>
             @enderror
         </div>
-        <div>
-            <input name="password" type="password" value="{{ request()->old('email') }}">
+
+        <div class="kyo-form-item">
+            <label class="kyo-form-label" for="email">
+                {{ trans('Password') }}
+            </label>
+            <input class="kyo-input" name="password" type="password" value="{{ request()->old('email') }}">
             @error('password')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="kyo-alert kyo-alert--danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit">Send</button>
+
+        <div class="kyo-form-item">
+            <button class="kyo-button" type="submit">{{ trans('Login') }}</button>
+        </div>
+
     </form>
 @endsection

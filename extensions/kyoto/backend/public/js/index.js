@@ -2024,6 +2024,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoBackend',
   computed: {
@@ -15512,6 +15516,17 @@ var render = function() {
       "div",
       { staticClass: "kyo-sidebar" },
       [
+        _c(
+          "div",
+          { staticClass: "kyo-logo" },
+          [
+            _c("router-link", { attrs: { to: "/" } }, [
+              _c("span", [_vm._v("Kyoto CMS")])
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c("KyoLayoutMainmenu"),
         _vm._v(" "),
         _c("div", { staticClass: "kyo-logout" }, [

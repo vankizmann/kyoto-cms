@@ -1,13 +1,13 @@
 <?php
 
-if ( ! function_exists('web') ) {
+if ( ! function_exists('kyoto') ) {
 
     /**
-     * @return \Liro\Web\WebManager
+     * @return \Kyoto\Application\KyotoInstance
      */
-    function web ()
+    function kyoto ()
     {
-        return app('web.manager');
+        return app('kyoto');
     }
 
 }

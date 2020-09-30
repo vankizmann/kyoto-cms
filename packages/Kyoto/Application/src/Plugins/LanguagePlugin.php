@@ -172,4 +172,9 @@ trait LanguagePlugin
         return $this->localized($this->getFallbackLocale(), $callback);
     }
 
+    public function localize($key)
+    {
+        return trans(preg_replace('/::([^\.]+)$/', '::default.$1', $key));
+    }
+
 }

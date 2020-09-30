@@ -57,7 +57,7 @@
 
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Type')" prop="type">
-                                <NInput v-model="result.type"></NInput>
+                                <KyoConnectorSelect v-model="result.type"></KyoConnectorSelect>
                             </NFormItem>
                         </div>
 
@@ -72,10 +72,11 @@
     </NLoader>
 </template>
 <script>
+    import KyoConnectorSelect from "../../inputs/KyoConnectorSelect";
     export default {
 
         name: 'KyoMenuEdit',
-
+        components: { KyoConnectorSelect },
         localized: true,
 
         urls: {

@@ -9,9 +9,13 @@ let path = require('path');
  * Do default configuration
  */
 
+let postcssSvg = require('postcss-inline-svg')({
+    paths: [__dirname + '/resources/img']
+});
+
+
 mix.options({
-    clearConsole: true,
-    processCssUrls: false
+    clearConsole: true, processCssUrls: false, postCss: [postcssSvg],
 });
 
 /**

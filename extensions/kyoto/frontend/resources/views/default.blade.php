@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{{ app('kyoto')->getRoot('title') }} / {{ app('kyoto')->getMenu('title') }}</title>
+    <title>{{ app('kyoto')->getMenu('title') }} / {{ app('kyoto')->getRoot('title') }}</title>
 
     {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
 
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <div id="app">
+    <div class="kyo-container">
         @yield('content')
     </div>
 

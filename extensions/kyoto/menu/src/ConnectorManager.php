@@ -23,4 +23,9 @@ class ConnectorManager
         return $this->loaded[$key];
     }
 
+    public function keys()
+    {
+        return array_keys($this->loaded);
+    }
+
 }

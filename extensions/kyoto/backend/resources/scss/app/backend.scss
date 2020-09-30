@@ -41,11 +41,30 @@
     box-shadow: 0 0 8px rgba($--color-black, 0.1);
 }
 
+.kyo-backend .kyo-logo a {
+    display: block;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    background-image: svg-load('kyoto.svg', fill=$color-primary);
+    background-size: 38px 38px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.kyo-backend .kyo-logo a span {
+    display: none;
+}
+
+
 .kyo-backend .kyo-logout a {
     display: block;
     height: 75px;
     line-height: 75px;
     text-align: center;
+}
+
+.kyo-backend .kyo-logout a i {
     font-size: 16px;
     color: $--color-gray-40;
 }

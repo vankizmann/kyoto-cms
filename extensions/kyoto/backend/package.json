@@ -23,6 +23,7 @@
         "laravel-mix": "^4.0.7",
         "nano-js": "https://github.com/vankizmann/nano-js.git#master",
         "nano-ui": "https://github.com/vankizmann/nano-ui.git#master",
+        "postcss-inline-svg": "^4.1.0",
         "raw-loader": "^1.0.0",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",

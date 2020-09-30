@@ -24,6 +24,10 @@
 
         <div class="kyo-sidebar">
 
+            <div class="kyo-logo">
+                <router-link to="/"><span>Kyoto CMS</span></router-link>
+            </div>
+
             <KyoLayoutMainmenu>
                 <!-- Mainmenu -->
             </KyoLayoutMainmenu>
