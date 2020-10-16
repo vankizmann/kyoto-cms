@@ -9,6 +9,8 @@ Vue.component(KyoPageCreate.name, KyoPageCreate);
 import KyoPageEdit from "./pages/KyoPageEdit";
 Vue.component(KyoPageEdit.name, KyoPageEdit);
 
+require('./configs/page');
+
 if ( console && console.log ) {
     console.log('kyoto/page ready.');
 }

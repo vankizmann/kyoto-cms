@@ -3,7 +3,6 @@
 namespace Kyoto\Page\Models;
 
 use Kyoto\Support\Database\Traits\Translatable;
-use Kyoto\User\Database\Traits\DepthGuarded;
 
 class Page extends \Kyoto\Support\Database\Model
 {
@@ -34,5 +33,18 @@ class Page extends \Kyoto\Support\Database\Model
         'title'         => 'string',
         'content'       => 'string'
     ];
+
+    protected static function boot()
+    {
+        static::saving(function () {
+
+            if ( app('kyoto')->isReady() ) {
+                app('kyoto.menu')->clear();
+            }
+
+        });
+
+        parent::boot();
+    }
 
 }

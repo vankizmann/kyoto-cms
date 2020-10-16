@@ -4,6 +4,7 @@ namespace Kyoto\Page\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Kyoto\Page\Models\Page;
+use Kyoto\Page\Http\Requests\PageRequest;
 
 class PageController extends \App\Http\Controllers\Controller
 {
@@ -16,48 +17,48 @@ class PageController extends \App\Http\Controllers\Controller
         return response()->json(Page::datatable());
     }
 
-    public function create()
-    {
-        $menu = new Page;
-
-        return response()->json($menu);
-    }
-
-    public function store(Request $request)
-    {
-        $menu = (new Page)->fill($request->input())->save();
-
-        return response()->json($menu);
-    }
-
     public function show(Request $request)
     {
-        $id = $request->query('id');
+        $id = $request->query('id', null);
 
-        $menu = Page::findOrFail($id)
-            ->toArray();
+        $user = new Page;
 
-        return response()->json($menu);
+        if ( ! empty($id) ) {
+            $user = Page::findOrFail($id);
+        }
+
+        return response()->json([
+            'data' => $user->toArray()
+        ]);
     }
 
-    public function update(Request $request)
+    public function store(PageRequest $request)
+    {
+        $user = Page::create($request->input());
+
+        return response()->json([
+            'data' => $user->toArray(), 'message' => trans('Page has been created!')
+        ]);
+    }
+
+    public function update(PageRequest $request)
     {
         $id = $request->query('id');
 
-        $menu = Page::withDepthGuard()
-            ->findOrFail($id);
+        $user = Page::findOrFail($id);
 
-        $menu->fill($request->input())->save();
+        $user->fill($request->input())
+            ->save();
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Page has been updated!')
+            'data' => $user, 'message' => trans('Page has been updated!')
         ]);
     }
 
     public function delete()
     {
         foreach ( request()->input('ids', []) as $id ) {
-            Page::findOrFail($id)->update(['state' => -1]);
+            Page::findOrFail($id)->forceDelete();
         }
 
         return response()->json([

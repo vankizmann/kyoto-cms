@@ -64,7 +64,7 @@
                     </div>
                 </NFormGroup>
 
-                <NConfig :value="result.option" :config="config" :scope="{}"></NConfig>
+                <NConfig :value="result" :config="config" :scope="{}"></NConfig>
 
             </NForm>
 

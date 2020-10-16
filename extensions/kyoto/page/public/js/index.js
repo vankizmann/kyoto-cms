@@ -125,49 +125,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoPageCreate',
+  localized: false,
   urls: {
-    create: '/{locale}/kyoto/page/http/controllers/page/create',
+    show: '/{locale}/kyoto/page/http/controllers/page/show',
     store: '/{locale}/kyoto/page/http/controllers/page/store'
   },
-  data: function data() {
-    return {
-      result: {},
-      load: true
-    };
-  },
-  mounted: function mounted() {
-    this.$root.$on('locale:changed', this.fetchItem);
-    this.fetchItem();
-  },
-  destroyed: function destroyed() {
-    this.$root.$off('locale:changed');
-  },
   methods: {
-    fetchItem: function fetchItem() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/create', this.$root.$data);
-      this.$http.get(route, options).then(this.updateItem, function () {
-        return null;
+    gotoEdit: function gotoEdit(row) {
+      this.$router.push({
+        name: 'KyoPageEdit',
+        params: row.data
       });
+      console.log(row.data);
     },
-    updateItem: function updateItem(res) {
-      this.result = res.data;
-    },
-    deleteItem: function deleteItem() {
-      console.log('DELETE ITEMS');
+    gotoIndex: function gotoIndex() {
+      this.$router.push({
+        name: 'KyoPages'
+      });
     }
-  }
+  },
+  "extends": window.KyoForm
 });
 
 /***/ }),
@@ -211,52 +225,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoPageEdit',
+  localized: true,
   urls: {
     show: '/{locale}/kyoto/page/http/controllers/page/show',
-    update: '/{locale}/kyoto/page/http/controllers/page/update'
-  },
-  data: function data() {
-    return {
-      result: {},
-      load: true
-    };
-  },
-  mounted: function mounted() {
-    this.$root.$on('locale:changed', this.fetchItem);
-    this.fetchItem();
-  },
-  destroyed: function destroyed() {
-    this.$root.$off('locale:changed');
+    update: '/{locale}/kyoto/page/http/controllers/page/update',
+    "delete": '/{locale}/kyoto/page/http/controllers/page/delete'
   },
   methods: {
-    fetchItem: function fetchItem() {
-      var _this = this;
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var query = {
-        id: this.$route.params.id
-      };
-      var route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/show', this.$root.$data, query);
-      this.$http.get(route, options).then(this.updateItem, function () {
-        return null;
+    gotoIndex: function gotoIndex() {
+      this.$router.push({
+        name: 'KyoPages'
       });
-    },
-    updateItem: function updateItem(res) {
-      this.result = res.data;
-    },
-    deleteItem: function deleteItem() {
-      console.log('DELETE ITEMS');
     }
-  }
+  },
+  "extends": window.KyoForm
 });
 
 /***/ }),
@@ -304,10 +323,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoPages',
+  localized: true,
   urls: {
-    index: '/{locale}/kyoto/page/http/controllers/page/index'
+    index: '/{locale}/kyoto/page/http/controllers/page/index',
+    "delete": '/{locale}/kyoto/page/http/controllers/page/delete'
+  },
+  defaults: function defaults() {
+    var query = {
+      page: 1,
+      limit: 25,
+      prop: 'updated_at',
+      dir: 'asc',
+      filter: [],
+      search: '',
+      columns: ['title', 'content']
+    };
+    return {
+      query: query
+    };
   },
   "extends": window.KyoIndex
 });
@@ -348,39 +387,40 @@ var render = function() {
                 "template",
                 { slot: "action" },
                 [
-                  _c("NButton", { attrs: { type: "primary" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.trans("Save")) +
-                        "\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("NButton", { attrs: { type: "secondary" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.trans("Delete")) +
-                        "\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
                   _c(
-                    "NConfirm",
-                    {
-                      attrs: { type: "danger" },
-                      on: { confirm: _vm.deleteItem }
-                    },
+                    "NButtonGroup",
                     [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(
-                            _vm.trans(
-                              "Are you sure you want to delete this item?"
-                            )
-                          ) +
-                          "\n                "
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.storeItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Apply")) +
+                              "\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.storeItemClose }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Save")) +
+                              "\n                    "
+                          )
+                        ]
                       )
-                    ]
+                    ],
+                    1
                   )
                 ],
                 1
@@ -391,41 +431,168 @@ var render = function() {
           _vm._v(" "),
           _c(
             "NForm",
-            { staticClass: "col--flex-1-0" },
+            {
+              staticClass: "kyo-dataform col--flex-1-0",
+              attrs: { form: _vm.result, errors: _vm.errors }
+            },
             [
               _c(
-                "NFormItem",
-                { attrs: { label: _vm.trans("Title"), prop: "title" } },
+                "NFormGroup",
+                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
                 [
-                  _c("NInput", {
-                    model: {
-                      value: _vm.result.title,
-                      callback: function($$v) {
-                        _vm.$set(_vm.result, "title", $$v)
-                      },
-                      expression: "result.title"
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("State"),
+                                prop: "state"
+                              }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.state,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "state", $$v)
+                                    },
+                                    expression: "result.state"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("Page is enabled")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Hide"), prop: "hide" }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.hide,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "hide", $$v)
+                                    },
+                                    expression: "result.hide"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("Page is hidden")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
-                "NFormItem",
-                { attrs: { label: _vm.trans("Content"), prop: "content" } },
+                "NFormGroup",
+                { attrs: { icon: "fa fa-page", legend: _vm.trans("Page") } },
                 [
-                  _c("NTextarea", {
-                    attrs: { "auto-rows": true },
-                    model: {
-                      value: _vm.result.content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.result, "content", $$v)
-                      },
-                      expression: "result.content"
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Title"),
+                                prop: "title"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.title,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "title", $$v)
+                                  },
+                                  expression: "result.title"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Content"),
+                                prop: "content"
+                              }
+                            },
+                            [
+                              _c("NTextarea", {
+                                model: {
+                                  value: _vm.result.content,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "content", $$v)
+                                  },
+                                  expression: "result.content"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
               )
             ],
             1
@@ -470,46 +637,48 @@ var render = function() {
             "KyoTitlebar",
             {
               staticClass: "col--flex-0-0",
-              attrs: { link: { name: "KyoPages" } }
+              attrs: { link: { name: "KyoPages" } },
+              on: { delete: _vm.deleteItem }
             },
             [
               _c(
                 "template",
                 { slot: "action" },
                 [
-                  _c("NButton", { attrs: { type: "primary" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.trans("Save")) +
-                        "\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("NButton", { attrs: { type: "secondary" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.trans("Delete")) +
-                        "\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
                   _c(
-                    "NConfirm",
-                    {
-                      attrs: { type: "danger" },
-                      on: { confirm: _vm.deleteItem }
-                    },
+                    "NButtonGroup",
                     [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(
-                            _vm.trans(
-                              "Are you sure you want to delete this item?"
-                            )
-                          ) +
-                          "\n                "
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.updateItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Apply")) +
+                              "\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "NButton",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.updateCloseItem }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans("Save")) +
+                              "\n                    "
+                          )
+                        ]
                       )
-                    ]
+                    ],
+                    1
                   )
                 ],
                 1
@@ -520,41 +689,168 @@ var render = function() {
           _vm._v(" "),
           _c(
             "NForm",
-            { staticClass: "col--flex-1-0" },
+            {
+              staticClass: "kyo-dataform col--flex-1-0",
+              attrs: { form: _vm.result, errors: _vm.errors }
+            },
             [
               _c(
-                "NFormItem",
-                { attrs: { label: _vm.trans("Title"), prop: "title" } },
+                "NFormGroup",
+                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
                 [
-                  _c("NInput", {
-                    model: {
-                      value: _vm.result.title,
-                      callback: function($$v) {
-                        _vm.$set(_vm.result, "title", $$v)
-                      },
-                      expression: "result.title"
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("State"),
+                                prop: "state"
+                              }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.state,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "state", $$v)
+                                    },
+                                    expression: "result.state"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("Page is enabled")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Hide"), prop: "hide" }
+                            },
+                            [
+                              _c(
+                                "NSwitch",
+                                {
+                                  attrs: { "on-value": 1, "off-value": 0 },
+                                  model: {
+                                    value: _vm.result.hide,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.result, "hide", $$v)
+                                    },
+                                    expression: "result.hide"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.trans("Page is hidden")) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
-                "NFormItem",
-                { attrs: { label: _vm.trans("Content"), prop: "content" } },
+                "NFormGroup",
+                { attrs: { icon: "fa fa-page", legend: _vm.trans("Page") } },
                 [
-                  _c("NTextarea", {
-                    attrs: { "auto-rows": true },
-                    model: {
-                      value: _vm.result.content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.result, "content", $$v)
-                      },
-                      expression: "result.content"
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "grid grid-row grid--wrap grid--30" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Title"),
+                                prop: "title"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.title,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "title", $$v)
+                                  },
+                                  expression: "result.title"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Content"),
+                                prop: "content"
+                              }
+                            },
+                            [
+                              _c("NTextarea", {
+                                model: {
+                                  value: _vm.result.content,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "content", $$v)
+                                  },
+                                  expression: "result.content"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
               )
             ],
             1
@@ -658,8 +954,24 @@ var render = function() {
                   prop: "title",
                   label: _vm.trans("Title"),
                   fluid: true,
-                  sort: true
-                }
+                  sort: true,
+                  filter: true
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var value = ref.value
+                      return _c(
+                        "router-link",
+                        {
+                          attrs: { to: { name: "KyoPageEdit", params: value } }
+                        },
+                        [_vm._v(_vm._s(value.title))]
+                      )
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("NTableColumn", {
@@ -831,9 +1143,53 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoPageCreate__WEBPA
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_KyoPageEdit__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_KyoPageEdit__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
+__webpack_require__(/*! ./configs/page */ "./resources/js/configs/page.js");
+
 if (console && console.log) {
   console.log('kyoto/page ready.');
 }
+
+/***/ }),
+
+/***/ "./resources/js/configs/page.js":
+/*!**************************************!*\
+  !*** ./resources/js/configs/page.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Nano.Data.set('kyoto/page::page', {
+  'NFormGroup:00': {
+    props: {
+      legend: Nano.Locale.trans('Page'),
+      icon: 'fa fa-file'
+    },
+    content: {
+      'div:00': {
+        "class": 'grid grid--row grid--wrap grid--30',
+        content: {
+          'div:00': {
+            "class": 'col--1-1 col--1-2@sm',
+            content: {
+              'NFormItem:00': {
+                props: {
+                  label: Nano.Locale.trans('Page')
+                },
+                content: {
+                  'NInput:00': {
+                    model: {
+                      path: 'page_id'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+});
 
 /***/ }),
 

@@ -18,15 +18,19 @@
             </KyoTitlebar>
 
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
-                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true">
-                    <!-- Column -->
+
+                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
+                    <router-link slot-scope="{ value }" :to="{ name: 'KyoPageEdit', params: value }">{{ value.title }}</router-link>
                 </NTableColumn>
+
                 <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
+
                 <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
+
             </KyoDatatable>
 
         </div>
@@ -37,8 +41,20 @@
 
         name: 'KyoPages',
 
+        localized: true,
+
         urls: {
-            index: '/{locale}/kyoto/page/http/controllers/page/index'
+            index: '/{locale}/kyoto/page/http/controllers/page/index',
+            delete: '/{locale}/kyoto/page/http/controllers/page/delete'
+        },
+
+        defaults() {
+
+            let query = {
+                page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title', 'content']
+            };
+
+            return { query };
         },
 
         extends: window.KyoIndex

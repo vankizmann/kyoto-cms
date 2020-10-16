@@ -1,11 +1,11 @@
 <?php
 
-namespace Kyoto\Menu\Http\Requests;
+namespace Kyoto\Page\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MenuRequest extends FormRequest
-{
+class PageRequest extends FormRequest {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,11 +24,10 @@ class MenuRequest extends FormRequest
     public function rules()
     {
         return [
-            'state'         => 'required|integer',
-            'hide'          => 'required|integer',
-            'type'          => 'required',
-            'title'         => 'required|min:3',
-            'slug'          => 'present',
+//            'state'           => 'required|integer',
+//            'hide'            => 'required|integer',
+            'title'           => 'required',
+            'content'         => 'present',
         ];
     }
 

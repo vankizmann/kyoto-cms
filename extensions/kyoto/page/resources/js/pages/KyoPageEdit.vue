@@ -2,27 +2,62 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0">
+            <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
                 <template slot="action">
-                    <NButton type="primary">
-                        {{ trans('Save') }}
-                    </NButton>
-                    <NButton type="secondary">
-                        {{ trans('Delete') }}
-                    </NButton>
-                    <NConfirm type="danger" @confirm="deleteItem">
-                        {{ trans('Are you sure you want to delete this item?') }}
-                    </NConfirm>
+                    <NButtonGroup>
+                        <NButton type="primary" @click="updateItem">
+                            {{ trans('Apply') }}
+                        </NButton>
+                        <NButton type="primary" @click="updateCloseItem">
+                            {{ trans('Save') }}
+                        </NButton>
+                    </NButtonGroup>
                 </template>
             </KyoTitlebar>
             
-            <NForm class="col--flex-1-0">
-                <NFormItem :label="trans('Title')" prop="title">
-                    <NInput v-model="result.title"></NInput>
-                </NFormItem>
-                <NFormItem :label="trans('Content')" prop="content">
-                    <NTextarea :auto-rows="true" v-model="result.content"></NTextarea>
-                </NFormItem>
+            <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
+
+                <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
+
+                    <div class="grid grid-row grid--wrap grid--30">
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('State')" prop="state">
+                                <NSwitch v-model="result.state" :on-value="1" :off-value="0">
+                                    {{ trans('Page is enabled') }}
+                                </NSwitch>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Hide')" prop="hide">
+                                <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
+                                    {{ trans('Page is hidden') }}
+                                </NSwitch>
+                            </NFormItem>
+                        </div>
+
+                    </div>
+                </NFormGroup>
+
+                <NFormGroup icon="fa fa-page" :legend="trans('Page')">
+                    <div class="grid grid-row grid--wrap grid--30">
+
+                        <div class="col--1-1">
+                            <NFormItem :label="trans('Title')" prop="title">
+                                <NInput v-model="result.title"></NInput>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1">
+                            <NFormItem :label="trans('Content')" prop="content">
+                                <NTextarea v-model="result.content"></NTextarea>
+                            </NFormItem>
+                        </div>
+
+                    </div>
+                </NFormGroup>
+
             </NForm>
 
         </div>
@@ -33,60 +68,24 @@
 
         name: 'KyoPageEdit',
 
+        localized: true,
+
         urls: {
             show: '/{locale}/kyoto/page/http/controllers/page/show',
-            update: '/{locale}/kyoto/page/http/controllers/page/update'
-        },
-
-        data()
-        {
-            return {
-                result: {}, load: true
-            };
-        },
-
-        mounted()
-        {
-            this.$root.$on('locale:changed', this.fetchItem);
-
-            this.fetchItem();
-        },
-
-        destroyed()
-        {
-            this.$root.$off('locale:changed');
+            update: '/{locale}/kyoto/page/http/controllers/page/update',
+            delete: '/{locale}/kyoto/page/http/controllers/page/delete'
         },
 
         methods: {
 
-            fetchItem()
+            gotoIndex()
             {
-                let options = {
-                    onLoad: () => this.load = true,
-                    onDone: () => this.load = false
-                };
-
-                let query = {
-                    id: this.$route.params.id
-                };
-
-                let route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/show',
-                    this.$root.$data, query);
-
-                this.$http.get(route, options).then(this.updateItem, () => null);
-            },
-
-            updateItem(res)
-            {
-                this.result = res.data;
-            },
-
-            deleteItem()
-            {
-                console.log('DELETE ITEMS');
+                this.$router.push({ name: 'KyoPages' });
             }
 
-        }
+        },
+
+        extends: window.KyoForm
 
     }
 </script>

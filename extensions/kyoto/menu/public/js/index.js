@@ -1056,11 +1056,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("NConfig", {
-                attrs: {
-                  value: _vm.result.option,
-                  config: _vm.config,
-                  scope: {}
-                }
+                attrs: { value: _vm.result, config: _vm.config, scope: {} }
               })
             ],
             1
@@ -1398,7 +1394,7 @@ Nano.Data.set('kyoto/menu::redirect', {
                 content: {
                   'NInput:00': {
                     model: {
-                      path: 'url'
+                      path: 'option.url'
                     }
                   }
                 }
@@ -1415,7 +1411,7 @@ Nano.Data.set('kyoto/menu::redirect', {
                 content: {
                   'NInput:00': {
                     model: {
-                      path: 'redirect'
+                      path: 'option.redirect'
                     }
                   }
                 }
@@ -1457,7 +1453,7 @@ Nano.Data.set('kyoto/menu::vue', {
                 content: {
                   'NInput:00': {
                     model: {
-                      path: 'component'
+                      path: 'option.component'
                     }
                   }
                 }
@@ -1474,7 +1470,7 @@ Nano.Data.set('kyoto/menu::vue', {
                 content: {
                   'NInput:00': {
                     model: {
-                      path: 'redirect'
+                      path: 'option.redirect'
                     }
                   }
                 }

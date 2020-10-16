@@ -16,7 +16,7 @@ class Menu extends \Kyoto\Support\Database\Model
     protected $table = 'menus';
 
     protected $fillable = [
-        'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
+        'foreign_id', 'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
     ];
 
     protected $fields = [
@@ -37,6 +37,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     protected $attributes = [
         'id'            => null,
+        'foreign_id'    => null,
         'state'         => null,
         'hide'          => null,
         'type'          => null,
@@ -51,6 +52,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     protected $casts = [
         'id'            => 'string',
+        'foreign_id'    => 'string',
         'state'         => 'integer',
         'hide'          => 'integer',
         'type'          => 'string',
@@ -97,6 +99,11 @@ class Menu extends \Kyoto\Support\Database\Model
                 ];
 
                 DB::table('menus')->where('id', $model->id)->update($data);
+
+            }
+
+            if ( $model->attributes['slug'] !== $model->original['slug'] ) {
+                //dd($model);
             }
 
         });

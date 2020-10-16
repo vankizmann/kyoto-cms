@@ -7384,6 +7384,11 @@ readers do not read off random characters that represent icons */
   background: rgba(255, 255, 255, 0.7);
 }
 
+.n-loader.n-active .n-draggable.n-load:before,
+.n-loader.n-active .n-draggable.n-load:after {
+  display: none;
+}
+
 .n-draggable .n-draggable__empty {
   flex: 1 1 auto;
   display: flex;
@@ -7591,6 +7596,10 @@ readers do not read off random characters that represent icons */
 }
 .n-form-group {
   position: relative;
+}
+
+.n-form-group:not(:last-child) {
+  margin-bottom: 25px;
 }
 
 .n-form-group__label {
@@ -10126,6 +10135,13 @@ body.n-open {
   box-shadow: 0 1px 3px 1px rgba(20, 25, 37, 0.15);
 }
 
+.n-modal.n-modal--preview .n-modal__frame {
+  background: #141925;
+  min-height: 0;
+  min-width: 0;
+  width: auto;
+}
+
 .n-inverse .n-modal__frame {
   background: #141925;
 }
@@ -10553,11 +10569,65 @@ body.n-open {
   background-color: rgba(147, 155, 171, 0.2);
 }
 
+.n-table-column.n-table-column--image .n-table-cell.has-preview > div {
+  cursor: pointer;
+}
+
+.n-table-column.n-table-column--image .n-table-cell.has-preview > div:before {
+  content: "\A0";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.45);
+  transition: opacity 0.15s;
+}
+
+.n-table-column.n-table-column--image .n-table-cell.has-preview > div:hover:before {
+  opacity: 1;
+}
+
 /**
  * Matrix specific styling
  */
 .n-table-column.n-table-column--matrix:nth-last-child(2n+1) {
   background-color: rgba(38, 54, 87, 0.05);
+}
+
+.table-cell-preview__image {
+  position: relative;
+  width: 100%;
+}
+
+.table-cell-preview__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.table-cell-preview__streamable {
+  position: relative;
+  width: 100%;
+}
+
+.table-cell-preview__streamable:before {
+  content: "\A0";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.6%;
+}
+
+.table-cell-preview__streamable iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .n-table-filter {

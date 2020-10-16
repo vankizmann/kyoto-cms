@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePageTable extends Migration
+class CreatePackageTable extends Migration
 {
     public function up()
     {
-        Schema::create('pages', function(Blueprint $table) {
+        Schema::create('packages', function(Blueprint $table) {
 
             $table->uuid('id')
                 ->primary();
@@ -28,7 +28,7 @@ class CreatePageTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('packages');
     }
 
 }

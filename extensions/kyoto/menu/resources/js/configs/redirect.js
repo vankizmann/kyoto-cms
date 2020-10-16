@@ -18,7 +18,7 @@ Nano.Data.set('kyoto/menu::redirect', {
                                 content: {
                                     'NInput:00': {
                                         model: {
-                                            path: 'url'
+                                            path: 'option.url'
                                         }
                                     }
                                 }
@@ -35,7 +35,7 @@ Nano.Data.set('kyoto/menu::redirect', {
                                 content: {
                                     'NInput:00': {
                                         model: {
-                                            path: 'redirect'
+                                            path: 'option.redirect'
                                         }
                                     }
                                 }

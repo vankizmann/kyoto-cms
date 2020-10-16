@@ -18,7 +18,7 @@ Nano.Data.set('kyoto/menu::vue', {
                                 content: {
                                     'NInput:00': {
                                         model: {
-                                            path: 'component'
+                                            path: 'option.component'
                                         }
                                     }
                                 }
@@ -35,7 +35,7 @@ Nano.Data.set('kyoto/menu::vue', {
                                 content: {
                                     'NInput:00': {
                                         model: {
-                                            path: 'redirect'
+                                            path: 'option.redirect'
                                         }
                                     }
                                 }
