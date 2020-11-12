@@ -10,6 +10,10 @@ return [
         'Kyoto\\Package\\' => 'src/'
     ],
 
+    'seeds' => [
+        PackageTableSeeder::class,
+    ],
+
     'backend' => [
         'kyoto/package::js/index.js',
         'kyoto/package::css/index.css'

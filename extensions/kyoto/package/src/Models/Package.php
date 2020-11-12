@@ -2,12 +2,8 @@
 
 namespace Kyoto\Package\Models;
 
-use Kyoto\Support\Database\Traits\Translatable;
-
 class Package extends \Kyoto\Support\Database\Model
 {
-    use Translatable;
-
     protected $table = 'packages';
 
     protected $fillable = [

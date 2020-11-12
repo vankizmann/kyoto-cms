@@ -16,6 +16,9 @@ class CreatePackageTable extends Migration
             $table->integer('state')
                 ->default(0);
 
+            $table->integer('lock')
+                ->default(0);
+
             $table->string('name')
                 ->default('');
 

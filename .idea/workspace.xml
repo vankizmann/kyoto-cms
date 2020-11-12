@@ -20,52 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b29a395-69e5-470b-8a2d-3dd57070eb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/package/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/package/webpack.mix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kyoto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kyoto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/package/database/seeds/PackageTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/fav/site.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/fav/site.webmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.eot" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.woff" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.eot" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.woff" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.eot" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.woff" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/language/src/LanguageManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/BackendMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/BackendMenuTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Routers/MenuRouter.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Routers/MenuRouter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/database/migrations/2019_01_01_000000_create_package_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/database/migrations/2019_01_01_000000_create_package_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/pages/KyoPageCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/packages/KyoPackageCreate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/pages/KyoPageEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/packages/KyoPackageEdit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/pages/KyoPages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/resources/js/packages/KyoPackages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/resources/views/page.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/src/Http/Controllers/PackageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/src/Http/Controllers/PackageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/Package.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/PageLocale.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Support/src/Routing/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Support/src/Routing/UrlGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Kyoto/Support/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Kyoto/Support/src/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/Package.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +268,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/extensions/kyoto/package" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/extensions/kyoto/package/database/seeds" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -326,11 +285,11 @@
       <recent name="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kizma\Documents\GitHub\kyoto-cms\extensions\kyoto\package\database\seeds" />
       <recent name="C:\Users\kizma\Documents\GitHub\kyoto-cms\extensions\kyoto\package" />
       <recent name="C:\Users\kizma\Documents\GitHub\kyoto-cms\extensions\kyoto\package\src\Http\Controllers" />
       <recent name="C:\Users\kizma\Documents\GitHub\kyoto-cms\storage\kyoto" />
       <recent name="C:\Users\kizma\Documents\GitHub\kyoto-cms" />
-      <recent name="$PROJECT_DIR$/extensions/kyoto/page/resources/js" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Http">
@@ -443,7 +402,7 @@
       <workItem from="1605133419945" duration="1245000" />
       <workItem from="1605134681662" duration="2464000" />
       <workItem from="1605137550481" duration="1218000" />
-      <workItem from="1605138786071" duration="876000" />
+      <workItem from="1605138786071" duration="1367000" />
     </task>
     <servers />
   </component>
