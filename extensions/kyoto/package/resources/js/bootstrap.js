@@ -1,14 +1,14 @@
 import Vue from 'vue';
 
-import KyoPages from "./pages/KyoPages";
-Vue.component(KyoPages.name, KyoPages);
+import KyoPackages from "./packages/KyoPackages";
+Vue.component(KyoPackages.name, KyoPackages);
 
-import KyoPageCreate from "./pages/KyoPageCreate";
-Vue.component(KyoPageCreate.name, KyoPageCreate);
+import KyoPackageCreate from "./packages/KyoPackageCreate";
+Vue.component(KyoPackageCreate.name, KyoPackageCreate);
 
-import KyoPageEdit from "./pages/KyoPageEdit";
-Vue.component(KyoPageEdit.name, KyoPageEdit);
+import KyoPackageEdit from "./packages/KyoPackageEdit";
+Vue.component(KyoPackageEdit.name, KyoPackageEdit);
 
 if ( console && console.log ) {
-    console.log('kyoto/page ready.');
+    console.log('kyoto/package ready.');
 }

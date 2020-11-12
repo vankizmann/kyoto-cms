@@ -13,14 +13,11 @@ class CreatePackageTable extends Migration
             $table->uuid('id')
                 ->primary();
 
-            $table->string('title')
+            $table->integer('state')
+                ->default(0);
+
+            $table->string('name')
                 ->default('');
-
-            $table->string('content')
-                ->nullable();
-
-            $table->uuid('guard_id')
-                ->nullable();
 
             $table->timestamps();
         });

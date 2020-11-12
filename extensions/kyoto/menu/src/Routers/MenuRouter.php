@@ -61,11 +61,7 @@ class MenuRouter implements RouterInterface
             'redirect' => RouteHelper::getPath()
         ];
 
-        $url = url($login->path);
-
-        abort(200, '', [
-            'Location' => RouteHelper::withQuery($url, $query)
-        ]);
+        redirect()->to(RouteHelper::withQuery(url($login->path), $query))->send();
     }
 
 }

@@ -21,13 +21,6 @@ class UrlGenerator extends \Illuminate\Routing\UrlGenerator
         return parent::route($name, $parameters, $absolute);
     }
 
-    /**
-     * Generate the URL to an application asset.
-     *
-     * @param  string  $path
-     * @param  bool|null  $secure
-     * @return string
-     */
     public function asset($path, $secure = null)
     {
         return app('kyoto.assets')->file($path, $secure);

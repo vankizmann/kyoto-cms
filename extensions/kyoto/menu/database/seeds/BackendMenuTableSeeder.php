@@ -650,6 +650,98 @@ class BackendMenuTableSeeder extends Seeder
         $localize->localized('de')->update([
             'title'     => 'Übersetzung bearbeiten',
         ]);
+
+        $routes['package'] = uuid();
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' =>  $routes['package']],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Packages',
+            'slug'      => '/package',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['dashboard'],
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Erweiterungen',
+        ]);
+
+        $menus['package'] = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['package']],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Packages',
+            'slug'      => '/packages',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['root'],
+        ]);
+
+        $menus['package']->localized('de')->update([
+            'title'     => 'Erweiterungen',
+        ]);
+
+        $temporary = Menu::create([
+            'id'        => $routes['package'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'KyoPackages'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Packages',
+            'slug'      => '/packages',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['package'],
+        ]);
+
+        $temporary->localized('de')->update([
+            'title'     => 'Erweiterungen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoPackageCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Create package',
+            'slug'      => '/create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Erweiterung erstellen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoPackageEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'title'     => 'Edit package',
+            'slug'      => '/edit/:id',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Erweiterung bearbeiten',
+        ]);
     }
 
 }

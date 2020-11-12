@@ -2,7 +2,7 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0">
+            <KyoTitlebar :link="{ name: 'KyoPackages' }" class="col--flex-0-0">
                 <template slot="action">
                     <NButton type="primary">
                         {{ trans('Save') }}
@@ -31,11 +31,11 @@
 <script>
     export default {
 
-        name: 'KyoPageCreate',
+        name: 'KyoPackageEdit',
 
         urls: {
-            create: '/{locale}/kyoto/page/http/controllers/page/create',
-            store: '/{locale}/kyoto/page/http/controllers/page/store'
+            show: '/{locale}/kyoto/package/http/controllers/package/show',
+            update: '/{locale}/kyoto/package/http/controllers/package/update'
         },
 
         data()
@@ -66,9 +66,12 @@
                     onDone: () => this.load = false
                 };
 
+                let query = {
+                    id: this.$route.params.id
+                };
 
-                let route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/create',
-                    this.$root.$data);
+                let route = this.Route.get('/{locale}/kyoto/package/http/controllers/package/show',
+                    this.$root.$data, query);
 
                 this.$http.get(route, options).then(this.updateItem, () => null);
             },

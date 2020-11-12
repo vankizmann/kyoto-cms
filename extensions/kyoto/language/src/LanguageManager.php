@@ -36,8 +36,11 @@ class LanguageManager {
 
     public function loadLocales()
     {
+        $cachePath = str_replace('/', DIRECTORY_SEPARATOR,
+            self::CACHE_PATH);
+
         $path = storage_path(str_join('/',
-            self::CACHE_PATH, "locales.php"));
+            $cachePath, "locales.php"));
 
         if ( ! file_exists($path) ) {
             $this->updateLocales();
@@ -50,6 +53,9 @@ class LanguageManager {
     {
         $locales = Language::enabled()->get()->pluck('locale')
             ->toArray();
+
+        $cachePath = str_replace('/', DIRECTORY_SEPARATOR,
+            self::CACHE_PATH);
 
         $path = storage_path(str_join('/',
             self::CACHE_PATH, "locales.php"));

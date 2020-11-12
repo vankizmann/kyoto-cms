@@ -38,10 +38,8 @@ if ( ! function_exists('glob_recursive') ) {
 
 if ( ! function_exists('str_join') ) {
 
-    function str_join($glue)
+    function str_join($glue, ...$args)
     {
-        $args = array_splice(func_get_args(), 1);
-
         foreach ( $args as $key => $arg ) {
             $args[$key] = rtrim($arg, $glue);
         }

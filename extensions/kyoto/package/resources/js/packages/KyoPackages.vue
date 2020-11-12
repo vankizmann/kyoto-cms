@@ -10,15 +10,18 @@
                 </template>
 
                 <template slot="action">
-                    <NButton type="primary" @click="$router.push({ name: 'KyoPageCreate' })">
-                        {{ trans('Create page') }}
+                    <NButton type="primary" @click="$router.push({ name: 'KyoPackageCreate' })">
+                        {{ trans('Create package') }}
                     </NButton>
                 </template>
 
             </KyoTitlebar>
 
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
-                <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true">
+                <NTableColumn type="boolean" prop="state" :label="trans('State')" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+                <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true">
                     <!-- Column -->
                 </NTableColumn>
                 <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true">
@@ -35,10 +38,10 @@
 <script>
     export default {
 
-        name: 'KyoPages',
+        name: 'KyoPackages',
 
         urls: {
-            index: '/{locale}/kyoto/page/http/controllers/page/index'
+            index: '/{locale}/kyoto/package/http/controllers/package/index'
         },
 
         extends: window.KyoIndex
