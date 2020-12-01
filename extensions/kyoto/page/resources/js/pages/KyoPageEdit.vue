@@ -14,7 +14,7 @@
                     </NButtonGroup>
                 </template>
             </KyoTitlebar>
-            
+
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
                 <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
@@ -53,6 +53,10 @@
                             <NFormItem :label="trans('Content')" prop="content">
                                 <NTextarea v-model="result.content"></NTextarea>
                             </NFormItem>
+                        </div>
+
+                        <div class="col--1-1">
+                            <KyoPageBuilder v-model="result"></KyoPageBuilder>
                         </div>
 
                     </div>

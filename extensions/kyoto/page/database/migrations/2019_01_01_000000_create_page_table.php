@@ -19,6 +19,9 @@ class CreatePageTable extends Migration
             $table->string('content')
                 ->nullable();
 
+            $table->string('builder')
+            ->nullable();
+
             $table->uuid('guard_id')
                 ->nullable();
 

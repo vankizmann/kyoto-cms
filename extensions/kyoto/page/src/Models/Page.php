@@ -11,7 +11,7 @@ class Page extends \Kyoto\Support\Database\Model
     protected $table = 'pages';
 
     protected $fillable = [
-        'title', 'content', 'guard_id'
+        'title', 'content', 'builder', 'guard_id'
     ];
 
     protected $fields = [
@@ -25,13 +25,15 @@ class Page extends \Kyoto\Support\Database\Model
     protected $attributes = [
         'id'            => null,
         'title'         => null,
-        'content'       => null
+        'content'       => null,
+        'builder'       => null
     ];
 
     protected $casts = [
         'id'            => 'string',
         'title'         => 'string',
-        'content'       => 'string'
+        'content'       => 'string',
+        'builder'       => 'array'
     ];
 
     protected static function boot()

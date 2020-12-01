@@ -10,4 +10,8 @@ return [
         'Kyoto\\Installer\\' => 'src/'
     ],
 
+    'providers' => [
+        Kyoto\Installer\InstallerServiceProvider::class
+    ],
+
 ];

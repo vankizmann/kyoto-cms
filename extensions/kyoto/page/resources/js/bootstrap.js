@@ -9,6 +9,12 @@ Vue.component(KyoPageCreate.name, KyoPageCreate);
 import KyoPageEdit from "./pages/KyoPageEdit";
 Vue.component(KyoPageEdit.name, KyoPageEdit);
 
+import KyoPageBuilder from "./builder/KyoPageBuilder";
+Vue.component(KyoPageBuilder.name, KyoPageBuilder);
+
+import KyoBlockHeadline from "./blocks/KyoBlockHeadline";
+Vue.component(KyoBlockHeadline.name, KyoBlockHeadline);
+
 require('./configs/page');
 
 if ( console && console.log ) {

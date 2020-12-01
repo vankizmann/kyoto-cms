@@ -20,11 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b29a395-69e5-470b-8a2d-3dd57070eb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/package/database/seeds/PackageTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/database/migrations/2019_01_01_000000_create_package_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/database/migrations/2019_01_01_000000_create_package_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/package/src/Models/Package.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,12 +264,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/extensions/kyoto/package/database/seeds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -403,6 +399,19 @@
       <workItem from="1605134681662" duration="2464000" />
       <workItem from="1605137550481" duration="1218000" />
       <workItem from="1605138786071" duration="1367000" />
+      <workItem from="1606683054555" duration="82000" />
+      <workItem from="1606683146847" duration="84000" />
+      <workItem from="1606683235790" duration="80000" />
+      <workItem from="1606683324950" duration="16000" />
+      <workItem from="1606683345972" duration="182000" />
+      <workItem from="1606683563717" duration="114000" />
+      <workItem from="1606684044012" duration="126000" />
+      <workItem from="1606684177948" duration="29000" />
+      <workItem from="1606684217885" duration="13000" />
+      <workItem from="1606684236407" duration="56000" />
+      <workItem from="1606684299555" duration="82000" />
+      <workItem from="1606684387701" duration="31000" />
+      <workItem from="1606684425676" duration="687000" />
     </task>
     <servers />
   </component>
@@ -426,10 +435,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1605136950966" />
-    <state x="610" y="371" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1605134673633">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1018" y="497" key="#Notifications" timestamp="1606683572035">
+      <screen x="0" y="25" width="2560" height="1336" />
+    </state>
+    <state x="1018" y="497" key="#Notifications/0.25.2560.1336@0.25.2560.1336" timestamp="1606683572035" />
+    <state x="882" y="318" key="#Plugins" timestamp="1606683584892">
+      <screen x="0" y="25" width="2560" height="1336" />
+    </state>
+    <state x="882" y="318" key="#Plugins/0.25.2560.1336@0.25.2560.1336" timestamp="1606683584892" />
+    <state x="813" y="502" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1606684227791">
+      <screen x="0" y="25" width="2560" height="1336" />
     </state>
     <state x="610" y="371" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605134673633" />
+    <state x="813" y="502" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.25.2560.1336@0.25.2560.1336" timestamp="1606684227791" />
     <state x="704" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605138417432">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -442,10 +460,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="250" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605134632950" />
-    <state x="765" y="273" key="SettingsEditor" timestamp="1605139368935">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="358" y="300" width="1560" height="1012" key="SettingsEditor" timestamp="1606684290356">
+      <screen x="0" y="25" width="2560" height="1336" />
     </state>
     <state x="765" y="273" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605139368935" />
+    <state x="358" y="300" width="1560" height="1012" key="SettingsEditor/0.25.2560.1336@0.25.2560.1336" timestamp="1606684290356" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1605139152986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
