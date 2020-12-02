@@ -1,5 +1,5 @@
 <template>
-    <div class="kyo-backend">
+    <div class="kyo-backend" :style="backendStyle">
         <div class="kyo-header">
             <div class="grid grid--row grid--30">
 
@@ -33,10 +33,16 @@
             </KyoLayoutMainmenu>
 
             <div class="kyo-logout">
-                <a :href="paths.logout"><i class="fa fa-sign-out-alt"></i></a>
+                <a :href="backendPaths.logout"><i class="fa fa-sign-out-alt"></i></a>
             </div>
 
         </div>
+
+        <NResizer class="kyo-website" :style="websiteStyle" :min-width="minWidth" :max-width="maxWidth" @input="setWidth">
+            <KyoLayoutWebsite>
+                <!-- Website -->
+            </KyoLayoutWebsite>
+        </NResizer>
 
     </div>
 </template>
@@ -47,9 +53,19 @@
 
         computed: {
 
-            paths()
+            backendPaths()
             {
                 return window.backendPaths;
+            },
+
+            backendStyle()
+            {
+                return { paddingLeft: this.width + 'px' };
+            },
+
+            websiteStyle()
+            {
+                return { width: this.width + 'px' };
             }
 
         },
@@ -57,19 +73,48 @@
         data()
         {
             return {
-                locale: document.documentElement.lang
+                locale: null, width: 270, minWidth: 270, maxWidth: 600
             }
+        },
+
+        beforeMount()
+        {
+            this.locale = document.documentElement.lang;
         },
 
         mounted()
         {
-            this.$on('locale:change', (val) => this.locale = val);
+            Nano.Event.bind('locale:change', (locale) => {
+                this.locale = locale;
+            });
+
+            Nano.Event.bind('website:resize', (width) => {
+                this.width = width;
+            });
         },
 
         watch: {
 
             'locale': function () {
-                this.$emit('locale:changed');
+                Nano.Event.fire('locale:changed');
+            },
+
+            'width': function () {
+                Nano.Event.fire('website:resized');
+            }
+
+        },
+
+        methods: {
+
+            setLocale(locale)
+            {
+                Nano.Event.fire('localke:change', locale);
+            },
+
+            setWidth(width)
+            {
+                Nano.Event.fire('website:resize', width);
             }
 
         }

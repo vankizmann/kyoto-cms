@@ -72,13 +72,13 @@ export default {
         this.loadItems();
 
         if ( this.ctor('localized', false) ) {
-            this.$root.$on('locale:changed', this.loadItems);
+            Nano.Event.bind('locale:changed', this.loadItems, this._uid);
         }
     },
 
     destroyed()
     {
-        this.$root.$off('locale:changed');
+        Nano.Event.unbind('locale:changed', this._uid);
     },
 
     watch: {

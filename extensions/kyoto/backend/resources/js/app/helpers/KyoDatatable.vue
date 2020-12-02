@@ -1,7 +1,7 @@
 <template>
     <div class="kyo-datatable">
 
-        <NTable :items="KyoIndex.result.data" :viewport-height="true" :disable-move="true" :selected.sync="KyoIndex.selected" :expanded.sync="KyoIndex.expanded" :filter-props.sync="KyoIndex.query.filter" :sort-prop.sync="KyoIndex.query.prop" :sort-dir.sync="KyoIndex.query.dir" :item-height="40" :allow-drag="KyoIndex.allowDrag" :allow-drop="KyoIndex.allowDrop" :safe-zone="KyoIndex.safeZone" :render-expand="renderExpand" @move="KyoIndex.onMove" @row-dblclick="rowDblclick">
+        <NTable :items="KyoIndex.result.data" :viewport-height="true" :disable-move="true" :selected.sync="KyoIndex.selected" :expanded.sync="KyoIndex.expanded" :filter-props.sync="KyoIndex.query.filter" :sort-prop.sync="KyoIndex.query.prop" :sort-dir.sync="KyoIndex.query.dir" :item-height="40" :loading-init="0" :allow-drag="KyoIndex.allowDrag" :allow-drop="KyoIndex.allowDrop" :safe-zone="KyoIndex.safeZone" :render-expand="renderExpand" @move="KyoIndex.onMove" @row-dblclick="rowDblclick">
             <slot></slot>
         </NTable>
 

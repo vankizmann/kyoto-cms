@@ -31,12 +31,6 @@ export default {
 
     beforeMount()
     {
-        if ( ! Nano.Obj.has(clone, 'title') ) {
-            Nano.Obj.set(clone, 'title', '');
-        }
-
-        this.NDraggableItem.update(this.value);
-
         // this.NDraggableItem.proto({
         //     title: 'foo2'
         // });

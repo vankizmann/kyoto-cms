@@ -63,6 +63,12 @@ Vue.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
 import KyoLayoutUserpanel from "./layout/KyoLayoutUserpanel";
 Vue.component(KyoLayoutUserpanel.name, KyoLayoutUserpanel);
 
+import KyoLayoutWebsite from "./layout/KyoLayoutWebsite";
+Vue.component(KyoLayoutWebsite.name, KyoLayoutWebsite);
+
+import KyoWebsiteNode from "./website/KyoWebsiteNode";
+Vue.component(KyoWebsiteNode.name, KyoWebsiteNode);
+
 import KyoTitlebar from "./helpers/KyoTitlebar";
 Vue.component(KyoTitlebar.name, KyoTitlebar);
 
@@ -115,5 +121,7 @@ Nano.Dom.ready(() => {
         rootComponent = KyoBackend;
     }
 
-    window.App = new Vue(rootComponent).$mount('#app');
+    window.App = new Vue(rootComponent);
+
+    window.App.$mount('#app');
 });

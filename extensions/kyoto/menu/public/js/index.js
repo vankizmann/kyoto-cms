@@ -1356,6 +1356,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenus__WEBPA
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_2__["default"].name, _pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__["default"]);
+Nano.Store.add('menus', function (setter) {
+  var route = Nano.Route.get('/{locale}/kyoto/menu/http/controllers/menu/index', {
+    locale: window.App.locale
+  });
+  vue__WEBPACK_IMPORTED_MODULE_0___default.a.$http.get(route).then(function (res) {
+    return setter(res.data.data);
+  }, function () {
+    return false;
+  });
+});
+Nano.Event.bind('locale:changed', function () {
+  Nano.Store.refresh('menus');
+});
 
 __webpack_require__(/*! ./configs/vue */ "./resources/js/configs/vue.js");
 
@@ -1779,8 +1792,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

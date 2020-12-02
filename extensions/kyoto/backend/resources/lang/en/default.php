@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'admin' => 'Admin'
+    'admin' => 'Kyoto Adminpanel'
 ];

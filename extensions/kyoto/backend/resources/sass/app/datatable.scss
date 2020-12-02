@@ -25,6 +25,10 @@
     padding-right: 30px;
 }
 
+.kyo-datatable .n-table .n-table__head {
+    border-bottom: 1px solid $--color-gray-10;
+}
+
 .kyo-datatable .n-table .n-table-column {
     border-left: none;
 }

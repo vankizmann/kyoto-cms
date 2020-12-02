@@ -22,7 +22,7 @@
 
             changeLocale(locale)
             {
-                this.$root.$emit('locale:change', locale);
+                Nano.Event.fire('locale:change', locale);
             }
 
         }

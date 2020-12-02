@@ -36,8 +36,8 @@ $color-background:      #F8F9FB;
 
 $box-shadow:            0 0 4px rgba($color-black, 0.125);
 
-$radius-small:          3px;
-$radius-medium:         4px;
+$radius-small:          2px;
+$radius-medium:         3px;
 $radius-large:          6px;
 $radius-extended:       12px;
 
@@ -71,5 +71,6 @@ $form-legend-size:      16px;
 @import "./app/titlebar";
 @import "./app/dashboard";
 @import "./app/upload";
+@import "./app/website";
 @import "./app/datatable";
 @import "./app/dataform";
