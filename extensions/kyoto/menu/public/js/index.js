@@ -814,11 +814,7 @@ var render = function() {
         [
           _c(
             "KyoTitlebar",
-            {
-              staticClass: "col--flex-0-0",
-              attrs: { link: { name: "KyoMenus" } },
-              on: { delete: _vm.deleteItem }
-            },
+            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItem } },
             [
               _c(
                 "template",
@@ -1792,8 +1788,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/ekizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/ekizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

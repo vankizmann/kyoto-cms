@@ -5,18 +5,29 @@ export default {
     data()
     {
         return {
-            menus: []
+            menus: [], load: true
         };
     },
 
     beforeMount()
     {
+        Nano.Event.bind('store/fetch:menus', () => {
+            this.load = true;
+        }, this._uid);
+
+        Nano.Event.bind('store/fetched:menus', () => {
+            this.load = false;
+        }, this._uid);
+
         Nano.Store.get('menus', (data) => this.menus = data, this._uid);
     },
 
     beforeDestroy()
     {
-        Nano.store.off('menus', this._uid);
+        Nano.Event.unbind('store/fetch:menus', this._uid);
+        Nano.Event.unbind('store/fetched:menus', this._uid);
+
+        Nano.Store.forget('menus', this._uid);
     },
 
     methods: {
@@ -43,10 +54,16 @@ export default {
             renderNode: this.renderNode
         };
 
+        let events = {
+            'row-dblclick': (row) => {
+                this.$router.push({ key: row.id, name: 'KyoMenuEdit', params: row.item });
+            }
+        };
+
         return (
-            <div class="kyo-layout-website">
-                <NDraggable class="kyo-layout-website__body" items={this.menus} props={props} />
-            </div>
+            <NLoader visible={this.load} class="kyo-layout-website">
+                <NDraggable class="kyo-layout-website__body" items={this.menus} props={props} on={events} />
+            </NLoader>
         );
 
     }

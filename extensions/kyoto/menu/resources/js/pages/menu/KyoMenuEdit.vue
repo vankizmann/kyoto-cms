@@ -2,7 +2,7 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoMenus' }" class="col--flex-0-0" @delete="deleteItem">
+            <KyoTitlebar class="col--flex-0-0" @delete="deleteItem">
                 <template slot="action">
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
@@ -14,7 +14,7 @@
                     </NButtonGroup>
                 </template>
             </KyoTitlebar>
-            
+
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
                 <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">

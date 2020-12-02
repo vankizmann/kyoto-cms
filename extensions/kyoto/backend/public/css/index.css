@@ -5865,7 +5865,7 @@ readers do not read off random characters that represent icons */
   border-bottom-color: transparent;
   animation: LoadingSpinner 1s linear infinite; }
 
-.n-loader.n-active:before {
+.n-loader.n-load:before {
   display: block; }
 
 .n-loader.n-active .n-loader:before {
@@ -5900,7 +5900,7 @@ readers do not read off random characters that represent icons */
   height: 100%;
   background: rgba(255, 255, 255, 0.7); }
 
-.n-loader.n-active:after {
+.n-loader.n-load:after {
   display: block; }
 
 @keyframes LoadingSpinner {
@@ -16041,7 +16041,7 @@ th {
 .kyo-backend > .kyo-website .n-resizer {
   z-index: 10; }
 
-.kyo-backend > .kyo-website .n-draggable.n-load:after {
+.kyo-backend > .kyo-website .n-load:after {
   background-color: rgba(244, 245, 247, 0.6); }
 
 .kyo-backend > .kyo-website .n-draggable-item.n-current {

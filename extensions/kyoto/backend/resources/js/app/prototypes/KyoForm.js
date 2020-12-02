@@ -51,6 +51,13 @@ export default {
         };
     },
 
+    beforeRouteUpdate(to, from, next)
+    {
+        this.loadItem(to);
+
+        next();
+    },
+
     mounted()
     {
         this.loadItem();
@@ -92,7 +99,7 @@ export default {
         /**
          * Fetch items from server
          */
-        loadItem()
+        loadItem(nextRoute)
         {
             let options = {
                 onLoad: () => this.load = true,
@@ -101,8 +108,12 @@ export default {
 
             let query = {};
 
-            if ( this.$route.params.id ) {
-                query.id = this.$route.params.id;
+            if ( Nano.Obj.has(this.$route, 'params.id') ) {
+                query.id = Nano.Obj.get(this.$route, 'params.id');
+            }
+
+            if ( Nano.Obj.has(nextRoute, 'params.id') ) {
+                query.id = Nano.Obj.get(nextRoute, 'params.id');
             }
 
             let route = this.Route.get(this.ctor('urls.show'),
