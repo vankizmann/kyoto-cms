@@ -62,7 +62,13 @@ export default {
 
         return (
             <NLoader visible={this.load} class="kyo-layout-website">
+                <div class="kyo-layout-website__header">
+                    <NInput placeholder={this.trans('Search for ...')}></NInput>
+                </div>
                 <NDraggable class="kyo-layout-website__body" items={this.menus} props={props} on={events} />
+                <div class="kyo-layout-website__footer">
+                    <NButton type="secondary" link={true}>{ this.trans('Add menu') }</NButton>
+                </div>
             </NLoader>
         );
 

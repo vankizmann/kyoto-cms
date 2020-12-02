@@ -13,7 +13,11 @@ export default {
     render()
     {
         return (
-            <div class="kyo-website-node">{ this.value.title }</div>
+            <div class="kyo-website-node" data-type={this.value.type}>
+                <span>
+                    { this.value.title }
+                </span>
+            </div>
         );
     }
 

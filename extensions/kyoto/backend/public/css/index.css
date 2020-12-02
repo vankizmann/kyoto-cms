@@ -16288,15 +16288,70 @@ th {
 
 .kyo-layout-website__header {
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0 10px;
   height: 75px;
-  line-height: 75px; }
+  border-bottom: 1px solid #d4d7dd; }
+
+.kyo-layout-website__header .n-input {
+  border: 0;
+  height: 74px;
+  background: transparent; }
+
+.kyo-layout-website__footer {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+  height: 55px;
+  border-top: 1px solid #d4d7dd; }
 
 .kyo-layout-website__body {
   flex: 1 1 auto; }
 
 .kyo-website-node {
+  position: relative;
+  padding-left: 30px;
   height: 34px;
   line-height: 34px; }
+
+.kyo-website-node:before {
+  content: '\00a0';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #1765F5;
+  transform: translateY(-50%); }
+
+.kyo-website-node[data-type="kyoto/backend::admin"]:before {
+  content: '\f6e2'; }
+
+.kyo-website-node[data-type="kyoto/menu::domain"]:before {
+  content: '\f7a2'; }
+
+.kyo-website-node[data-type="kyoto/page::page"]:before {
+  content: '\f15b'; }
+
+.kyo-website-node[data-type="kyoto/user::login"]:before {
+  content: '\f21b'; }
+
+.kyo-website-node[data-type="kyoto/user::logout"]:before {
+  content: '\f21b'; }
+
+.kyo-website-node[data-type="kyoto/menu::vue"]:before {
+  content: '\f121'; }
+
+.kyo-website-node[data-type="kyoto/menu::redirect"]:before {
+  content: '\f0c1'; }
 
 .kyo-datatable {
   display: flex;
