@@ -19,6 +19,10 @@ class Menu extends \Kyoto\Support\Database\Model
         'foreign_id', 'state', 'hide', 'type', 'layout', 'title', 'slug', 'route', 'path', 'guard', 'option'
     ];
 
+    protected $appends = [
+        'transaction'
+    ];
+
     protected $fields = [
         //'config'
     ];
@@ -164,6 +168,11 @@ class Menu extends \Kyoto\Support\Database\Model
         }
 
         $this->attributes['slug'] = trim($value, '/');;
+    }
+
+    public function getTransactionAttribute()
+    {
+        return null;
     }
 
 }

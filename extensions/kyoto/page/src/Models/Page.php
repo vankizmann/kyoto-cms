@@ -14,6 +14,10 @@ class Page extends \Kyoto\Support\Database\Model
         'title', 'content', 'builder', 'guard_id'
     ];
 
+    protected $appends = [
+        'transaction'
+    ];
+
     protected $fields = [
         //'config'
     ];
@@ -47,6 +51,11 @@ class Page extends \Kyoto\Support\Database\Model
         });
 
         parent::boot();
+    }
+
+    public function getTransactionAttribute()
+    {
+        return 'kyoto/page::page';
     }
 
 }

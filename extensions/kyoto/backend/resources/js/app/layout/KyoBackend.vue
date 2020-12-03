@@ -73,7 +73,7 @@
         data()
         {
             return {
-                locale: null, width: 270, minWidth: 270, maxWidth: 600
+                locale: null, width: 310, minWidth: 270, maxWidth: 600
             }
         },
 

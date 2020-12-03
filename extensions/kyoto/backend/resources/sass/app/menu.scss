@@ -18,7 +18,7 @@
 }
 
 .kyo-mainmenu li a:before {
-    content: '\f6e2';
+    content: '\00a0';
     display: block;
     font-size: 26px;
     width: 75px;
@@ -26,6 +26,9 @@
     line-height: 75px;
     text-align: center;
     font-family: "Font Awesome 5 Free", sans-serif;
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .kyo-mainmenu li a:after {
@@ -56,7 +59,11 @@
 }
 
 .kyo-mainmenu li.dashboard a:before {
-    content: '\f3fd';
+    background-image: svg-load('icon_theme.svg', fill=$color-gray-60);
+}
+
+.kyo-mainmenu li.dashboard a.router-link-active:before {
+    background-image: svg-load('icon_theme.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.users a:before {
@@ -64,7 +71,11 @@
 }
 
 .kyo-mainmenu li.pages a:before {
-    content: '\f1b2';
+    background-image: svg-load('icon_redirect.svg', fill=$color-gray-60);
+}
+
+.kyo-mainmenu li.pages a.router-link-active:before {
+    background-image: svg-load('icon_redirect.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.languages a:before {

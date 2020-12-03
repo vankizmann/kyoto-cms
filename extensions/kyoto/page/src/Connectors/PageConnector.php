@@ -29,6 +29,14 @@ class PageConnector extends ConnectorElement
         return [];
     }
 
+    public function transaction($menu, $page)
+    {
+        $menu->set('title', $page->title);
+        $menu->set('option.page_id', $page->id);
+
+        return $menu;
+    }
+
     /**
      * Provide data for view.
      *
