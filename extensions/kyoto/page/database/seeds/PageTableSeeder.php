@@ -12,7 +12,7 @@ class PageTableSeeder extends Seeder
         $page = Page::create([
             'id'        => uuid(),
             'title'     => 'Testpage',
-            'content'   => 'This is a demo page.',
+        'content'   => 'This is a demo page.',
             'guard_id'  => null,
         ]);
 
@@ -21,9 +21,10 @@ class PageTableSeeder extends Seeder
             'content'   => 'Dies ist eine Demoseite.',
         ]);
 
-        Menu::where('type', 'kyoto/page::page')->update([
-            'foreign_id' => $page->id
-        ]);
+        foreach ( Menu::where('type', 'kyoto/page::page')->get() as $menu ) {
+            $menu->setOption('page_id', $page->id)->save();
+        }
+
     }
 
 }

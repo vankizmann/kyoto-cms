@@ -63,20 +63,50 @@ export default {
         {
             var { sources, target, strategy } = this.transaction;
 
-            console.log('move', sources, target, strategy);
+            target = Nano.Obj.get(target, 'item.id');
 
-            Nano.Store.refresh('menus');
+            sources = Nano.Arr.each(sources, (source) => {
+                return Nano.Obj.get(source, 'id');
+            });
+
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let query = {
+                sources, target, strategy
+            };
+
+            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
+                this.$root.$data);
+
+            this.$http.post(route, query, options)
+                .then(() => Nano.Store.refresh('menus'), () => null);
         },
 
         startInsert()
         {
             var { sources, target, strategy } = this.transaction;
 
-            console.log('insert', sources, target, strategy);
+            target = Nano.Obj.get(target, 'item.id');
 
             this.modal = false;
 
-            Nano.Store.refresh('menus');
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let query = {
+                sources, target, strategy
+            };
+
+            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/transaction',
+                this.$root.$data);
+
+            this.$http.post(route, query, options)
+                .then(() => Nano.Store.refresh('menus'), () => null);
         },
 
     },

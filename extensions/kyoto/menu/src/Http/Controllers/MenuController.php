@@ -3,6 +3,8 @@
 namespace Kyoto\Menu\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\Menu\Facades\Connector;
 use Kyoto\Menu\Models\Menu;
 use Kyoto\Menu\Http\Requests\MenuRequest;
 
@@ -71,11 +73,11 @@ class MenuController extends \App\Http\Controllers\Controller
 
     public function move(Request $request)
     {
-        $data = $request->only(['source', 'target', 'strategy']);
+        $data = $request->only(['sources', 'target', 'strategy']);
 
         if ( $data['strategy'] === 'root' ) {
 
-            foreach ( (array) $data['source'] as $id ) {
+            foreach ( (array) $data['sources'] as $id ) {
                 Menu::findOrFail($id)->makeRoot();
             }
 
@@ -86,7 +88,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['source'] as $id ) {
+            foreach ( (array) $data['sources'] as $id ) {
                 Menu::findOrFail($id)->makeChildOf($targetNode);
             }
 
@@ -96,7 +98,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['source'] as $id ) {
+            foreach ( (array) $data['sources'] as $id ) {
                 Menu::findOrFail($id)->moveToLeftOf($targetNode);
             }
 
@@ -106,7 +108,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['source'] as $id ) {
+            foreach ( (array) $data['sources'] as $id ) {
                 Menu::findOrFail($id)->moveToRightOf($targetNode);
             }
 
@@ -115,6 +117,67 @@ class MenuController extends \App\Http\Controllers\Controller
         return response()->json([
             'data' => [], 'message' => trans('Menus has been moved!')
         ]);
+    }
+
+    public function transaction(Request $request)
+    {
+        $data = $request->only(['sources', 'target', 'strategy']);
+
+        foreach ( (array) $data['sources'] as $index => $source ) {
+
+            $menuNode = (new Menu)->fill([
+                'id' => uuid(), 'state' => 1, 'hide' => 0, 'matrix' => 1, 'guard' => 0, 'type' => $source['transaction']
+            ]);
+
+            $data['sources'][$index] = Connector::find($menuNode->type)
+                ->transaction($menuNode, $source);
+
+            $data['sources'][$index]->save();
+        }
+
+        if ( $data['strategy'] === 'root' ) {
+
+            foreach ( (array) $data['sources'] as $sourceNode ) {
+                $sourceNode->makeRoot();
+            }
+
+        }
+
+
+        if ( $data['strategy'] === 'inner' ) {
+
+            $targetNode = Menu::findOrFail($data['target']);
+
+            foreach ( (array) $data['sources'] as $sourceNode ) {
+                $sourceNode->makeChildOf($targetNode);
+            }
+
+        }
+
+        if ( $data['strategy'] === 'before' ) {
+
+            $targetNode = Menu::findOrFail($data['target']);
+
+            foreach ( (array) $data['sources'] as $sourceNode ) {
+                $sourceNode->moveToLeftOf($targetNode);
+            }
+
+        }
+
+        if ( $data['strategy'] === 'after' ) {
+
+            $targetNode = Menu::findOrFail($data['target']);
+
+            foreach ( (array) $data['sources'] as $sourceNode ) {
+                $sourceNode->moveToRightOf($targetNode);
+            }
+
+        }
+
+        return response()->json([
+            'data' => [], 'message' => trans('Menus has been inserted!')
+        ]);
+        //dd($data);
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace Kyoto\Page\Connectors;
 
+use Illuminate\Support\Str;
 use Kyoto\Menu\Connectors\ConnectorElement;
 
 class PageConnector extends ConnectorElement
@@ -31,8 +32,13 @@ class PageConnector extends ConnectorElement
 
     public function transaction($menu, $page)
     {
-        $menu->set('title', $page->title);
-        $menu->set('option.page_id', $page->id);
+        $menu->setAttribute('title', $page['title']);
+
+        if ( empty($menu->slug) ) {
+            $menu->setAttribute('slug', Str::slug($menu->title));
+        }
+
+        $menu->setOption('page_id', $page['id']);
 
         return $menu;
     }

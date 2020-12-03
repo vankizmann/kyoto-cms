@@ -132,7 +132,7 @@ trait Datatable
         $total = $query->count();
 
         clock()->startEvent('buildTree', 'Build menu tree');
-        $data = $query->get()->toHierarchy()->values()->toArray();
+        $data = $query->orderBy('left')->get()->toHierarchy()->values()->toArray();
         clock()->endEvent('buildTree');
 
         return [

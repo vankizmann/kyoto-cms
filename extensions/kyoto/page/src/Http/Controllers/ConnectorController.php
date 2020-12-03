@@ -15,7 +15,7 @@ class ConnectorController extends Controller
 
     public function page()
     {
-        $foreign_id = Kyoto::getMenu('foreign_id', null);
+        $foreign_id = Kyoto::getMenu('option.page_id', null);
 
         if ( empty($foreign_id) ) {
             abort(404);
