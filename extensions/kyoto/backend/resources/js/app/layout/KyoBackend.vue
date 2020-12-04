@@ -44,6 +44,22 @@
             </KyoLayoutWebsite>
         </NResizer>
 
+        <NModal v-model="modal" :selector="false" width="auto">
+            <div class="grid grid--col grid--center grid--20-20">
+                <div class="col col--auto">
+                    {{ this.trans('Enable system mode?') }}
+                </div>
+                <div class="col col--auto">
+                    <NButton type="primary" @click="enableMode">
+                        {{ trans('Enable')}}
+                    </NButton>
+                    <NButton type="secondary" @click="disableMode">
+                        {{ trans('Disable')}}
+                    </NButton>
+                </div>
+            </div>
+        </NModal>
+
     </div>
 </template>
 <script>
@@ -73,7 +89,7 @@
         data()
         {
             return {
-                locale: null, width: 310, minWidth: 270, maxWidth: 600
+                locale: null, modal: false, width: 310, minWidth: 270, maxWidth: 600, strokeCache: []
             }
         },
 
@@ -91,6 +107,9 @@
             Nano.Event.bind('website:resize', (width) => {
                 this.width = width;
             });
+
+            Nano.Dom.find(window).on('keyup', this.eventKeyup);
+            Nano.Dom.find(window).on('keydown', this.eventKeydown);
         },
 
         watch: {
@@ -115,6 +134,36 @@
             setWidth(width)
             {
                 Nano.Event.fire('website:resize', width);
+            },
+
+            eventKeydown(event)
+            {
+                Nano.Arr.add(this.strokeCache, event.which);
+
+                if ( ! Nano.Arr.contains(this.strokeCache, [18, 79]) ) {
+                    return;
+                }
+
+                this.modal = true;
+            },
+
+            eventKeyup(event)
+            {
+                Nano.Arr.remove(this.strokeCache, event.which);
+            },
+
+            enableMode()
+            {
+                Nano.Cookie.set('kyoto_sysmode', '1');
+
+                window.location.reload();
+            },
+
+            disableMode()
+            {
+                Nano.Cookie.set('kyoto_sysmode', '0');
+
+                window.location.reload();
             }
 
         }

@@ -13,12 +13,13 @@ Nano.Data.set('kyoto/page::page', {
                         content: {
                             'NFormItem:00': {
                                 props: {
-                                    label: Nano.Locale.trans('Page')
+                                    label: Nano.Locale.trans('Page'),
+                                    prop: 'option.page_id'
                                 },
                                 content: {
                                     'NInput:00': {
                                         model: {
-                                            path: 'page_id'
+                                            path: 'option.page_id'
                                         }
                                     }
                                 }

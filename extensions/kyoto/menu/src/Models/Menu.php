@@ -41,9 +41,9 @@ class Menu extends \Kyoto\Support\Database\Model
 
     protected $attributes = [
         'id'            => null,
-        'foreign_id'    => null,
         'state'         => null,
         'hide'          => null,
+        'system'        => null,
         'type'          => null,
         'layout'        => null,
         'title'         => null,
@@ -56,9 +56,9 @@ class Menu extends \Kyoto\Support\Database\Model
 
     protected $casts = [
         'id'            => 'string',
-        'foreign_id'    => 'string',
         'state'         => 'integer',
         'hide'          => 'integer',
+        'system'        => 'integer',
         'type'          => 'string',
         'layout'        => 'string',
         'title'         => 'string',

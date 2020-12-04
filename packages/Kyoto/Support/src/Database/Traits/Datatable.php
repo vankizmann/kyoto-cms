@@ -131,9 +131,8 @@ trait Datatable
 
         $total = $query->count();
 
-        clock()->startEvent('buildTree', 'Build menu tree');
-        $data = $query->orderBy('left')->get()->toHierarchy()->values()->toArray();
-        clock()->endEvent('buildTree');
+        $data = $query->orderBy('left')->get()
+            ->toHierarchy()->values()->toArray();
 
         return [
             'page' => 1, 'limit' => 0, 'total' => $total, 'data' => $data

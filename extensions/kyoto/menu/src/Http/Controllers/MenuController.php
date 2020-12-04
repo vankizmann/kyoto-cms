@@ -10,13 +10,19 @@ use Kyoto\Menu\Http\Requests\MenuRequest;
 
 class MenuController extends \App\Http\Controllers\Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 
-        return response()->json(Menu::datatree());
+        $query = new Menu;
+
+        if ( isset($_COOKIE['kyoto_sysmode']) && $_COOKIE['kyoto_sysmode'] !== '1' ) {
+            $query = $query->where('system', 0);
+        }
+
+        return response()->json($query->datatree());
     }
 
     public function show(Request $request)

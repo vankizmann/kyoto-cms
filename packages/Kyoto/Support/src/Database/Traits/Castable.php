@@ -2,8 +2,27 @@
 
 namespace Kyoto\Support\Database\Traits;
 
+use Illuminate\Database\Eloquent\Model;
+
 trait Castable
 {
+    /**
+     * Boot the soft deleting trait for a model.
+     *
+     * @return void
+     */
+    public static function bootCastable()
+    {
+        static::creating(function (Model $model) {
+
+            foreach ( array_keys($model->getCasts()) as $key ) {
+                if ( ! isset($model->attributes[$key]) ) {
+                    $model->__set($key, $model->{$key});
+                }
+            }
+
+        });
+    }
 
     protected function setCastAttribute($key, $value)
     {
