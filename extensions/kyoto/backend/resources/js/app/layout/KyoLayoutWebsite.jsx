@@ -1,3 +1,5 @@
+import { countBy } from "lodash";
+
 export default {
 
     name: 'KyoLayoutWebsite',
@@ -5,7 +7,7 @@ export default {
     data()
     {
         return {
-            menus: [], load: true, modal: false
+            menus: [], load: true, modal: false, formBuffer: this.resetFormBuffer()
         };
     },
 
@@ -42,8 +44,19 @@ export default {
             return this.render('KyoWebsiteNode', { props });
         },
 
+        resetFormBuffer(item = {})
+        {
+            return {
+                title: Nano.Obj.get(item, 'title', ''), slug: Nano.Obj.get(item, 'slug', '')
+            };
+        },
+
         startTransaction(sources, target, strategy)
         {
+            if ( sources.length !== 1 ) {
+                return this.Notify(this.trans('Only one menu at time can be inserted.'), 'danger');
+            }
+
             this.transaction = {
                 sources, target, strategy
             };
@@ -55,6 +68,8 @@ export default {
             if ( Nano.Arr.findIndex(items, { transaction: null }) !== -1 ) {
                 return this.startMove();
             }
+
+            this.formBuffer = this.resetFormBuffer(Nano.Arr.first(items));
 
             this.modal = true;
         },
@@ -118,12 +133,12 @@ export default {
                 <template slot="header">
                     { this.trans('Attach item to menu') }
                 </template>
-                <NForm>
+                <NForm form={this.formBuffer}>
                     <NFormItem label={this.trans('Title')} prop="title">
-                        <NInput placeholder="If empty title will be autofilled"></NInput>
+                        <NInput vModel={this.formBuffer.title} placeholder="If empty title will be autofilled"></NInput>
                     </NFormItem>
                     <NFormItem label={this.trans('Slug')} prop="slug">
-                        <NInput placeholder="If empty slug will be autofilled"></NInput>
+                        <NInput vModel={this.formBuffer.slug} placeholder="If empty slug will be autofilled"></NInput>
                     </NFormItem>
                 </NForm>
                 <template slot="footer">
@@ -138,6 +153,8 @@ export default {
         this.render = render;
 
         let props = {
+            group: ['menu'],
+            allowGroups: ['menu', 'transaction'],
             itemHeight: 38,
             scrollTopOnChange: false,
             insertNode: false,

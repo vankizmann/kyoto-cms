@@ -16025,7 +16025,7 @@ th {
   left: 75px;
   display: flex;
   height: 100%;
-  background-color: #f4f5f7; }
+  background-color: #F8F9FB; }
 
 .kyo-backend > .kyo-website:after {
   content: '\00a0';
@@ -16302,7 +16302,7 @@ th {
   align-items: stretch;
   padding: 0 10px;
   height: 75px;
-  border-bottom: 1px solid #d4d7dd; }
+  border-bottom: 1px solid #dee1e6; }
 
 .kyo-layout-website__header .n-input {
   border: 0;
@@ -16316,7 +16316,7 @@ th {
   align-items: center;
   padding: 0 10px;
   height: 55px;
-  border-top: 1px solid #d4d7dd; }
+  border-top: 1px solid #dee1e6; }
 
 .kyo-layout-website__body {
   flex: 1 1 auto; }
@@ -16325,7 +16325,8 @@ th {
   position: relative;
   padding-left: 30px;
   height: 38px;
-  line-height: 38px; }
+  line-height: 38px;
+  font-size: 14px; }
 
 .kyo-website-node:before {
   content: '\00a0';

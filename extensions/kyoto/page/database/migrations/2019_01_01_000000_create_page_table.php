@@ -16,6 +16,9 @@ class CreatePageTable extends Migration
             $table->string('title')
                 ->default('');
 
+            $table->string('slug')
+                ->default('');
+
             $table->string('content')
                 ->nullable();
 

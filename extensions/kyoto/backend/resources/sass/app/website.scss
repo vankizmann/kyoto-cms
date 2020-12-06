@@ -14,7 +14,7 @@
     align-items: stretch;
     padding: 0 10px;
     height: 75px;
-    border-bottom: 1px solid $color-gray-20;
+    border-bottom: 1px solid $color-gray-15;
 }
 
 .kyo-layout-website__header .n-input {
@@ -30,7 +30,7 @@
     align-items: center;
     padding: 0 10px;
     height: 55px;
-    border-top: 1px solid $color-gray-20;
+    border-top: 1px solid $color-gray-15;
 }
 
 .kyo-layout-website__body {
@@ -42,6 +42,7 @@
     padding-left: 30px;
     height: 38px;
     line-height: 38px;
+    font-size: 14px;
 }
 
 .kyo-website-node:before {

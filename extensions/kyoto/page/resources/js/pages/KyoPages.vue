@@ -17,7 +17,7 @@
 
             </KyoTitlebar>
 
-            <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
+            <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit" :group="['page', 'transaction']">
 
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
                     <router-link slot-scope="{ value }" :to="{ name: 'KyoPageEdit', params: value }">{{ value.title }}</router-link>

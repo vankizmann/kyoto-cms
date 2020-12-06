@@ -29,6 +29,7 @@ class Page extends \Kyoto\Support\Database\Model
     protected $attributes = [
         'id'            => null,
         'title'         => null,
+        'slug'          => null,
         'content'       => null,
         'builder'       => null
     ];
@@ -36,6 +37,7 @@ class Page extends \Kyoto\Support\Database\Model
     protected $casts = [
         'id'            => 'string',
         'title'         => 'string',
+        'slug'          => 'string',
         'content'       => 'string',
         'builder'       => 'array'
     ];
