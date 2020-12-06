@@ -29,7 +29,7 @@
                 {
                     return ['default'];
                 },
-                type: [Boolean]
+                type: [Array]
             },
 
             allowGroups: {
@@ -37,7 +37,7 @@
                 {
                     return ['default'];
                 },
-                type: [Boolean]
+                type: [Array]
             },
 
             renderExpand: {

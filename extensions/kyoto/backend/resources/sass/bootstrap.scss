@@ -4,6 +4,18 @@ $color-black:           #141925;
 $color-light:           #ffffff;
 $color-dark:            #263657;
 
+$color-white-light:         lighten($color-white, 2.5%);
+$color-white-lighter:       lighten($color-white, 5%);
+
+$color-white-dark:          darken($color-white, 2.5%);
+$color-white-darker:        darken($color-white, 5%);
+
+$color-black-light:         lighten($color-black, 2.5%);
+$color-black-lighter:       lighten($color-black, 5%);
+
+$color-black-dark:          darken($color-black, 2.5%);
+$color-black-darker:        darken($color-black, 5%);
+
 $color-gray-05:         mix($color-dark, $color-light, 0.05 * 100%);
 $color-gray-10:         mix($color-dark, $color-light, 0.10 * 100%);
 $color-gray-15:         mix($color-dark, $color-light, 0.15 * 100%);

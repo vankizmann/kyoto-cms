@@ -9,7 +9,7 @@
     border-radius: 500px;
 }
 
-.kyo-datatable .n-draggable-item.n-current:not(.n-dragover) {
+.kyo-datatable .n-draglist-item.n-current:not(.n-dragover) {
     background: transparent;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .kyo-datatable .n-table .n-table__head,
-.kyo-datatable .n-table .n-draggable-item {
+.kyo-datatable .n-table .n-draglist-item {
     padding-left: 30px;
     padding-right: 30px;
 }

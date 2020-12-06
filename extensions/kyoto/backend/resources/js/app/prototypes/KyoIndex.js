@@ -198,6 +198,10 @@ export default {
          */
         moveItems(source, target, strategy)
         {
+            if ( Nano.Any.isEmpty(target) ) {
+                return;
+            }
+
             let options = {
                 onLoad: () => this.load = true,
                 onDone: () => this.load = false

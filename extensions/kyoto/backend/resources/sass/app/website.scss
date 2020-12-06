@@ -14,12 +14,13 @@
     align-items: stretch;
     padding: 0 10px;
     height: 75px;
-    border-bottom: 1px solid $color-gray-15;
+    background: $color-background-dark;
 }
 
 .kyo-layout-website__header .n-input {
     border: 0;
     height: 74px;
+    color: $color-white;
     background: transparent;
 }
 
@@ -30,7 +31,7 @@
     align-items: center;
     padding: 0 10px;
     height: 55px;
-    border-top: 1px solid $color-gray-15;
+    //border-top: 1px solid $color-background-dark;
 }
 
 .kyo-layout-website__body {
@@ -50,38 +51,41 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     font-family: "Font Awesome 5 Free", sans-serif;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 22px;
     text-align: center;
     color: $color-primary;
     transform: translateY(-50%);
+    background-size: 22px 22px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .kyo-website-node[data-type="kyoto/backend::admin"]:before {
-    background-image: svg-load('icon_theme.svg', fill=$color-primary);
+    background-image: svg-load('icon_system.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::domain"]:before {
-    background-image: svg-load('icon_domain.svg', fill=$color-primary);
+    background-image: svg-load('icon_domain.svg');
 }
 
 .kyo-website-node[data-type="kyoto/page::page"]:before {
-    background-image: svg-load('icon_page.svg', fill=$color-primary);
+    background-image: svg-load('icon_page.svg');
 }
 
 .kyo-website-node[data-type="kyoto/user::login"]:before {
-    content: '\f21b';
+    background-image: svg-load('icon_user.svg');
 }
 
 .kyo-website-node[data-type="kyoto/user::logout"]:before {
-    content: '\f21b';
+    background-image: svg-load('icon_user.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::vue"]:before {
-    content: '\f121';
+    background-image: svg-load('icon_vue.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::redirect"]:before {
