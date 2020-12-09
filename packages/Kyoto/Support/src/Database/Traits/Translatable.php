@@ -49,6 +49,11 @@ trait Translatable
         static::addGlobalScope(new TranslateScope);
     }
 
+    public function newEloquentBuilder($query)
+    {
+        return new Builder($query);
+    }
+
     public function initializeTranslatable()
     {
         $this->with[] = 'translations';

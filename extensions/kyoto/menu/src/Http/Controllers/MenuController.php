@@ -79,11 +79,11 @@ class MenuController extends \App\Http\Controllers\Controller
 
     public function move(Request $request)
     {
-        $data = $request->only(['sources', 'target', 'strategy']);
+        $data = $request->only(['source', 'target', 'strategy']);
 
         if ( $data['strategy'] === 'root' ) {
 
-            foreach ( (array) $data['sources'] as $id ) {
+            foreach ( (array) $data['source'] as $id ) {
                 Menu::findOrFail($id)->makeRoot();
             }
 
@@ -94,7 +94,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['sources'] as $id ) {
+            foreach ( (array) $data['source'] as $id ) {
                 Menu::findOrFail($id)->makeChildOf($targetNode);
             }
 
@@ -104,7 +104,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['sources'] as $id ) {
+            foreach ( (array) $data['source'] as $id ) {
                 Menu::findOrFail($id)->moveToLeftOf($targetNode);
             }
 
@@ -114,7 +114,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['sources'] as $id ) {
+            foreach ( (array) $data['source'] as $id ) {
                 Menu::findOrFail($id)->moveToRightOf($targetNode);
             }
 
@@ -127,23 +127,23 @@ class MenuController extends \App\Http\Controllers\Controller
 
     public function transaction(Request $request)
     {
-        $data = $request->only(['sources', 'target', 'strategy']);
+        $data = $request->only(['source', 'target', 'strategy']);
 
-        foreach ( (array) $data['sources'] as $index => $source ) {
+        foreach ( (array) $data['source'] as $index => $source ) {
 
             $menuNode = (new Menu)->fill([
                 'id' => uuid(), 'state' => 1, 'hide' => 0, 'matrix' => 1, 'guard' => 0, 'type' => $source['transaction']
             ]);
 
-            $data['sources'][$index] = Connector::find($menuNode->type)
+            $data['source'][$index] = Connector::find($menuNode->type)
                 ->transaction($menuNode, $source);
 
-            $data['sources'][$index]->save();
+            $data['source'][$index]->save();
         }
 
         if ( $data['strategy'] === 'root' ) {
 
-            foreach ( (array) $data['sources'] as $sourceNode ) {
+            foreach ( (array) $data['source'] as $sourceNode ) {
                 $sourceNode->makeRoot();
             }
 
@@ -154,7 +154,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['sources'] as $sourceNode ) {
+            foreach ( (array) $data['source'] as $sourceNode ) {
                 $sourceNode->makeChildOf($targetNode);
             }
 
@@ -164,7 +164,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['sources'] as $sourceNode ) {
+            foreach ( (array) $data['source'] as $sourceNode ) {
                 $sourceNode->moveToLeftOf($targetNode);
             }
 
@@ -174,7 +174,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
             $targetNode = Menu::findOrFail($data['target']);
 
-            foreach ( (array) $data['sources'] as $sourceNode ) {
+            foreach ( (array) $data['source'] as $sourceNode ) {
                 $sourceNode->moveToRightOf($targetNode);
             }
 

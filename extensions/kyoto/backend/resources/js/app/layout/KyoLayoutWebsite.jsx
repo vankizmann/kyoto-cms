@@ -90,7 +90,7 @@ export default {
             };
 
             let query = {
-                sources, target, strategy
+                source: sources, target, strategy
             };
 
             let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
@@ -114,7 +114,7 @@ export default {
             };
 
             let query = {
-                sources, target, strategy
+                source: sources, target, strategy
             };
 
             let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/transaction',
