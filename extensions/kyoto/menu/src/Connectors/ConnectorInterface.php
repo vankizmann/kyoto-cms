@@ -7,15 +7,32 @@ interface ConnectorInterface
     /**
      * Provide router options.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function route($menu);
 
     /**
+     * Collect data for menu rendering.
+     *
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @param array $data
+     * @return \Kyoto\Menu\Models\Menu
+     */
+    public function transaction($menu, $data);
+
+    /**
+     * Provide options for backend.
+     *
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @return array
+     */
+    public function options($menu);
+
+    /**
      * Provide data for view.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function provide($menu);
@@ -23,7 +40,7 @@ interface ConnectorInterface
     /**
      * Collect data for menu rendering.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function collect($menu);

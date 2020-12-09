@@ -138,8 +138,7 @@ class FrontendMenuTableSeeder extends Seeder
         ]);
 
 
-        foreach ( range(0, 200) as $index ) {
-            continue;
+        foreach ( range(0, 100) as $index ) {
 
             Menu::create([
                 'id'     => uuid(),

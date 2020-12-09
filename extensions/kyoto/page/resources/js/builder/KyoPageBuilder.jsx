@@ -30,7 +30,7 @@ export default {
 
         return (
             <div>
-                <NDraggable ref="list" vModel={this.value.builder} useRenderCache={false} renderNode={renderNode}></NDraggable>
+                <NDraglist ref="list" vModel={this.value.builder} useRenderCache={false} renderNode={renderNode}></NDraglist>
                 <div>
                     <NButton vOn:click={this.addRow}>Add Row</NButton>
                 </div>

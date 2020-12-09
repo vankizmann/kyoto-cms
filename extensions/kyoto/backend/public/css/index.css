@@ -16413,6 +16413,7 @@ th {
   background: rgba(23, 101, 245, 0.8); }
 
 .kyo-layout-website {
+  overflow: hidden;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16421,16 +16422,15 @@ th {
 .kyo-layout-website__header {
   flex: 0 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   padding: 0 10px;
-  height: 75px;
-  background: #e8ebf2; }
+  border-bottom: 1px solid #e8ebf2;
+  box-shadow: 0 0 5px rgba(20, 25, 37, 0.1); }
 
 .kyo-layout-website__header .n-input {
   border: 0;
   height: 74px;
-  color: #ffffff;
   background: transparent; }
 
 .kyo-layout-website__footer {
@@ -16445,11 +16445,18 @@ th {
   flex: 1 1 auto; }
 
 .kyo-website-node {
+  overflow: hidden;
   position: relative;
   padding-left: 30px;
   height: 38px;
   line-height: 38px;
   font-size: 14px; }
+
+.kyo-website-node span {
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 .kyo-website-node:before {
   content: '\00a0';

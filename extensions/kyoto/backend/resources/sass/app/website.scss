@@ -1,6 +1,7 @@
 @import "~nano-ui/src/root/vars";
 
 .kyo-layout-website {
+    overflow: hidden;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -10,17 +11,16 @@
 .kyo-layout-website__header {
     flex: 0 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     padding: 0 10px;
-    height: 75px;
-    background: $color-background-dark;
+    border-bottom: 1px solid $color-background-dark;
+    box-shadow: 0 0 5px rgba($color-black, 0.1);
 }
 
 .kyo-layout-website__header .n-input {
     border: 0;
     height: 74px;
-    color: $color-white;
     background: transparent;
 }
 
@@ -39,11 +39,19 @@
 }
 
 .kyo-website-node {
+    overflow: hidden;
     position: relative;
     padding-left: 30px;
     height: 38px;
     line-height: 38px;
     font-size: 14px;
+}
+
+.kyo-website-node span {
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .kyo-website-node:before {

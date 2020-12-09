@@ -7,7 +7,7 @@ class RedirectConnector extends ConnectorElement
     /**
      * Provide router options.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function route($menu)
@@ -21,35 +21,36 @@ class RedirectConnector extends ConnectorElement
         ];
     }
 
-    /**
+     /**
      * Provide options for backend.
      *
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return array
      */
-    public function options()
+    public function options($menu)
     {
-        return [];
+        return parent::options($menu);
     }
 
     /**
      * Provide data for view.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
-     * @return array|bool
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @return mixed
      */
     public function provide($menu)
     {
-        return false;
+        return null;
     }
 
     /**
      * Collect data for menu rendering.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
-     * @return array|bool
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @return mixed
      */
     public function collect($menu)
     {
-        return false;
+        return null;
     }
 }

@@ -7,7 +7,7 @@ class VueConnector extends ConnectorElement
     /**
      * Provide router options.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function route($menu)
@@ -30,11 +30,12 @@ class VueConnector extends ConnectorElement
     /**
      * Provide options for backend.
      *
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return array
      */
-    public function options()
+    public function options($menu)
     {
-        return [];
+        return parent::options($menu);
     }
 
     /**

@@ -10,7 +10,7 @@ class PageConnector extends ConnectorElement
     /**
      * Provide router options.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function route($menu)
@@ -23,13 +23,25 @@ class PageConnector extends ConnectorElement
     /**
      * Provide options for backend.
      *
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return array
      */
-    public function options()
+    public function options($menu)
     {
-        return [];
+        return [
+            'edit' => [
+                'name' => 'KyoPageEdit', 'params' => ['id' => $menu->getOption('page_id')]
+            ]
+        ];
     }
 
+    /**
+     * Provide data for view.
+     *
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @param array $data
+     * @return mixed
+     */
     public function transaction($menu, $page)
     {
         $menu->setAttribute('title', $page['title']);
@@ -46,22 +58,23 @@ class PageConnector extends ConnectorElement
     /**
      * Provide data for view.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
-     * @return array|bool
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @return mixed
      */
     public function provide($menu)
     {
-        return false;
+        return null;
     }
 
     /**
      * Collect data for menu rendering.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
-     * @return array|bool
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @return mixed
      */
     public function collect($menu)
     {
-        return false;
+        return null;
     }
+
 }

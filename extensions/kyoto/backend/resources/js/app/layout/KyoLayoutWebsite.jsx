@@ -34,6 +34,13 @@ export default {
 
     methods: {
 
+        openEdit(row)
+        {
+            if ( Nano.Obj.has(row, 'connector.edit') ) {
+                this.$router.push(Nano.Obj.get(row, 'connector.edit'))
+            }
+        },
+
         safeZone(height)
         {
             return height * 0.235;
@@ -169,7 +176,7 @@ export default {
                 this.startTransaction(target, source, strategy);
             },
             'row-dblclick': (row) => {
-                this.$router.push({ key: row.id, name: 'KyoMenuEdit', params: row.item });
+                this.openEdit(this.Obj.get(row, 'item'));
             }
         };
 
@@ -177,11 +184,11 @@ export default {
             <NLoader visible={this.load} class="kyo-layout-website">
                 <div class="kyo-layout-website__header">
                     <NInput placeholder={this.trans('Search for ...')}></NInput>
+                    <div class="grid grid--row">
+                        <NButton class="col--1-1" icon="fa fa-plus">{this.trans('Add menu')}</NButton>
+                    </div>
                 </div>
                 <NDraglist class="kyo-layout-website__body" items={this.menus} props={props} on={events} />
-                <div class="kyo-layout-website__footer">
-                    <NButton type="secondary" link={true}>{ this.trans('Add menu') }</NButton>
-                </div>
                 { this.ctor('renderModal')() }
             </NLoader>
         );

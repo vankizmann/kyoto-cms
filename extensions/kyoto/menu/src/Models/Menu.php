@@ -3,6 +3,7 @@
 namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
+use Kyoto\Menu\Facades\Connector;
 use Illuminate\Support\Facades\DB;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
@@ -20,7 +21,7 @@ class Menu extends \Kyoto\Support\Database\Model
     ];
 
     protected $appends = [
-        'transaction'
+        'transaction', 'connector'
     ];
 
     protected $fields = [
@@ -220,6 +221,11 @@ class Menu extends \Kyoto\Support\Database\Model
         return null;
     }
 
+    public function getOption($key, $fallback = null)
+    {
+        return data_get($this->__get('option'), $key, $fallback);
+    }
+
     public function setOption($key, $value)
     {
         $option = $this->__get('option');
@@ -242,6 +248,17 @@ class Menu extends \Kyoto\Support\Database\Model
         $option = $this->__set('option', $option);
 
         return $this;
+    }
+
+    public function getConnectorAttribute()
+    {
+        $connector = Connector::find($this->type);
+
+        if ( empty($connector) ) {
+            return [];
+        }
+
+        return $connector->options($this);
     }
 
 }

@@ -7,7 +7,7 @@ class ConnectorElement implements ConnectorInterface
     /**
      * Provide router options.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function route($menu)
@@ -18,17 +18,34 @@ class ConnectorElement implements ConnectorInterface
     /**
      * Provide options for backend.
      *
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return array
      */
-    public function options()
+    public function options($menu)
     {
-        return [];
+        return [
+            'edit' => [
+                'name' => 'KyoMenuEdit', 'params' => ['id' => $menu->id]
+            ]
+        ];
     }
 
     /**
      * Provide data for view.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
+     * @param array $data
+     * @return mixed
+     */
+    public function transaction($menu, $data)
+    {
+        return $menu;
+    }
+
+    /**
+     * Provide data for view.
+     *
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function provide($menu)
@@ -39,7 +56,7 @@ class ConnectorElement implements ConnectorInterface
     /**
      * Collect data for menu rendering.
      *
-     * @param array|\Kyoto\Menu\Models\Menu $menu
+     * @param \Kyoto\Menu\Models\Menu $menu
      * @return mixed
      */
     public function collect($menu)
