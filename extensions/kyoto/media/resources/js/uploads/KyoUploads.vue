@@ -24,9 +24,9 @@
 
         methods: {
 
-            eventDragOver()
+            eventDragOver(event)
             {
-                if ( ! event.dataTransfer.files ) {
+                if ( ! event.dataTransfer.files.length ) {
                     return;
                 }
 
@@ -35,9 +35,9 @@
                 this.visible = true;
             },
 
-            eventDrop()
+            eventDrop(event)
             {
-                if ( ! event.dataTransfer.files ) {
+                if ( ! event.dataTransfer.files.length ) {
                     return;
                 }
 

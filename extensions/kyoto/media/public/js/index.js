@@ -293,27 +293,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoMedias',
   urls: {
@@ -365,16 +344,16 @@ __webpack_require__.r(__webpack_exports__);
     this.Dom.find(document.body).on('dragover', this.eventDragOver);
   },
   methods: {
-    eventDragOver: function eventDragOver() {
-      if (!event.dataTransfer.files) {
+    eventDragOver: function eventDragOver(event) {
+      if (!event.dataTransfer.files.length) {
         return;
       }
 
       event.preventDefault();
       this.visible = true;
     },
-    eventDrop: function eventDrop() {
-      if (!event.dataTransfer.files) {
+    eventDrop: function eventDrop(event) {
+      if (!event.dataTransfer.files.length) {
         return;
       }
 
@@ -694,44 +673,7 @@ var render = function() {
                     [
                       _vm._v(
                         "\n                    " +
-                          _vm._s(_vm.trans("Add page")) +
-                          "\n                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "NButton",
-                    {
-                      attrs: {
-                        type: "secondary",
-                        disabled: !_vm.selected.length
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.trans("Delete")) +
-                          "\n                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "NConfirm",
-                    {
-                      attrs: { type: "danger" },
-                      on: { confirm: _vm.deleteItems }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(
-                            _vm.trans(
-                              "Are you sure you want to delete :count items?",
-                              { count: _vm.selected.length }
-                            )
-                          ) +
+                          _vm._s(_vm.trans("Add folder")) +
                           "\n                "
                       )
                     ]
@@ -743,96 +685,24 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c(
-            "NTable",
-            {
-              staticClass: "kyo-table col--flex-1-1",
-              attrs: {
-                items: _vm.result.data,
-                "viewport-height": true,
-                expanded: _vm.expanded,
-                selected: _vm.selected,
-                "filter-props": _vm.query.filter,
-                "sort-prop": _vm.query.prop,
-                "sort-dir": _vm.query.dir,
-                "item-height": 44,
-                "allow-drag": _vm.allowDrag,
-                "allow-drop": _vm.allowDrop
-              },
-              on: {
-                "update:expanded": function($event) {
-                  _vm.expanded = $event
-                },
-                "update:selected": function($event) {
-                  _vm.selected = $event
-                },
-                "update:filterProps": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:filter-props": function($event) {
-                  return _vm.$set(_vm.query, "filter", $event)
-                },
-                "update:sortProp": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sort-prop": function($event) {
-                  return _vm.$set(_vm.query, "prop", $event)
-                },
-                "update:sortDir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "update:sort-dir": function($event) {
-                  return _vm.$set(_vm.query, "dir", $event)
-                },
-                "row-dblclick": _vm.gotoEdit
+          _c("NDraggrid", {
+            staticClass: "col--flex-1-1",
+            attrs: { items: _vm.result.data },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(ref) {
+                  var value = ref.value
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(value.title) +
+                        "\n            "
+                    )
+                  ]
+                }
               }
-            },
-            [
-              _c("NTableColumn", {
-                attrs: {
-                  type: "string",
-                  prop: "title",
-                  label: "Title",
-                  fluid: true,
-                  filter: true
-                }
-              }),
-              _vm._v(" "),
-              _c("NTableColumn", {
-                attrs: {
-                  type: "datetime",
-                  prop: "updated_at",
-                  label: "Modified",
-                  filter: true
-                }
-              }),
-              _vm._v(" "),
-              _c("NTableColumn", {
-                attrs: {
-                  type: "datetime",
-                  prop: "created_at",
-                  label: "Created",
-                  filter: true
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("NPaginator", {
-            attrs: {
-              page: _vm.query.page,
-              limit: _vm.query.limit,
-              total: _vm.result.total
-            },
-            on: {
-              "update:page": function($event) {
-                return _vm.$set(_vm.query, "page", $event)
-              },
-              "update:limit": function($event) {
-                return _vm.$set(_vm.query, "limit", $event)
-              }
-            }
+            ])
           })
         ],
         1
@@ -1326,8 +1196,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/media/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eduardkizmann/Documents/GitHub/kyoto/extensions/kyoto/media/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/media/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/media/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

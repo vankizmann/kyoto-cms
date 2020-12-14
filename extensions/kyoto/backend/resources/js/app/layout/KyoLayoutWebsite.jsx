@@ -184,9 +184,18 @@ export default {
             <NLoader visible={this.load} class="kyo-layout-website">
                 <div class="kyo-layout-website__header">
                     <NInput placeholder={this.trans('Search for ...')}></NInput>
-                    <div class="grid grid--row">
-                        <NButton class="col--1-1" icon="fa fa-plus">{this.trans('Add menu')}</NButton>
-                    </div>
+                    <NButton square={true} icon="fa fa-file"></NButton>
+                    <NPopover trigger="click" type="dropdown">
+                        <div class="n-popover-option">
+                            Domain
+                        </div>
+                        <div class="n-popover-option">
+                            Menu
+                        </div>
+                        <div class="n-popover-option">
+                            Redirect
+                        </div>
+                    </NPopover>
                 </div>
                 <NDraglist class="kyo-layout-website__body" items={this.menus} props={props} on={events} />
                 { this.ctor('renderModal')() }

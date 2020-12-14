@@ -16420,18 +16420,31 @@ th {
   height: 100%; }
 
 .kyo-layout-website__header {
+  position: relative;
   flex: 0 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 0 10px;
-  border-bottom: 1px solid #e8ebf2;
+  flex-direction: row;
+  align-items: center;
   box-shadow: 0 0 5px rgba(20, 25, 37, 0.1); }
+
+.kyo-layout-website__header:after {
+  content: '\00a0';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(147, 155, 171, 0.1); }
 
 .kyo-layout-website__header .n-input {
   border: 0;
   height: 74px;
+  padding: 0 15px 0 30px;
   background: transparent; }
+
+.kyo-layout-website__header .n-button {
+  margin-right: 15px; }
 
 .kyo-layout-website__footer {
   flex: 0 0 auto;
