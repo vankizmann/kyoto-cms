@@ -137,11 +137,13 @@ class FrontendMenuTableSeeder extends Seeder
             'slug'          => '/test-da'
         ]);
 
+        set_time_limit(0);
 
-        foreach ( range(0, 10) as $index ) {
+        DB::beginTransaction();
+
+        foreach ( range(0, 800) as $index ) {
 
             Menu::create([
-                'id'     => uuid(),
                 'type'   => 'kyoto/menu::redirect',
                 'layout' => null,
                 'option' => ['url' => 'http://wieistmeineip.de'],
@@ -155,6 +157,8 @@ class FrontendMenuTableSeeder extends Seeder
             ]);
 
         }
+
+        DB::commit();
 
 
     }

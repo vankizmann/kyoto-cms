@@ -167,6 +167,9 @@ export default {
             insertNode: false,
             removeNode: false,
             renderExpand: true,
+            viewportHeight: true,
+            ghostMode: true,
+            threshold: 300,
             safeZone: this.safeZone,
             renderNode: this.renderNode
         };

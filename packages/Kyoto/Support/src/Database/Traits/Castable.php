@@ -17,7 +17,7 @@ trait Castable
 
             foreach ( array_keys($model->getCasts()) as $key ) {
                 if ( ! isset($model->attributes[$key]) ) {
-                    $model->__set($key, $model->{$key});
+                    $model->setAttribute($key, $model->{$key});
                 }
             }
 

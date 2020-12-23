@@ -176,4 +176,25 @@ class Menu extends \Kyoto\Support\Database\Model
         return $connector->options($this);
     }
 
+    public function toArray()
+    {
+        $attributes = [];
+
+        foreach ( array_keys($this->attributes) as $key ) {
+            $attributes[$key] = $this->attributes[$key] ;
+        }
+
+        foreach ( $this->appends as $key ) {
+            $attributes[$key] = $this->getAttribute($key);
+        }
+
+        $attributes['option'] = $this->getAttribute('option');
+
+        if ( isset($this->relations['children']) ) {
+            $attributes['children'] = $this->getRelation('children');
+        }
+
+        return $attributes;
+    }
+
 }

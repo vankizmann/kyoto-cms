@@ -128,6 +128,10 @@ trait Pathable
     {
         $foreign = $this->getForeign();
 
+        if ( empty($foreign->path) ) {
+            return;
+        }
+
         Log::debug("Path paths from {$foreign->path} to {$this->path}");
 
         $data = [
