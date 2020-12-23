@@ -4,6 +4,7 @@ namespace Kyoto\Support\Database\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Kyoto\Application\Facades\Kyoto;
 use Kyoto\Support\Database\Eloquent\Builder;
 use Kyoto\Support\Database\Scopes\TranslateScope;
 
@@ -109,6 +110,11 @@ trait Translatable
         }
 
         return $this->translations->firstWhere('locale', $locale);
+    }
+
+    public function hasTranslation($locale)
+    {
+        return ! empty($this->getTranslation($locale));
     }
 
     public function getNewTranslation($locale = null)

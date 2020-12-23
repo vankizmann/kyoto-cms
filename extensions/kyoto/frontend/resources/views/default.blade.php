@@ -7,7 +7,7 @@
 
     <title>{{ app('kyoto')->getMenu('title') }} / {{ app('kyoto')->getRoot('title') }}</title>
 
-    {{ app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') }}
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') !!}
 
     {!! app('kyoto.assets')->script('script', 'kyoto/frontend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/frontend::css/index.css') !!}

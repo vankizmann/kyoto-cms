@@ -6,6 +6,8 @@ export default {
 
     localized: false,
 
+    refresh: true,
+
     urls: {
         index: null,
         copy: null,
@@ -138,7 +140,7 @@ export default {
                 this.$root.$data, query);
 
             this.$http.post(route, this.result, options)
-                .then(this.fetchDone, this.fetchError);
+                .then(this.fetchDoneSave, this.fetchError);
         },
 
         updateCloseItem()
@@ -217,9 +219,26 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
         },
 
+        /**
+         * Function when request succeeds
+         * @param res
+         */
+        fetchDoneSave(res)
+        {
+            if ( this.ctor('refresh', false) ) {
+                Nano.Store.refresh('menus');
+            }
+
+            this.result = Obj.get(res.data, 'data', {});
+        },
+
         fetchDoneFirst(res)
         {
             this.result = Obj.get(res.data, 'data', {});
+
+            if ( this.ctor('refresh', false) ) {
+                Nano.Store.refresh('menus');
+            }
 
             this.gotoEdit(res.data);
         },
@@ -227,6 +246,10 @@ export default {
         fetchDoneClose(res)
         {
             this.result = Obj.get(res.data, 'data', {});
+
+            if ( this.ctor('refresh', false) ) {
+                Nano.Store.refresh('menus');
+            }
 
             this.gotoIndex(res.data);
         },

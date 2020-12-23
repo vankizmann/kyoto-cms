@@ -12863,8 +12863,8 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.interceptors.response.use(function 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/frontend/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/eddy/Sites/kyoto-cms/extensions/kyoto/frontend/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
+__webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/frontend/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/frontend/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
 
 
 /***/ })

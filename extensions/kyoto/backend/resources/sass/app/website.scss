@@ -25,7 +25,7 @@
     display: block;
     width: 100%;
     height: 1px;
-    background: rgba($color-gray-50, 0.1);
+    background: rgba($color-black, 0.075);
 }
 
 .kyo-layout-website__header .n-input {
@@ -56,17 +56,30 @@
 .kyo-website-node {
     overflow: hidden;
     position: relative;
-    padding-left: 30px;
+    width: 100%;
+    padding: 0 10px 0 30px;
     height: 38px;
-    line-height: 38px;
     font-size: 14px;
 }
 
-.kyo-website-node span {
+.kyo-website-node > div:first-child {
     overflow: hidden;
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
+    line-height: 38px;
+}
+
+.kyo-website-node > div:not(:first-child) {
+    display: none;
+}
+
+.n-draglist-item:not(.n-selected):hover .kyo-website-node > div:not(:first-child) {
+    display: block;
+}
+
+.kyo-website-node > div .n-button__wrapper {
+    margin-left: 4px;
 }
 
 .kyo-website-node:before {

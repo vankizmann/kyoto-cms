@@ -4,7 +4,7 @@ namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
 use Kyoto\Menu\Facades\Connector;
-use Illuminate\Support\Facades\DB;
+use Kyoto\Menu\Models\Traits\Pathable;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
 use Kyoto\User\Database\Traits\DepthGuarded;
@@ -12,7 +12,7 @@ use Kyoto\Support\Database\Traits\Translatable;
 
 class Menu extends \Kyoto\Support\Database\Model
 {
-    use Node, State, Hide, Translatable, DepthGuarded;
+    use Node, State, Hide, Translatable, DepthGuarded, Pathable;
 
     protected $table = 'menus';
 
@@ -21,7 +21,7 @@ class Menu extends \Kyoto\Support\Database\Model
     ];
 
     protected $appends = [
-        'transaction', 'connector'
+        'preview', 'transaction', 'connector'
     ];
 
     protected $fields = [
@@ -78,82 +78,12 @@ class Menu extends \Kyoto\Support\Database\Model
                 app('kyoto.menu')->clear();
             }
 
-            $model->fill([
-                'route' => '/', 'path' => $model->slug
-            ]);
         });
 
         static::moving(function ($model) {
 
             if ( app('kyoto')->isReady() ) {
                 app('kyoto.menu')->clear();
-            }
-
-            $model->fill([
-                'route' => '/', 'path' => $model->slug
-            ]);
-        });
-
-        static::saved(function ($model) {
-
-            if ( ($parentNode = $model->parent) && $model->isBaseLocale() ) {
-
-                $model->attributes['route'] = $model->slug ?: '/';
-
-                if ( ! empty($parentNode->parent_id) ) {
-                    $model->attributes['route'] = str_join('/', $parentNode->route, $model->slug);
-                }
-
-                if ( $model->attributes['route'] ) {
-                    $model->attributes['route'] = '/' . trim($model->attributes['route'], '/');
-                }
-
-                $model->attributes['path'] = str_join('/', $parentNode->path, $model->slug);
-
-                $data = [
-                    'path' => $model->attributes['path'], 'route' => $model->attributes['route']
-                ];
-
-                DB::table('menus')->where('id', $model->id)->update($data);
-
-            }
-
-            if ( $model->attributes['slug'] !== $model->original['slug'] ) {
-                //dd($model);
-            }
-
-        });
-
-        static::moved(function ($model) {
-
-            //$model = static::findOrFail($model->id);
-
-            //dd($model->attributes, $model->parent()->first());
-
-            if ( ($parentNode = $model->parent) && $model->isBaseLocale() ) {
-
-                $model->attributes['route'] = $model->slug ?: '/';
-
-                if ( ! empty($parentNode->parent_id) ) {
-                    $model->attributes['route'] = str_join('/', $parentNode->route, $model->slug);
-                }
-
-                if ( $model->attributes['route'] ) {
-                    $model->attributes['route'] = '/' . trim($model->attributes['route'], '/');
-                }
-
-                $model->attributes['path'] = str_join('/', $parentNode->path, $model->slug);
-
-                $data = [
-                    'path' => $model->attributes['path'], 'route' => $model->attributes['route']
-                ];
-
-                DB::table('menus')->where('id', $model->id)->update($data);
-
-            }
-
-            if ( $model->attributes['slug'] !== $model->original['slug'] ) {
-                //dd($model);
             }
 
         });
@@ -196,26 +126,6 @@ class Menu extends \Kyoto\Support\Database\Model
         return $logout;
     }
 
-    public function getParentAttribute()
-    {
-        $parentNode = $this->parent()->first();
-
-        if ( $parentNode ) {
-            return $parentNode->localized($this->forceLocale);
-        }
-
-        return $parentNode;
-    }
-
-    public function setSlugAttribute($value)
-    {
-        if ( empty($this->parent_id) ) {
-            $this->attributes['path'] = trim($value, '/');
-        }
-
-        $this->attributes['slug'] = trim($value, '/');
-    }
-
     public function getTransactionAttribute()
     {
         return null;
@@ -248,6 +158,11 @@ class Menu extends \Kyoto\Support\Database\Model
         $option = $this->__set('option', $option);
 
         return $this;
+    }
+
+    public function getPreviewAttribute()
+    {
+        return url($this->path);
     }
 
     public function getConnectorAttribute()

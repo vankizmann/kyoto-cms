@@ -45,7 +45,7 @@
     width: 75px;
     height: 75px;
     text-align: center;
-    background-image: svg-load('kyoto.svg', fill=$color-primary);
+    background-image: svg-load('kyoto.svg', fill=$color-black);
     background-size: 38px 38px;
     background-repeat: no-repeat;
     background-position: center;
@@ -86,7 +86,7 @@
     display: block;
     width: 1px;
     height: 100%;
-    background: rgba($color-gray-50, 0.1);
+    background: rgba($color-black, 0.075);
 }
 
 .kyo-backend > .kyo-website .n-resizer {
@@ -96,7 +96,18 @@
     background-color: rgba($color-background, 0.6);
 }
 
-// .kyo-backend > .kyo-website  .n-draglist-item.n-current {
-//     background-color: rgba($color-gray-50, 0.05);
-// }
+.kyo-backend > .kyo-website .n-draglist-item.n-current {
+    background-color: rgba($color-gray-50, 0.1);
+}
 
+.kyo-backend > .kyo-website .n-draglist-item.n-dragover {
+    background-color: rgba($color-gray-50, 0.2);
+}
+
+.kyo-backend > .kyo-website .n-draglist-item.n-nodrop {
+    background-color: rgba($color-danger, 0.2);
+}
+
+.kyo-backend > .kyo-website .n-draglist-item.n-selected {
+    background-color: rgba($color-gray-50, 0.1);
+}
