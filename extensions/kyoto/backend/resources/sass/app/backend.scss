@@ -100,6 +100,10 @@
     background-color: rgba($color-gray-50, 0.1);
 }
 
+.kyo-backend > .kyo-website .n-draglist-item.n-selected {
+    background-color: rgba($color-gray-50, 0.1);
+}
+
 .kyo-backend > .kyo-website .n-draglist-item.n-dragover {
     background-color: rgba($color-gray-50, 0.2);
 }
@@ -108,6 +112,3 @@
     background-color: rgba($color-danger, 0.2);
 }
 
-.kyo-backend > .kyo-website .n-draglist-item.n-selected {
-    background-color: rgba($color-gray-50, 0.1);
-}

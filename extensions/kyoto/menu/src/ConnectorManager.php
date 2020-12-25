@@ -14,6 +14,11 @@ class ConnectorManager
         $this->loaded[$key] = new $connector;
     }
 
+    public function has($key)
+    {
+        return ! empty($this->loaded[$key]);
+    }
+
     public function find($key)
     {
         if ( ! isset($this->loaded[$key]) ) {

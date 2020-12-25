@@ -60,10 +60,6 @@ export default {
 
         startTransaction(sources, target, strategy)
         {
-            if ( sources.length !== 1 ) {
-                return this.Notify(this.trans('Only one menu at time can be inserted.'), 'danger');
-            }
-
             this.transaction = {
                 sources, target, strategy
             };
@@ -74,6 +70,10 @@ export default {
 
             if ( Nano.Arr.findIndex(items, { transaction: null }) !== -1 ) {
                 return this.startMove();
+            }
+
+            if ( sources.length !== 1 ) {
+                return this.Notify(this.trans('Only one menu at time can be inserted.'), 'danger');
             }
 
             this.formBuffer = this.resetFormBuffer(Nano.Arr.first(items));
@@ -166,6 +166,7 @@ export default {
             scrollTopOnChange: false,
             insertNode: false,
             removeNode: false,
+            renderSelect: true,
             renderExpand: true,
             viewportHeight: true,
             ghostMode: true,

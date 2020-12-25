@@ -9,7 +9,7 @@ class PageLocale extends Model
     protected $table = 'page_locales';
 
     protected $fillable = [
-        'id', 'foreign_id', 'locale', 'title', 'content'
+        'id', 'foreign_id', 'locale', 'title', 'slug', 'content'
     ];
 
     protected $attributes = [

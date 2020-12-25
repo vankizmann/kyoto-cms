@@ -24,6 +24,31 @@ trait Castable
         });
     }
 
+    /**
+     * Get the casts array.
+     *
+     * @return array
+     */
+    public function getCasts()
+    {
+        return $this->casts;
+    }
+
+    /**
+     * Get the type of cast for a model attribute.
+     *
+     * @param  string  $key
+     * @return string
+     */
+    protected function getCastType($key)
+    {
+        if ( isset($this->casts[$key]) ) {
+            return trim(strtolower($this->casts[$key]));
+        }
+
+        return parent::getCastType($key);
+    }
+
     protected function setCastAttribute($key, $value)
     {
         if ( $this->getCastType($key) === 'object' && is_object($value) ) {

@@ -3,6 +3,9 @@
 namespace Kyoto\Page\Connectors;
 
 use Illuminate\Support\Str;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\Menu\Models\Menu;
+use Kyoto\Page\Models\Page;
 use Kyoto\Menu\Connectors\ConnectorElement;
 
 class PageConnector extends ConnectorElement
@@ -30,7 +33,7 @@ class PageConnector extends ConnectorElement
     {
         return [
             'edit' => [
-                'name' => 'KyoPageEdit', 'params' => ['id' => $menu->getOption('page_id')]
+                'name' => 'KyoPageEdit', 'params' => ['id' => $menu->foreign_id]
             ]
         ];
     }
@@ -39,20 +42,42 @@ class PageConnector extends ConnectorElement
      * Provide data for view.
      *
      * @param \Kyoto\Menu\Models\Menu $menu
-     * @param array $data
+     * @param Kyoto\Page\Models\Page|array $data
      * @return mixed
      */
-    public function transaction($menu, $page)
+    public function transaction($menu, $source)
     {
-        $menu->setAttribute('title', $page['title']);
+        if ( ! is_a($source, Page::class) ) {
+            $source = Page::findOrFail($source['id']);
+        }
 
-        if ( empty($menu->slug) ) {
+        $menu->setAttribute('title', $source->title);
+
+        if ( ! $menu->exists && empty($menu->slug) ) {
             $menu->setAttribute('slug', Str::slug($menu->title));
         }
 
-        $menu->setOption('page_id', $page['id']);
+        $menu->setAttribute('foreign_id', $source->id);
 
         return $menu;
+    }
+
+    /**
+     * Provide data for view.
+     *
+     * @param \Kyoto\Page\Models\Page $source
+     * @return mixed
+     */
+    public function syncronize($source)
+    {
+        $menus = Menu::where('foreign_id', $source->id)
+            ->where('type', 'kyoto/page::page')->get();
+
+        foreach ( $menus as $menu ) {
+            $this->transaction($menu, $source)->save();
+        }
+
+        return $this;
     }
 
     /**

@@ -71,7 +71,7 @@ class FrontendMenuTableSeeder extends Seeder
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Login',
-            'slug'      => '/login',
+            'slug'      => 'login',
             'matrix'    => 1,
             'guard'     => 0,
             'parent'    => $root,
@@ -84,7 +84,7 @@ class FrontendMenuTableSeeder extends Seeder
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Hmm',
-            'slug'      => '/hm/:any',
+            'slug'      => 'hm/:any',
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $root,
@@ -98,7 +98,7 @@ class FrontendMenuTableSeeder extends Seeder
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Demo EN',
-            'slug'      => '/demo-en',
+            'slug'      => 'demo-en',
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $root,
@@ -106,12 +106,12 @@ class FrontendMenuTableSeeder extends Seeder
 
         $demo->localized('de')->update([
             'title'         => 'Demo DE',
-            'slug'          => '/demo-de'
+            'slug'          => 'demo-de'
         ]);
 
         $demo->localized('ru')->update([
             'title'         => 'Demo RU',
-            'slug'          => '/demo-ru'
+            'slug'          => 'demo-ru'
         ]);
 
         $test = Menu::create([
@@ -121,7 +121,7 @@ class FrontendMenuTableSeeder extends Seeder
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'Test EN',
-            'slug'      => '/test-en',
+            'slug'      => 'test-en',
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $demo,
@@ -129,19 +129,15 @@ class FrontendMenuTableSeeder extends Seeder
 
         $test->localized('de')->update([
             'title'         => 'Test DE',
-            'slug'          => '/test-de'
+            'slug'          => 'test-de'
         ]);
 
         $test->localized('da')->update([
             'title'         => 'Test DA',
-            'slug'          => '/test-da'
+            'slug'          => 'test-da'
         ]);
 
-        set_time_limit(0);
-
-        DB::beginTransaction();
-
-        foreach ( range(0, 800) as $index ) {
+        foreach ( range(0, 10) as $index ) {
 
             Menu::create([
                 'type'   => 'kyoto/menu::redirect',
@@ -150,16 +146,13 @@ class FrontendMenuTableSeeder extends Seeder
                 'state'  => 1,
                 'hide'   => 0,
                 'title'  => 'Redirect ' . $index,
-                'slug'   => '/redirect' . $index,
+                'slug'   => 'redirect' . $index,
                 'matrix' => 1,
                 'guard'  => 0,
                 'parent' => $root,
             ]);
 
         }
-
-        DB::commit();
-
 
     }
 

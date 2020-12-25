@@ -16176,14 +16176,14 @@ th {
 .kyo-backend > .kyo-website .n-draglist-item.n-current {
   background-color: rgba(147, 155, 171, 0.1); }
 
+.kyo-backend > .kyo-website .n-draglist-item.n-selected {
+  background-color: rgba(147, 155, 171, 0.1); }
+
 .kyo-backend > .kyo-website .n-draglist-item.n-dragover {
   background-color: rgba(147, 155, 171, 0.2); }
 
 .kyo-backend > .kyo-website .n-draglist-item.n-nodrop {
   background-color: rgba(244, 66, 87, 0.2); }
-
-.kyo-backend > .kyo-website .n-draglist-item.n-selected {
-  background-color: rgba(147, 155, 171, 0.1); }
 
 .kyo-login {
   position: relative;

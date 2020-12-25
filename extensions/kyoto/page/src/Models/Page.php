@@ -2,6 +2,7 @@
 
 namespace Kyoto\Page\Models;
 
+use Kyoto\Menu\Facades\Connector;
 use Kyoto\Support\Database\Traits\Translatable;
 
 class Page extends \Kyoto\Support\Database\Model
@@ -11,7 +12,7 @@ class Page extends \Kyoto\Support\Database\Model
     protected $table = 'pages';
 
     protected $fillable = [
-        'title', 'content', 'builder', 'guard_id'
+        'title', 'slug', 'content', 'builder', 'guard_id'
     ];
 
     protected $appends = [
@@ -44,12 +45,8 @@ class Page extends \Kyoto\Support\Database\Model
 
     protected static function boot()
     {
-        static::saving(function () {
-
-            if ( app('kyoto')->isReady() ) {
-                app('kyoto.menu')->clear();
-            }
-
+        static::saved(function ($model) {
+            Connector::find('kyoto/page::page')->syncronize($model);
         });
 
         parent::boot();

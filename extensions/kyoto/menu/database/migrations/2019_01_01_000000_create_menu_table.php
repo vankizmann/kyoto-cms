@@ -13,6 +13,9 @@ class CreateMenuTable extends Migration
             $table->uuid('id')
                 ->primary();
 
+            $table->uuid('foreign_id')
+                ->nullable();
+
             $table->integer('state')
                 ->default(0);
 

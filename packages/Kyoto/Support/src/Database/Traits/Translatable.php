@@ -32,9 +32,7 @@ trait Translatable
     public static function bootTranslatable()
     {
         static::saving(function ($model) {
-
             $model->translationsBuffer = $model->translations;
-
         });
 
         static::saved(function ($model) {
@@ -160,7 +158,7 @@ trait Translatable
     public function setLocalizedAttribute($key, $value, $translation = null)
     {
         if ( ! $this->exists || $this->isBaseLocale() ) {
-            return $this->attributes[$key] = $value;
+            return parent::setAttribute($key, $value);
         }
 
         if ( ! $translation ) {
@@ -178,11 +176,13 @@ trait Translatable
         return $translation->setAttribute($key, $value);
     }
 
-    public function attributesToArray()
+    public function attributesToArray($useOriginal = true)
     {
-        $this->loadMissing('translations');
+        $attributes = $this->attributes;
 
-        $attributes = parent::attributesToArray();
+        if ( $useOriginal ) {
+            $attributes = parent::attributesToArray();
+        }
 
         if ( isset($attributes['_locale']) ) {
             $this->forceLocale = $attributes['_locale'];
@@ -213,7 +213,7 @@ trait Translatable
             $this->forceLocale = $attributes['_locale'];
         }
 
-        unset($attributes['_locale'], $attributes['translations']);
+        unset($attributes['_locale']);
 
         if ( ! $this->exists || $this->isBaseLocale() ) {
             return parent::fill($attributes);
@@ -247,7 +247,7 @@ trait Translatable
             $translation = $this->getTranslation();
         }
 
-        if ( ! $translation || ! $translation->exists ) {
+        if ( ! $translation ) {
             return $value;
         }
 
@@ -256,6 +256,17 @@ trait Translatable
         }
 
         return empty($localized = $translation->getAttribute($key)) ? $value : $localized;
+    }
+
+    public function setAttribute($key, $value)
+    {
+        if ( $this->isBaseLocale() || ! in_array($key, $this->getLocalizedColumns()) ) {
+            return parent::setAttribute($key, $value);
+        }
+
+        $this->setLocalizedAttribute($key, $value);
+
+        return $this;
     }
 
     public function localized($locale = null)

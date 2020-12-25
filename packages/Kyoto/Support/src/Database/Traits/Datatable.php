@@ -129,13 +129,11 @@ trait Datatable
     {
         $query = $this->datatableQuery($query);
 
-        $total = $query->count();
-
         $data = $query->orderBy('left')->get()
             ->toHierarchy()->values()->toArray();
 
         return [
-            'page' => 1, 'limit' => 0, 'total' => $total, 'data' => $data
+            'page' => 1, 'limit' => 0, 'total' => $query->count(), 'data' => $data
         ];
     }
 

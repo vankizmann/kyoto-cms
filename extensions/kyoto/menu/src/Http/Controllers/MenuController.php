@@ -2,9 +2,9 @@
 
 namespace Kyoto\Menu\Http\Controllers;
 
+use Kyoto\Menu\Models\Menu;
 use Illuminate\Http\Request;
 use Kyoto\Menu\Facades\Connector;
-use Kyoto\Menu\Models\Menu;
 use Kyoto\Menu\Http\Requests\MenuRequest;
 
 class MenuController extends \App\Http\Controllers\Controller
@@ -147,7 +147,6 @@ class MenuController extends \App\Http\Controllers\Controller
 
         }
 
-
         if ( $data['strategy'] === 'inner' ) {
 
             $targetNode = Menu::findOrFail($data['target']);
@@ -181,7 +180,6 @@ class MenuController extends \App\Http\Controllers\Controller
         return response()->json([
             'data' => [], 'message' => trans('Menus has been inserted!')
         ]);
-        //dd($data);
     }
 
 }

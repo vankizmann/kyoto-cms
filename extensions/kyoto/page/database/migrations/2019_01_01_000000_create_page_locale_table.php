@@ -22,6 +22,9 @@ class CreatePageLocaleTable extends Migration
             $table->string('title')
                 ->nullable();
 
+            $table->string('slug')
+                ->nullable();
+
             $table->string('content')
                 ->nullable();
 

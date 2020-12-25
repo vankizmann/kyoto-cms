@@ -82,21 +82,27 @@ trait Pathable
         $parent = $this->getForeign()->getParentAttribute();
 
         if ( empty($parent) ) {
-            $this->attributes['path'] = $this->attributes['slug'];
+            $this->attributes['path'] = $this->slug;
         }
 
-        $this->attributes['route'] = $this->slug ?: '/';
+        $this->attributes['route'] = $this->slug;
+
+        if ( empty($parent) || empty($this->route) ) {
+            $this->attributes['route'] = '/';
+        }
 
         if ( ! empty($parent) && ! empty($parent->parent_id) ) {
-            $this->attributes['route'] = str_join('/', $parent->route, $this->slug);
+            $this->attributes['route'] = str_join('/', $parent->route,
+                trim($this->slug, '/'));
         }
 
         if ( ! empty($this->route) ) {
-            $this->attributes['route'] = '/' . trim($this->attributes['route'], '/');
+            $this->attributes['route'] = '/' . trim($this->route, '/');
         }
 
         if ( ! empty($parent) ) {
-            $this->attributes['path'] = str_join('/', $parent->path, $this->slug);
+            $this->attributes['path'] = str_join('/', $parent->path,
+                trim($this->slug, '/'));
         }
 
         return $this;

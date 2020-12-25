@@ -14,7 +14,8 @@ class InstallerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            \Kyoto\Installer\Console\Commands\InstallerResetCommand::class
+            \Kyoto\Installer\Console\Commands\InstallerResetCommand::class,
+            \Kyoto\Installer\Console\Commands\InstallerSetupCommand::class
         ]);
     }
 

@@ -17,13 +17,13 @@ class CreatePageTable extends Migration
                 ->default('');
 
             $table->string('slug')
-                ->default('');
+                ->nullable();
 
             $table->string('content')
                 ->nullable();
 
             $table->string('builder')
-            ->nullable();
+                ->nullable();
 
             $table->uuid('guard_id')
                 ->nullable();

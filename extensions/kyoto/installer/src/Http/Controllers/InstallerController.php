@@ -138,7 +138,7 @@ class InstallerController extends Controller
 
     public function setup()
     {
-        set_time_limit(360);
+        set_time_limit(0);
 
         $env = new EnvEditor;
 

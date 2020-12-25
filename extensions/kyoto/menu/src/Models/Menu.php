@@ -3,6 +3,7 @@
 namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
+use Illuminate\Support\Str;
 use Kyoto\Menu\Facades\Connector;
 use Kyoto\Menu\Models\Traits\Pathable;
 use Kyoto\Support\Database\Traits\Hide;
@@ -29,19 +30,16 @@ class Menu extends \Kyoto\Support\Database\Model
     ];
 
     protected $hidden = [
-        //'parent_id', 'left', 'right'
+        'parent_id', 'left', 'right'
     ];
 
     protected $localized = [
         'title', 'slug', 'route', 'path'
     ];
 
-    protected $relationships = [
-        'parent', 'childs'
-    ];
-
     protected $attributes = [
         'id'            => null,
+        'foreign_id'    => null,
         'state'         => null,
         'hide'          => null,
         'system'        => null,
@@ -57,6 +55,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     protected $casts = [
         'id'            => 'string',
+        'foreign_id'    => 'string',
         'state'         => 'integer',
         'hide'          => 'integer',
         'system'        => 'integer',
@@ -68,6 +67,10 @@ class Menu extends \Kyoto\Support\Database\Model
         'path'          => 'string',
         'option'        => 'object',
         'guard'         => 'integer'
+    ];
+
+    protected $relationships = [
+        'parent', 'children'
     ];
 
     protected static function boot()
@@ -162,36 +165,34 @@ class Menu extends \Kyoto\Support\Database\Model
 
     public function getPreviewAttribute()
     {
-        return url($this->path);
+        return url($this->attributes['path']);
     }
 
     public function getConnectorAttribute()
     {
-        $connector = Connector::find($this->type);
-
-        if ( empty($connector) ) {
+        if ( ! Connector::has($this->attributes['type']) ) {
             return [];
         }
 
-        return $connector->options($this);
+        return Connector::find($this->attributes['type'])
+            ->options($this);
     }
 
     public function toArray()
     {
-        $attributes = [];
-
-        foreach ( array_keys($this->attributes) as $key ) {
-            $attributes[$key] = $this->attributes[$key] ;
-        }
+        $attributes = $this->attributesToArray(false);
 
         foreach ( $this->appends as $key ) {
-            $attributes[$key] = $this->getAttribute($key);
+            if ( $this->hasGetMutator($key) ) {
+                $attributes[$key] = $this->{'get' . Str::studly($key) . 'Attribute'}($key);
+            }
         }
 
-        $attributes['option'] = $this->getAttribute('option');
+        $attributes['option'] = $this->castAttribute('option',
+            $attributes['option']);
 
-        if ( isset($this->relations['children']) ) {
-            $attributes['children'] = $this->getRelation('children');
+        foreach ( array_keys($this->relations) as $key ) {
+            $attributes[$key] = $this->getRelation($key)->toArray();
         }
 
         return $attributes;
