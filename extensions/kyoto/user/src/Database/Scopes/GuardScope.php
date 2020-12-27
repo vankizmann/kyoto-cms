@@ -2,9 +2,10 @@
 
 namespace Kyoto\User\Database\Scopes;
 
-use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Builder;
+use Kyoto\User\Facades\KyotoUser;
 
 class GuardScope implements Scope
 {
@@ -22,7 +23,7 @@ class GuardScope implements Scope
             }
 
             $query->whereNotBetween($model->getDepthGuardColumn(), [
-                1, app('kyoto.user')->getGateDepth()
+                1, KyotoUser::getGateDepth()
             ]);
         });
 

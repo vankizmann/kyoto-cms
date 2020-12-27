@@ -2,9 +2,13 @@
 
 namespace Kyoto\Menu\Routers;
 
-use Illuminate\Routing\RouteRegistrar;
-use Kyoto\Routing\Route\RouteElement;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\Menu\Facades\KyotoMenu;
+use Kyoto\Menu\Facades\KyotoConnector;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Routing\Route\RouteHelper;
+use Kyoto\Routing\Route\RouteElement;
+use Illuminate\Routing\RouteRegistrar;
 use Kyoto\Routing\Routers\RouterInterface;
 
 class MenuRouter implements RouterInterface
@@ -12,20 +16,20 @@ class MenuRouter implements RouterInterface
 
     public function resolveRoute(RouteElement $url, RouteRegistrar $route)
     {
-        if ( ! app('kyoto')->isReady() ) {
+        if ( ! Kyoto::isReady() ) {
             return null;
         }
 
-        $menu = app('kyoto.menu')->getMenuByUrl();
+        $menu = KyotoMenu::getMenuByUrl();
 
         if ( ! $menu ) {
             return $this->notFound();
         }
 
-        app('kyoto')->setMenu($menu);
+        Kyoto::setMenu($menu);
 
         /** @var \Kyoto\Menu\Connectors\ConnectorInterface $connector */
-        $connector = app('kyoto.connector')->find($menu['type']);
+        $connector = KyotoConnector::find($menu['type']);
 
         if ( ! $connector ) {
             return null;
@@ -42,9 +46,9 @@ class MenuRouter implements RouterInterface
 
     public function notFound()
     {
-        $login = app('kyoto.user')->unguarded(function () {
+        $login = KyotoUser::unguarded(function () {
 
-            $baseMenu = app('kyoto.menu')->getMenuByUrl();
+            $baseMenu = KyotoMenu::getMenuByUrl();
 
             if ( ! $baseMenu ) {
                 return null;

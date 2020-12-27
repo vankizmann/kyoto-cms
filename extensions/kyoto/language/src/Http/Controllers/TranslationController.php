@@ -3,6 +3,7 @@
 namespace Kyoto\Language\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Language\Models\Translation;
 use Kyoto\Language\Http\Requests\TranslationRequest;
 
@@ -10,7 +11,7 @@ class TranslationController extends \App\Http\Controllers\Controller
 {
     public function index()
     {
-        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+        if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 

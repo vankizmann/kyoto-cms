@@ -12,12 +12,12 @@ class RedirectConnector extends ConnectorElement
      */
     public function route($menu)
     {
-        if ( empty($menu->option->url) ) {
+        if ( empty($menu->getOption('url')) ) {
             return null;
         }
 
         return [
-            'uses' => 'Kyoto\Menu\Http\Controllers\ConnectorController@redirect'
+            'uses' => 'Kyoto\Menu\Http\Controllers\RedirectConnectorController@index'
         ];
     }
 

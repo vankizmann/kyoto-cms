@@ -3,6 +3,7 @@
 namespace Kyoto\Page\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Page\Models\Page;
 use Kyoto\Page\Http\Requests\PageRequest;
 
@@ -10,7 +11,7 @@ class PageController extends \App\Http\Controllers\Controller
 {
     public function index()
     {
-        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+        if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 
@@ -19,7 +20,7 @@ class PageController extends \App\Http\Controllers\Controller
 
     public function show(Request $request)
     {
-        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+        if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 

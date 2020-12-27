@@ -3,9 +3,11 @@
 namespace Kyoto\Language\Models;
 
 use Kyoto\Support\Database\Model;
-use Kyoto\Support\Database\Traits\Translatable;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\Language\Facades\KyotoLanguage;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
+use Kyoto\Support\Database\Traits\Translatable;
 
 class Language extends Model
 {
@@ -46,8 +48,8 @@ class Language extends Model
     protected static function boot()
     {
         static::saved(function () {
-            if ( app('kyoto')->isReady() ) {
-                app('kyoto.language')->update();
+            if ( Kyoto::isReady() ) {
+                KyotoLanguage::clearLanguages();
             }
         });
 

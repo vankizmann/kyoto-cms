@@ -3,6 +3,7 @@
 namespace Kyoto\User\Database\Observers;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\User\Exceptions\PolicyException;
 
 class GuardObserver
@@ -12,7 +13,7 @@ class GuardObserver
     {
         $modelClass = get_class($model);
 
-        if ( $model->getUseActionGuard() && ! app('kyoto.user')->hasPolicyAction($modelClass, 'create') ) {
+        if ( $model->getUseActionGuard() && ! KyotoUser::hasPolicyAction($modelClass, 'create') ) {
             throw new PolicyException('Access to ' . $modelClass . '@create not granted.', 403);
         }
 
@@ -23,7 +24,7 @@ class GuardObserver
     {
         $modelClass = get_class($model);
 
-        if ( $model->getUseActionGuard() && ! app('kyoto.user')->hasPolicyAction($modelClass, 'update') ) {
+        if ( $model->getUseActionGuard() && ! KyotoUser::hasPolicyAction($modelClass, 'update') ) {
             throw new PolicyException('Access to ' . $modelClass . '@update not granted.', 403);
         }
 
@@ -34,7 +35,7 @@ class GuardObserver
     {
         $modelClass = get_class($model);
 
-        if ( $model->getUseActionGuard() && ! app('kyoto.user')->hasPolicyAction($modelClass, 'delete') ) {
+        if ( $model->getUseActionGuard() && ! KyotoUser::hasPolicyAction($modelClass, 'delete') ) {
             throw new PolicyException('Access to ' . $modelClass . '@delete not granted.', 403);
         }
 

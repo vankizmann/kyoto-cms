@@ -1847,6 +1847,7 @@ var render = function() {
                             },
                             [
                               _c("NTextarea", {
+                                attrs: { disabled: true },
                                 model: {
                                   value: _vm.result.source,
                                   callback: function($$v) {
@@ -2191,7 +2192,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_language_KyoLanguages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/language/KyoLanguages */ "./resources/js/pages/language/KyoLanguages.vue");
 /* harmony import */ var _pages_language_KyoLanguageCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/language/KyoLanguageCreate */ "./resources/js/pages/language/KyoLanguageCreate.vue");
 /* harmony import */ var _pages_language_KyoLanguageEdit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/language/KyoLanguageEdit */ "./resources/js/pages/language/KyoLanguageEdit.vue");
-/* harmony import */ var _pages_translation_KyoTranslations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/translation/KyoTranslations */ "./resources/js/pages/translation/KyoTranslations.vue");
+/* harmony import */ var _pages_translation_KyoTranslations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/translation/KyoTranslations */ "./resources/js/pages/translation/KyoTranslations.vue");
 /* harmony import */ var _pages_translation_KyoTranslationCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/translation/KyoTranslationCreate */ "./resources/js/pages/translation/KyoTranslationCreate.vue");
 /* harmony import */ var _pages_translation_KyoTranslationEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/translation/KyoTranslationEdit */ "./resources/js/pages/translation/KyoTranslationEdit.vue");
 
@@ -2202,7 +2203,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_language_KyoLanguage
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_language_KyoLanguageEdit__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_language_KyoLanguageEdit__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_translation_KyoTranslations__WEBPACK_IMPORTED_MODULE_7__["default"].name, _pages_translation_KyoTranslations__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_translation_KyoTranslations__WEBPACK_IMPORTED_MODULE_4__["default"].name, _pages_translation_KyoTranslations__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_translation_KyoTranslationCreate__WEBPACK_IMPORTED_MODULE_5__["default"].name, _pages_translation_KyoTranslationCreate__WEBPACK_IMPORTED_MODULE_5__["default"]);
 

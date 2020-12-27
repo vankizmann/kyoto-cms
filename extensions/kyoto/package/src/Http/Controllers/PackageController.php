@@ -4,7 +4,8 @@ namespace Kyoto\Package\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Kyoto\Application\Facades\Kyoto;
-use Kyoto\Menu\Facades\Connector;
+use Kyoto\Menu\Facades\KyotoConnector;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Package\Models\Package;
 
 class PackageController extends \App\Http\Controllers\Controller
@@ -12,7 +13,7 @@ class PackageController extends \App\Http\Controllers\Controller
 
     public function index()
     {
-        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+        if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 
@@ -123,7 +124,7 @@ class PackageController extends \App\Http\Controllers\Controller
     {
         $data = [];
 
-        foreach ( Connector::keys() as $key ) {
+        foreach ( KyotoConnector::keys() as $key ) {
             $data[] = ['label' => Kyoto::localize($key), 'value' => $key];
         }
 

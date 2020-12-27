@@ -2,6 +2,9 @@
 
 namespace Kyoto\Backend;
 
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\User\Facades\KyotoUser;
+use Kyoto\Language\Facades\KyotoLanguage;
 use Kyoto\Routing\Route\RouteHelper;
 
 class BackendManager {
@@ -70,18 +73,18 @@ class BackendManager {
 
     public function backendRoutes()
     {
-        return app('kyoto')->getMenu()->getDescendants()
+        return Kyoto::getMenu()->getDescendants()
             ->toHierarchy()->values()->toArray();
     }
 
     public function backendLanguages()
     {
-        return app('kyoto.language')->getLanguages();
+        return KyotoLanguage::getLanguages();
     }
 
     public function backendUser()
     {
-        return app('kyoto.user')->getUser()->toArray();
+        return KyotoUser::getUser()->toArray();
     }
 
 }

@@ -2,6 +2,9 @@
 
 namespace Kyoto\Application\Plugins;
 
+use Kyoto\Menu\Facades\KyotoMenu;
+use Kyoto\User\Facades\KyotoUser;
+
 trait MenuPlugin
 {
     public $menu = null;
@@ -12,13 +15,13 @@ trait MenuPlugin
 
     public function setMenu($menu = null)
     {
-        $this->menu = $menu ?: app('kyoto.menu')->getMenuByUrl();
+        $this->menu = $menu ?: KyotoMenu::getMenuByUrl();
 
         if ( ! $this->menu ) {
             abort(404);
         }
 
-        $this->root = app('kyoto.user')->unguarded(function () {
+        $this->root = KyotoUser::unguarded(function () {
             return $this->menu->getRoot();
         });
 

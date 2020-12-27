@@ -37,7 +37,7 @@
 
                         <div class="col--1-1">
                             <NFormItem :label="trans('Source')" prop="source">
-                                <NTextarea v-model="result.source"></NTextarea>
+                                <NTextarea :disabled="true" v-model="result.source"></NTextarea>
                             </NFormItem>
                         </div>
 

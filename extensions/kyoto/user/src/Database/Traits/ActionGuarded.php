@@ -3,6 +3,8 @@
 namespace Kyoto\User\Database\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\User\Database\Observers\GuardObserver;
 
 /**
@@ -17,7 +19,7 @@ trait ActionGuarded
 
     public static function bootActionGuarded()
     {
-        if ( ! app('kyoto')->isReady() ) {
+        if ( ! Kyoto::isReady() ) {
             return;
         }
 
@@ -27,7 +29,7 @@ trait ActionGuarded
     public function getUseActionGuard()
     {
         if ( ! isset($this->useActionGuard) ) {
-            return app('kyoto.user')->isGuarded();
+            return KyotoUser::isGuarded();
         }
 
         return $this->useActionGuard;

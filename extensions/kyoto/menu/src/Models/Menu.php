@@ -4,7 +4,10 @@ namespace Kyoto\Menu\Models;
 
 use Baum\NestedSet\Node;
 use Illuminate\Support\Str;
-use Kyoto\Menu\Facades\Connector;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\Menu\Facades\KyotoMenu;
+use Kyoto\User\Facades\KyotoUser;
+use Kyoto\Menu\Facades\KyotoConnector;
 use Kyoto\Menu\Models\Traits\Pathable;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
@@ -77,16 +80,16 @@ class Menu extends \Kyoto\Support\Database\Model
     {
         static::saving(function ($model) {
 
-            if ( app('kyoto')->isReady() ) {
-                app('kyoto.menu')->clear();
+            if ( Kyoto::isReady() ) {
+                KyotoMenu::clearMenus();
             }
 
         });
 
         static::moving(function ($model) {
 
-            if ( app('kyoto')->isReady() ) {
-                app('kyoto.menu')->clear();
+            if ( Kyoto::isReady() ) {
+                KyotoMenu::clearMenus();
             }
 
         });
@@ -96,14 +99,14 @@ class Menu extends \Kyoto\Support\Database\Model
 
     public function getUnguardedRoot()
     {
-        return app('kyoto.user')->unguarded(function () {
+        return KyotoUser::unguarded(function () {
             return $this->getRoot();
         });
     }
 
     public function getLogin($key = null, $fallback = null)
     {
-        $login = app('kyoto.user')->unguarded(function () {
+        $login = KyotoUser::unguarded(function () {
             return $this->getRoot()->getDescendantsAndSelf()
                 ->where('type', 'kyoto/user::login')->first();
         });
@@ -117,7 +120,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     public function getLogout($key = null, $fallback = null)
     {
-        $logout = app('kyoto.user')->unguarded(function () {
+        $logout = KyotoUser::unguarded(function () {
             return $this->getRoot()->getDescendantsAndSelf()
                 ->where('type', 'kyoto/user::logout')->first();
         });
@@ -137,6 +140,11 @@ class Menu extends \Kyoto\Support\Database\Model
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = Str::snake(str_replace(['.', ','], '', $value), '-');
+    }
+
+    public function hasOption($key)
+    {
+        return data_get($this->__get('option'), $key, -1) !== -1;
     }
 
     public function getOption($key, $fallback = null)
@@ -175,11 +183,11 @@ class Menu extends \Kyoto\Support\Database\Model
 
     public function getConnectorAttribute()
     {
-        if ( ! Connector::has($this->attributes['type']) ) {
+        if ( ! KyotoConnector::has($this->attributes['type']) ) {
             return [];
         }
 
-        return Connector::find($this->attributes['type'])
+        return KyotoConnector::find($this->attributes['type'])
             ->options($this);
     }
 

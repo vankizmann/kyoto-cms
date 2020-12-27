@@ -2,12 +2,16 @@
 
 namespace Kyoto\User\Http\Middleware;
 
+use Kyoto\User\Facades\KyotoUser;
+
 class EnableGuardedMode
 {
+
     public function handle($request, \Closure $next)
     {
-        app('kyoto.user')->enableGuarded();
+        KyotoUser::enableGuard();
 
         return $next($request);
     }
+
 }

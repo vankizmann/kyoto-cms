@@ -4,7 +4,7 @@ namespace Kyoto\Page\Models;
 
 use Illuminate\Support\Str;
 use Kyoto\Menu\Models\Menu;
-use Kyoto\Menu\Facades\Connector;
+use Kyoto\Menu\Facades\KyotoConnector;
 use Kyoto\Application\Facades\Kyoto;
 use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
@@ -66,7 +66,7 @@ class Page extends \Kyoto\Support\Database\Model
 
         static::saved(function ($model) {
             Kyoto::localized(null, function () use ($model) {
-                Connector::find('kyoto/page::page')->syncronize($model);
+                KyotoConnector::find('kyoto/page::page')->syncronize($model);
             });
         });
 

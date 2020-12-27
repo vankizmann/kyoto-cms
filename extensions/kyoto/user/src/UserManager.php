@@ -20,14 +20,18 @@ class UserManager
         return ! $this->guardState;
     }
 
-    public function disableGuarded()
-    {
-        $this->guardState = false;
-    }
-
-    public function enableGuarded()
+    public function enableGuard()
     {
         $this->guardState = true;
+
+        return $this;
+    }
+
+    public function disableGuard()
+    {
+        $this->guardState = false;
+
+        return $this;
     }
 
     public function unguarded($callback)

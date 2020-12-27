@@ -2,17 +2,18 @@
 
 namespace Kyoto\Menu\Http\Controllers;
 
-use Kyoto\Menu\Models\Menu;
 use Illuminate\Http\Request;
 use Kyoto\Application\Facades\Kyoto;
-use Kyoto\Menu\Facades\Connector;
+use Kyoto\User\Facades\KyotoUser;
+use Kyoto\Menu\Facades\KyotoConnector;
+use Kyoto\Menu\Models\Menu;
 use Kyoto\Menu\Http\Requests\MenuRequest;
 
 class MenuController extends \App\Http\Controllers\Controller
 {
     public function index(Request $request)
     {
-        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+        if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 
@@ -138,7 +139,7 @@ class MenuController extends \App\Http\Controllers\Controller
             ]);
 
 
-            $data['source'][$index] = Connector::find($menuNode->type)
+            $data['source'][$index] = KyotoConnector::find($menuNode->type)
                 ->transaction($menuNode, $source);
 
             $data['source'][$index]->save();

@@ -2,14 +2,15 @@
 
 namespace Kyoto\Menu;
 
-use function foo\func;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Menu\Models\Menu;
-use Kyoto\Routing\Route\RouteHelper;
 use Kyoto\Support\Php\PhpEditor;
+use Kyoto\Routing\Route\RouteHelper;
 
 class MenuManager {
 
-    const CACHE_PATH = 'kyoto/menu';
+    const MENU_PATH = 'kyoto/menu';
 
     public $menus = [
         //
@@ -25,31 +26,12 @@ class MenuManager {
         $this->loadMenus();
     }
 
-    public function update()
-    {
-        $this->updateMenus();
-
-        return $this;
-    }
-
-    public function clear()
-    {
-        $path = storage_path(str_join('/',
-            self::CACHE_PATH, '*.php'));
-
-        foreach ( glob($path) as $file ) {
-            unlink($file);
-        }
-
-        return $this;
-    }
-
     public function loadMenus()
     {
-        foreach ( app('kyoto')->getLocales() as $locale ) {
+        foreach ( Kyoto::getLocales() as $locale ) {
 
             $path = storage_path(str_join('/',
-                self::CACHE_PATH, "{$locale}.php"));
+                self::MENU_PATH, "{$locale}.php"));
 
             if ( ! file_exists($path) ) {
                 $this->updateMenu($locale);
@@ -61,14 +43,14 @@ class MenuManager {
 
     public function updateMenu($locale)
     {
-        app('kyoto')->localized($locale, function ($locale) {
+        Kyoto::localized($locale, function ($locale) {
 
-            $menus = app('kyoto.user')->unguarded(function () {
+            $menus = KyotoUser::unguarded(function () {
                 return Menu::enabled()->whereNotIn('type', $this->exclude)
                     ->get()->toArray();
             });
 
-            $path = storage_path(str_join('/', self::CACHE_PATH, "{$locale}.php"));
+            $path = storage_path(str_join('/', self::MENU_PATH, "{$locale}.php"));
 
             PhpEditor::saveFile($path, $menus);
         });
@@ -76,20 +58,21 @@ class MenuManager {
 
     public function updateMenus()
     {
-        foreach ( app('kyoto')->getLocales() as $locale ) {
+        foreach ( Kyoto::getLocales() as $locale ) {
             $this->updateMenu($locale);
         }
     }
 
-    public function findByUrl($url = null)
+    public function clearMenus()
     {
-        foreach ( $this->menus[app()->getLocale()] as $menu ) {
-            if ( RouteHelper::isRoute($menu['path'], $url) ) {
-                return $menu;
-            }
+        $path = storage_path(str_join('/',
+            self::MENU_PATH, '*.php'));
+
+        foreach ( glob($path) as $file ) {
+            unlink($file);
         }
 
-        return null;
+        return $this;
     }
 
     public function getMenus()
@@ -99,7 +82,13 @@ class MenuManager {
 
     public function getMenuByUrl($url = null)
     {
-        $menu = $this->findByUrl($url);
+        $menu = null;
+
+        foreach ( $this->menus[app()->getLocale()] as $item ) {
+            if ( RouteHelper::isRoute($item['path'], $url) ) {
+                $menu = $item;
+            }
+        }
 
         if ( ! empty($menu) ) {
             return Menu::find($menu['id']);

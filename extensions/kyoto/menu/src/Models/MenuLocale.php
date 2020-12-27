@@ -33,17 +33,17 @@ class MenuLocale extends Model
         'path'          => 'string',
     ];
 
-    protected static function boot()
-    {
-        static::saving(function ($model) {
+    // protected static function boot()
+    // {
+    //     static::saving(function ($model) {
 
-            if ( app('kyoto')->isReady() ) {
-                app('kyoto.menu')->clear();
-            }
+    //         if ( app('kyoto')->isReady() ) {
+    //             app('kyoto.menu')->clear();
+    //         }
 
-        });
+    //     });
 
-        parent::boot();
-    }
+    //     parent::boot();
+    // }
 
 }

@@ -3,6 +3,8 @@
 namespace Kyoto\User\Database\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Kyoto\Application\Facades\Kyoto;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\User\Database\Scopes\GuardScope;
 
 /**
@@ -22,7 +24,7 @@ trait DepthGuarded
 
     public static function bootDepthGuarded()
     {
-        if ( ! app('kyoto')->isReady() ) {
+        if ( ! Kyoto::isReady() ) {
             return;
         }
 
@@ -32,7 +34,7 @@ trait DepthGuarded
     public function getUseDepthGuard()
     {
         if ( ! isset($this->useDepthGuard) ) {
-            return app('kyoto.user')->isGuarded();
+            return KyotoUser::isGuarded();
         }
 
         return $this->useDepthGuard;

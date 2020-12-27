@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Kyoto\Menu\Facades\Connector;
+use Kyoto\Menu\Facades\KyotoConnector;
 use Kyoto\Menu\Models\Menu;
 use Kyoto\Page\Models\Page;
 
@@ -29,7 +29,7 @@ class PageTableSeeder extends Seeder
             'parent' => $root, 'foreign_id' => $demo->id, 'type' => 'kyoto/page::page'
         ]);
 
-        Connector::find('kyoto/page::page')
+        KyotoConnector::find('kyoto/page::page')
             ->transaction($menu, $demo)->save();
 
         $menu->makeFirstChildOf($root);
@@ -53,7 +53,7 @@ class PageTableSeeder extends Seeder
             'parent' => $root, 'foreign_id' => $home->id, 'type' => 'kyoto/page::page'
         ]);
 
-        Connector::find('kyoto/page::page')
+        KyotoConnector::find('kyoto/page::page')
             ->transaction($menu, $home)->save();
 
         $menu->makeFirstChildOf($root);

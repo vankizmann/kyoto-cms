@@ -3,13 +3,14 @@
 namespace Kyoto\Media\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Media\Models\Media;
 
 class MediaController extends \App\Http\Controllers\Controller
 {
     public function index()
     {
-        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+        if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 

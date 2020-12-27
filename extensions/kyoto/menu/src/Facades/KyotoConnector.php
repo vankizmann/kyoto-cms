@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Kyoto\Menu\Connectors\ConnectorInterface find(string $key)
  * @method static array keys()
  */
-class Connector extends Facade
+class KyotoConnector extends Facade
 {
     /**
      * Get the registered name of the component.
