@@ -33,6 +33,10 @@ class PhpEditor
 
     public function save($data)
     {
+        if ( ! file_exists(dirname($this->path)) ) {
+            mkdir(dirname($this->path));
+        }
+
         file_put_contents($this->path, "<?php \n return " . var_export($data, true) . ";");
 
         return $this;

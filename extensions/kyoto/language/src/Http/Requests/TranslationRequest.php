@@ -1,10 +1,10 @@
 <?php
 
-namespace Kyoto\Page\Http\Requests;
+namespace Kyoto\Language\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PageRequest extends FormRequest {
+class TranslationRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class PageRequest extends FormRequest {
     public function rules()
     {
         return [
-           'state'           => 'required|integer',
-//            'hide'            => 'required|integer',
-            'title'           => 'required',
-            'content'         => 'present',
+            'state'         => 'required|integer',
+            'source'        => 'required|unique_val:translations',
+            'target'        => 'required',
         ];
     }
 

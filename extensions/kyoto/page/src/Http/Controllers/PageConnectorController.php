@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Kyoto\Application\Facades\Kyoto;
 use Kyoto\Page\Models\Page;
 
-class ConnectorController extends Controller
+class PageConnectorController extends Controller
 {
     public function __construct()
     {
@@ -21,7 +21,7 @@ class ConnectorController extends Controller
             abort(404);
         }
 
-        $page = Page::findOrFail($foreign_id);
+        $page = Page::enabled()->findOrFail($foreign_id);
 
         if ( empty($page) ) {
             abort(404);

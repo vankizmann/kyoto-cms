@@ -2,6 +2,7 @@
 
 namespace Kyoto\Extension\Loaders;
 
+use Illuminate\Translation\Translator;
 use Kyoto\Extension\Config\ExtensionConfig;
 
 class TranslationLoader extends LoaderElement

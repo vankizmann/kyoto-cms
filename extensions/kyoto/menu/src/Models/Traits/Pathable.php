@@ -46,11 +46,6 @@ trait Pathable
         return $parentNode;
     }
 
-    public function setSlugAttribute($value)
-    {
-        $this->attributes['slug'] = trim($value, '/');
-    }
-
     public function isMenuEntity()
     {
         return is_a($this, Menu::class);

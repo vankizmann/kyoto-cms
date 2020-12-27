@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePageLocaleTable extends Migration
+class CreateTranslationLocaleTable extends Migration
 {
     public function up()
     {
-        Schema::create('page_locales', function(Blueprint $table) {
+        Schema::create('translation_locales', function(Blueprint $table) {
 
             $table->uuid('id')
                 ->primary();
@@ -19,16 +19,7 @@ class CreatePageLocaleTable extends Migration
             $table->string('locale')
                 ->default('');
 
-            $table->string('title')
-                ->nullable();
-
-            $table->string('slug')
-                ->nullable();
-
-            $table->string('content')
-                ->nullable();
-
-            $table->text('builder')
+            $table->text('target')
                 ->nullable();
 
             $table->timestamps();
@@ -37,7 +28,7 @@ class CreatePageLocaleTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('page_locales');
+        Schema::dropIfExists('translation_locales');
     }
 
 }

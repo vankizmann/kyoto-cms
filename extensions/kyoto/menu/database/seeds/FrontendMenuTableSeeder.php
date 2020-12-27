@@ -29,6 +29,7 @@ class FrontendMenuTableSeeder extends Seeder
 
         $root = Menu::create([
             'id'        => uuid(),
+            'ident'     => 'web-frontend',
             'type'      => 'kyoto/menu::domain',
             'layout'    => 'kyoto/frontend::default',
             'state'     => 1,
@@ -36,32 +37,6 @@ class FrontendMenuTableSeeder extends Seeder
             'title'     => 'www.website.com',
             'slug'      => ':http://:domain/:locale',
             'guard'     => 0,
-        ]);
-
-        $home = Menu::create([
-            'id'        => uuid(),
-            'ident'     => 'web-home',
-            'type'      => 'kyoto/page::page',
-            'layout'    => null,
-            'state'     => 1,
-            'hide'      => 0,
-            'title'     => 'Homepage',
-            'slug'      => '/',
-            'matrix'    => 1,
-            'guard'     => 0,
-            'parent'    => $root,
-        ]);
-
-        $home->localized('de')->update([
-            'title'         => 'Startseite'
-        ]);
-
-        $home->localized('da')->update([
-            'title'         => 'Hjem',
-        ]);
-
-        $home->localized('ru')->update([
-            'title'         => 'Начните',
         ]);
 
         $login = Menu::create([
@@ -75,66 +50,6 @@ class FrontendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 0,
             'parent'    => $root,
-        ]);
-
-        Menu::create([
-            'id'        => uuid(),
-            'type'      => 'kyoto/page::page',
-            'layout'    => null,
-            'state'     => 1,
-            'hide'      => 0,
-            'title'     => 'Hmm',
-            'slug'      => 'hm/:any',
-            'matrix'    => 1,
-            'guard'     => 1,
-            'parent'    => $root,
-        ]);
-
-
-        $demo = Menu::create([
-            'id'        => uuid(),
-            'type'      => 'kyoto/page::page',
-            'layout'    => null,
-            'state'     => 1,
-            'hide'      => 0,
-            'title'     => 'Demo EN',
-            'slug'      => 'demo-en',
-            'matrix'    => 1,
-            'guard'     => 1,
-            'parent'    => $root,
-        ]);
-
-        $demo->localized('de')->update([
-            'title'         => 'Demo DE',
-            'slug'          => 'demo-de'
-        ]);
-
-        $demo->localized('ru')->update([
-            'title'         => 'Demo RU',
-            'slug'          => 'demo-ru'
-        ]);
-
-        $test = Menu::create([
-            'id'        => uuid(),
-            'type'      => 'kyoto/page::page',
-            'layout'    => null,
-            'state'     => 1,
-            'hide'      => 0,
-            'title'     => 'Test EN',
-            'slug'      => 'test-en',
-            'matrix'    => 1,
-            'guard'     => 1,
-            'parent'    => $demo,
-        ]);
-
-        $test->localized('de')->update([
-            'title'         => 'Test DE',
-            'slug'          => 'test-de'
-        ]);
-
-        $test->localized('da')->update([
-            'title'         => 'Test DA',
-            'slug'          => 'test-da'
         ]);
 
         foreach ( range(0, 10) as $index ) {

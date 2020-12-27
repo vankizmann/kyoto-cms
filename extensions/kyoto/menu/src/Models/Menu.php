@@ -134,6 +134,11 @@ class Menu extends \Kyoto\Support\Database\Model
         return null;
     }
 
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::snake(str_replace(['.', ','], '', $value), '-');
+    }
+
     public function getOption($key, $fallback = null)
     {
         return data_get($this->__get('option'), $key, $fallback);
@@ -165,7 +170,7 @@ class Menu extends \Kyoto\Support\Database\Model
 
     public function getPreviewAttribute()
     {
-        return url($this->attributes['path']);
+        return url($this->getAttribute('path'));
     }
 
     public function getConnectorAttribute()

@@ -19,6 +19,10 @@ class PageController extends \App\Http\Controllers\Controller
 
     public function show(Request $request)
     {
+        if ( ! app('kyoto.user')->hasPolicyAction([self::class, 'index']) ) {
+            abort(403);
+        }
+
         $id = $request->query('id', null);
 
         $user = new Page;

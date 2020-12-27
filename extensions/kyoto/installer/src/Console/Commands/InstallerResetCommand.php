@@ -37,15 +37,9 @@ class InstallerResetCommand extends Command
      */
     public function handle()
     {
-        $this->info('Removing language cache...');
+        $this->info('Removing cache...');
 
-        foreach ( glob(storage_path('kyoto/language/*.php')) as $path ) {
-            unlink($path);
-        }
-
-        $this->info('Removing menu cache...');
-
-        foreach ( glob(storage_path('kyoto/menu/*.php')) as $path ) {
+        foreach ( glob(storage_path('kyoto/*/*.php')) as $path ) {
             unlink($path);
         }
 

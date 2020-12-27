@@ -118,9 +118,9 @@ trait LanguagePlugin
      *
      * @param $locale
      */
-    public function setLocale($locale)
+    public function setLocale($locale = null)
     {
-        app()->setLocale($this->locale = $locale);
+        app()->setLocale($this->locale = $locale ?: $this->fallbackLocale);
     }
 
     /**
@@ -150,7 +150,7 @@ trait LanguagePlugin
      * @param $callback
      * @return mixed
      */
-    public function localized($locale, $callback)
+    public function localized($locale = null, $callback)
     {
         $initialLocal = $this->locale;
 

@@ -155,6 +155,13 @@ trait Translatable
         return $translation;
     }
 
+    public function getTranslations()
+    {
+        $this->loadMissing('translations');
+
+        return $this->translations;
+    }
+
     public function setLocalizedAttribute($key, $value, $translation = null)
     {
         if ( ! $this->exists || $this->isBaseLocale() ) {

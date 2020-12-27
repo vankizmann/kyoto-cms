@@ -2,6 +2,8 @@
 
 namespace Kyoto\Menu\Connectors;
 
+use Kyoto\Menu\Models\Menu;
+
 class ConnectorElement implements ConnectorInterface
 {
     /**
@@ -40,6 +42,24 @@ class ConnectorElement implements ConnectorInterface
     public function transaction($menu, $data)
     {
         return $menu;
+    }
+
+    /**
+     * Provide data for view.
+     *
+     * @param \Kyoto\Support\Database\Model $source
+     * @return mixed
+     */
+    public function syncronize($source)
+    {
+        $menus = Menu::where('foreign_id', $source->id)
+            ->where('type', $source->transaction)->get();
+
+        foreach ( $menus as $menu ) {
+            $this->transaction($menu, $source)->save();
+        }
+
+        return $this;
     }
 
     /**

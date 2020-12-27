@@ -2,8 +2,9 @@
 
 namespace Kyoto\Application;
 
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 use Kyoto\Support\Validation\CustomRules;
 
 class ApplicationServiceProvider extends ServiceProvider
@@ -31,6 +32,8 @@ class ApplicationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(255);
+
         Validator::extend('unique_val', function ($attribute, $value, $parameters) {
             return (new CustomRules)->unique_val($attribute, $value, $parameters);
         });

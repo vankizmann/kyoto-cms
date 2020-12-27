@@ -64,14 +64,11 @@ class MenuManager {
         app('kyoto')->localized($locale, function ($locale) {
 
             $menus = app('kyoto.user')->unguarded(function () {
-
-                //
                 return Menu::enabled()->whereNotIn('type', $this->exclude)
                     ->get()->toArray();
             });
 
-            $path = storage_path(str_join('/',
-                self::CACHE_PATH, "{$locale}.php"));
+            $path = storage_path(str_join('/', self::CACHE_PATH, "{$locale}.php"));
 
             PhpEditor::saveFile($path, $menus);
         });

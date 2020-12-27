@@ -232,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoLanguageCreate',
+  name: 'KyoMenuCreate',
   localized: true,
   urls: {
     show: '/{locale}/kyoto/language/http/controllers/language/show',
@@ -1788,8 +1788,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ekizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/ekizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
+__webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
 
 
 /***/ }),

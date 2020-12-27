@@ -671,6 +671,25 @@ class BackendMenuTableSeeder extends Seeder
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoTranslationCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'system'    => 1,
+            'title'     => 'Create translation',
+            'slug'      => 'create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize->localized('de')->update([
+            'title'     => 'Übersetzung erstellen',
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
             'option'    => ['component' =>  'KyoTranslationEdit'],
             'layout'    => null,
             'state'     => 1,

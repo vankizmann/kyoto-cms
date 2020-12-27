@@ -29,8 +29,8 @@ class LanguageRequest extends FormRequest {
             'hide'          => 'required|integer',
             'language'      => 'required',
             'country'       => 'required',
-            'locale'        => 'required|size:2|uval:languages',
-            'plate'         => 'required|size:2|uval:languages',
+            'locale'        => 'required|size:2|unique_val:languages',
+            'plate'         => 'required|size:2|unique_val:languages',
         ];
     }
 

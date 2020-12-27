@@ -47,9 +47,35 @@ class Model extends \Illuminate\Database\Eloquent\Model
     }
 
     public function forceSetAttribute($key, $value) {
+
         static::unguarded(function () use ($key, $value) {
             $this->setAttribute($key, $value);
         });
+
+        return $this;
+    }
+
+    public function maybeSetAttribute($key, $value) {
+
+        if ( in_array($key, $this->getAttributeKeys()) ) {
+            $this->setAttribute($key, $value);
+        }
+
+        return $this;
+    }
+
+    public function cloneAttributes($source, $keys = [])
+    {
+        foreach ( array_intersect($keys, $source->getAttributeKeys()) as $key ) {
+            $this->maybeSetAttribute($key, $source->getAttribute($key));
+        }
+
+        return $this;
+    }
+
+    public function getAttributeKeys()
+    {
+        return array_keys($this->getAttributes());
     }
 
     public function fill($attributes)

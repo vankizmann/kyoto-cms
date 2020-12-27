@@ -68,7 +68,7 @@
 <script>
     export default {
 
-        name: 'KyoLanguageCreate',
+        name: 'KyoMenuCreate',
 
         localized: true,
 

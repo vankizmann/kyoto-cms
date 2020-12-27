@@ -2,11 +2,10 @@
 
 namespace Kyoto\Page\Connectors;
 
-use Illuminate\Support\Str;
 use Kyoto\Application\Facades\Kyoto;
-use Kyoto\Menu\Models\Menu;
 use Kyoto\Page\Models\Page;
 use Kyoto\Menu\Connectors\ConnectorElement;
+use Kyoto\Support\Database\Traits\Translatable;
 
 class PageConnector extends ConnectorElement
 {
@@ -19,7 +18,7 @@ class PageConnector extends ConnectorElement
     public function route($menu)
     {
         return [
-            'uses' => 'Kyoto\Page\Http\Controllers\ConnectorController@page'
+            'uses' => 'Kyoto\Page\Http\Controllers\PageConnectorController@page'
         ];
     }
 
@@ -41,43 +40,49 @@ class PageConnector extends ConnectorElement
     /**
      * Provide data for view.
      *
-     * @param \Kyoto\Menu\Models\Menu $menu
-     * @param Kyoto\Page\Models\Page|array $data
+     * @param \Kyoto\Menu\Models\Menu $target
+     * @param Kyoto\Page\Models\Page $source
      * @return mixed
      */
-    public function transaction($menu, $source)
+    public function transaction($target, $source)
     {
         if ( ! is_a($source, Page::class) ) {
             $source = Page::findOrFail($source['id']);
         }
 
-        $menu->setAttribute('title', $source->title);
+        $this->fill($target, $source);
 
-        if ( ! $menu->exists && empty($menu->slug) ) {
-            $menu->setAttribute('slug', Str::slug($menu->title));
+        if ( ! in_array(Translatable::class, class_uses($source)) ) {
+            return $target;
         }
 
-        $menu->setAttribute('foreign_id', $source->id);
+        foreach ( $source->getTranslations() as $translation ) {
+            $this->fill($target, $translation);
+        }
 
-        return $menu;
+        return $target;
     }
 
     /**
      * Provide data for view.
      *
-     * @param \Kyoto\Page\Models\Page $source
+     * @param \Kyoto\Menu\Models\Menu $target
+     * @param Kyoto\Page\Models\Page $source
      * @return mixed
      */
-    public function syncronize($source)
+    protected function fill($target, $source)
     {
-        $menus = Menu::where('foreign_id', $source->id)
-            ->where('type', 'kyoto/page::page')->get();
-
-        foreach ( $menus as $menu ) {
-            $this->transaction($menu, $source)->save();
+        if ( isset($source->locale) ) {
+            $target = $target->getFirstOrNewTranslation($source->locale);
         }
 
-        return $this;
+        $target->cloneAttributes($source, ['state', 'hide', 'title', 'slug']);
+
+        if ( $target->isMenuEntity() ) {
+            $target->setAttribute('foreign_id', $source->id);
+        }
+
+        return $target;
     }
 
     /**

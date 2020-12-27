@@ -4,6 +4,7 @@ namespace Kyoto\Menu\Http\Controllers;
 
 use Kyoto\Menu\Models\Menu;
 use Illuminate\Http\Request;
+use Kyoto\Application\Facades\Kyoto;
 use Kyoto\Menu\Facades\Connector;
 use Kyoto\Menu\Http\Requests\MenuRequest;
 
@@ -127,11 +128,15 @@ class MenuController extends \App\Http\Controllers\Controller
     {
         $data = $request->only(['source', 'target', 'strategy']);
 
+        Kyoto::localized(null, function () use ($data) {
+
+
         foreach ( (array) $data['source'] as $index => $source ) {
 
             $menuNode = (new Menu)->fill([
                 'id' => uuid(), 'state' => 1, 'hide' => 0, 'matrix' => 1, 'guard' => 0, 'type' => $source['transaction']
             ]);
+
 
             $data['source'][$index] = Connector::find($menuNode->type)
                 ->transaction($menuNode, $source);
@@ -176,6 +181,8 @@ class MenuController extends \App\Http\Controllers\Controller
             }
 
         }
+
+        });
 
         return response()->json([
             'data' => [], 'message' => trans('Menus has been inserted!')

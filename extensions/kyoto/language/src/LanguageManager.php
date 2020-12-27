@@ -1,18 +1,27 @@
 <?php
 
 namespace Kyoto\Language;
-use Kyoto\Language\Models\Language;
 use Kyoto\Support\Php\PhpEditor;
+use Kyoto\Language\Models\Language;
+use Kyoto\Language\Models\Translation;
 
 class LanguageManager {
 
-    const CACHE_PATH = 'kyoto/language';
+    const LOCALE_PATH = 'kyoto/locale';
+
+    const LANGUAGE_PATH = 'kyoto/language';
+
+    const TRANSLATION_PATH = 'kyoto/translation';
 
     public $locales = [
         //
     ];
 
     public $languages = [
+        //
+    ];
+
+    public $translations = [
         //
     ];
 
@@ -23,6 +32,12 @@ class LanguageManager {
         });
 
         app('kyoto')->setLocales($this->locales);
+
+        $this->loadTranslations();
+
+        foreach ( $this->translations as $locale => $translation) {
+            app('translator')->addLines($translation, $locale);
+        }
 
         $this->loadLanguages();
     }
@@ -37,7 +52,7 @@ class LanguageManager {
     public function loadLocales()
     {
         $cachePath = str_replace('/', DIRECTORY_SEPARATOR,
-            self::CACHE_PATH);
+            self::LOCALE_PATH);
 
         $path = storage_path(str_join('/',
             $cachePath, "locales.php"));
@@ -55,10 +70,10 @@ class LanguageManager {
             ->toArray();
 
         $cachePath = str_replace('/', DIRECTORY_SEPARATOR,
-            self::CACHE_PATH);
+            self::LOCALE_PATH);
 
         $path = storage_path(str_join('/',
-            self::CACHE_PATH, "locales.php"));
+            self::LOCALE_PATH, "locales.php"));
 
         PhpEditor::saveFile($path, $locales);
     }
@@ -69,7 +84,7 @@ class LanguageManager {
         foreach ( app('kyoto')->getLocales() as $locale ) {
 
             $path = storage_path(str_join('/',
-                self::CACHE_PATH, "{$locale}.php"));
+                self::LANGUAGE_PATH, "{$locale}.php"));
 
             if ( ! file_exists($path) ) {
                 $this->updateLanguage($locale);
@@ -87,7 +102,7 @@ class LanguageManager {
                 ->toArray();
 
             $path = storage_path(str_join('/',
-                self::CACHE_PATH, "{$locale}.php"));
+                self::LANGUAGE_PATH, "{$locale}.php"));
 
             PhpEditor::saveFile($path, $languages);
         });
@@ -97,6 +112,52 @@ class LanguageManager {
     {
         foreach ( app('kyoto')->getLocales() as $locale ) {
             $this->updateLanguage($locale);
+        }
+    }
+
+    public function loadTranslations()
+    {
+        foreach ( app('kyoto')->getLocales() as $locale ) {
+
+            $path = storage_path(str_join('/',
+                self::TRANSLATION_PATH, "{$locale}.php"));
+
+            if ( ! file_exists($path) ) {
+                $this->updateTranslation($locale);
+            }
+
+            $this->translations[$locale] = PhpEditor::loadFile($path);
+        }
+    }
+
+    public function updateTranslation($locale)
+    {
+        app('kyoto')->localized($locale, function ($locale) {
+
+            $translations = Translation::enabled()->get()
+                ->reduce(function ($merge, $translation) {
+
+                    if ( ! strpos($translation->source, '.') ) {
+                        $translation->source = "*.{$translation->source}";
+                    }
+
+                    return array_merge($merge, [
+                        $translation->source => $translation->target
+                    ]);
+
+                }, []);
+
+            $path = storage_path(str_join('/',
+                self::TRANSLATION_PATH, "{$locale}.php"));
+
+            PhpEditor::saveFile($path, $translations);
+        });
+    }
+
+    public function updateTranslations()
+    {
+        foreach ( app('kyoto')->getLocales() as $locale ) {
+            $this->updateTranslation($locale);
         }
     }
 

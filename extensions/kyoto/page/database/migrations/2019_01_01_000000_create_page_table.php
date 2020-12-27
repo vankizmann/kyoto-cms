@@ -13,16 +13,22 @@ class CreatePageTable extends Migration
             $table->uuid('id')
                 ->primary();
 
+            $table->integer('state')
+                ->default(1);
+
+            $table->integer('hide')
+                ->default(0);
+
             $table->string('title')
                 ->default('');
 
             $table->string('slug')
                 ->nullable();
 
-            $table->string('content')
+            $table->text('content')
                 ->nullable();
 
-            $table->string('builder')
+            $table->text('builder')
                 ->nullable();
 
             $table->uuid('guard_id')

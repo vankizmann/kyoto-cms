@@ -17,6 +17,7 @@
 <body>
 
     <div class="kyo-container">
+        {{ trans('Demotranslation') }}
         @yield('content')
     </div>
 

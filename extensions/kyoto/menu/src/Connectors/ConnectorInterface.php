@@ -15,11 +15,20 @@ interface ConnectorInterface
     /**
      * Collect data for menu rendering.
      *
-     * @param \Kyoto\Menu\Models\Menu $menu
-     * @param array $data
+     * @param \Kyoto\Menu\Models\Menu $target
+     * @param \Kyoto\Support\Database\Model $source
      * @return \Kyoto\Menu\Models\Menu
      */
-    public function transaction($menu, $data);
+    public function transaction($target, $source);
+
+    /**
+     * Collect source for source rendering.
+     *
+     * @param \Kyoto\Menu\Models\Menu $target
+     * @param \Kyoto\Support\Database\Model $source
+     * @return \Kyoto\Menu\Models\Menu
+     */
+    public function syncronize($source);
 
     /**
      * Provide options for backend.

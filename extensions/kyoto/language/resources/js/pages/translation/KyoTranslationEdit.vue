@@ -2,7 +2,7 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
+            <KyoTitlebar :link="{ name: 'KyoTranslations' }" class="col--flex-0-0" @delete="deleteItem">
                 <template slot="action">
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
@@ -24,15 +24,7 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('State')" prop="state">
                                 <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                    {{ trans('Page is enabled') }}
-                                </NSwitch>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Hide')" prop="hide">
-                                <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                    {{ trans('Page is hidden') }}
+                                    {{ trans('Translation is enabled') }}
                                 </NSwitch>
                             </NFormItem>
                         </div>
@@ -40,34 +32,23 @@
                     </div>
                 </NFormGroup>
 
-                <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
+                <NFormGroup icon="fa fa-language" :legend="trans('Translation')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1">
-                            <NFormItem :label="trans('Title')" prop="title">
-                                <NInput v-model="result.title"></NInput>
+                            <NFormItem :label="trans('Source')" prop="source">
+                                <NTextarea v-model="result.source"></NTextarea>
                             </NFormItem>
                         </div>
 
                         <div class="col--1-1">
-                            <NFormItem :label="trans('Slug')" prop="slug">
-                                <NInput v-model="result.slug"></NInput>
+                            <NFormItem :label="trans('Target')" prop="target">
+                                <NTextarea v-model="result.target"></NTextarea>
                             </NFormItem>
-                        </div>
-
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Content')" prop="content">
-                                <NTextarea v-model="result.content"></NTextarea>
-                            </NFormItem>
-                        </div>
-
-                        <div class="col--1-1">
-                            <KyoPageBuilder v-model="result"></KyoPageBuilder>
                         </div>
 
                     </div>
                 </NFormGroup>
-
             </NForm>
 
         </div>
@@ -76,21 +57,21 @@
 <script>
     export default {
 
-        name: 'KyoPageEdit',
+        name: 'KyoTranslationEdit',
 
         localized: true,
 
         urls: {
-            show: '/{locale}/kyoto/page/http/controllers/page/show',
-            update: '/{locale}/kyoto/page/http/controllers/page/update',
-            delete: '/{locale}/kyoto/page/http/controllers/page/delete'
+            show: '/{locale}/kyoto/language/http/controllers/translation/show',
+            update: '/{locale}/kyoto/language/http/controllers/translation/update',
+            delete: '/{locale}/kyoto/language/http/controllers/translation/delete'
         },
 
         methods: {
 
             gotoIndex()
             {
-                this.$router.push({ name: 'KyoPages' });
+                this.$router.push({ name: 'KyoTranslations' });
             }
 
         },

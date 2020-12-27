@@ -11,7 +11,8 @@ return [
     ],
 
     'seeds' => [
-        LanguageTableSeeder::class
+        LanguageTableSeeder::class,
+        TranslationTableSeeder::class
     ],
 
     'providers' => [
