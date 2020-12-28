@@ -20,7 +20,7 @@ class BackendMenuTableSeeder extends Seeder
             'id'        => uuid(),
             'type'      => 'kyoto/menu::redirect',
             'layout'    => null,
-            'option'    => ['url' => ':http://:domain/:locale/backend', 'status' => 302],
+            'option'    => ['url' => ':http://:domain/:locale/backend', 'status' => 301],
             'state'     => 1,
             'hide'      => 0,
             'system'    => 1,

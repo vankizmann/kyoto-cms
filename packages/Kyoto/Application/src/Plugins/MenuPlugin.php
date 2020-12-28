@@ -57,14 +57,9 @@ trait MenuPlugin
             return $layout;
         }
 
-        foreach ( $this->menu->getDescendantsAndSelf() as $menu ) {
-
-            if ( ! empty($menu['layout']) ) {
-                $layout = $menu['layout'];
-            }
-
-            if ( $menu['id'] === $this->menu['id'] ) {
-                break;
+        foreach ( $this->menu->getAncestorsAndSelf() as $menu ) {
+            if ( ! empty($menu->layout) ) {
+                $layout = $menu->layout;
             }
         }
 

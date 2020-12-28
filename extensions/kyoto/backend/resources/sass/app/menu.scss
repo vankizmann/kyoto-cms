@@ -78,6 +78,10 @@
     background-image: svg-load('icon_system.svg');
 }
 
+.kyo-mainmenu li.menus a:before {
+    background-image: svg-load('icon_menu.svg');
+}
+
 .kyo-mainmenu li a.router-link-active {
     color: $--color-primary;
 }

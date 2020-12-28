@@ -10,7 +10,8 @@ class PageTableSeeder extends Seeder
 
     public function run()
     {
-        $root = Menu::where('ident', 'web-frontend')->firstOrFail();
+        $default = Menu::where('ident', 'menu-default')->firstOrFail();
+        $footer = Menu::where('ident', 'menu-footer')->firstOrFail();
 
         $demo = Page::create([
             'id'        => uuid(),
@@ -26,13 +27,13 @@ class PageTableSeeder extends Seeder
         ]);
 
         $menu = new Menu([
-            'parent' => $root, 'foreign_id' => $demo->id, 'type' => 'kyoto/page::page'
+            'parent' => $default, 'foreign_id' => $demo->id, 'type' => 'kyoto/page::page'
         ]);
 
         KyotoConnector::find('kyoto/page::page')
             ->transaction($menu, $demo)->save();
 
-        $menu->makeFirstChildOf($root);
+        $menu->makeFirstChildOf($default);
 
         $home = Page::create([
             'id'        => uuid(),
@@ -50,13 +51,32 @@ class PageTableSeeder extends Seeder
 
 
         $menu = new Menu([
-            'parent' => $root, 'foreign_id' => $home->id, 'type' => 'kyoto/page::page'
+            'parent' => $footer, 'foreign_id' => $home->id, 'type' => 'kyoto/page::page'
         ]);
 
         KyotoConnector::find('kyoto/page::page')
             ->transaction($menu, $home)->save();
 
-        $menu->makeFirstChildOf($root);
+        $menu->makeFirstChildOf($default);
+
+        $imprint = Page::create([
+            'id'        => uuid(),
+            'state'     => 1,
+            'title'     => 'Imprint',
+            'slug'      => 'imprint',
+            'content'   => 'Hi im the imprint',
+            'guard_id'  => null,
+        ]);
+
+
+        $menu = new Menu([
+            'parent' => $footer, 'foreign_id' => $imprint->id, 'type' => 'kyoto/page::page'
+        ]);
+
+        KyotoConnector::find('kyoto/page::page')
+            ->transaction($menu, $imprint)->save();
+
+        //$menu->makeFirstChildOf($footer);
 
         // foreach ( Menu::where('type', 'kyoto/page::page')->get() as $menu ) {
         //     $menu->setAttribute('foreign_id', $page->id)

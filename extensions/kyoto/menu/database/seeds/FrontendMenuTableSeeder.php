@@ -9,7 +9,7 @@ class FrontendMenuTableSeeder extends Seeder
 
     public function run()
     {
-        $tmp = Menu::create([
+        $redirect = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::redirect',
             'layout'    => null,
@@ -27,16 +27,42 @@ class FrontendMenuTableSeeder extends Seeder
 //            '_locale'       => 'de',
 //        ])->save();
 
-        $root = Menu::create([
+        $domain = Menu::create([
             'id'        => uuid(),
             'ident'     => 'web-frontend',
             'type'      => 'kyoto/menu::domain',
-            'layout'    => 'kyoto/frontend::default',
+            'layout'    => null,
             'state'     => 1,
             'hide'      => 0,
             'title'     => 'www.website.com',
             'slug'      => ':http://:domain/:locale',
             'guard'     => 0,
+        ]);
+
+        $default = Menu::create([
+            'id'        => uuid(),
+            'ident'     => 'menu-default',
+            'type'      => 'kyoto/menu::menu',
+            'layout'    => 'kyoto/frontend::default',
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Mainmenu',
+            'slug'      => '/',
+            'guard'     => 0,
+            'parent'    => $domain,
+        ]);
+
+        $footer = Menu::create([
+            'id'        => uuid(),
+            'ident'     => 'menu-footer',
+            'type'      => 'kyoto/menu::menu',
+            'layout'    => 'kyoto/frontend::test',
+            'state'     => 1,
+            'hide'      => 0,
+            'title'     => 'Footermenu',
+            'slug'      => '/',
+            'guard'     => 0,
+            'parent'    => $domain,
         ]);
 
         $login = Menu::create([
@@ -49,25 +75,21 @@ class FrontendMenuTableSeeder extends Seeder
             'slug'      => 'login',
             'matrix'    => 1,
             'guard'     => 0,
-            'parent'    => $root,
+            'parent'    => $default,
         ]);
 
-        foreach ( range(0, 10) as $index ) {
-
-            Menu::create([
-                'type'   => 'kyoto/menu::redirect',
-                'layout' => null,
-                'option' => ['url' => 'http://wieistmeineip.de'],
-                'state'  => 1,
-                'hide'   => 0,
-                'title'  => 'Redirect ' . $index,
-                'slug'   => 'redirect' . $index,
-                'matrix' => 1,
-                'guard'  => 0,
-                'parent' => $root,
-            ]);
-
-        }
+        Menu::create([
+            'type'   => 'kyoto/menu::redirect',
+            'layout' => null,
+            'option' => ['url' => 'http://wieistmeineip.de'],
+            'state'  => 1,
+            'hide'   => 0,
+            'title'  => 'wieistmeineip.de',
+            'slug'   => 'wieistmeineip-de',
+            'matrix' => 1,
+            'guard'  => 0,
+            'parent' => $default,
+        ]);
 
     }
 
