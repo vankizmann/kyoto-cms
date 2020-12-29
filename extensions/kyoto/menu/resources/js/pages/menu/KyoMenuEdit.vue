@@ -56,6 +56,12 @@
                         </div>
 
                         <div class="col--1-1 col--1-2@sm">
+                            <NFormItem :label="trans('Identifier')" prop="ident">
+                                <NInput v-model="result.ident"></NInput>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Type')" prop="type">
                                 <KyoConnectorSelect v-model="result.type"></KyoConnectorSelect>
                             </NFormItem>

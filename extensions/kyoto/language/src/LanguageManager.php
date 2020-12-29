@@ -28,10 +28,7 @@ class LanguageManager {
         app('kyoto')->setLocales($this->locales);
 
         $this->loadTranslations();
-
-        foreach ( $this->translations as $locale => $translation) {
-            app('translator')->addLines($translation, $locale);
-        }
+        $this->patchTranslations();
 
         $this->loadLanguages();
     }
@@ -155,15 +152,7 @@ class LanguageManager {
 
             $translations = Translation::enabled()->get()
                 ->reduce(function ($merge, $translation) {
-
-                    if ( ! strpos($translation->source, '.') ) {
-                        $translation->source = "*.{$translation->source}";
-                    }
-
-                    return array_merge($merge, [
-                        $translation->source => $translation->target
-                    ]);
-
+                    return array_merge($merge, [$translation->source => $translation->target]);
                 }, []);
 
             $path = storage_path(str_join('/',
@@ -191,6 +180,31 @@ class LanguageManager {
 
         foreach ( glob($path) as $file ) {
             unlink($file);
+        }
+
+        return $this;
+    }
+
+    public function patchTranslations()
+    {
+        foreach ( $this->translations as $locale => $translation) {
+
+            $lines = [];
+
+            foreach ( $translation as $source => $target ) {
+
+                if ( empty($translation) ) {
+                    dd($this);
+                }
+
+                if ( strpos($source, '.') === false || strpos($source, ' ') === false ) {
+                    $source = "*.{$source}";
+                }
+
+                $lines[$source] = $target;
+            }
+
+            app('translator')->addLines($lines, $locale);
         }
 
         return $this;

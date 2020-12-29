@@ -36,33 +36,40 @@
     flex-wrap: wrap;
     width: 75px;
     height: 100%;
-    background: $--color-white;
-    box-shadow: 0 0 8px rgba($--color-black, 0.1);
+    border-radius: 0 20px 20px 0;
+    background: $color-black;
 }
 
-.kyo-backend .kyo-logo a {
+.kyo-sidebar > .kyo-logo {
+    flex: 0 0 auto;
+}
+
+.kyo-sidebar > .kyo-logo a {
     display: block;
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
+    margin: 10px;
     text-align: center;
-    background-image: svg-load('kyoto.svg', fill=$color-primary);
-    background-size: 38px 38px;
+    border-radius: 16px;
+    background-color: $color-primary-light;
+    background-size: 32px 32px;
     background-repeat: no-repeat;
     background-position: center;
+    background-image: svg-load('kyoto.svg', fill=$color-white);
 }
 
-.kyo-backend .kyo-logo a span {
+.kyo-sidebar > .kyo-logo a span {
     display: none;
 }
 
-.kyo-backend .kyo-logout a {
+.kyo-sidebar > .kyo-logout a {
     display: block;
     height: 75px;
     line-height: 75px;
     text-align: center;
 }
 
-.kyo-backend .kyo-logout a i {
+.kyo-sidebar > .kyo-logout a i {
     font-size: 16px;
     color: $--color-gray-40;
 }
@@ -74,7 +81,8 @@
     left: 75px;
     display: flex;
     height: 100%;
-    background-color: $color-background;
+    background: $color-white;
+    //background: $color-background-dark;
 }
 
 .kyo-backend > .kyo-website:after {
@@ -86,14 +94,14 @@
     display: block;
     width: 1px;
     height: 100%;
-    background: rgba($color-black, 0.075);
+    background: rgba($color-black, 0.085);
 }
 
 .kyo-backend > .kyo-website .n-resizer {
     z-index: 10;
 }
 .kyo-backend > .kyo-website .n-load:after {
-    background-color: rgba($color-background, 0.6);
+    background-color: rgba($color-white, 0.4);
 }
 
 .kyo-backend > .kyo-website .n-draglist-item.n-current {

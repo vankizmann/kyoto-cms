@@ -14,7 +14,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    box-shadow: 0 0 5px rgba($color-black, 0.1);
+    background: $color-white;
+    box-shadow: 1px 0 3px rgba($color-black, 0.1);
 }
 
 .kyo-layout-website__header:after {
@@ -89,11 +90,6 @@
     left: 0;
     width: 22px;
     height: 22px;
-    font-family: "Font Awesome 5 Free", sans-serif;
-    font-size: 12px;
-    line-height: 22px;
-    text-align: center;
-    color: $color-primary;
     transform: translateY(-50%);
     background-size: 22px 22px;
     background-position: center;
@@ -129,5 +125,5 @@
 }
 
 .kyo-website-node[data-type="kyoto/menu::redirect"]:before {
-    background-image: svg-load('icon_redirect.svg', fill=$color-primary);
+    background-image: svg-load('icon_redirect.svg');
 }

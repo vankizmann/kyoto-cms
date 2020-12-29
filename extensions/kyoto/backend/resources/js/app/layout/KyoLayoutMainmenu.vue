@@ -2,10 +2,10 @@
     <ul class="kyo-mainmenu">
         <li v-for="menu in menus" :key="menu.id" :class="getComponentClass(menu)">
             <router-link :to="menu.route">
-                <span>{{ menu.title }}</span>
+                <span>{{ trans(menu.title) }}</span>
             </router-link>
             <NPopover type="tooltip" :window="true" position="right-center">
-                {{ menu.title }}
+                {{ trans(menu.title) }}
             </NPopover>
         </li>
     </ul>

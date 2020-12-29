@@ -19,11 +19,15 @@
 
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
 
-                <NTableColumn type="string" prop="source" :label="trans('Translation')" :fluid="true" :sort="true">
+                <NTableColumn type="string" prop="source" :label="trans('Source')" :fluid="true" :sort="true">
                     <router-link slot-scope="{ value }" :to="{ name: 'KyoTranslationEdit', params: value }">{{ value.source }}</router-link>
                 </NTableColumn>
 
                 <NTableColumn type="string" prop="target" :label="trans('Target')" :fluid="true" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+
+                <NTableColumn type="string" prop="package" :label="trans('Package')" :sort="true" :filter="true">
                     <!-- Column -->
                 </NTableColumn>
 

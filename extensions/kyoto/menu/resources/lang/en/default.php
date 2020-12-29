@@ -1,6 +1,9 @@
 <?php
 
 return [
-    'redirect' => 'Redirect',
-    'vue' => 'Vuejs'
+    'domain' => 'Kyoto Domain',
+    'menu' => 'Kyoto Menu',
+    'redirect' => 'Kyoto Redirect',
+    'alias' => 'Kyoto Alias',
+    'vue' => 'Kyoto Vue',
 ];

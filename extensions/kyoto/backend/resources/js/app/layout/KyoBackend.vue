@@ -89,7 +89,7 @@
         data()
         {
             return {
-                locale: null, modal: false, width: 310, minWidth: 270, maxWidth: 600, strokeCache: []
+                locale: null, modal: false, width: 330, minWidth: 270, maxWidth: 600, strokeCache: []
             }
         },
 

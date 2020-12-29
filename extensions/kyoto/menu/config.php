@@ -20,6 +20,8 @@ return [
     ],
 
     'connectors' => [
+        'domain' => \Kyoto\Menu\Connectors\DomainConnector::class,
+        'menu' => \Kyoto\Menu\Connectors\MenuConnector::class,
         'redirect' => \Kyoto\Menu\Connectors\RedirectConnector::class,
         'vue' => \Kyoto\Menu\Connectors\VueConnector::class
     ],

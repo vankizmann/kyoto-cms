@@ -61,10 +61,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['root'],
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Anmelden',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/user::logout',
@@ -77,10 +73,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 0,
             'parent'    => $menus['root'],
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Abmelden',
         ]);
 
         $routes['dashboard'] = uuid();
@@ -147,10 +139,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['dashboard'],
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Seiten',
-        ]);
-
         $menus['page'] = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -164,10 +152,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['root'],
-        ]);
-
-        $menus['page']->localized('de')->update([
-            'title'     => 'Seiten',
         ]);
 
         $temporary = Menu::create([
@@ -185,10 +169,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['page'],
         ]);
 
-        $temporary->localized('de')->update([
-            'title'     => 'Seiten',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -202,10 +182,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Seite erstellen',
         ]);
 
         $localize = Menu::create([
@@ -223,10 +199,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Seite bearbeiten',
-        ]);
-
         $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -240,10 +212,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['page'],
-        ]);
-
-        $temporary->localized('de')->update([
-            'title'     => 'Menüs',
         ]);
 
         $localize = Menu::create([
@@ -261,10 +229,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Menü bearbeiten',
-        ]);
-
         $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -278,10 +242,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['page'],
-        ]);
-
-        $temporary->localized('de')->update([
-            'title'     => 'Medien',
         ]);
 
         $routes['user'] = uuid();
@@ -301,10 +261,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['dashboard'],
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Benutzer',
-        ]);
-
         $menus['user'] = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -318,10 +274,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['root'],
-        ]);
-
-        $menus['user']->localized('de')->update([
-            'title'     => 'Benutzer',
         ]);
 
         $temporary = Menu::create([
@@ -339,10 +291,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        $temporary->localized('de')->update([
-            'title'     => 'Benutzer',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -356,10 +304,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Benutzer erstellen',
         ]);
 
         $localize = Menu::create([
@@ -377,10 +321,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Benutzer bearbeiten',
-        ]);
-
         $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -394,10 +334,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['user'],
-        ]);
-
-        $temporary->localized('de')->update([
-            'title'     => 'Rollen',
         ]);
 
         $localize = Menu::create([
@@ -415,10 +351,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Rolle erstellen',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -432,10 +364,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Rolle bearbeiten',
         ]);
 
         $temporary = Menu::create([
@@ -453,10 +381,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['user'],
         ]);
 
-        $temporary->localized('de')->update([
-            'title'     => 'Zugänge',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -470,10 +394,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Zugang erstellen',
         ]);
 
         $localize = Menu::create([
@@ -491,10 +411,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Zugang bearbeiten',
-        ]);
-
         $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -508,10 +424,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['user'],
-        ]);
-
-        $temporary->localized('de')->update([
-            'title'     => 'Rechte',
         ]);
 
         $localize = Menu::create([
@@ -529,10 +441,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Recht erstellen',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -546,10 +454,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Recht bearbeiten',
         ]);
 
         $routes['language'] = uuid();
@@ -569,10 +473,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['dashboard'],
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Sprachen',
-        ]);
-
         $menus['language'] = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -586,10 +486,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['root'],
-        ]);
-
-        $menus['language']->localized('de')->update([
-            'title'     => 'Sprachen',
         ]);
 
         $temporary = Menu::create([
@@ -607,10 +503,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['language'],
         ]);
 
-        $temporary->localized('de')->update([
-            'title'     => 'Sprachen',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -624,10 +516,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Sprache erstellen',
         ]);
 
         $localize = Menu::create([
@@ -645,10 +533,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Sprache bearbeiten',
-        ]);
-
         $temporary = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -662,10 +546,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['language'],
-        ]);
-
-        $temporary->localized('de')->update([
-            'title'     => 'Übersetzungen',
         ]);
 
         $localize = Menu::create([
@@ -683,10 +563,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Übersetzung erstellen',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -700,10 +576,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Übersetzung bearbeiten',
         ]);
 
         $routes['package'] = uuid();
@@ -723,10 +595,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['dashboard'],
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Erweiterungen',
-        ]);
-
         $menus['package'] = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -740,10 +608,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $menus['root'],
-        ]);
-
-        $menus['package']->localized('de')->update([
-            'title'     => 'Erweiterungen',
         ]);
 
         $temporary = Menu::create([
@@ -761,10 +625,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['package'],
         ]);
 
-        $temporary->localized('de')->update([
-            'title'     => 'Erweiterungen',
-        ]);
-
         $localize = Menu::create([
             'id'        => uuid(),
             'type'      => 'kyoto/menu::vue',
@@ -778,10 +638,6 @@ class BackendMenuTableSeeder extends Seeder
             'matrix'    => 1,
             'guard'     => 1,
             'parent'    => $temporary,
-        ]);
-
-        $localize->localized('de')->update([
-            'title'     => 'Erweiterung erstellen',
         ]);
 
         $localize = Menu::create([
@@ -799,9 +655,6 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
-        $localize->localized('de')->update([
-            'title'     => 'Erweiterung bearbeiten',
-        ]);
     }
 
 }

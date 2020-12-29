@@ -613,6 +613,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoTranslations',
   localized: true,
@@ -1997,7 +2001,7 @@ var render = function() {
                 attrs: {
                   type: "string",
                   prop: "source",
-                  label: _vm.trans("Translation"),
+                  label: _vm.trans("Source"),
                   fluid: true,
                   sort: true
                 },
@@ -2026,6 +2030,16 @@ var render = function() {
                   prop: "target",
                   label: _vm.trans("Target"),
                   fluid: true,
+                  sort: true,
+                  filter: true
+                }
+              }),
+              _vm._v(" "),
+              _c("NTableColumn", {
+                attrs: {
+                  type: "string",
+                  prop: "package",
+                  label: _vm.trans("Package"),
                   sort: true,
                   filter: true
                 }

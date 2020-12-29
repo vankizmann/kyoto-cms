@@ -61,6 +61,11 @@ class BackendManager {
         return RouteHelper::getRoute(app('kyoto')->getMenu('path'));
     }
 
+    public function getTranslations()
+    {
+        return KyotoLanguage::getTranslations();
+    }
+
     public function loginPath()
     {
         return RouteHelper::getRoute(app('kyoto')->getMenu()->getLogin('path'));

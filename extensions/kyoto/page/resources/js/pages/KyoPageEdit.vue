@@ -24,7 +24,7 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('State')" prop="state">
                                 <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                    {{ trans('Page is enabled') }}
+                                    {{ trans('Item is enabled') }}
                                 </NSwitch>
                             </NFormItem>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="col--1-1 col--1-2@sm">
                             <NFormItem :label="trans('Hide')" prop="hide">
                                 <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                    {{ trans('Page is hidden') }}
+                                    {{ trans('Item is hidden') }}
                                 </NSwitch>
                             </NFormItem>
                         </div>

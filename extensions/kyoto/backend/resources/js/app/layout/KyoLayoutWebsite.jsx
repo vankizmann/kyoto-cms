@@ -6,44 +6,164 @@ export default {
 
     data()
     {
+        let query = {
+            search: '', columns: ['title', 'slug']
+        };
+
         return {
-            menus: [], load: true, modal: false, formBuffer: this.resetFormBuffer()
+            query, result: [], search: '', load: true, modal: false
         };
     },
 
-    beforeMount()
+    mounted()
     {
-        Nano.Event.bind('store/fetch:menus', () => {
-            this.load = true;
-        }, this._uid);
+        this.loadItems();
 
-        Nano.Event.bind('store/fetched:menus', () => {
-            this.load = false;
-        }, this._uid);
+        this.$watch('search', Nano.Any.debounce(this.updateSearch, 800));
 
-        Nano.Store.get('menus', (data) => this.menus = data, this._uid);
+        Nano.Event.bind('website:refresh', this.loadItems, this._uid);
+        Nano.Event.bind('locale:changed', this.loadItems, this._uid);
     },
 
-    beforeDestroy()
+    destroyed()
     {
-        Nano.Event.unbind('store/fetch:menus', this._uid);
-        Nano.Event.unbind('store/fetched:menus', this._uid);
+        Nano.Event.unbind('locale:changed', this._uid);
+    },
 
-        Nano.Store.forget('menus', this._uid);
+    watch: {
+
+        'query.search': function () {
+            this.loadItems();
+        },
+
     },
 
     methods: {
 
-        openEdit(row)
+        updateSearch()
         {
-            if ( Nano.Obj.has(row, 'connector.edit') ) {
-                this.$router.push(Nano.Obj.get(row, 'connector.edit'))
-            }
+            this.query.search = this.search;
         },
 
+        /**
+         * Allow drag function for table
+         * @returns {boolean}
+         */
+        allowDrag()
+        {
+            return false;
+        },
+
+        /**
+         * Allow drop function for table
+         * @returns {boolean}
+         */
+        allowDrop()
+        {
+            return false;
+        },
+
+        /**
+         * Safezone for table
+         * @returns {number}
+         */
         safeZone(height)
         {
             return height * 0.235;
+        },
+
+        /**
+         * Fetch items from server
+         */
+        loadItems()
+        {
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/index',
+                this.$root.$data, this.query);
+
+            this.$http.get(route, options)
+                .then(this.fetchDone, this.fetchError);
+        },
+
+        /**
+         * Fetch items from server
+         */
+        moveItems()
+        {
+            var { sources, target, strategy } = this.transaction;
+
+            sources = Nano.Arr.each(sources, (source) => {
+                return Nano.Obj.get(source, 'id');
+            });
+
+            target = Nano.Obj.get(target, 'item.id');
+
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
+                this.$root.$data);
+
+            let data = { source: sources, target, strategy };
+
+            this.$http.post(route, data, options)
+                .then(this.loadItems, this.fetchError);
+        },
+
+        /**
+         * Function when request succeeds
+         * @param res
+         */
+        fetchDone(res)
+        {
+            this.result = res.data.data;
+        },
+
+        /**
+         * Function when request fails
+         * @param res
+         */
+        fetchError(res)
+        {
+            //
+        },
+
+        /**
+         * Delete items on server
+         */
+        deleteItems()
+        {
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let query = {
+                ids: this.selected
+            };
+
+            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/delete',
+                this.$root.$data);
+
+            this.$http.post(route, query, options)
+                .then(this.loadItems, this.fetchError);
+        },
+
+        /**
+         * Goto edit form
+         * @param row
+         */
+        gotoEdit(row)
+        {
+            if ( Nano.Obj.has(row, 'connector.edit') ) {
+                this.$router.push(Nano.Obj.get(row, 'connector.edit'));
+            }
         },
 
         renderNode(props)
@@ -60,16 +180,14 @@ export default {
 
         startTransaction(sources, target, strategy)
         {
-            this.transaction = {
-                sources, target, strategy
-            };
+            this.transaction = { sources, target, strategy };
 
             let items = Nano.Arr.map(sources, (source) => {
                 return source.item;
             });
 
             if ( Nano.Arr.findIndex(items, { transaction: null }) !== -1 ) {
-                return this.startMove();
+                return this.moveItems();
             }
 
             if ( sources.length !== 1 ) {
@@ -166,7 +284,8 @@ export default {
             scrollTopOnChange: false,
             insertNode: false,
             removeNode: false,
-            renderSelect: true,
+            allowCurrent: true,
+            // renderSelect: true,
             renderExpand: true,
             viewportHeight: true,
             ghostMode: true,
@@ -180,29 +299,18 @@ export default {
                 this.startTransaction(target, source, strategy);
             },
             'row-dblclick': (row) => {
-                this.openEdit(this.Obj.get(row, 'item'));
+                this.gotoEdit(this.Obj.get(row, 'item'));
             }
         };
 
         return (
             <NLoader visible={this.load} class="kyo-layout-website">
                 <div class="kyo-layout-website__header">
-                    <NInput placeholder={this.trans('Search for ...')}></NInput>
-                    <NButton square={true} icon="fa fa-file"></NButton>
-                    <NPopover trigger="click" type="dropdown">
-                        <div class="n-popover-option">
-                            Domain
-                        </div>
-                        <div class="n-popover-option">
-                            Menu
-                        </div>
-                        <div class="n-popover-option">
-                            Redirect
-                        </div>
-                    </NPopover>
+                    <NInput vModel={this.search} placeholder={this.trans('Search for ...')}></NInput>
                 </div>
-                <NDraglist class="kyo-layout-website__body" items={this.menus} props={props} on={events} />
-                { this.ctor('renderModal')() }
+                <NDraglist class="kyo-layout-website__body" items={this.result} props={props} on={events}>
+                    { /*this.ctor('renderModal')()*/ }
+                </NDraglist>
             </NLoader>
         );
 

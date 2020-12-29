@@ -37,21 +37,6 @@ class LanguageTableSeeder extends Seeder
             'language'      => 'Deutsch',
             'country'       => 'Deutschland',
         ]);
-
-        $ru = Language::create([
-            'id'        => uuid(),
-            'state'     => 1,
-            'hide'      => 0,
-            'language'  => 'Russian',
-            'country'   => 'Russia',
-            'plate'     => 'ru',
-            'locale'    => 'ru',
-        ]);
-
-        $ru->localized('de')->update([
-            'language'      => 'Russisch',
-            'country'       => 'Russland',
-        ]);
     }
 
 }

@@ -29,6 +29,7 @@ class Translation extends Model
         'state'         => null,
         'source'        => null,
         'target'        => null,
+        'package'       => null,
     ];
 
     protected $casts = [
@@ -36,17 +37,30 @@ class Translation extends Model
         'state'         => 'integer',
         'source'        => 'string',
         'target'        => 'string',
+        'package'       => 'string',
     ];
 
     protected static function boot()
     {
         static::saved(function () {
             if ( Kyoto::isReady() ) {
-                KyotoLanguage::clearLanguages();
+                KyotoLanguage::clearTranslations();
             }
         });
 
         parent::boot();
+    }
+
+    public function getStateAttribute()
+    {
+        return ! isset($this->attributes['state']) ?
+            1 : $this->attributes['state'];
+    }
+
+    public function getPackageAttribute()
+    {
+        return ! isset($this->attributes['package']) ?
+            'app' : $this->attributes['package'];
     }
 
 }

@@ -226,7 +226,7 @@ export default {
         fetchDoneSave(res)
         {
             if ( this.ctor('refresh', false) ) {
-                Nano.Store.refresh('menus');
+                Nano.Event.fire('website:refresh');
             }
 
             this.result = Obj.get(res.data, 'data', {});
@@ -237,7 +237,7 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
 
             if ( this.ctor('refresh', false) ) {
-                Nano.Store.refresh('menus');
+                Nano.Event.fire('website:refresh');
             }
 
             this.gotoEdit(res.data);
@@ -248,7 +248,7 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
 
             if ( this.ctor('refresh', false) ) {
-                Nano.Store.refresh('menus');
+                Nano.Event.fire('website:refresh');
             }
 
             this.gotoIndex(res.data);

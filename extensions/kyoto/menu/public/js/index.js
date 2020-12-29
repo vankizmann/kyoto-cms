@@ -231,6 +231,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'KyoMenuCreate',
   localized: true,
@@ -280,6 +292,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../inputs/KyoConnectorSelect */ "./resources/js/inputs/KyoConnectorSelect.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -760,6 +778,61 @@ var render = function() {
                           )
                         ],
                         1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Identifier"),
+                                prop: "ident"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.ident,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "ident", $$v)
+                                  },
+                                  expression: "result.ident"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: { label: _vm.trans("Type"), prop: "type" }
+                            },
+                            [
+                              _c("KyoConnectorSelect", {
+                                model: {
+                                  value: _vm.result.type,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "type", $$v)
+                                  },
+                                  expression: "result.type"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
                       )
                     ]
                   )
@@ -1012,6 +1085,35 @@ var render = function() {
                                     _vm.$set(_vm.result, "slug", $$v)
                                   },
                                   expression: "result.slug"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col--1-1 col--1-2@sm" },
+                        [
+                          _c(
+                            "NFormItem",
+                            {
+                              attrs: {
+                                label: _vm.trans("Identifier"),
+                                prop: "ident"
+                              }
+                            },
+                            [
+                              _c("NInput", {
+                                model: {
+                                  value: _vm.result.ident,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.result, "ident", $$v)
+                                  },
+                                  expression: "result.ident"
                                 }
                               })
                             ],

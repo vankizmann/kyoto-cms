@@ -22,6 +22,9 @@ class CreateTranslationTable extends Migration
             $table->text('target')
                 ->nullable();
 
+            $table->string('package')
+                ->nullable();
+
             $table->timestamps();
         });
     }

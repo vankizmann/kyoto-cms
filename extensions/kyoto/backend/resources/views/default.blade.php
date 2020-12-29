@@ -19,6 +19,10 @@
     <meta name="theme-color" content="#ffffff">
 
     <script>
+        window._locales = JSON.parse('{!! json_encode(app('kyoto.backend')->getTranslations()) !!}');
+    </script>
+
+    <script>
         window.backendPaths = {
             base: '{{ app('kyoto.backend')->basePath() }}',
             login: '{{ app('kyoto.backend')->loginPath() }}',

@@ -9,7 +9,7 @@
 
         <div class="kyo-titlebar__title">
             <slot name="title">
-                <h1>{{ Obj.get($route, 'meta.menu.title') }}</h1>
+                <h1>{{ trans(Obj.get($route, 'meta.menu.title')) }}</h1>
             </slot>
         </div>
 
@@ -149,7 +149,8 @@
 
             updated()
             {
-                return ! this.KyoForm ? 0 : this.Now.make(this.KyoForm.result.updated_at).format()
+                return ! this.KyoForm ? 0 : this.Now.make(this.KyoForm.result.updated_at)
+                    .format(this.trans('YYYY-MM-DD HH:mm'));
             }
 
         },
