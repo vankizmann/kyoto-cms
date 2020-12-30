@@ -41,7 +41,7 @@ class TranslationController extends \App\Http\Controllers\Controller
         $language->save();
 
         return response()->json([
-            'data' => $language->toArray(), 'message' => trans('Translation has been created!')
+            'data' => $language->toArray(), 'message' => trans('Translation has been created')
         ]);
     }
 
@@ -55,7 +55,7 @@ class TranslationController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $language, 'message' => trans('Translation has been updated!')
+            'data' => $language, 'message' => trans('Translation has been updated')
         ]);
     }
 
@@ -66,7 +66,7 @@ class TranslationController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Translations has been deleted!')
+            'data' => [], 'message' => trans('Translations have been deleted')
         ]);
     }
 

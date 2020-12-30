@@ -51,7 +51,7 @@ class MediaController extends \App\Http\Controllers\Controller
         $menu->fill($request->input())->save();
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Media has been updated!')
+            'data' => $menu, 'message' => trans('Media has been updated')
         ]);
     }
 
@@ -62,7 +62,7 @@ class MediaController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Medias has been deleted!')
+            'data' => [], 'message' => trans('Medias have been deleted')
         ]);
     }
 

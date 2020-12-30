@@ -90,4 +90,10 @@ trait State
         $query->update($columns);
     }
 
+    public function getStateAttribute()
+    {
+        return ! isset($this->attributes[$this->getStateColumn()]) ?
+            1 : $this->attributes[$this->getStateColumn()];
+    }
+
 }

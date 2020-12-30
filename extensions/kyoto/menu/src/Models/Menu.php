@@ -132,16 +132,6 @@ class Menu extends \Kyoto\Support\Database\Model
         return $logout;
     }
 
-    public function getTransactionAttribute()
-    {
-        return null;
-    }
-
-    public function setSlugAttribute($value)
-    {
-        $this->attributes['slug'] = Str::snake(str_replace(['.', ','], '', $value), '-');
-    }
-
     public function hasOption($key)
     {
         return data_get($this->__get('option'), $key, -1) !== -1;
@@ -174,6 +164,23 @@ class Menu extends \Kyoto\Support\Database\Model
         $option = $this->__set('option', $option);
 
         return $this;
+    }
+
+    public function getTransactionAttribute()
+    {
+        return null;
+    }
+
+    public function getMatrixAttribute()
+    {
+        return ! isset($this->attributes['matrix']) ?
+            1 : $this->attributes['matrix'];
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::snake(
+            str_replace(['.', ','], '', $value), '-');
     }
 
     public function getPreviewAttribute()

@@ -32,7 +32,8 @@ Vue.use(VueNano, {
     activate:       'fa fa-check',
     deactivate:     'fa fa-times'
 }, {
-    iconPosition: 'after'
+    iconPosition: 'after',
+    notifyPosition: 'bottom-end'
 });
 
 import VueRouter from "vue-router";

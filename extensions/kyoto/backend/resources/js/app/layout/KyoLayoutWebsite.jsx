@@ -92,16 +92,8 @@ export default {
         /**
          * Fetch items from server
          */
-        moveItems()
+        moveItems(sources, target, strategy)
         {
-            var { sources, target, strategy } = this.transaction;
-
-            sources = Nano.Arr.each(sources, (source) => {
-                return Nano.Obj.get(source, 'id');
-            });
-
-            target = Nano.Obj.get(target, 'item.id');
-
             let options = {
                 onLoad: () => this.load = true,
                 onDone: () => this.load = false
@@ -110,7 +102,27 @@ export default {
             let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
                 this.$root.$data);
 
+            sources = Nano.Arr.each(sources, (source) => {
+                return Nano.Obj.get(source, 'id');
+            });
+
             let data = { source: sources, target, strategy };
+
+            this.$http.post(route, data, options)
+                .then(this.loadItems, this.fetchError);
+        },
+
+        transactItems(sources, target, strategy)
+        {
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let data = { source: sources, target, strategy };
+
+            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/transaction',
+                this.$root.$data);
 
             this.$http.post(route, data, options)
                 .then(this.loadItems, this.fetchError);
@@ -180,15 +192,17 @@ export default {
 
         startTransaction(sources, target, strategy)
         {
-            this.transaction = { sources, target, strategy };
-
             let items = Nano.Arr.map(sources, (source) => {
                 return source.item;
             });
 
+            target = Nano.Obj.get(target, 'item.id');
+
             if ( Nano.Arr.findIndex(items, { transaction: null }) !== -1 ) {
-                return this.moveItems();
+                return this.moveItems(sources, target, strategy);
             }
+
+            return this.transactItems(sources, target, strategy);
 
             if ( sources.length !== 1 ) {
                 return this.Notify(this.trans('Only one menu at time can be inserted.'), 'danger');
@@ -197,56 +211,6 @@ export default {
             this.formBuffer = this.resetFormBuffer(Nano.Arr.first(items));
 
             this.modal = true;
-        },
-
-        startMove()
-        {
-            var { sources, target, strategy } = this.transaction;
-
-            target = Nano.Obj.get(target, 'item.id');
-
-            sources = Nano.Arr.each(sources, (source) => {
-                return Nano.Obj.get(source, 'id');
-            });
-
-            let options = {
-                onLoad: () => this.load = true,
-                onDone: () => this.load = false
-            };
-
-            let query = {
-                source: sources, target, strategy
-            };
-
-            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
-                this.$root.$data);
-
-            this.$http.post(route, query, options)
-                .then(() => Nano.Store.refresh('menus'), () => null);
-        },
-
-        startInsert()
-        {
-            var { sources, target, strategy } = this.transaction;
-
-            target = Nano.Obj.get(target, 'item.id');
-
-            this.modal = false;
-
-            let options = {
-                onLoad: () => this.load = true,
-                onDone: () => this.load = false
-            };
-
-            let query = {
-                source: sources, target, strategy
-            };
-
-            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/transaction',
-                this.$root.$data);
-
-            this.$http.post(route, query, options)
-                .then(() => Nano.Store.refresh('menus'), () => null);
         },
 
     },

@@ -2003,7 +2003,8 @@ var render = function() {
                   prop: "source",
                   label: _vm.trans("Source"),
                   fluid: true,
-                  sort: true
+                  sort: true,
+                  filter: true
                 },
                 scopedSlots: _vm._u([
                   {

@@ -36,9 +36,7 @@ class MenuController extends \App\Http\Controllers\Controller
             $menu = Menu::findOrFail($id);
         }
 
-        return response()->json([
-            'data' => $menu
-        ]);
+        return response()->json([ 'data' => $menu ]);
     }
 
     public function store(MenuRequest $request)
@@ -49,7 +47,7 @@ class MenuController extends \App\Http\Controllers\Controller
         $menu->save();
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Menu has been created!')
+            'data' => $menu, 'message' => trans('Menu has been created')
         ]);
     }
 
@@ -63,7 +61,7 @@ class MenuController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $menu->refresh(), 'message' => trans('Menu has been updated!')
+            'data' => $menu->refresh(), 'message' => trans('Menu has been updated')
         ]);
     }
 
@@ -74,7 +72,7 @@ class MenuController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Menus has been deleted!')
+            'data' => [], 'message' => trans('Menus have been deleted')
         ]);
     }
 
@@ -121,7 +119,7 @@ class MenuController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Menus has been moved!')
+            'data' => [], 'message' => trans('Menus have been moved')
         ]);
     }
 
@@ -135,9 +133,8 @@ class MenuController extends \App\Http\Controllers\Controller
         foreach ( (array) $data['source'] as $index => $source ) {
 
             $menuNode = (new Menu)->fill([
-                'id' => uuid(), 'state' => 1, 'hide' => 0, 'matrix' => 1, 'guard' => 0, 'type' => $source['transaction']
+                'type' => $source['transaction']
             ]);
-
 
             $data['source'][$index] = KyotoConnector::find($menuNode->type)
                 ->transaction($menuNode, $source);
@@ -186,7 +183,7 @@ class MenuController extends \App\Http\Controllers\Controller
         });
 
         return response()->json([
-            'data' => [], 'message' => trans('Menus has been inserted!')
+            'data' => [], 'message' => trans('Menus have been inserted')
         ]);
     }
 

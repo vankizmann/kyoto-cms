@@ -43,7 +43,7 @@ class PackageController extends \App\Http\Controllers\Controller
         $menu->save();
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Package has been created!')
+            'data' => $menu, 'message' => trans('Package has been created')
         ]);
     }
 
@@ -57,7 +57,7 @@ class PackageController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $menu->refresh(), 'message' => trans('Package has been updated!')
+            'data' => $menu->refresh(), 'message' => trans('Package has been updated')
         ]);
     }
 
@@ -68,7 +68,7 @@ class PackageController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Packages has been deleted!')
+            'data' => [], 'message' => trans('Packages have been deleted')
         ]);
     }
 

@@ -42,7 +42,7 @@ class GateController extends \App\Http\Controllers\Controller
         $gate = Gate::create($request->input());
 
         return response()->json([
-            'data' => $gate->toArray(), 'message' => trans('Gate has been created!')
+            'data' => $gate->toArray(), 'message' => trans('Gate has been created')
         ]);
     }
 
@@ -56,7 +56,7 @@ class GateController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $gate, 'message' => trans('Gate has been updated!')
+            'data' => $gate, 'message' => trans('Gate has been updated')
         ]);
     }
 
@@ -67,7 +67,7 @@ class GateController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Gates has been deleted!')
+            'data' => [], 'message' => trans('Gates have been deleted')
         ]);
     }
 

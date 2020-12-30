@@ -21,4 +21,10 @@ trait Hide
         return $query->where($this->getHideColumn(), 1);
     }
 
+    public function getHideAttribute()
+    {
+        return ! isset($this->attributes[$this->getHideColumn()]) ?
+            0 : $this->attributes[$this->getHideColumn()];
+    }
+
 }

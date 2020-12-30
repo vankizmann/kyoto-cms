@@ -127,3 +127,7 @@
 .kyo-website-node[data-type="kyoto/menu::redirect"]:before {
     background-image: svg-load('icon_redirect.svg');
 }
+
+.kyo-website-node[data-type="kyoto/shop::product"]:before {
+    background-image: svg-load('icon_product.svg');
+}

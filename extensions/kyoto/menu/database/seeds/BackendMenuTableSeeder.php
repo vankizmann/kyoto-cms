@@ -578,6 +578,83 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $temporary,
         ]);
 
+        $routes['product'] = uuid();
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' =>  $routes['product']],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'system'    => 1,
+            'title'     => 'Products',
+            'slug'      => 'product',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['dashboard'],
+        ]);
+
+        $menus['product'] = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['redirect' => $routes['product']],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'system'    => 1,
+            'title'     => 'Products',
+            'slug'      => 'products',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['root'],
+        ]);
+
+        $temporary = Menu::create([
+            'id'        => $routes['product'],
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' => 'KyoProducts'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 0,
+            'system'    => 1,
+            'title'     => 'Products',
+            'slug'      => 'products',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $menus['product'],
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoProductCreate'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'system'    => 1,
+            'title'     => 'Create product',
+            'slug'      => 'create',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoProductEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'system'    => 1,
+            'title'     => 'Edit product',
+            'slug'      => 'edit/:id',
+            'matrix'    => 1,
+            'guard'     => 1,
+            'parent'    => $temporary,
+        ]);
+
         $routes['package'] = uuid();
 
         $localize = Menu::create([

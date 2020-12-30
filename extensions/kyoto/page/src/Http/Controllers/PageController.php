@@ -42,7 +42,7 @@ class PageController extends \App\Http\Controllers\Controller
         $user = Page::create($request->input());
 
         return response()->json([
-            'data' => $user->toArray(), 'message' => trans('Page has been created!')
+            'data' => $user->toArray(), 'message' => trans('Page has been created')
         ]);
     }
 
@@ -56,7 +56,7 @@ class PageController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $user, 'message' => trans('Page has been updated!')
+            'data' => $user, 'message' => trans('Page has been updated')
         ]);
     }
 
@@ -67,7 +67,7 @@ class PageController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Pages has been deleted!')
+            'data' => [], 'message' => trans('Pages have been deleted')
         ]);
     }
 

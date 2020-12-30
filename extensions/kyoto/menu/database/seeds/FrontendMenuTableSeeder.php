@@ -91,6 +91,19 @@ class FrontendMenuTableSeeder extends Seeder
             'parent' => $default,
         ]);
 
+        Menu::create([
+            'type'   => 'kyoto/shop::product',
+            'layout' => null,
+            'option' => [],
+            'state'  => 1,
+            'hide'   => 0,
+            'title'  => 'Testproduct',
+            'slug'   => 'testproduct',
+            'matrix' => 1,
+            'guard'  => 0,
+            'parent' => $default,
+        ]);
+
     }
 
 }

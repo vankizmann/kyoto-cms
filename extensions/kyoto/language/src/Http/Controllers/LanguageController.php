@@ -41,7 +41,7 @@ class LanguageController extends \App\Http\Controllers\Controller
         $language->save();
 
         return response()->json([
-            'data' => $language->toArray(), 'message' => trans('Language has been created!')
+            'data' => $language->toArray(), 'message' => trans('Language has been created')
         ]);
     }
 
@@ -55,7 +55,7 @@ class LanguageController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $language, 'message' => trans('Language has been updated!')
+            'data' => $language, 'message' => trans('Language has been updated')
         ]);
     }
 
@@ -66,7 +66,7 @@ class LanguageController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Languages has been deleted!')
+            'data' => [], 'message' => trans('Languages have been deleted')
         ]);
     }
 

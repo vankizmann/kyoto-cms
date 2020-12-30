@@ -17,11 +17,6 @@ trait DepthGuarded
      */
     protected $useDepthGuard;
 
-    /**
-     * @var string $guardColumn
-     */
-    protected $depthGuardColumn = 'guard';
-
     public static function bootDepthGuarded()
     {
         if ( ! Kyoto::isReady() ) {
@@ -42,7 +37,7 @@ trait DepthGuarded
 
     public function getDepthGuardColumn()
     {
-        return $this->depthGuardColumn;
+        return 'guard';
     }
 
     public function disableDepthGuard()
@@ -67,6 +62,12 @@ trait DepthGuarded
     {
         $model = $builder->getModel()->enableDepthGuard();
         return $builder->setModel($model);
+    }
+
+    public function getGuardAttribute()
+    {
+        return ! isset($this->attributes[$this->getDepthGuardColumn()]) ?
+            0 : $this->attributes[$this->getDepthGuardColumn()];
     }
 
 }

@@ -7,7 +7,7 @@
             @csrf
 
             <n-form-item>
-                <h1>{{ app('kyoto')->getMenu('title') }}</h1>
+                <h1>{{ trans(app('kyoto')->getMenu('title')) }}</h1>
 
                 @if(session()->has('success'))
                     <div class="text--success">{{ session()->get('success') }}</div>

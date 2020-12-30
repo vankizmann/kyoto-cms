@@ -3,7 +3,7 @@
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 <style type="text/css">
-	.st0{opacity:0.3;fill:#939BAB;enable-background:new    ;}
+	.st0{opacity:0.5;fill:#95ABBF;enable-background:new    ;}
 	.st1{fill:#F44257;}
 	.st2{fill:#4D90F4;}
 	.st3{fill:#CC213E;}
@@ -15,6 +15,8 @@
 	.st9{fill:#ED9726;}
 	.st10{fill:#35495F;}
 	.st11{fill:#3EBA70;}
+	.st12{opacity:0.5;fill:#B9C0C9;enable-background:new    ;}
+	.st13{fill:#C9791B;}
 </style>
 <g id="Ebene_1_5_">
 	<polygon class="st6" points="272.7194,186.8269 411,186.8269 272.7194,48.5463 	"/>

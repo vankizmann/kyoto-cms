@@ -82,6 +82,10 @@
     background-image: svg-load('icon_menu.svg');
 }
 
+.kyo-mainmenu li.products a:before {
+    background-image: svg-load('icon_product.svg');
+}
+
 .kyo-mainmenu li a.router-link-active {
     color: $--color-primary;
 }

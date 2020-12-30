@@ -1,7 +1,7 @@
 @extends(app('kyoto')->getLayout())
 
 @section('content')
-    <form class="kyo-login kyo-form" action="{{ request()->fullUrl() }}" method="post">
+    <form class="kyo-login kyo-form" action="{{ Request::fullUrl() }}" method="post">
 
         @csrf
 

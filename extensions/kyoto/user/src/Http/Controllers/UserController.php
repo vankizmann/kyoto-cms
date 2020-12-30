@@ -37,7 +37,7 @@ class UserController extends \App\Http\Controllers\Controller
         $user = User::create($request->input());
 
         return response()->json([
-            'data' => $user->toArray(), 'message' => trans('User has been created!')
+            'data' => $user->toArray(), 'message' => trans('User has been created')
         ]);
     }
 
@@ -51,7 +51,7 @@ class UserController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $user, 'message' => trans('User has been updated!')
+            'data' => $user, 'message' => trans('User has been updated')
         ]);
     }
 
@@ -62,7 +62,7 @@ class UserController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Users has been deleted!')
+            'data' => [], 'message' => trans('Users have been deleted')
         ]);
     }
 

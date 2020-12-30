@@ -42,7 +42,7 @@ class PolicyController extends \App\Http\Controllers\Controller
         $policy = Policy::create($request->input());
 
         return response()->json([
-            'data' => $policy->toArray(), 'message' => trans('Policy has been created!')
+            'data' => $policy->toArray(), 'message' => trans('Policy has been created')
         ]);
     }
 
@@ -56,7 +56,7 @@ class PolicyController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $policy, 'message' => trans('Policy has been updated!')
+            'data' => $policy, 'message' => trans('Policy has been updated')
         ]);
     }
 
@@ -67,7 +67,7 @@ class PolicyController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Policys has been deleted!')
+            'data' => [], 'message' => trans('Policys have been deleted')
         ]);
     }
 

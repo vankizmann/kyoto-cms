@@ -9,6 +9,24 @@ class TranslationTableSeeder extends Seeder
     public function run()
     {
         $value = Translation::create([
+            'source'    => 'Yes',
+            'target'    => 'Yes',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Ja',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'No',
+            'target'    => 'No',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Nein',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Back',
             'target'    => 'Back',
         ]);
@@ -306,6 +324,15 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => ':count Item|:count Items',
+            'target'    => ':count Item|:count Items',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => ':count Eintrag|:count Einträge',
+        ]);
+
+        $value = Translation::create([
             'source'    => ':count items',
             'target'    => ':count items',
         ]);
@@ -387,6 +414,60 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Menu has been created',
+            'target'    => 'Menu has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Menü wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Menu has been updated',
+            'target'    => 'Menu has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Menü wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Menus have been copied',
+            'target'    => 'Menus have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Menüs wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Menus have been deleted',
+            'target'    => 'Menus have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Menüs wurden gelöscht',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Menus have been moved',
+            'target'    => 'Menus have been moved',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Menüs wurden verschoben',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Menus have been inserted',
+            'target'    => 'Menus have been inserted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Menüs wurden hinzugefügt',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Page',
             'target'    => 'Page',
         ]);
@@ -420,6 +501,42 @@ class TranslationTableSeeder extends Seeder
 
         $value->localized('de')->update([
             'target'    => 'Seite bearbeiten',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Page has been created',
+            'target'    => 'Page has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Seite wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Page has been updated',
+            'target'    => 'Page has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Seite wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Pages have been copied',
+            'target'    => 'Pages have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Seiten wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Pages have been deleted',
+            'target'    => 'Pages have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Seiten wurden gelöscht',
         ]);
 
         $value = Translation::create([
@@ -459,6 +576,42 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Media has been created',
+            'target'    => 'Media has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Datei wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Media has been updated',
+            'target'    => 'Media has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Datei wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Medias have been copied',
+            'target'    => 'Medias have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Medien wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Medias have been deleted',
+            'target'    => 'Medias have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Medien wurden gelöscht',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'User',
             'target'    => 'User',
         ]);
@@ -492,6 +645,42 @@ class TranslationTableSeeder extends Seeder
 
         $value->localized('de')->update([
             'target'    => 'Benutzer bearbeiten',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'User has been created',
+            'target'    => 'User has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Benutzer wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'User has been updated',
+            'target'    => 'User has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Benutzer wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Users have been copied',
+            'target'    => 'Users have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Benutzer wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Users have been deleted',
+            'target'    => 'Users have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Benutzer wurden gelöscht',
         ]);
 
         $value = Translation::create([
@@ -531,6 +720,42 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Role has been created',
+            'target'    => 'Role has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Rolle wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Role has been updated',
+            'target'    => 'Role has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Rolle wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Roles have been copied',
+            'target'    => 'Roles have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Rollen wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Roles have been deleted',
+            'target'    => 'Roles have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Rollen wurden gelöscht',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Gate',
             'target'    => 'Gate',
         ]);
@@ -564,6 +789,42 @@ class TranslationTableSeeder extends Seeder
 
         $value->localized('de')->update([
             'target'    => 'Zugang bearbeiten',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Gate has been created',
+            'target'    => 'Gate has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Zugang wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Gate has been updated',
+            'target'    => 'Gate has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Zugang wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Gates have been copied',
+            'target'    => 'Gates have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Zugänge wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Gates have been deleted',
+            'target'    => 'Gates have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Zugänge wurden gelöscht',
         ]);
 
         $value = Translation::create([
@@ -603,6 +864,42 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Policy has been created',
+            'target'    => 'Policy has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Recht wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Policy has been updated',
+            'target'    => 'Policy has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Recht wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Policies have been copied',
+            'target'    => 'Policies have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Rechte wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Policies have been deleted',
+            'target'    => 'Policies have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Rechte wurden gelöscht',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Language',
             'target'    => 'Language',
         ]);
@@ -639,6 +936,42 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Language has been created',
+            'target'    => 'Language has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Sprache wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Language has been updated',
+            'target'    => 'Language has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Sprache wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Languages have been copied',
+            'target'    => 'Languages have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Sprachen wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Languages have been deleted',
+            'target'    => 'Languages have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Sprachen wurden gelöscht',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Translation',
             'target'    => 'Translation',
         ]);
@@ -672,6 +1005,42 @@ class TranslationTableSeeder extends Seeder
 
         $value->localized('de')->update([
             'target'    => 'Übersetzung bearbeiten',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Translation has been created',
+            'target'    => 'Translation has been created',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Übersetzung wurde erstellt',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Translation has been updated',
+            'target'    => 'Translation has been updated',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Übersetzung wurde gespeichert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Translations have been copied',
+            'target'    => 'Translations have been copied',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Übersetzungen wurden kopiert',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Translations have been deleted',
+            'target'    => 'Translations have been deleted',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Übersetzungen wurden gelöscht',
         ]);
 
         $value = Translation::create([

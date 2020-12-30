@@ -42,7 +42,7 @@ class RoleController extends \App\Http\Controllers\Controller
         $role = Role::create($request->input());
 
         return response()->json([
-            'data' => $role->toArray(), 'message' => trans('Role has been created!')
+            'data' => $role->toArray(), 'message' => trans('Role has been created')
         ]);
     }
 
@@ -56,7 +56,7 @@ class RoleController extends \App\Http\Controllers\Controller
             ->save();
 
         return response()->json([
-            'data' => $role, 'message' => trans('Role has been updated!')
+            'data' => $role, 'message' => trans('Role has been updated')
         ]);
     }
 
@@ -67,7 +67,7 @@ class RoleController extends \App\Http\Controllers\Controller
         }
 
         return response()->json([
-            'data' => [], 'message' => trans('Roles has been deleted!')
+            'data' => [], 'message' => trans('Roles have been deleted')
         ]);
     }
 

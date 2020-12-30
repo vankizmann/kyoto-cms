@@ -3,7 +3,7 @@
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 <style type="text/css">
-	.st0{opacity:0.3;fill:#939BAB;enable-background:new    ;}
+	.st0{opacity:0.5;fill:#95ABBF;enable-background:new    ;}
 	.st1{fill:#F44257;}
 	.st2{fill:#4D90F4;}
 	.st3{fill:#CC213E;}
@@ -15,6 +15,8 @@
 	.st9{fill:#ED9726;}
 	.st10{fill:#35495F;}
 	.st11{fill:#3EBA70;}
+	.st12{opacity:0.5;fill:#B9C0C9;enable-background:new    ;}
+	.st13{fill:#C9791B;}
 </style>
 <g>
 	<path class="st2" d="M435,440H71c-22.0914,0-40-17.9086-40-40V128c0-22.0914,17.9086-40,40-40h364c22.0914,0,40,17.9086,40,40v272

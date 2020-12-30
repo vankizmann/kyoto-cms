@@ -86,7 +86,8 @@ class Page extends \Kyoto\Support\Database\Model
 
     public function setSlugAttribute($value)
     {
-        $this->attributes['slug'] = Str::snake(str_replace(['.', ','], '', $value), '-');
+        $this->attributes['slug'] = Str::snake(
+            str_replace(['.', ','], '', $value), '-');
     }
 
 }
