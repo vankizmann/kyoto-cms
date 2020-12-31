@@ -22,7 +22,10 @@ class CreateMediaLocaleTable extends Migration
             $table->string('title')
                 ->nullable();
 
-            $table->string('description')
+            $table->text('description')
+                ->nullable();
+
+            $table->text('copyright')
                 ->nullable();
 
             $table->timestamps();

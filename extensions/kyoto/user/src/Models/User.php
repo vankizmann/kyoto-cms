@@ -30,7 +30,7 @@ class User extends Model
     ];
 
     protected $appends = [
-        'fooword', 'fooword_confirm'
+        'gates', 'fooword', 'fooword_confirm'
     ];
 
     protected $attributes = [
@@ -57,6 +57,16 @@ class User extends Model
     public function gate()
     {
         return $this->belongsTo(Gate::class, 'gate_id');
+    }
+
+    public function getGatesAttribute()
+    {
+        if ( empty($this->gate) ) {
+            return [];
+        }
+
+        return $this->gate->getDescendantsAndSelf()
+            ->pluck('id')->toArray();
     }
 
 //    public function getPoliciesAttribute()
@@ -108,6 +118,5 @@ class User extends Model
     {
         return;
     }
-
 
 }

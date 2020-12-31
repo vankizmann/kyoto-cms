@@ -1,11 +1,64 @@
 @import "~nano-ui/src/root/vars";
 
-.kyo-uploads {
-    z-index: 20000;
-    position: fixed;
+.kyo-upload-animation {
+    position: relative;
+    margin: 0 auto;
+    max-width: 220px;
+}
+
+.kyo-upload-animation:before {
+    content: '\00a0';
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: svg-load('upload_cloud.svg');
+}
+
+.kyo-upload-animation:after {
+    content: '\00a0';
+    position: absolute;
     top: 0;
     left: 0;
+    display: block;
     width: 100%;
-    height: 100%;
-    background: rgba($color-primary, 0.8);
+    height: 0;
+    padding-bottom: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: svg-load('upload_arrow.svg');
+    animation: uploadAnimation 1.2s infinite ease-in-out;
+}
+
+@keyframes uploadAnimation {
+    0% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.kyo-upload-text {
+    text-align: center;
+    color: $color-gray-60;
+    height: 36px;
+    line-height: 18px;
+}
+
+.n-modal.n-modal--upload .n-modal__frame {
+    overflow: hidden;
+    border-radius: 12px;
+    color: $color-white;
+    background: $color-black;
+    padding: 0 20px 30px;
 }

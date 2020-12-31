@@ -19,7 +19,7 @@ class GateTableSeeder extends Seeder
 
 
         $manager = Gate::create([
-            'id'          => uuid(),
+            'id'          => env('KYO_GUARD'),
             'title'       => 'Manager',
             'description' => 'A description for manager',
             'parent'      => $admin

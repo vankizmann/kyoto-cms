@@ -2,17 +2,18 @@
 
 namespace Kyoto\Media\Models;
 
-use Kyoto\Support\Database\Traits\Translatable;
+use Baum\NestedSet\Node;
 use Kyoto\User\Database\Traits\DepthGuarded;
+use Kyoto\Support\Database\Traits\Translatable;
 
 class Media extends \Kyoto\Support\Database\Model
 {
-    use Translatable, DepthGuarded;
+    use Node, Translatable, DepthGuarded;
 
     protected $table = 'medias';
 
     protected $fillable = [
-        'title', 'description', 'source', 'file', 'type', 'guard_id'
+        'title', 'description', 'copyright', 'file', 'type', 'guard_id'
     ];
 
     protected $fields = [
@@ -20,25 +21,25 @@ class Media extends \Kyoto\Support\Database\Model
     ];
 
     protected $localized = [
-        'title', 'desciption'
+        'title', 'description', 'copyright'
     ];
 
     protected $attributes = [
         'id'            => null,
         'title'         => null,
-        'desciption'    => null,
-        'source'        => null,
+        'description'   => null,
+        'copyright'     => null,
         'file'          => null,
-        'type'          => null
+        'type'          => null,
     ];
 
     protected $casts = [
         'id'            => 'string',
         'title'         => 'string',
-        'desciption'    => 'string',
-        'source'        => 'string',
+        'description'   => 'string',
+        'copyright'     => 'string',
+        'file'          => 'string',
         'type'          => 'string',
-        'file'          => 'string'
     ];
 
 }

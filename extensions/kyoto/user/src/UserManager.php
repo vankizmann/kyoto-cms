@@ -70,9 +70,9 @@ class UserManager
         $this->activeUser = $user;
     }
 
-    public function getGateDepth($fallback = 100000)
+    public function getGateIds($fallback = [])
     {
-        return $this->getUser('gate.depth', $fallback);
+        return $this->getUser('gates', $fallback);
     }
 
     public function hasPolicyAction($action, $type = 'extension', $fallback = false)

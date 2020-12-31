@@ -37,7 +37,7 @@ trait DepthGuarded
 
     public function getDepthGuardColumn()
     {
-        return 'guard';
+        return 'guard_id';
     }
 
     public function disableDepthGuard()
@@ -62,12 +62,6 @@ trait DepthGuarded
     {
         $model = $builder->getModel()->enableDepthGuard();
         return $builder->setModel($model);
-    }
-
-    public function getGuardAttribute()
-    {
-        return ! isset($this->attributes[$this->getDepthGuardColumn()]) ?
-            0 : $this->attributes[$this->getDepthGuardColumn()];
     }
 
 }

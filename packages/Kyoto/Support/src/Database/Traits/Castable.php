@@ -4,6 +4,9 @@ namespace Kyoto\Support\Database\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property array $primitiveCastTypes
+ */
 trait Castable
 {
     /**
@@ -22,6 +25,8 @@ trait Castable
             }
 
         });
+
+        static::$primitiveCastTypes[] = 'uuid';
     }
 
     /**
@@ -51,6 +56,10 @@ trait Castable
 
     protected function setCastAttribute($key, $value)
     {
+        if ( $this->getCastType($key) === 'uuid' && empty($value) ) {
+            return null;
+        }
+
         if ( $this->getCastType($key) === 'object' && is_object($value) ) {
             return json_encode($value, true);
         }

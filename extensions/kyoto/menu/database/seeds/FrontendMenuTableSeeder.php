@@ -18,7 +18,6 @@ class FrontendMenuTableSeeder extends Seeder
             'hide'      => 0,
             'title'     => 'Redirect',
             'slug'      => ':http://:domain',
-            'guard'     => 0,
         ]);
 
 //        $tmp->fill([
@@ -36,7 +35,6 @@ class FrontendMenuTableSeeder extends Seeder
             'hide'      => 0,
             'title'     => 'www.website.com',
             'slug'      => ':http://:domain/:locale',
-            'guard'     => 0,
         ]);
 
         $default = Menu::create([
@@ -48,7 +46,6 @@ class FrontendMenuTableSeeder extends Seeder
             'hide'      => 0,
             'title'     => 'Mainmenu',
             'slug'      => '/',
-            'guard'     => 0,
             'parent'    => $domain,
         ]);
 
@@ -61,7 +58,6 @@ class FrontendMenuTableSeeder extends Seeder
             'hide'      => 0,
             'title'     => 'Footermenu',
             'slug'      => '/',
-            'guard'     => 0,
             'parent'    => $domain,
         ]);
 
@@ -74,7 +70,6 @@ class FrontendMenuTableSeeder extends Seeder
             'title'     => 'Login',
             'slug'      => 'login',
             'matrix'    => 1,
-            'guard'     => 0,
             'parent'    => $default,
         ]);
 
@@ -87,7 +82,6 @@ class FrontendMenuTableSeeder extends Seeder
             'title'  => 'wieistmeineip.de',
             'slug'   => 'wieistmeineip-de',
             'matrix' => 1,
-            'guard'  => 0,
             'parent' => $default,
         ]);
 
@@ -100,7 +94,6 @@ class FrontendMenuTableSeeder extends Seeder
             'title'  => 'Testproduct',
             'slug'   => 'testproduct',
             'matrix' => 1,
-            'guard'  => 0,
             'parent' => $default,
         ]);
 

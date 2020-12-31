@@ -26,7 +26,6 @@ class BackendMenuTableSeeder extends Seeder
             'system'    => 1,
             'title'     => 'Redirect',
             'slug'      => ':http://:domain/backend',
-            'guard'     => 0,
             'parent_id' => null,
         ]);
 
@@ -42,7 +41,7 @@ class BackendMenuTableSeeder extends Seeder
             'system'    => 1,
             'title'     => 'kyoto-cms.com',
             'slug'      => ':http://:domain/:locale/backend',
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent_id' => null,
         ]);
 
@@ -57,7 +56,6 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Login',
             'slug'      => 'login',
             'matrix'    => 1,
-            'guard'     => 0,
             'parent'    => $menus['root'],
         ]);
 
@@ -71,7 +69,6 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Logout',
             'slug'      => 'logout',
             'matrix'    => 1,
-            'guard'     => 0,
             'parent'    => $menus['root'],
         ]);
 
@@ -88,7 +85,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Redirect',
             'slug'      => '/',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -103,7 +100,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Dashboard',
             'slug'      => 'dashboard',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -118,7 +115,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Dashboard',
             'slug'      => 'dashboard',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['dashboard'],
         ]);
 
@@ -135,7 +132,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Pages',
             'slug'      => 'pages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['dashboard'],
         ]);
 
@@ -150,7 +147,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Pages',
             'slug'      => 'pages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -165,7 +162,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Pages',
             'slug'      => 'pages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['page'],
         ]);
 
@@ -180,7 +177,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create page',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -195,7 +192,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit page',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -210,7 +207,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Menus',
             'slug'      => 'menus',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['page'],
         ]);
 
@@ -225,7 +222,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit menu',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -240,7 +237,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Medias',
             'slug'      => 'medias',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['page'],
         ]);
 
@@ -257,7 +254,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Users',
             'slug'      => 'users',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['dashboard'],
         ]);
 
@@ -272,7 +269,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Users',
             'slug'      => 'users',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -287,7 +284,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Users',
             'slug'      => 'users',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['user'],
         ]);
 
@@ -302,7 +299,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create user',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -317,7 +314,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit user',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -332,7 +329,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Roles',
             'slug'      => 'roles',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['user'],
         ]);
 
@@ -347,7 +344,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create role',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -362,7 +359,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit role',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -377,7 +374,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Gates',
             'slug'      => 'gates',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['user'],
         ]);
 
@@ -392,7 +389,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create gate',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -407,7 +404,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit gate',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -422,7 +419,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Policies',
             'slug'      => 'policies',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['user'],
         ]);
 
@@ -437,7 +434,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create policy',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -452,7 +449,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit policy',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -469,7 +466,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Languages',
             'slug'      => 'language',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['dashboard'],
         ]);
 
@@ -484,7 +481,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Languages',
             'slug'      => 'languages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -499,7 +496,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Languages',
             'slug'      => 'languages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['language'],
         ]);
 
@@ -514,7 +511,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create language',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -529,7 +526,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit language',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -544,7 +541,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Translations',
             'slug'      => 'translations',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['language'],
         ]);
 
@@ -559,7 +556,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create translation',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -574,7 +571,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit translation',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -591,7 +588,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Products',
             'slug'      => 'product',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['dashboard'],
         ]);
 
@@ -606,7 +603,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Products',
             'slug'      => 'products',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -621,7 +618,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Products',
             'slug'      => 'products',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['product'],
         ]);
 
@@ -636,7 +633,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create product',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -651,7 +648,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit product',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -668,7 +665,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Packages',
             'slug'      => 'package',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['dashboard'],
         ]);
 
@@ -683,7 +680,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Packages',
             'slug'      => 'packages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['root'],
         ]);
 
@@ -698,7 +695,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Packages',
             'slug'      => 'packages',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $menus['package'],
         ]);
 
@@ -713,7 +710,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Create package',
             'slug'      => 'create',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 
@@ -728,7 +725,7 @@ class BackendMenuTableSeeder extends Seeder
             'title'     => 'Edit package',
             'slug'      => 'edit/:id',
             'matrix'    => 1,
-            'guard'     => 1,
+            'guard_id'  => env('KYO_GUARD'),
             'parent'    => $temporary,
         ]);
 

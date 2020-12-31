@@ -22,9 +22,12 @@ class GuardScope implements Scope
                 $query = $model->skipGuardedBuilder($query);
             }
 
-            $query->whereNotBetween($model->getDepthGuardColumn(), [
-                1, KyotoUser::getGateDepth()
-            ]);
+            $gates = array_merge([''], KyotoUser::getGateIds());
+
+            $query->where(function ($builder) use ($gates, $model) {
+                return $builder->whereIn($model->getDepthGuardColumn(), $gates)
+                    ->orWhereNull($model->getDepthGuardColumn());
+            });
         });
 
         return $builder;

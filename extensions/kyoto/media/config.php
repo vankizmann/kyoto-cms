@@ -10,6 +10,10 @@ return [
         'Kyoto\\Media\\' => 'src/'
     ],
 
+    'seeds' => [
+        MediaTableSeeder::class
+    ],
+
     'backend' => [
         'kyoto/media::js/index.js',
         'kyoto/media::css/index.css'

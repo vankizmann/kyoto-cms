@@ -9,14 +9,15 @@ class MediaLocale extends Model
     protected $table = 'media_locales';
 
     protected $fillable = [
-        'id', 'foreign_id', 'locale', 'title', 'description'
+        'id', 'foreign_id', 'locale', 'title', 'description', 'copyright'
     ];
 
     protected $attributes = [
         'id'            => null,
         'locale'        => null,
         'title'         => null,
-        'description'   => null
+        'description'   => null,
+        'copyright'     => null,
     ];
 
     protected $casts = [
@@ -24,6 +25,7 @@ class MediaLocale extends Model
         'locale'        => 'string',
         'title'         => 'string',
         'description'   => 'string',
+        'copyright'     => 'string',
     ];
 
 }

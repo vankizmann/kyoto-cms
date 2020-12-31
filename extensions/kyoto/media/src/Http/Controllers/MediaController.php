@@ -55,15 +55,20 @@ class MediaController extends \App\Http\Controllers\Controller
         ]);
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-        foreach ( request()->input('ids', []) as $id ) {
-            Media::findOrFail($id)->update(['state' => -1]);
+        foreach ( $request->input('ids', []) as $id ) {
+            Media::findOrFail($id)->forceDelete();
         }
 
         return response()->json([
             'data' => [], 'message' => trans('Medias have been deleted')
         ]);
+    }
+
+    public function upload(Request $request)
+    {
+        dd($request->input('file'));
     }
 
 }

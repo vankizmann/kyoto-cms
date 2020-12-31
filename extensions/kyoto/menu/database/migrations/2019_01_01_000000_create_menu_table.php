@@ -52,7 +52,7 @@ class CreateMenuTable extends Migration
             $table->string('matrix')
                 ->nullable();
 
-            $table->integer('guard')
+            $table->uuid('guard_id')
                 ->nullable();
 
             $table->uuid('parent_id')

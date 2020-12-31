@@ -46,6 +46,7 @@ class Menu extends \Kyoto\Support\Database\Model
         'state'         => null,
         'hide'          => null,
         'system'        => null,
+        'ident'         => null,
         'type'          => null,
         'layout'        => null,
         'title'         => null,
@@ -53,15 +54,17 @@ class Menu extends \Kyoto\Support\Database\Model
         'route'         => null,
         'path'          => null,
         'option'        => null,
-        'guard'         => null
+        'matrix'        => null,
+        'guard_id'      => null,
     ];
 
     protected $casts = [
-        'id'            => 'string',
-        'foreign_id'    => 'string',
+        'id'            => 'uuid',
+        'foreign_id'    => 'uuid',
         'state'         => 'integer',
         'hide'          => 'integer',
         'system'        => 'integer',
+        'ident'         => 'string',
         'type'          => 'string',
         'layout'        => 'string',
         'title'         => 'string',
@@ -69,7 +72,8 @@ class Menu extends \Kyoto\Support\Database\Model
         'route'         => 'string',
         'path'          => 'string',
         'option'        => 'object',
-        'guard'         => 'integer'
+        'matrix'        => 'integer',
+        'guard_id'      => 'uuid',
     ];
 
     protected $relationships = [

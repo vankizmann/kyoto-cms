@@ -224,6 +224,8 @@ export default {
          */
         fetchDone(res)
         {
+            this.selected = [];
+
             this.result = res.data;
         },
 

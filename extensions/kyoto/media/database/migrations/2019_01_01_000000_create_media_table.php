@@ -16,10 +16,10 @@ class CreateMediaTable extends Migration
             $table->string('title')
                 ->default('');
 
-            $table->string('description')
+            $table->text('description')
                 ->nullable();
 
-            $table->string('source')
+            $table->text('copyright')
                 ->nullable();
 
             $table->string('file')
