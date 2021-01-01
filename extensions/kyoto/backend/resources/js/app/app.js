@@ -76,6 +76,9 @@ Vue.component(KyoTitlebar.name, KyoTitlebar);
 import KyoTitlebarSearch from "./helpers/KyoTitlebarSearch";
 Vue.component(KyoTitlebarSearch.name, KyoTitlebarSearch);
 
+import KyoFilterbar from "./helpers/KyoFilterbar";
+Vue.component(KyoFilterbar.name, KyoFilterbar);
+
 import KyoDatatable from "./helpers/KyoDatatable";
 Vue.component(KyoDatatable.name, KyoDatatable);
 

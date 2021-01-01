@@ -3,8 +3,8 @@ import Vue from 'vue';
 import KyoMedias from "./medias/KyoMedias";
 Vue.component(KyoMedias.name, KyoMedias);
 
-import KyoMediaCreate from "./medias/KyoMediaCreate";
-Vue.component(KyoMediaCreate.name, KyoMediaCreate);
+// import KyoMediaCreate from "./medias/KyoMediaCreate";
+// Vue.component(KyoMediaCreate.name, KyoMediaCreate);
 
 import KyoMediaEdit from "./medias/KyoMediaEdit";
 Vue.component(KyoMediaEdit.name, KyoMediaEdit);

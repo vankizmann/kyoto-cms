@@ -4,6 +4,21 @@ export default {
 
     name: 'KyoUploads',
 
+    inject: {
+        KyoIndex: {
+            fallback: undefined
+        }
+    },
+
+    computed: {
+
+        parent()
+        {
+            return this.KyoIndex.query.parent || null;
+        }
+
+    },
+
     data()
     {
         return {
@@ -68,23 +83,23 @@ export default {
 
             event.preventDefault();
 
+            if ( this.visible ) {
+                return;
+            }
+
             this.visible = true;
 
             this.Obj.each(event.dataTransfer.files, this.addFile);
-
-            if ( this.queue !== -1 ) {
-                return;
-            }
 
             this.storeItem();
         },
 
         addFile(file)
         {
-            this.filelist.push({ id: this.UUID(), file: file });
+            this.filelist.push({ parent_id: this.parent, file: file });
         },
 
-        changeText()
+        changeText(callback = null)
         {
             let messages = [
                 'Only a few seconds remaining ... :count files',
@@ -93,13 +108,15 @@ export default {
                 'Do, do, do ... only a few time units until :count files are done'
             ];
 
+            if ( Nano.Any.isFunction(callback) ) {
+                callback.call(this);
+            }
+
             this.text = messages[Math.round(Math.random() * (messages.length - 1))];
         },
 
         storeItem()
         {
-            this.changeText();
-
             if ( Nano.Any.isEmpty(this.filelist) ) {
                 return;
             }
@@ -107,26 +124,29 @@ export default {
             let route = this.Route.get('/{locale}/kyoto/media/http/controllers/media/upload',
                 this.$root.$data);
 
-            this.$http.post(route, Nano.Ajax.form(this.filelist[0]))
-                .then(this.fetchDone, this.fetchError);
+            this.cancelToken = this.$http.CancelToken.source();
 
-            Nano.Arr.removeIndex(this.filelist, 0);
+            let options = {
+                cancelToken: this.cancelToken.token
+            };
+
+            this.$http.post(route, Nano.Ajax.form(this.filelist[0]), options)
+                .then(this.fetchDone, this.fetchDone);
         },
 
         fetchDone()
         {
+            this.changeText(() => {
+                Nano.Arr.removeIndex(this.filelist, 0);
+            });
+
             if ( ! Nano.Any.isEmpty(this.filelist) ) {
-                return Nano.Any.delay(this.storeItem, 1000);
+                return Nano.Any.delay(this.storeItem, 100);
             }
 
             this.visible = false;
 
             Nano.Event.fire('media:refresh');
-        },
-
-        fetchError()
-        {
-            this.visible = false;
         }
 
     },

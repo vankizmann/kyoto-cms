@@ -82,7 +82,7 @@
     export default {
 
         name: 'KyoMenuEdit',
-        components: { KyoConnectorSelect },
+
         localized: true,
 
         urls: {

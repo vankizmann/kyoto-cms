@@ -315,6 +315,42 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Are you sure you want to copy this item?',
+            'target'    => 'Are you sure you want to copy this item?',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Möchtest du wirklich diesen Eintrag löschen?',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Do you really want to copy :count items?',
+            'target'    => 'Do you really want to copy :count items?',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Möchtest du wirklich :count Einträge löschen?',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Are you sure you want to delete this item?',
+            'target'    => 'Are you sure you want to delete this item?',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Möchtest du wirklich diesen Eintrag löschen?',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Do you really want to delete :count items?',
+            'target'    => 'Do you really want to delete :count items?',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Möchtest du wirklich :count Einträge löschen?',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'No items|Total :count item|Total :count items',
             'target'    => 'No items|Total :count item|Total :count items',
         ]);

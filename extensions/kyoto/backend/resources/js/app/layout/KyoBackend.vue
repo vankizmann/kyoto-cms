@@ -100,6 +100,14 @@
 
         mounted()
         {
+            this.$watch('locale', () => {
+                Nano.Event.fire('locale:changed');
+            });
+
+            this.$watch('width', () => {
+                Nano.Event.fire('website:resized');
+            });
+
             Nano.Event.bind('locale:change', (locale) => {
                 this.locale = locale;
             });
@@ -110,18 +118,6 @@
 
             Nano.Dom.find(window).on('keyup', this.eventKeyup);
             Nano.Dom.find(window).on('keydown', this.eventKeydown);
-        },
-
-        watch: {
-
-            'locale': function () {
-                Nano.Event.fire('locale:changed');
-            },
-
-            'width': function () {
-                Nano.Event.fire('website:resized');
-            }
-
         },
 
         methods: {

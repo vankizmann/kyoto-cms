@@ -12,6 +12,7 @@
         "ext-json": "*",
         "baum/baum": "^2.0.0",
         "fideloper/proxy": "^4.2",
+        "intervention/image": "^2.5",
         "itsgoingd/clockwork": "^4.1",
         "kyoto/application": "dev-master",
         "kyoto/assets": "dev-master",

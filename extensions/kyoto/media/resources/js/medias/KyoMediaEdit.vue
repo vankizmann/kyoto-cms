@@ -2,27 +2,45 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0">
+            <KyoTitlebar :link="{ name: 'KyoMedias' }" class="col--flex-0-0" @delete="deleteItem">
                 <template slot="action">
-                    <NButton type="primary">
-                        {{ trans('Save') }}
-                    </NButton>
-                    <NButton type="secondary">
-                        {{ trans('Delete') }}
-                    </NButton>
-                    <NConfirm type="danger" @confirm="deleteItem">
-                        {{ trans('Are you sure you want to delete this item?') }}
-                    </NConfirm>
+                    <NButtonGroup>
+                        <NButton type="primary" @click="updateItem">
+                            {{ trans('Apply') }}
+                        </NButton>
+                        <NButton type="primary" @click="updateCloseItem">
+                            {{ trans('Save') }}
+                        </NButton>
+                    </NButtonGroup>
                 </template>
             </KyoTitlebar>
-            
-            <NForm class="col--flex-1-0">
-                <NFormItem :label="trans('Title')" prop="title">
-                    <NInput v-model="result.title"></NInput>
-                </NFormItem>
-                <NFormItem :label="trans('Content')" prop="content">
-                    <NTextarea :auto-rows="true" v-model="result.content"></NTextarea>
-                </NFormItem>
+
+            <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
+
+                <NFormGroup icon="fa fa-image" :legend="trans('Image')">
+                    <div class="grid grid-row grid--wrap grid--30">
+
+                        <div class="col--1-1">
+                            <NFormItem :label="trans('Title')" prop="title">
+                                <NInput v-model="result.title"></NInput>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@md">
+                            <NFormItem :label="trans('Description')" prop="description">
+                                <NTextarea v-model="result.description"></NTextarea>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@md">
+                            <NFormItem :label="trans('Copyright')" prop="copyright">
+                                <NTextarea v-model="result.copyright"></NTextarea>
+                            </NFormItem>
+                        </div>
+
+                    </div>
+                </NFormGroup>
+
             </NForm>
 
         </div>
@@ -31,61 +49,16 @@
 <script>
     export default {
 
-        name: 'KyoPageEdit',
+        name: 'KyoMediaEdit',
+
+        extends: window.KyoForm,
+
+        localized: true,
 
         urls: {
-            show: '/{locale}/kyoto/page/http/controllers/page/show',
-            update: '/{locale}/kyoto/page/http/controllers/page/update'
-        },
-
-        data()
-        {
-            return {
-                result: {}, load: true
-            };
-        },
-
-        mounted()
-        {
-            this.$root.$on('locale:changed', this.fetchItem);
-
-            this.fetchItem();
-        },
-
-        destroyed()
-        {
-            this.$root.$off('locale:changed');
-        },
-
-        methods: {
-
-            fetchItem()
-            {
-                let options = {
-                    onLoad: () => this.load = true,
-                    onDone: () => this.load = false
-                };
-
-                let query = {
-                    id: this.$route.params.id
-                };
-
-                let route = this.Route.get('/{locale}/kyoto/page/http/controllers/page/show',
-                    this.$root.$data, query);
-
-                this.$http.get(route, options).then(this.updateItem, () => null);
-            },
-
-            updateItem(res)
-            {
-                this.result = res.data;
-            },
-
-            deleteItem()
-            {
-                console.log('DELETE ITEMS');
-            }
-
+            show: '/{locale}/kyoto/media/http/controllers/media/show',
+            update: '/{locale}/kyoto/media/http/controllers/media/update',
+            delete: '/{locale}/kyoto/media/http/controllers/media/delete'
         }
 
     }

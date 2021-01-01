@@ -11,7 +11,7 @@ class MediaTableSeeder extends Seeder
         $value = Media::create([
             'id'        => uuid(),
             'title'     => 'Images',
-            'type'      => 'folder',
+            'type'      => 'system/folder',
         ]);
 
         $value->localized('de')->update([
@@ -21,7 +21,7 @@ class MediaTableSeeder extends Seeder
         $value = Media::create([
             'id'        => uuid(),
             'title'     => 'Movies',
-            'type'      => 'folder',
+            'type'      => 'system/folder',
         ]);
 
         $value->localized('de')->update([
@@ -31,7 +31,7 @@ class MediaTableSeeder extends Seeder
         $value = Media::create([
             'id'        => uuid(),
             'title'     => 'Documents',
-            'type'      => 'folder',
+            'type'      => 'system/folder',
         ]);
 
         $value->localized('de')->update([

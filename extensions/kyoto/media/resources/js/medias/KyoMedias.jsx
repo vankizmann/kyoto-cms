@@ -15,7 +15,7 @@ export default {
     defaults() {
 
         let query = {
-            page: 1, limit: 100, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
+            parent: '', page: 1, limit: 100, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
         };
 
         return { query };
@@ -28,6 +28,14 @@ export default {
 
     mounted()
     {
+        Nano.Event.bind('media:refresh', this.loadItems);
+    },
+
+    watch: {
+
+        'query.parent': function () {
+            this.loadItems();
+        },
 
     },
 
@@ -36,22 +44,57 @@ export default {
         addFile(file)
         {
             this.filelist.push({ id: this.UUID(), file: file });
+        },
+
+        gotoFolder(row)
+        {
+            this.query.parent = row.item.id;
+        },
+
+        gotoFile(row)
+        {
+            this.$router.push({
+                name: this.__self(null, 'Edit'), params: row.item
+            });
+        },
+
+        /**
+         * Goto edit form
+         * @param row
+         */
+        gotoEdit(row)
+        {
+            if ( row.item.type === 'system/folder' ) {
+                return this.gotoFolder(row);
+            }
+
+            this.gotoFile(row);
         }
 
     },
 
     renderNode({ value })
     {
+        let renderImage = (
+            <div class="kyo-media-item__image">
+                <img src={value.urls['square/sm']} alt={ value.name }/>
+            </div>
+        );
+
+        let renderIcon = (
+            <div class="kyo-media-item__icon" data-type={value.type}>
+                { /* Nice icon */}
+            </div>
+        );
+
         return (
             <div class={['kyo-media-item', 'kyo-media-item--' + value.type]}>
-                <div class="kyo-media-item__image">
-
-                </div>
+                { value.type.match(/^image\//) ? renderImage : renderIcon }
                 <div class="kyo-media-item__title">
                     { value.title }
                 </div>
                 <div class="kyo-media-item__meta">
-                    { value.description || '-' }
+                    { value.type }
                 </div>
             </div>
         );
@@ -62,14 +105,15 @@ export default {
         let datagridProps = {
             selected: this.selected,
             items: this.result.data,
-            itemHeight: 190,
+            itemHeight: 0,
             renderSelect: true,
             allowCurrent: false,
             renderNode: this.ctor('renderNode')
         }
 
         let datagridEvents = {
-            'update:selected': (value) => this.selected = value
+            'update:selected': (value) => this.selected = value,
+            'row-dblclick': this.gotoEdit
         }
 
         let paginatorProps = {
@@ -100,6 +144,18 @@ export default {
                         </template>
 
                     </KyoTitlebar>
+
+                    <KyoFilterbar class="col--flex-0-0">
+
+                        <NSelect style="width: 200px;">
+                            <NSelectOption value="1">Testitem</NSelectOption>
+                            <NSelectOption value="2">Testitem</NSelectOption>
+                            <NSelectOption value="3">Testitem</NSelectOption>
+                            <NSelectOption value="4">Testitem</NSelectOption>
+                            <NSelectOption value="5">Testitem</NSelectOption>
+                        </NSelect>
+
+                    </KyoFilterbar>
 
                     <div class="kyo-datatable col--flex-1-0">
                         <NDraggrid class="kyo-medias" props={datagridProps} on={datagridEvents} />

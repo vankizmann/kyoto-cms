@@ -266,7 +266,7 @@ export default {
         gotoEdit(row)
         {
             this.$router.push({
-                name: this.__self(null, 'Edit'), params: row
+                name: this.__self(null, 'Edit'), params: row.item
             });
         }
 

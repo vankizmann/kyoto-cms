@@ -241,6 +241,21 @@ class BackendMenuTableSeeder extends Seeder
             'parent'    => $menus['page'],
         ]);
 
+        $localize = Menu::create([
+            'id'        => uuid(),
+            'type'      => 'kyoto/menu::vue',
+            'option'    => ['component' =>  'KyoMediaEdit'],
+            'layout'    => null,
+            'state'     => 1,
+            'hide'      => 1,
+            'system'    => 1,
+            'title'     => 'Edit media',
+            'slug'      => 'edit/:id',
+            'matrix'    => 1,
+            'guard_id'  => env('KYO_GUARD'),
+            'parent'    => $temporary,
+        ]);
+
         $routes['user'] = uuid();
 
         $localize = Menu::create([

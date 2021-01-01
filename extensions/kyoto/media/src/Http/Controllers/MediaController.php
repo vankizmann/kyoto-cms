@@ -3,61 +3,68 @@
 namespace Kyoto\Media\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Kyoto\User\Facades\KyotoUser;
 use Kyoto\Media\Models\Media;
+use Kyoto\User\Facades\KyotoUser;
+use Kyoto\Media\Http\Requests\MediaRequest;
 
 class MediaController extends \App\Http\Controllers\Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 
-        return response()->json(Media::datatable());
-    }
+        $query = Media::where('parent_id',
+            $request->query('parent') ?: null);
 
-    public function create()
-    {
-        $menu = new Media;
-
-        return response()->json($menu);
-    }
-
-    public function store(Request $request)
-    {
-        $menu = (new Media)->fill($request->input())->save();
-
-        return response()->json($menu);
+        return response()->json($query->datatable());
     }
 
     public function show(Request $request)
     {
-        $id = $request->query('id');
+        $id = $request->query('id', null);
 
-        $menu = Media::findOrFail($id)
-            ->toArray();
+        $language = new Media;
 
-        return response()->json($menu);
-    }
-
-    public function update(Request $request)
-    {
-        $id = $request->query('id');
-
-        $menu = Media::withDepthGuard()
-            ->findOrFail($id);
-
-        $menu->fill($request->input())->save();
+        if ( ! empty($id) ) {
+            $language = Media::findOrFail($id);
+        }
 
         return response()->json([
-            'data' => $menu, 'message' => trans('Media has been updated')
+            'data' => $language->toArray()
         ]);
     }
 
-    public function delete(Request $request)
+    public function store(MediaRequest $request)
     {
-        foreach ( $request->input('ids', []) as $id ) {
+        $language = Media::create($request->input());
+
+        // Save entity
+        $language->save();
+
+        return response()->json([
+            'data' => $language->toArray(), 'message' => trans('Media has been created')
+        ]);
+    }
+
+    public function update(MediaRequest $request)
+    {
+        $id = $request->query('id');
+
+        $language = Media::findOrFail($id);
+
+        $language->fill($request->input())
+            ->save();
+
+        return response()->json([
+            'data' => $language, 'message' => trans('Media has been updated')
+        ]);
+    }
+
+    public function delete()
+    {
+        foreach ( request()->input('ids', []) as $id ) {
             Media::findOrFail($id)->forceDelete();
         }
 
@@ -68,7 +75,22 @@ class MediaController extends \App\Http\Controllers\Controller
 
     public function upload(Request $request)
     {
-        dd($request->input('file'));
+        $file = $request->file('file');
+
+        $data = array_merge($request->input(), [
+            'id' => uuid(), 'file' => $file->store('source', 'media')
+        ]);
+
+        $data['type'] = $file->getMimeType();
+
+        $data['title'] = pathinfo($file->getClientOriginalName(),
+            PATHINFO_FILENAME);
+
+        (new Media)->fill($data)->save();
+
+        return response()->json([
+            'data' => [], 'info' => trans('Media has been uploaded')
+        ]);
     }
 
 }
