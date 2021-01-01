@@ -32,7 +32,7 @@ Vue.use(VueNano, {
     activate:       'fa fa-check',
     deactivate:     'fa fa-times'
 }, {
-    iconPosition: 'after',
+    iconPosition: 'before',
     notifyPosition: 'bottom-end'
 });
 

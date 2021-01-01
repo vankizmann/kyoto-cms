@@ -26,6 +26,7 @@
 
 .kyo-medias .n-draggrid-item {
     overflow: hidden;
+    float: left;
     width: 160px;
     margin: 10px;
     border-radius: 7px;
@@ -83,11 +84,15 @@
     background-size: 80% 80%;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: svg-load('icon_page.svg');
+    background-image: svg-load('media_file.svg');
 }
 
 .kyo-media-item__icon[data-type="system/folder"]:before  {
-    background-image: svg-load('icon_menu.svg');
+    background-image: svg-load('media_folder.svg');
+}
+
+.kyo-media-item__icon[data-type="system/above"]:before  {
+    background-image: svg-load('media_above.svg');
 }
 
 .kyo-media-item__title {

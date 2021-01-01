@@ -19,6 +19,14 @@
 
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit" :group="['page', 'transaction']">
 
+                <NTableColumn type="boolean" prop="state" :label="trans('State')" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+
+                <NTableColumn type="boolean" prop="hide" :label="trans('Hide')" :sort="true" :filter="true">
+                    <!-- Column -->
+                </NTableColumn>
+
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
                     <router-link slot-scope="{ value }" :to="{ name: 'KyoPageEdit', params: value }">{{ value.title }}</router-link>
                 </NTableColumn>

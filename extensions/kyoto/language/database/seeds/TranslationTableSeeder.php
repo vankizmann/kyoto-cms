@@ -9,6 +9,15 @@ class TranslationTableSeeder extends Seeder
     public function run()
     {
         $value = Translation::create([
+            'source'    => 'Root',
+            'target'    => 'Root',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Start',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Yes',
             'target'    => 'Yes',
         ]);

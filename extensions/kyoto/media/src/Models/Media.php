@@ -3,6 +3,7 @@
 namespace Kyoto\Media\Models;
 
 use Baum\NestedSet\Node;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Kyoto\User\Database\Traits\DepthGuarded;
@@ -30,7 +31,7 @@ class Media extends \Kyoto\Support\Database\Model
     ];
 
     protected $appends = [
-        'name', 'url', 'urls'
+        'name', 'url', 'urls', 'above'
     ];
 
     protected $fields = [
@@ -51,13 +52,18 @@ class Media extends \Kyoto\Support\Database\Model
     ];
 
     protected $casts = [
-        'id'            => 'string',
+        'id'            => 'uuid',
         'title'         => 'string',
         'description'   => 'string',
         'copyright'     => 'string',
         'file'          => 'string',
         'type'          => 'string',
     ];
+
+    protected $relationships = [
+        'parent', 'children'
+    ];
+
 
     protected static function boot()
     {
@@ -73,6 +79,12 @@ class Media extends \Kyoto\Support\Database\Model
                 foreach ( $model->transform as $folder => $sizes ) {
                     $model->saveResized($model, $folder, $sizes, 'png');
                 }
+            }
+        });
+
+        static::deleting(function ($model) {
+            if ( $model->type === 'system/folder' ) {
+                $model->deleteLeaves($model);
             }
         });
 
@@ -109,6 +121,28 @@ class Media extends \Kyoto\Support\Database\Model
         Storage::disk('media')->delete($fileName);
     }
 
+    public function deleteLeaves($model)
+    {
+        foreach ( $model->getDescendants()->all() as $leaf ) {
+            $leaf->delete();
+        }
+    }
+
+    public function getAboveAttribute()
+    {
+        if ( ! $this->id || $this->type !== 'system/folder' ) {
+            return null;
+        }
+
+        $above = new self(['title' => trans('Root')]);
+
+        if ( $this->parent_id ) {
+            $above = $this->parent;
+        }
+
+        return $above->fill(['type' => 'system/above']);
+    }
+
     public function getNameAttribute()
     {
         return pathinfo($this->file, PATHINFO_BASENAME);
@@ -129,6 +163,23 @@ class Media extends \Kyoto\Support\Database\Model
         }
 
         return $urls;
+    }
+
+    public function toArray()
+    {
+        $attributes = $this->attributesToArray(false);
+
+        foreach ( $this->appends as $key ) {
+            if ( $this->hasGetMutator($key) ) {
+                $attributes[$key] = $this->{'get' . Str::studly($key) . 'Attribute'}($key);
+            }
+        }
+
+        foreach ( array_keys($this->relations) as $key ) {
+            $attributes[$key] = $this->getRelation($key)->toArray();
+        }
+
+        return $attributes;
     }
 
 }

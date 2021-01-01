@@ -170,7 +170,7 @@ export default {
          */
         onMove(source, target, strategy)
         {
-            this.moveItems(source, target, strategy);
+            this.moveItems(source.split(','), target, strategy);
         },
 
         /**

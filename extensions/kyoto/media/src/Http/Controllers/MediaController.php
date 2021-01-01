@@ -11,14 +11,40 @@ class MediaController extends \App\Http\Controllers\Controller
 {
     public function index(Request $request)
     {
+        $parent_id = ($request->query('parent') ?: null);
+
         if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);
         }
 
-        $query = Media::where('parent_id',
-            $request->query('parent') ?: null);
+        $data = Media::where('parent_id', $parent_id)
+            ->datatable();
 
-        return response()->json($query->datatable());
+        $folders = $files = [];
+
+        if ( $parent_id ) {
+            $folders[] = Media::findOrNew($parent_id)
+                ->getAttribute('above');
+        }
+
+        $data['breadcrumbs'] = Media::findOrNew($parent_id)
+            ->getAncestorsAndSelf();
+
+        foreach ( $data['data'] as $item ) {
+
+            if ( $item['type'] === 'system/folder' ) {
+                $folders[] = $item;
+            }
+
+            if ( $item['type'] !== 'system/folder' ) {
+                $files[] = $item;
+            }
+
+        }
+
+        $data['data'] = array_merge($folders, $files);
+
+        return response()->json($data);
     }
 
     public function show(Request $request)
@@ -70,6 +96,61 @@ class MediaController extends \App\Http\Controllers\Controller
 
         return response()->json([
             'data' => [], 'message' => trans('Medias have been deleted')
+        ]);
+    }
+
+    public function move(Request $request)
+    {
+        $data = $request->only(['source', 'target', 'strategy']);
+
+        if ( $data['strategy'] === 'root' ) {
+
+            foreach ( (array) $data['source'] as $id ) {
+                Media::findOrFail($id)->makeRoot();
+            }
+
+        }
+
+        if ( $data['strategy'] === 'inner' ) {
+
+            $targetNode = Media::find($data['target']);
+
+            foreach ( (array) $data['source'] as $id ) {
+                if ( ! $targetNode ) {
+                    Media::findOrFail($id)->makeRoot();
+                }
+            }
+
+            foreach ( (array) $data['source'] as $id ) {
+                if ( $targetNode ) {
+                    Media::findOrFail($id)->makeChildOf($targetNode);
+                }
+            }
+
+        }
+
+        if ( $data['strategy'] === 'before' ) {
+
+            $targetNode = Media::findOrFail($data['target']);
+
+            foreach ( (array) $data['source'] as $id ) {
+                Media::findOrFail($id)->moveToLeftOf($targetNode);
+            }
+
+        }
+
+        if ( $data['strategy'] === 'after' ) {
+
+            $targetNode = Media::findOrFail($data['target']);
+
+            foreach ( (array) $data['source'] as $id ) {
+                Media::findOrFail($id)->moveToRightOf($targetNode);
+            }
+
+        }
+
+        return response()->json([
+            'data' => [], 'message' => trans('Medias have been moved')
         ]);
     }
 

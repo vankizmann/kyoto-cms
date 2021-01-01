@@ -9,13 +9,14 @@ export default {
 
     urls: {
         index: '/{locale}/kyoto/media/http/controllers/media/index',
+        move: '/{locale}/kyoto/media/http/controllers/media/move',
         delete: '/{locale}/kyoto/media/http/controllers/media/delete'
     },
 
     defaults() {
 
         let query = {
-            parent: '', page: 1, limit: 100, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
+            parent: '', page: 1, limit: 100, prop: 'title', dir: 'asc', filter: [], search: '', columns: ['title', 'type']
         };
 
         return { query };
@@ -23,19 +24,29 @@ export default {
 
     data()
     {
-        return { filelist: [] }
+        return { parent: null, filelist: [] }
+    },
+
+    beforeMount()
+    {
+        this.getParent();
     },
 
     mounted()
     {
+        this.$watch('query.parent', this.loadItems);
         Nano.Event.bind('media:refresh', this.loadItems);
     },
 
     watch: {
 
-        'query.parent': function () {
-            this.loadItems();
+        '$route': function () {
+            this.getParent();
         },
+
+        'result.breadcrumbs': function () {
+            this.setParent();
+        }
 
     },
 
@@ -46,30 +57,60 @@ export default {
             this.filelist.push({ id: this.UUID(), file: file });
         },
 
+        setParent()
+        {
+            this.parent = Nano.Arr.last(this.result.breadcrumbs);
+        },
+
+        getParent()
+        {
+            this.query.parent = window.location.hash.replace(/^#/, '');
+        },
+
+        gotoHome()
+        {
+            this.$router.push({ name: 'KyoMedias' });
+        },
+
+        makeFolder()
+        {
+            console.log('folder');
+        },
+
+        gotoParent()
+        {
+            if ( ! Nano.Obj.get(this.parent, 'above.id') ) {
+                return this.gotoHome();
+            }
+
+            this.$router.push({ name: 'KyoMedias', hash: `#${this.parent.above.id}`});
+        },
+
         gotoFolder(row)
         {
-            this.query.parent = row.item.id;
+            if ( ! row.item.above ) {
+                return this.gotoHome();
+            }
+
+            this.$router.push({ name: 'KyoMedias', hash: `#${row.item.id}`});
         },
 
         gotoFile(row)
         {
-            this.$router.push({
-                name: this.__self(null, 'Edit'), params: row.item
-            });
+            this.$router.push({ name: this.__self(null, 'Edit'), params: row.item });
         },
 
-        /**
-         * Goto edit form
-         * @param row
-         */
         gotoEdit(row)
         {
-            if ( row.item.type === 'system/folder' ) {
-                return this.gotoFolder(row);
-            }
+            Nano.Arr.has(['system/folder', 'system/above'], row.item.type) ?
+                this.gotoFolder(row) : this.gotoFile(row);
+        },
 
-            this.gotoFile(row);
-        }
+        allowDrop(source, target)
+        {
+            return Nano.Arr.has(['system/folder', 'system/above'],
+                Nano.Obj.get(target, 'item.type'));
+        },
 
     },
 
@@ -105,14 +146,19 @@ export default {
         let datagridProps = {
             selected: this.selected,
             items: this.result.data,
-            itemHeight: 0,
+            itemHeight: 215,
             renderSelect: true,
+            insertNode: false,
+            removeNode: false,
+            moveItems: false,
             allowCurrent: false,
+            allowDrop: this.allowDrop,
             renderNode: this.ctor('renderNode')
         }
 
         let datagridEvents = {
             'update:selected': (value) => this.selected = value,
+            'move': this.onMove,
             'row-dblclick': this.gotoEdit
         }
 
@@ -146,15 +192,41 @@ export default {
                     </KyoTitlebar>
 
                     <KyoFilterbar class="col--flex-0-0">
+                        <div class="grid grid--row grid--10">
 
-                        <NSelect style="width: 200px;">
-                            <NSelectOption value="1">Testitem</NSelectOption>
-                            <NSelectOption value="2">Testitem</NSelectOption>
-                            <NSelectOption value="3">Testitem</NSelectOption>
-                            <NSelectOption value="4">Testitem</NSelectOption>
-                            <NSelectOption value="5">Testitem</NSelectOption>
-                        </NSelect>
+                            <div class="col--auto">
+                                <NButton icon="fa fa-home" disabled={!this.query.parent} vOn:click={this.gotoHome}>
+                                    { this.trans('Root') }
+                                </NButton>
+                            </div>
 
+                            <div class="col--auto">
+                                <NButton icon="fa fa-arrow-up" disabled={!this.query.parent} vOn:click={this.gotoParent}>
+                                    { this.trans('Above') }
+                                </NButton>
+                            </div>
+
+                            <div class="col--auto">
+                                <div style="width: 10px;"></div>
+                            </div>
+
+                            <div class="col--auto col--left">
+                                <NButton type="success" icon="fa fa-folder" vOn:click={this.makeFolder}>
+                                    { this.trans('New folder') }
+                                </NButton>
+                            </div>
+
+                            <div class="col--auto col--right">
+                                <NSelect style="width: 200px;">
+                                    <NSelectOption value="1">Testitem</NSelectOption>
+                                    <NSelectOption value="2">Testitem</NSelectOption>
+                                    <NSelectOption value="3">Testitem</NSelectOption>
+                                    <NSelectOption value="4">Testitem</NSelectOption>
+                                    <NSelectOption value="5">Testitem</NSelectOption>
+                                </NSelect>
+                            </div>
+
+                        </div>
                     </KyoFilterbar>
 
                     <div class="kyo-datatable col--flex-1-0">

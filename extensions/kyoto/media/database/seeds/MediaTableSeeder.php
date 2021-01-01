@@ -18,6 +18,17 @@ class MediaTableSeeder extends Seeder
             'title'      => 'Bilder',
         ]);
 
+        $child = Media::create([
+            'id'        => uuid(),
+            'title'     => 'Subfolder',
+            'type'      => 'system/folder',
+            'parent_id' => $value->id
+        ]);
+
+        $child->localized('de')->update([
+            'title'      => 'Unterordner',
+        ]);
+
         $value = Media::create([
             'id'        => uuid(),
             'title'     => 'Movies',
@@ -37,6 +48,7 @@ class MediaTableSeeder extends Seeder
         $value->localized('de')->update([
             'title'      => 'Dokumente',
         ]);
+
     }
 
 }

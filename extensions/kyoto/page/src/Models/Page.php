@@ -17,7 +17,7 @@ class Page extends \Kyoto\Support\Database\Model
     protected $table = 'pages';
 
     protected $fillable = [
-        'state', 'title', 'slug', 'content', 'builder', 'guard_id'
+        'state', 'hide', 'title', 'slug', 'content', 'builder', 'guard_id'
     ];
 
     protected $appends = [
