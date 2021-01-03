@@ -137,7 +137,7 @@ class Media extends \Kyoto\Support\Database\Model
 
     public function getUrlsAttribute()
     {
-        return app('kyoto.media')->getThumnailUrls($this->file);
+        return app('kyoto.media')->getThumnailUrls($this->view);
     }
 
     public function toArray()

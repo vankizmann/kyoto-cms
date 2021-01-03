@@ -51,26 +51,26 @@ class MediaController extends \App\Http\Controllers\Controller
     {
         $id = $request->query('id', null);
 
-        $language = new Media;
+        $media = new Media;
 
         if ( ! empty($id) ) {
-            $language = Media::findOrFail($id);
+            $media = Media::findOrFail($id);
         }
 
         return response()->json([
-            'data' => $language->toArray()
+            'data' => $media->toArray()
         ]);
     }
 
     public function store(MediaRequest $request)
     {
-        $language = Media::create($request->input());
+        $media = Media::create($request->input());
 
         // Save entity
-        $language->save();
+        $media->save();
 
         return response()->json([
-            'data' => $language->toArray(), 'message' => trans('Media has been created')
+            'data' => $media->toArray(), 'message' => trans('Media has been created')
         ]);
     }
 
@@ -78,13 +78,13 @@ class MediaController extends \App\Http\Controllers\Controller
     {
         $id = $request->query('id');
 
-        $language = Media::findOrFail($id);
+        $media = Media::findOrFail($id);
 
-        $language->fill($request->input())
+        $media->fill($request->input())
             ->save();
 
         return response()->json([
-            'data' => $language, 'message' => trans('Media has been updated')
+            'data' => $media, 'message' => trans('Media has been updated')
         ]);
     }
 

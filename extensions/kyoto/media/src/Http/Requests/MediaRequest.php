@@ -24,7 +24,7 @@ class MediaRequest extends FormRequest {
     public function rules()
     {
         return [
-            'title'      => 'required',
+            'file'      => 'required',
         ];
     }
 

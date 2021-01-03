@@ -62,13 +62,13 @@ export default {
             let youtube = this.clipboard.match(/^https?:\/\/(www\.)?youtube\.[a-z]{2,3}\/watch\?v=([^\&]+)/);
 
             if ( youtube ) {
-                this.video = { id: Nano.Arr.last(youtube), type: 'video/youtube' };
+                this.video = { file: Nano.Arr.last(youtube), type: 'video/youtube' };
             }
 
             let vimeo = this.clipboard.match(/^https?:\/\/(www\.)?vimeo\.[a-z]{2,3}\/([^\&\?]+)/);
 
             if ( vimeo ) {
-                this.video = { id: Nano.Arr.last(vimeo), type: 'video/vimeo' };
+                this.video = { file: Nano.Arr.last(vimeo), type: 'video/vimeo' };
             }
         },
 
@@ -78,10 +78,14 @@ export default {
                 return;
             }
 
-            let route = this.Route.get('/{locale}/kyoto/media/http/controllers/media/upload',
+            let route = this.Route.get('/{locale}/kyoto/media/http/controllers/media/store',
                 this.$root.$data);
 
-            this.$http.post(route, {})
+            let data = Nano.Obj.assign({}, this.video, {
+                parent_id: this.parent
+            });
+
+            this.$http.post(route, data)
                 .then(this.fetchDone, this.fetchDone);
         },
 
@@ -97,11 +101,11 @@ export default {
     renderPreview()
     {
         if ( this.video && this.video.type === 'video/youtube' ) {
-            return (<iframe src={`https://www.youtube.com/embed/${this.video.id}`} frameborder="0"></iframe>);
+            return (<iframe src={`https://www.youtube.com/embed/${this.video.file}`} frameborder="0"></iframe>);
         }
 
         if ( this.video && this.video.type === 'video/vimeo' ) {
-            return (<iframe src={`https://player.vimeo.com/video/${this.video.id}`} frameborder="0"></iframe>);
+            return (<iframe src={`https://player.vimeo.com/video/${this.video.file}`} frameborder="0"></iframe>);
         }
 
         return null;

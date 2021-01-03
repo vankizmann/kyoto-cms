@@ -4,8 +4,9 @@ namespace Kyoto\Media;
 
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
-use Kyoto\Media\Converters\FolderConverter;
 use Kyoto\Media\Converters\ImageConverter;
+use Kyoto\Media\Converters\FolderConverter;
+use Kyoto\Media\Converters\YoutubeConverter;
 
 class MediaManager {
 
@@ -30,6 +31,7 @@ class MediaManager {
     {
         $this->add(FolderConverter::class);
         $this->add(ImageConverter::class);
+        $this->add(YoutubeConverter::class);
     }
 
     public function add($converter)
@@ -107,6 +109,11 @@ class MediaManager {
         return $model;
     }
 
+    public function getStore()
+    {
+        return Storage::disk(self::MEDIA_STORE);
+    }
+
     public function saveThumbnails($file)
     {
         foreach ( $this->thumbs as $folder => $sizes ) {
@@ -118,7 +125,7 @@ class MediaManager {
 
     public function saveThumbnail($file, $folder, $sizes, $type = null)
     {
-        $binary = Storage::disk(self::MEDIA_STORE)
+        $binary = $this->getStore()
             ->get($file);
 
         $image = Image::make($binary);
@@ -129,7 +136,7 @@ class MediaManager {
 
         $name = pathinfo($file, PATHINFO_BASENAME);
 
-        Storage::disk(self::MEDIA_STORE)->put(
+        $this->getStore()->put(
             str_join('/', $folder, $name), $image->stream($type, $sizes[2]));
 
         return $this;
@@ -148,7 +155,7 @@ class MediaManager {
     {
         $name = pathinfo($file, PATHINFO_BASENAME);
 
-        Storage::disk(self::MEDIA_STORE)->delete(str_join('/', $folder, $name));
+        $this->getStore()->delete(str_join('/', $folder, $name));
 
         return $this;
     }
@@ -162,8 +169,8 @@ class MediaManager {
         }
 
         foreach ( array_keys($this->thumbs) as $folder ) {
-            $urls[$folder] = Storage::disk(self::MEDIA_STORE)
-                ->url(str_join('/', $folder, pathinfo($file, PATHINFO_BASENAME)));
+            $urls[$folder] = $this->getStore()->url(str_join('/',
+                $folder, pathinfo($file, PATHINFO_BASENAME)));
         }
 
         return $urls;

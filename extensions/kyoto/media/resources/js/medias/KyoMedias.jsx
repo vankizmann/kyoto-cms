@@ -148,7 +148,7 @@ export default {
 
         return (
             <div class="kyo-media-item">
-                { value.type.match(/^image\//) ? renderImage : renderIcon }
+                { value.view ? renderImage : renderIcon }
                 <div class="kyo-media-item__title">
                     { value.title }
                 </div>
