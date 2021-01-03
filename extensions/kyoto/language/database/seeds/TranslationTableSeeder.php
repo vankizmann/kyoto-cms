@@ -18,6 +18,15 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Above',
+            'target'    => 'Above',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Darüber',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Yes',
             'target'    => 'Yes',
         ]);
@@ -324,12 +333,12 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
-            'source'    => 'Are you sure you want to copy this item?',
-            'target'    => 'Are you sure you want to copy this item?',
+            'source'    => 'Do you really want to copy this item?',
+            'target'    => 'Do you really want to copy this item?',
         ]);
 
         $value->localized('de')->update([
-            'target'    => 'Möchtest du wirklich diesen Eintrag löschen?',
+            'target'    => 'Möchtest du diesen Eintrag wirklich kopieren?',
         ]);
 
         $value = Translation::create([
@@ -338,16 +347,16 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value->localized('de')->update([
-            'target'    => 'Möchtest du wirklich :count Einträge löschen?',
+            'target'    => 'Möchtest du wirklich :count Einträge kopieren?',
         ]);
 
         $value = Translation::create([
-            'source'    => 'Are you sure you want to delete this item?',
-            'target'    => 'Are you sure you want to delete this item?',
+            'source'    => 'Do you really want to delete this item?',
+            'target'    => 'Do you really want to delete this item?',
         ]);
 
         $value->localized('de')->update([
-            'target'    => 'Möchtest du wirklich diesen Eintrag löschen?',
+            'target'    => 'Möchtest du diesen Eintrag wirklich löschen?',
         ]);
 
         $value = Translation::create([
@@ -618,6 +627,42 @@ class TranslationTableSeeder extends Seeder
 
         $value->localized('de')->update([
             'target'    => 'Datei bearbeiten',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Create folder',
+            'target'    => 'Create folder',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Ordner erstellen',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Edit folder',
+            'target'    => 'Edit folder',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Ordner bearbeiten',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'New folder',
+            'target'    => 'New folder',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Neuer Ordner',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Add files',
+            'target'    => 'Add files',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Dateien hinzufügen',
         ]);
 
         $value = Translation::create([

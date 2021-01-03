@@ -16,6 +16,10 @@ class ApplicationServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if ( config('app.debug', false) && ! app()->runningInConsole() ) {
+            app('config')->set('app.url', $this->getRealUrl());
+        }
+
         $this->mergeConfigFrom(__DIR__.'/../config/kyoto.php', 'kyoto');
 
         $this->app->singleton('kyoto', function () {
@@ -47,6 +51,17 @@ class ApplicationServiceProvider extends ServiceProvider
         ]);
 
         app('kyoto')->boot();
+    }
+
+    protected function getRealUrl()
+    {
+        $protocol = 'http://';
+
+        if ( ! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ) {
+            $protocol = 'https://';
+        }
+
+        return $protocol . $_SERVER['HTTP_HOST'];
     }
 
 }

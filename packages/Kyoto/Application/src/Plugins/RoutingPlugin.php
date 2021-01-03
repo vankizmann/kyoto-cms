@@ -22,7 +22,6 @@ trait RoutingPlugin
         });
     }
 
-
     public function setProtocol($protocol)
     {
         return $this->protocol = preg_match('/https/', $protocol) ?

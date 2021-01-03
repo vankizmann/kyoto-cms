@@ -6,7 +6,7 @@ export default {
 
     localized: false,
 
-    refresh: true,
+    refresh: false,
 
     urls: {
         index: null,
@@ -22,14 +22,14 @@ export default {
     defaults()
     {
         return {
-            result: {}, errors: {}, load: true
+            override: {}, result: {}, errors: {}, load: true
         };
     },
 
     data()
     {
         let defaults = {
-            result: {}, errors: {}, load: true
+            override: {}, result: {}, errors: {}, load: true
         };
 
         let data = Obj.assign(defaults,
@@ -139,7 +139,10 @@ export default {
             let route = this.Route.get(this.ctor('urls.update'),
                 this.$root.$data, query);
 
-            this.$http.post(route, this.result, options)
+            let data = Nano.Obj.assign({}, this.result,
+                this.override);
+
+            this.$http.post(route, data, options)
                 .then(this.fetchDoneSave, this.fetchError);
         },
 
@@ -157,7 +160,11 @@ export default {
             let route = this.Route.get(this.ctor('urls.update'),
                 this.$root.$data, query);
 
-            this.$http.post(route, this.result, options)
+
+            let data = Nano.Obj.assign({}, this.result,
+                this.override);
+
+            this.$http.post(route, data, options)
                 .then(this.fetchDoneClose, this.fetchError);
         },
 
@@ -171,7 +178,11 @@ export default {
             let route = this.Route.get(this.ctor('urls.store'),
                 this.$root.$data);
 
-            this.$http.post(route, this.result, options)
+
+            let data = Nano.Obj.assign({}, this.result,
+                this.override);
+
+            this.$http.post(route, data, options)
                 .then(this.fetchDoneFirst, this.fetchError);
         },
 
@@ -185,7 +196,10 @@ export default {
             let route = this.Route.get(this.ctor('urls.store'),
                 this.$root.$data);
 
-            this.$http.post(route, this.result, options)
+            let data = Nano.Obj.assign({}, this.result,
+                this.override);
+
+            this.$http.post(route, data, options)
                 .then(this.fetchDoneClose, this.fetchError);
         },
 

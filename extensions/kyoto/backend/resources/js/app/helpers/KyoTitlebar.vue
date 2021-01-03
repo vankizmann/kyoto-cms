@@ -7,9 +7,15 @@
             </router-link>
         </div>
 
+        <div v-if="back" class="kyo-titlebar__back">
+            <a href="javascript:void(0)" @click.stop="$router.go(-1)">
+                <i class="fa fa-arrow-left"></i> {{ trans('Back') }}
+            </a>
+        </div>
+
         <div class="kyo-titlebar__title">
             <slot name="title">
-                <h1>{{ trans(Obj.get($route, 'meta.menu.title')) }}</h1>
+                <h1>{{ trans(title || this.menuTitle) }}</h1>
             </slot>
         </div>
 
@@ -24,27 +30,24 @@
         <div v-if="KyoForm" class="kyo-titlebar__description">
 
             <NButton :link="true" :square="true" icon="fa fa-angle-down">
-                {{ Any.isEmpty(updated) ? trans('Not saved yet') : trans('Saved at :updated', { updated }) }}
+                {{ Any.isEmpty(updated) ? trans('Not saved yet') : updated }}
             </NButton>
 
             <NPopover type="dropdown" trigger="click" position="bottom-end" :window="true" :width="220">
                 <div class="n-popover-label">
                     {{ trans('Actions') }}
                 </div>
-                <NButton v-if="copyEvent" class="n-popover-option" type="primary" :link="true" :disabled="! selected" @click="copyView = true">
+                <NButton v-if="copyEvent" class="n-popover-option" type="primary" :link="true" @click="copyView = true">
                     {{ trans('Copy item') }}
                 </NButton>
-                <div v-if="! copyEvent" class="n-popover-option n-disabled">
+                <NButton v-if="deleteEvent" class="n-popover-option" type="danger" :link="true" @click="deleteView = true">
+                    {{ trans('Delete item') }}
+                </NButton>
+                <div v-if="! copyEvent && ! deleteEvent" class="n-popover-option n-disabled">
                     {{ trans('No actions available') }}
                 </div>
             </NPopover>
 
-        </div>
-
-        <div v-if="KyoForm && deleteEvent" class="kyo-titlebar__delete">
-            <NButton type="danger" @click="deleteView = true">
-                {{ trans('Delete item') }}
-            </NButton>
         </div>
 
         <div v-if="KyoIndex" class="kyo-titlebar__description">
@@ -114,13 +117,32 @@
             link: {
                 default()
                 {
-                    return null;
+                    return false;
+                }
+            },
+
+            back: {
+                default()
+                {
+                    return false;
+                }
+            },
+
+            title: {
+                default()
+                {
+                    return this.menuTitle;
                 }
             }
 
         },
 
         computed: {
+
+            menuTitle()
+            {
+                return Nano.Obj.get(this.$route, 'meta.menu.title');
+            },
 
             search()
             {
@@ -160,6 +182,13 @@
             return {
                 deleteView: false, copyView: false
             };
+        },
+
+        updated()
+        {
+            if ( this.title !== this.menuTitle ) {
+                Nano.Dom.title(this.trans(this.title));
+            }
         },
 
         methods: {

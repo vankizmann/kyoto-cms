@@ -6,6 +6,7 @@ use Baum\NestedSet\Node;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Kyoto\Application\Facades\Kyoto;
 use Kyoto\User\Database\Traits\DepthGuarded;
 use Kyoto\Support\Database\Traits\Translatable;
 
@@ -15,23 +16,12 @@ class Media extends \Kyoto\Support\Database\Model
 
     protected $table = 'medias';
 
-    protected $transform = [
-
-        'square/sm' => [480, 480],
-        'square/md' => [960, 960],
-        'square/lg' => [1440, 1440],
-
-        'landscape/sm' => [640, 360],
-        'landscape/md' => [1280, 720],
-        'landscape/lg' => [1920, 1080],
-    ];
-
     protected $guarded = [
         'id'
     ];
 
     protected $appends = [
-        'name', 'url', 'urls', 'above'
+        'uid', 'url', 'urls', 'count', 'above'
     ];
 
     protected $fields = [
@@ -48,6 +38,7 @@ class Media extends \Kyoto\Support\Database\Model
         'description'   => null,
         'copyright'     => null,
         'file'          => null,
+        'view'          => null,
         'type'          => null,
     ];
 
@@ -57,6 +48,7 @@ class Media extends \Kyoto\Support\Database\Model
         'description'   => 'string',
         'copyright'     => 'string',
         'file'          => 'string',
+        'view'          => 'string',
         'type'          => 'string',
     ];
 
@@ -67,70 +59,59 @@ class Media extends \Kyoto\Support\Database\Model
 
     protected static function boot()
     {
-        static::saved(function ($model) {
-
-            if ( $model->type === 'image/jpeg' ) {
-                foreach ( $model->transform as $folder => $sizes ) {
-                    $model->saveResized($model, $folder, $sizes, 'jpg');
-                }
+        static::creating(function ($model) {
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->onModelCreating($model);
             }
+        });
 
-            if ( $model->type === 'image/png' ) {
-                foreach ( $model->transform as $folder => $sizes ) {
-                    $model->saveResized($model, $folder, $sizes, 'png');
-                }
+        static::created(function ($model) {
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->onModelCreated($model);
+            }
+        });
+
+        static::saving(function ($model) {
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->onModelSaving($model);
+            }
+        });
+
+        static::saved(function ($model) {
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->onModelSaved($model);
             }
         });
 
         static::deleting(function ($model) {
-            if ( $model->type === 'system/folder' ) {
-                $model->deleteLeaves($model);
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->onModelDeleting($model);
             }
         });
 
         static::deleted(function ($model) {
-
-            foreach ( array_keys($model->transform ) as $folder ) {
-                $model->deleteResized($model, $folder);
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->onModelDeleted($model);
             }
-
-            Storage::disk('media')->delete($model->file);
         });
 
         parent::boot();
     }
 
-    public function saveResized($model, $folder, $sizes, $type)
+    public function getUidAttribute()
     {
-        $file = Storage::disk('media')->get($model->file);
-
-        $image = Image::make($file);
-
-        $image->fit($sizes[0], $sizes[1], function ($constraint) {
-            $constraint->aspectRatio();
-        });
-
-        Storage::disk('media')->put(str_join('/', $folder, $model->name),
-            $image->stream($type, 75));
+        return $this->attributes['id'];
     }
 
-    public function deleteResized($model, $folder)
+    public function getTypeAttribute()
     {
-        $fileName = str_join('/', $folder, $model->name);
-
-        Storage::disk('media')->delete($fileName);
-    }
-
-    public function deleteLeaves($model)
-    {
-        foreach ( $model->getDescendants()->all() as $leaf ) {
-            $leaf->delete();
-        }
+        return ! $this->attributes['type'] ? 'system/folder' :
+            $this->attributes['type'];
     }
 
     public function getAboveAttribute()
     {
-        if ( ! $this->id || $this->type !== 'system/folder' ) {
+        if ( $this->type !== 'system/folder' ) {
             return null;
         }
 
@@ -143,26 +124,20 @@ class Media extends \Kyoto\Support\Database\Model
         return $above->fill(['type' => 'system/above']);
     }
 
-    public function getNameAttribute()
+    public function getCountAttribute()
     {
-        return pathinfo($this->file, PATHINFO_BASENAME);
+        return $this->type !== 'system/folder' ? null :
+            $this->leaves()->count();
     }
 
     public function getUrlAttribute()
     {
-        return Storage::disk('media')->url($this->file);
+        return Storage::disk('media')->url($this->view);
     }
 
     public function getUrlsAttribute()
     {
-        $urls = [];
-
-        foreach ( array_keys($this->transform) as $folder ) {
-            $urls[$folder] = Storage::disk('media')
-                ->url(str_join('/', $folder, $this->name));
-        }
-
-        return $urls;
+        return app('kyoto.media')->getThumnailUrls($this->file);
     }
 
     public function toArray()

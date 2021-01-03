@@ -116,7 +116,7 @@ Nano.Dom.ready(() => {
     });
 
     KyoBackend.router.afterEach((to) => {
-        Nano.Dom.title(Nano.Obj.get(to, 'meta.menu.title', 'Undefined'));
+        Nano.Dom.title(Nano.Locale.trans(Nano.Obj.get(to, 'meta.menu.title')));
     });
 
     let rootComponent = {};

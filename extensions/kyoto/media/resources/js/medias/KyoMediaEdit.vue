@@ -2,7 +2,7 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoMedias' }" class="col--flex-0-0" @delete="deleteItem">
+            <KyoTitlebar :back="true" class="col--flex-0-0" @delete="deleteItem">
                 <template slot="action">
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
@@ -17,7 +17,7 @@
 
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
-                <NFormGroup icon="fa fa-image" :legend="trans('Image')">
+                <NFormGroup icon="fa fa-info" :legend="trans('Info')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1">
@@ -59,6 +59,15 @@
             show: '/{locale}/kyoto/media/http/controllers/media/show',
             update: '/{locale}/kyoto/media/http/controllers/media/update',
             delete: '/{locale}/kyoto/media/http/controllers/media/delete'
+        },
+
+        methods: {
+
+            gotoIndex()
+            {
+                this.$router.go(-1);
+            }
+
         }
 
     }

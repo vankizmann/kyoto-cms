@@ -72,32 +72,46 @@ export default {
             this.$router.push({ name: 'KyoMedias' });
         },
 
-        makeFolder()
-        {
-            console.log('folder');
-        },
-
         gotoParent()
         {
             if ( ! Nano.Obj.get(this.parent, 'above.id') ) {
                 return this.gotoHome();
             }
 
-            this.$router.push({ name: 'KyoMedias', hash: `#${this.parent.above.id}`});
+            this.$router.push({
+                name: 'KyoMedias', hash: `#${this.parent.above.id}`
+            });
         },
 
         gotoFolder(row)
         {
-            if ( ! row.item.above ) {
+            if ( ! Nano.Obj.get(row, 'item.id') ) {
                 return this.gotoHome();
             }
 
-            this.$router.push({ name: 'KyoMedias', hash: `#${row.item.id}`});
+            this.$router.push({
+                name: 'KyoMedias', hash: `#${row.item.id}`
+            });
         },
 
         gotoFile(row)
         {
-            this.$router.push({ name: this.__self(null, 'Edit'), params: row.item });
+            this.$router.push({
+                name: this.__self(null, 'Edit'), params: row.item
+            });
+        },
+
+        gotoCreate()
+        {
+            let options = {
+                name: this.__self(null, 'Create')
+            };
+
+            if ( this.parent ) {
+                options.hash = `#${this.parent.id}`;
+            }
+
+            this.$router.push(options);
         },
 
         gotoEdit(row)
@@ -108,6 +122,10 @@ export default {
 
         allowDrop(source, target)
         {
+            if ( source.item.type === 'system/above' ) {
+                return false;
+            }
+
             return Nano.Arr.has(['system/folder', 'system/above'],
                 Nano.Obj.get(target, 'item.type'));
         },
@@ -124,12 +142,12 @@ export default {
 
         let renderIcon = (
             <div class="kyo-media-item__icon" data-type={value.type}>
-                { /* Nice icon */}
+                <span>{ value.type.match(/^system\//) ? value.count : value.type.replace(/^(.*?)\//, '')}</span>
             </div>
         );
 
         return (
-            <div class={['kyo-media-item', 'kyo-media-item--' + value.type]}>
+            <div class="kyo-media-item">
                 { value.type.match(/^image\//) ? renderImage : renderIcon }
                 <div class="kyo-media-item__title">
                     { value.title }
@@ -144,19 +162,21 @@ export default {
     render()
     {
         let datagridProps = {
+            current: this.current,
             selected: this.selected,
             items: this.result.data,
+            uniqueProp: 'uid',
             itemHeight: 215,
             renderSelect: true,
             insertNode: false,
             removeNode: false,
             moveItems: false,
-            allowCurrent: false,
             allowDrop: this.allowDrop,
             renderNode: this.ctor('renderNode')
         }
 
         let datagridEvents = {
+            'update:current': (value) => this.current = value,
             'update:selected': (value) => this.selected = value,
             'move': this.onMove,
             'row-dblclick': this.gotoEdit
@@ -186,7 +206,7 @@ export default {
                         </template>
 
                         <template slot="action">
-                            <NButton>{ this.trans('Create folder')}</NButton>
+                            <NButton>{ this.trans('Add files')}</NButton>
                         </template>
 
                     </KyoTitlebar>
@@ -210,10 +230,18 @@ export default {
                                 <div style="width: 10px;"></div>
                             </div>
 
-                            <div class="col--auto col--left">
-                                <NButton type="success" icon="fa fa-folder" vOn:click={this.makeFolder}>
+                            <div class="col--auto ">
+                                <NButton type="success" icon="fa fa-folder" vOn:click={this.gotoCreate}>
                                     { this.trans('New folder') }
                                 </NButton>
+                            </div>
+
+                            <div class="col--auto">
+                                <KyoVideos></KyoVideos>
+                            </div>
+
+                            <div class="col--auto">
+                                <KyoUploads></KyoUploads>
                             </div>
 
                             <div class="col--auto col--right">
@@ -236,7 +264,6 @@ export default {
 
                 </div>
 
-                <KyoUploads></KyoUploads>
             </NLoader>
         )
     }

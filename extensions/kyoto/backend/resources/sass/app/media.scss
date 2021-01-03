@@ -4,6 +4,10 @@
     flex: 1 0 auto;
 }
 
+.kyo-medias .n-draggrid-item.n-current {
+    background-color: rgba($color-gray-50, 0.1);
+}
+
 .kyo-medias .n-draggrid-item.n-selected {
     border-color: $color-primary;
 }
@@ -85,6 +89,15 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: svg-load('media_file.svg');
+}
+
+.kyo-media-item__icon span {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    display: inline-block;
+    color: $color-white;
+    transform: translate(-50%, -50%);
 }
 
 .kyo-media-item__icon[data-type="system/folder"]:before  {

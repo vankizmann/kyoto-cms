@@ -1,0 +1,34 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-video-preview {
+    position: relative;
+    background: $color-black;
+}
+
+.kyo-video-preview:before {
+    content: '\00a0';
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.33%;
+}
+
+.kyo-video-preview iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.kyo-video-text {
+    text-align: center;
+    color: $color-gray-40;
+    padding: 15px 20px 20px;
+}
+
+.n-modal.n-modal--video .n-modal__frame {
+    overflow: hidden;
+    border-radius: 12px;
+}
