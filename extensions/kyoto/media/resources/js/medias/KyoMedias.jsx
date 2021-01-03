@@ -120,6 +120,17 @@ export default {
                 this.gotoFolder(row) : this.gotoFile(row);
         },
 
+
+        allowSelect(source)
+        {
+            return source.veItem.type !== 'system/above';
+        },
+
+        allowDrag(source)
+        {
+            return source.veItem.type !== 'system/above';
+        },
+
         allowDrop(source, target)
         {
             if ( source.item.type === 'system/above' ) {
@@ -140,9 +151,11 @@ export default {
             </div>
         );
 
+        let extension = value.file.replace(/^(.*?)\./, '');
+
         let renderIcon = (
             <div class="kyo-media-item__icon" data-type={value.type}>
-                <span>{ value.type.match(/^system\//) ? value.count : value.type.replace(/^(.*?)\//, '')}</span>
+                <span>{ value.type.match(/^system\//) ? value.count : extension }</span>
             </div>
         );
 
@@ -171,6 +184,8 @@ export default {
             insertNode: false,
             removeNode: false,
             moveItems: false,
+            allowSelect: this.allowSelect,
+            allowDrag: this.allowDrag,
             allowDrop: this.allowDrop,
             renderNode: this.ctor('renderNode')
         }
@@ -203,10 +218,6 @@ export default {
 
                         <template slot="search">
                             <KyoTitlebarSearch vModel={this.query.search} />
-                        </template>
-
-                        <template slot="action">
-                            <NButton>{ this.trans('Add files')}</NButton>
                         </template>
 
                     </KyoTitlebar>

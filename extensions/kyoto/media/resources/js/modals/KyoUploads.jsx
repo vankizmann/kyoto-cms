@@ -26,7 +26,7 @@ export default {
 
     beforeMount()
     {
-        this.changeText();
+        this.text = this.changeText();
     },
 
     mounted()
@@ -126,23 +126,30 @@ export default {
 
         addFile(file)
         {
-            this.filelist.push({ parent_id: this.parent, file: file });
+            this.filelist.push({
+                id: Nano.UUID(), parent_id: this.parent, file: file
+            });
         },
 
         changeText(callback = null)
         {
-            let messages = [
-                'Only a few seconds remaining ... :count files',
-                'Flashing :count files into the cloud ...',
-                'Pushing bits on the server ... :count files remaining',
-                'Do, do, do ... only a few time units until :count files are done'
-            ];
-
             if ( Nano.Any.isFunction(callback) ) {
                 callback.call(this);
             }
 
-            this.text = messages[Math.round(Math.random() * (messages.length - 1))];
+            if ( Math.round(Math.random() * 4) === 1 ) {
+                return 'Flashing :count files into the cloud ...';
+            }
+
+            if ( Math.round(Math.random() * 4) === 1 ) {
+                return 'Pushing bits on the server ... :count files remaining';
+            }
+
+            if ( Math.round(Math.random() * 4) === 1 ) {
+                return 'Only a few seconds remaining ... :count files';
+            }
+
+            return 'Flying in the cloud ... :count files are done';
         },
 
         storeItem()
@@ -166,7 +173,7 @@ export default {
 
         fetchDone()
         {
-            this.changeText(() => {
+            this.text = this.changeText(() => {
                 Nano.Arr.removeIndex(this.filelist, 0);
             });
 

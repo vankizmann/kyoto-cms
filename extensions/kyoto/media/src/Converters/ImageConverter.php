@@ -49,7 +49,6 @@ class ImageConverter extends ConverterElement
      */
     public function onModelDeleted($model)
     {
-        app('kyoto.media')->deleteSource($model->view);
         app('kyoto.media')->deleteThumbnails($model->view);
 
         return $model;

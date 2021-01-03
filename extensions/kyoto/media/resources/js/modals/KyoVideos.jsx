@@ -82,7 +82,7 @@ export default {
                 this.$root.$data);
 
             let data = Nano.Obj.assign({}, this.video, {
-                parent_id: this.parent
+                id: Nano.UUID(), parent_id: this.parent
             });
 
             this.$http.post(route, data)

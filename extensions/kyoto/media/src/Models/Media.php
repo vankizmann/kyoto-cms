@@ -90,9 +90,19 @@ class Media extends \Kyoto\Support\Database\Model
         });
 
         static::deleted(function ($model) {
+
             if ( Kyoto::isReady() ) {
                 app('kyoto.media')->onModelDeleted($model);
             }
+
+            if ( strpos($model->file, 'source/') !== false ) {
+                app('kyoto.media')->deleteSource($model->file);
+            }
+
+            if ( strpos($model->view, 'source/') !== false ) {
+                app('kyoto.media')->deleteSource($model->view);
+            }
+
         });
 
         parent::boot();

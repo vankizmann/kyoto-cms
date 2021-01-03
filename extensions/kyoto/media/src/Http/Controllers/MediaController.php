@@ -64,7 +64,7 @@ class MediaController extends \App\Http\Controllers\Controller
 
     public function store(MediaRequest $request)
     {
-        $media = Media::create($request->input());
+        $media = new Media($request->input());
 
         // Save entity
         $media->save();
@@ -159,15 +159,23 @@ class MediaController extends \App\Http\Controllers\Controller
         $file = $request->file('file');
 
         $data = array_merge($request->input(), [
-            'id' => uuid(), 'file' => $file->store('source', 'media')
+            'id' => uuid(), 'type' => $file->getMimeType()
         ]);
 
-        $data['type'] = $file->getMimeType();
+        $media = new Media($data);
 
-        $data['title'] = pathinfo($file->getClientOriginalName(),
+        $extension = pathinfo($file->getClientOriginalName(),
+            PATHINFO_EXTENSION);
+
+        $media->file = "source/{$media->id}.{$extension}";
+
+        $media->title = pathinfo($file->getClientOriginalName(),
             PATHINFO_FILENAME);
 
-        (new Media)->fill($data)->save();
+        app('kyoto.media')->getStore()->put($media->file,
+            file_get_contents($file->getRealPath()));
+
+        $media->save();
 
         return response()->json([
             'data' => [], 'info' => trans('Media has been uploaded')

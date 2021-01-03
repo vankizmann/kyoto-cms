@@ -114,6 +114,11 @@ class MediaManager {
         return Storage::disk(self::MEDIA_STORE);
     }
 
+    public function getStoreName()
+    {
+        return self::MEDIA_STORE;
+    }
+
     public function saveThumbnails($file)
     {
         foreach ( $this->thumbs as $folder => $sizes ) {
