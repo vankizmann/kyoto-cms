@@ -151,11 +151,9 @@ export default {
             </div>
         );
 
-        let extension = value.file.replace(/^(.*?)\./, '');
-
         let renderIcon = (
             <div class="kyo-media-item__icon" data-type={value.type}>
-                <span>{ value.type.match(/^system\//) ? value.count : extension }</span>
+                <span>{ value.type.match(/^system\//) ? value.count : value.file.replace(/^(.*?)\./, '') }</span>
             </div>
         );
 
