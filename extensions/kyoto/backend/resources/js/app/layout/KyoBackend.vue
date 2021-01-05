@@ -124,7 +124,7 @@
 
             setLocale(locale)
             {
-                Nano.Event.fire('localke:change', locale);
+                Nano.Event.fire('locale:change', locale);
             },
 
             setWidth(width)

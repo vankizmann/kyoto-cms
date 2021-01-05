@@ -108,9 +108,15 @@ class Media extends \Kyoto\Support\Database\Model
         parent::boot();
     }
 
+    public function getIdAttribute()
+    {
+        return $this->attributes['id'] ?:
+            '00000000-0000-0000-0000-000000000000';
+    }
+
     public function getUidAttribute()
     {
-        return $this->attributes['id'];
+        return uuid();
     }
 
     public function getTypeAttribute()
@@ -148,23 +154,6 @@ class Media extends \Kyoto\Support\Database\Model
     public function getUrlsAttribute()
     {
         return app('kyoto.media')->getThumnailUrls($this->view);
-    }
-
-    public function toArray()
-    {
-        $attributes = $this->attributesToArray(false);
-
-        foreach ( $this->appends as $key ) {
-            if ( $this->hasGetMutator($key) ) {
-                $attributes[$key] = $this->{'get' . Str::studly($key) . 'Attribute'}($key);
-            }
-        }
-
-        foreach ( array_keys($this->relations) as $key ) {
-            $attributes[$key] = $this->getRelation($key)->toArray();
-        }
-
-        return $attributes;
     }
 
 }

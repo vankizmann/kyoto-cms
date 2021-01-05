@@ -8,6 +8,18 @@ export default {
         }
     },
 
+    props: {
+
+        size: {
+            default()
+            {
+                return 'default';
+            },
+            type: [String]
+        }
+
+    },
+
     computed: {
 
         parent()
@@ -192,7 +204,7 @@ export default {
     {
         return (
             <div class="kyo-media__uploads">
-                <NButton icon="fa fa-cloud-upload-alt" vOn:click={() => this.$refs.legacy.click()}>
+                <NButton size={this.size} icon="fa fa-cloud-upload-alt" vOn:click={() => this.$refs.legacy.click()}>
                     {this.trans('Upload')}
                 </NButton>
                 <NModal type="upload" visible={this.visible} selector={false} closable={false} width="360px">

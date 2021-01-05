@@ -15,7 +15,7 @@
 
         <div class="kyo-titlebar__title">
             <slot name="title">
-                <h1>{{ trans(title || this.menuTitle) }}</h1>
+                <h1>{{ Any.isEmpty(title) ? trans(this.menuTitle) : trans(title) }}</h1>
             </slot>
         </div>
 
@@ -131,7 +131,7 @@
             title: {
                 default()
                 {
-                    return this.menuTitle;
+                    return null;
                 }
             }
 
@@ -184,11 +184,14 @@
             };
         },
 
-        updated()
-        {
-            if ( this.title !== this.menuTitle ) {
-                Nano.Dom.title(this.trans(this.title));
+        watch: {
+
+            'title': function () {
+                if ( ! Nano.Any.isEmpty(this.title) ) {
+                    Nano.Dom.title(this.trans(this.title));
+                }
             }
+
         },
 
         methods: {

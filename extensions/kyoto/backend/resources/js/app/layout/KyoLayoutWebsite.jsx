@@ -25,7 +25,7 @@ export default {
         Nano.Event.bind('locale:changed', this.loadItems, this._uid);
     },
 
-    destroyed()
+    beforeDestroy()
     {
         Nano.Event.unbind('locale:changed', this._uid);
     },
@@ -203,14 +203,6 @@ export default {
             }
 
             return this.transactItems(sources, target, strategy);
-
-            if ( sources.length !== 1 ) {
-                return this.Notify(this.trans('Only one menu at time can be inserted.'), 'danger');
-            }
-
-            this.formBuffer = this.resetFormBuffer(Nano.Arr.first(items));
-
-            this.modal = true;
         },
 
     },

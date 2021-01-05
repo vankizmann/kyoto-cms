@@ -23,10 +23,10 @@ class CreateMediaTable extends Migration
                 ->nullable();
 
             $table->string('file')
-                ->default('');
+                ->nullable();
 
             $table->string('view')
-                ->default('');
+                ->nullable();
 
             $table->string('type')
                 ->nullable();

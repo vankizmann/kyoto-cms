@@ -26,23 +26,23 @@ class PageController extends \App\Http\Controllers\Controller
 
         $id = $request->query('id', null);
 
-        $user = new Page;
+        $page = new Page;
 
         if ( ! empty($id) ) {
-            $user = Page::findOrFail($id);
+            $page = Page::findOrFail($id);
         }
 
         return response()->json([
-            'data' => $user->toArray()
+            'data' => $page->toArray()
         ]);
     }
 
     public function store(PageRequest $request)
     {
-        $user = Page::create($request->input());
+        $page = Page::create($request->input());
 
         return response()->json([
-            'data' => $user->toArray(), 'message' => trans('Page has been created')
+            'data' => $page->toArray(), 'message' => trans('Page has been created')
         ]);
     }
 
@@ -50,13 +50,13 @@ class PageController extends \App\Http\Controllers\Controller
     {
         $id = $request->query('id');
 
-        $user = Page::findOrFail($id);
+        $page = Page::findOrFail($id);
 
-        $user->fill($request->input())
+        $page->fill($request->input())
             ->save();
 
         return response()->json([
-            'data' => $user, 'message' => trans('Page has been updated')
+            'data' => $page, 'message' => trans('Page has been updated')
         ]);
     }
 

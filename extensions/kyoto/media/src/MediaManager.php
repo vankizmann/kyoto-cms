@@ -2,11 +2,13 @@
 
 namespace Kyoto\Media;
 
+use Kyoto\Media\Models\Media;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Kyoto\Media\Converters\ImageConverter;
 use Kyoto\Media\Converters\FolderConverter;
 use Kyoto\Media\Converters\YoutubeConverter;
+use Kyoto\Media\Models\MediaLink;
 
 class MediaManager {
 
@@ -15,12 +17,12 @@ class MediaManager {
     protected $thumbs = [
 
         'square/sm' => [480, 480, 75],
-        'square/md' => [960, 960, 75],
-        'square/lg' => [1440, 1440, 75],
+        'square/md' => [960, 960, 70],
+        'square/lg' => [1440, 1440, 65],
 
         'landscape/sm' => [640, 360, 75],
-        'landscape/md' => [1280, 720, 75],
-        'landscape/lg' => [1920, 1080, 75],
+        'landscape/md' => [1280, 720, 70],
+        'landscape/lg' => [1920, 1080, 65],
     ];
 
     public $loaded = [
@@ -184,6 +186,38 @@ class MediaManager {
     public function deleteSource($file)
     {
         Storage::disk(self::MEDIA_STORE)->delete($file);
+    }
+
+    public function saveMediaLinks($unique, $medias = [])
+    {
+        MediaLink::where('foreign_id', $unique)->delete();
+
+        foreach ( $medias as $index => $media ) {
+
+            $data = [
+                'sequence'      => $index,
+                'foreign_id'    => $unique,
+                'media_id'      => $media['id']
+            ];
+
+            MediaLink::create($data);
+        }
+
+        return $this;
+    }
+
+    public function fetchMediaLinks($unique)
+    {
+        $medias = [];
+
+        $links =  MediaLink::where('foreign_id', $unique)
+            ->orderBy('sequence', 'asc')->get();
+
+        foreach ( $links as $link ) {
+            $medias[] = $link->media;
+        }
+
+        return $medias;
     }
 
 }

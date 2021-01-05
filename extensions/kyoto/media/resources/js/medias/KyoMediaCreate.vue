@@ -2,7 +2,7 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :back="true" :title="trans('Create folder')" class="col--flex-0-0">
+            <KyoTitlebar :back="true" class="col--flex-0-0">
                 <template slot="action">
                     <NButtonGroup>
                         <NButton type="primary" @click="storeItemClose">
@@ -23,9 +23,15 @@
                             </NFormItem>
                         </div>
 
-                        <div class="col--1-1">
+                        <div class="col--1-1 col--1-2@md">
                             <NFormItem :label="trans('Description')" prop="description">
                                 <NTextarea v-model="result.description"></NTextarea>
+                            </NFormItem>
+                        </div>
+
+                        <div class="col--1-1 col--1-2@md">
+                            <NFormItem :label="trans('Copyright')" prop="copyright">
+                                <NTextarea v-model="result.copyright"></NTextarea>
                             </NFormItem>
                         </div>
 

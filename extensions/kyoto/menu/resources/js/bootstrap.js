@@ -9,18 +9,6 @@ Vue.component(KyoMenuEdit.name, KyoMenuEdit);
 import KyoMenuCreate from "./pages/menu/KyoMenuCreate";
 Vue.component(KyoMenuCreate.name, KyoMenuCreate);
 
-Nano.Store.add('menus', (setter) => {
-
-    let route = Nano.Route.get('/{locale}/kyoto/menu/http/controllers/menu/index',
-        { locale: window.App.locale });
-
-    Vue.$http.get(route).then((res) => setter(res.data.data), () => false);
-});
-
-Nano.Event.bind('locale:changed', () => {
-    Nano.Store.refresh('menus');
-});
-
 require('./configs/vue');
 require('./configs/redirect');
 

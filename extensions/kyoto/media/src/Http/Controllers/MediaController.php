@@ -11,7 +11,11 @@ class MediaController extends \App\Http\Controllers\Controller
 {
     public function index(Request $request)
     {
-        $parent_id = ($request->query('parent') ?: null);
+        $parent_id = $request->query('parent');
+
+        if ( empty($parent_id) ) {
+            $parent_id = null;
+        }
 
         if ( ! KyotoUser::hasPolicyAction([self::class, 'index']) ) {
             abort(403);

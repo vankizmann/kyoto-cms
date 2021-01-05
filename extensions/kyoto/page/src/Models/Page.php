@@ -16,12 +16,12 @@ class Page extends \Kyoto\Support\Database\Model
 
     protected $table = 'pages';
 
-    protected $fillable = [
-        'state', 'hide', 'title', 'slug', 'content', 'builder', 'guard_id'
+    protected $guarded = [
+        'id'
     ];
 
     protected $appends = [
-        'transaction'
+        'transaction', 'images'
     ];
 
     protected $fields = [
@@ -73,6 +73,15 @@ class Page extends \Kyoto\Support\Database\Model
         parent::boot();
     }
 
+    public function fill($attributes)
+    {
+        if ( isset($attributes['images']) ) {
+            $this->setImagesAttribute($attributes['images']);
+        }
+
+        return parent::fill($attributes);
+    }
+
     public function menus()
     {
         return $this->hasMany(Menu::class, 'foreign_id', 'id')
@@ -88,6 +97,16 @@ class Page extends \Kyoto\Support\Database\Model
     {
         $this->attributes['slug'] = Str::snake(
             str_replace(['.', ','], '', $value), '-');
+    }
+
+    public function getImagesAttribute()
+    {
+        return app('kyoto.media')->fetchMediaLinks($this->id);
+    }
+
+    public function setImagesAttribute($value)
+    {
+        app('kyoto.media')->saveMediaLinks($this->id, $value);
     }
 
 }

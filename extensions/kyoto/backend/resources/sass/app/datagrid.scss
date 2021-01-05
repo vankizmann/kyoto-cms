@@ -1,0 +1,55 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-datagrid {
+    display: flex;
+    flex-direction: column;
+}
+
+.kyo-datagrid .n-draggrid {
+    flex: 1 0 auto;
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item.n-current {
+    background-color: rgba($color-gray-50, 0.1);
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item.n-selected {
+    border-color: $color-primary;
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item.n-dragover {
+    background-color: rgba($color-gray-50, 0.2);
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item.n-nodrop {
+    background-color: rgba($color-danger, 0.2);
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item.n-selected.n-nodrop {
+    border-color: $color-danger;
+}
+
+.kyo-datagrid .n-draggrid .n-scrollbar-content {
+    padding: 20px;
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item {
+    overflow: hidden;
+    float: left;
+    width: 160px;
+    margin: 10px;
+    border-radius: 7px;
+    border: 2px solid transparent;
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item .n-draggrid-item__select {
+    margin: 0 auto 10px;
+}
+
+.kyo-datagrid .n-paginator {
+    flex: 0 0 auto;
+    padding: 0 30px;
+    height: 55px;
+    color: $--color-black;
+    border-top: 1px solid $--color-gray-10;
+}

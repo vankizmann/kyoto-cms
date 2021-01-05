@@ -1,4 +1,4 @@
-import { Arr, Obj } from 'nano-js';
+import { Arr, Obj, Any } from 'nano-js';
 
 export default {
 
@@ -58,6 +58,11 @@ export default {
         this.loadItem(to);
 
         next();
+    },
+
+    ready()
+    {
+        // When component is ready
     },
 
     mounted()
@@ -230,6 +235,10 @@ export default {
          */
         fetchDone(res)
         {
+            if ( Any.isEmpty(this.result) ) {
+                Any.delay(this.ctor('ready'), 30);
+            }
+
             this.result = Obj.get(res.data, 'data', {});
         },
 

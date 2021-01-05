@@ -13,6 +13,34 @@ export default {
         delete: '/{locale}/kyoto/media/http/controllers/media/delete'
     },
 
+    props: {
+
+        navigation: {
+            default()
+            {
+                return true;
+            },
+            type: [Boolean]
+        },
+
+        size: {
+            default()
+            {
+                return 'default';
+            },
+            type: [String]
+        },
+
+        root: {
+            default()
+            {
+                return '00000000-0000-0000-0000-000000000000';
+            },
+            type: [String]
+        }
+
+    },
+
     defaults() {
 
         let query = {
@@ -24,7 +52,7 @@ export default {
 
     data()
     {
-        return { parent: null, filelist: [] }
+        return { parent: null }
     },
 
     beforeMount()
@@ -52,11 +80,6 @@ export default {
 
     methods: {
 
-        addFile(file)
-        {
-            this.filelist.push({ id: this.UUID(), file: file });
-        },
-
         setParent()
         {
             this.parent = Nano.Arr.last(this.result.breadcrumbs);
@@ -69,13 +92,21 @@ export default {
 
         gotoHome()
         {
+            if ( ! this.navigation ) {
+                return this.query.parent = this.root;
+            }
+
             this.$router.push({ name: 'KyoMedias' });
         },
 
         gotoParent()
         {
-            if ( ! Nano.Obj.get(this.parent, 'above.id') ) {
+            if ( Nano.Obj.get(this.parent, 'above.id') === this.root ) {
                 return this.gotoHome();
+            }
+
+            if ( ! this.navigation ) {
+                return this.query.parent = this.parent.above.id;
             }
 
             this.$router.push({
@@ -85,8 +116,12 @@ export default {
 
         gotoFolder(row)
         {
-            if ( ! Nano.Obj.get(row, 'item.id') ) {
+            if ( Nano.Obj.get(row, 'item.id') === this.root ) {
                 return this.gotoHome();
+            }
+
+            if ( ! this.navigation ) {
+                return this.query.parent = Nano.Obj.get(row, 'item.id');
             }
 
             this.$router.push({
@@ -96,6 +131,10 @@ export default {
 
         gotoFile(row)
         {
+            if ( ! this.navigation ) {
+                return;
+            }
+
             this.$router.push({
                 name: this.__self(null, 'Edit'), params: row.item
             });
@@ -133,50 +172,236 @@ export default {
 
         allowDrop(source, target)
         {
+            if ( ! this.navigation ) {
+                return false;
+            }
+
             if ( source.item.type === 'system/above' ) {
                 return false;
             }
 
             return Nano.Arr.has(['system/folder', 'system/above'],
                 Nano.Obj.get(target, 'item.type'));
-        },
+        }
 
+    },
+
+    renderNodeTitle(value)
+    {
+        if ( ! this.navigation ) {
+            return (<span>{ value.title }</span>);
+        }
+
+        let clickEvent = () => {
+            this.gotoFile({ item: value });
+        };
+
+        return (
+            <a href="javascript:void(0)" vOn:click={clickEvent}>
+                { value.title }
+            </a>
+        );
+    },
+
+    renderViewNode(value)
+    {
+        return (
+            <div class="kyo-media-grid-item">
+                <div class="kyo-media-grid-item__image">
+                    <img src={ value.urls['square/sm'] } />
+                </div>
+                <div class="kyo-media-grid-item__title">
+                    { this.ctor('renderNodeTitle')(value) }
+                </div>
+                <div class="kyo-media-grid-item__meta">
+                    <span>{ value.type }</span>
+                </div>
+            </div>
+        );
+    },
+
+    renderIconNode(value)
+    {
+        return (
+            <div class="kyo-media-grid-item">
+                <div class="kyo-media-grid-item__icon" data-type={value.type}>
+                    <span>{ value.file.replace(/^(.*?)\./, '') }</span>
+                </div>
+                <div class="kyo-media-grid-item__title">
+                    { this.ctor('renderNodeTitle')(value) }
+                </div>
+                <div class="kyo-media-grid-item__meta">
+                    <span>{ value.type }</span>
+                </div>
+            </div>
+        );
+    },
+
+    renderFolderNode(value)
+    {
+        return (
+            <div class="kyo-media-grid-item">
+                <div class="kyo-media-grid-item__icon" data-type={value.type}>
+                    <span>{ value.count }</span>
+                </div>
+                <div class="kyo-media-grid-item__title">
+                    { this.ctor('renderNodeTitle')(value) }
+                </div>
+                <div class="kyo-media-grid-item__meta">
+                    <span>{ value.type }</span>
+                </div>
+            </div>
+        );
+    },
+
+    renderAboveNode(value)
+    {
+        return (
+            <div class="kyo-media-grid-item">
+                <div class="kyo-media-grid-item__icon" data-type={value.type}>
+                    { /* No additional info */}
+                </div>
+                <div class="kyo-media-grid-item__title">
+                    <span>{ value.title }</span>
+                </div>
+                <div class="kyo-media-grid-item__meta">
+                    <span>{ value.type }</span>
+                </div>
+            </div>
+        );
     },
 
     renderNode({ value })
     {
-        let renderImage = (
-            <div class="kyo-media-item__image">
-                <img src={value.urls['square/sm']} alt={ value.name }/>
-            </div>
-        );
+        if ( value.type === 'system/above' ) {
+            return this.ctor('renderAboveNode')(value);
+        }
 
-        let renderIcon = (
-            <div class="kyo-media-item__icon" data-type={value.type}>
-                <span>{ value.type.match(/^system\//) ? value.count : value.file.replace(/^(.*?)\./, '') }</span>
-            </div>
-        );
+        if ( value.type === 'system/folder' ) {
+            return this.ctor('renderFolderNode')(value);
+        }
+
+        if ( ! Nano.Any.isEmpty(value.view) ) {
+            return this.ctor('renderViewNode')(value);
+        }
+
+        return this.ctor('renderIconNode')(value);
+    },
+
+    renderToolbar()
+    {
+        if ( ! this.navigation ) {
+            return null;
+        }
 
         return (
-            <div class="kyo-media-item">
-                { value.view ? renderImage : renderIcon }
-                <div class="kyo-media-item__title">
-                    { value.title }
-                </div>
-                <div class="kyo-media-item__meta">
-                    { value.type }
-                </div>
-            </div>
+            <KyoTitlebar class="col--flex-0-0" vOn:delete={this.deleteItems}>
+
+                <template slot="search">
+                    <KyoTitlebarSearch vModel={this.query.search} />
+                </template>
+
+            </KyoTitlebar>
         );
     },
 
-    render()
+    renderFilterbar()
     {
-        let datagridProps = {
+        let rootButton = (
+            <div class="col--auto">
+                <NButton size={this.size} icon="fa fa-home" disabled={!this.query.parent} vOn:click={this.gotoHome}>
+                    { this.trans('Root') }
+                </NButton>
+            </div>
+        )
+
+        let aboveButton = (
+            <div class="col--auto">
+                <NButton size={this.size} icon="fa fa-arrow-up" disabled={!this.query.parent} vOn:click={this.gotoParent}>
+                    { this.trans('Above') }
+                </NButton>
+            </div>
+        );
+
+        let createFolder = (
+            <div class="col--auto">
+                <NButton size={this.size} type="success" icon="fa fa-folder" vOn:click={this.gotoCreate}>
+                    { this.trans('Folder') }
+                </NButton>
+            </div>
+        );
+
+        let createVideo = (
+            <div class="col--auto">
+                <KyoVideos size={this.size}></KyoVideos>
+            </div>
+        );
+
+        let createFile = (
+            <div class="col--auto">
+                <KyoUploads size={this.size}></KyoUploads>
+            </div>
+        );
+
+        let spacerDiv = (
+            <div class="col--flex-1-1">
+                { /* Spacer */ }
+            </div>
+        )
+
+        let sortOptions = {
+            title: this.trans('Title'),
+            type: this.trans('Type'),
+            updated_at: this.trans('Modified'),
+            created_at: this.trans('Created'),
+        };
+
+        let sortSelect = (
+            <div class="col--auto">
+                <NSelect size={this.size} vModel={this.query.prop} style="width: 140px;" options={sortOptions}>
+                    { /* Sortfields */ }
+                </NSelect>
+            </div>
+        );
+
+        let orderOptions = {
+            asc: this.trans('Ascending'),
+            desc: this.trans('Descending')
+        };
+
+        let orderSelect = (
+            <div class="col--auto">
+                <NSelect size={this.size} vModel={this.query.dir} style="width: 140px;" options={orderOptions}>
+                    { /* Orderfields */ }
+                </NSelect>
+            </div>
+        );
+
+        let renderItems = [
+            rootButton, aboveButton
+        ];
+
+        if ( this.navigation ) {
+            renderItems.push(createFolder, createVideo, createFile);
+        }
+
+        renderItems.push(spacerDiv, sortSelect, orderSelect);
+
+        return (
+            <KyoFilterbar class="col--flex-0-0">
+                <div class="grid grid--row grid--10">
+                    { renderItems }
+                </div>
+            </KyoFilterbar>
+        );
+    },
+
+    renderDatagrid()
+    {
+        let draggridProps = {
             current: this.current,
             selected: this.selected,
             items: this.result.data,
-            uniqueProp: 'uid',
             itemHeight: 215,
             renderSelect: true,
             insertNode: false,
@@ -188,7 +413,7 @@ export default {
             renderNode: this.ctor('renderNode')
         }
 
-        let datagridEvents = {
+        let draggridEvents = {
             'update:current': (value) => this.current = value,
             'update:selected': (value) => this.selected = value,
             'move': this.onMove,
@@ -208,72 +433,27 @@ export default {
         }
 
         return (
+            <div class="kyo-datagrid col--flex-1-0">
+                <NDraggrid props={draggridProps} on={draggridEvents}>
+                    { /* Filegrid */ }
+                </NDraggrid>
+                <NPaginator props={paginatorProps} on={paginatorEvents}>
+                    { /* Pagination */ }
+                </NPaginator>
+            </div>
+        );
+    },
+
+    render()
+    {
+        return (
             <NLoader visible={this.load} class="full-height-child">
-
                 <div class="grid grid--col">
-
-                    <KyoTitlebar class="col--flex-0-0" vOn:delete={this.deleteItems}>
-
-                        <template slot="search">
-                            <KyoTitlebarSearch vModel={this.query.search} />
-                        </template>
-
-                    </KyoTitlebar>
-
-                    <KyoFilterbar class="col--flex-0-0">
-                        <div class="grid grid--row grid--10">
-
-                            <div class="col--auto">
-                                <NButton icon="fa fa-home" disabled={!this.query.parent} vOn:click={this.gotoHome}>
-                                    { this.trans('Root') }
-                                </NButton>
-                            </div>
-
-                            <div class="col--auto">
-                                <NButton icon="fa fa-arrow-up" disabled={!this.query.parent} vOn:click={this.gotoParent}>
-                                    { this.trans('Above') }
-                                </NButton>
-                            </div>
-
-                            <div class="col--auto">
-                                <div style="width: 10px;"></div>
-                            </div>
-
-                            <div class="col--auto ">
-                                <NButton type="success" icon="fa fa-folder" vOn:click={this.gotoCreate}>
-                                    { this.trans('New folder') }
-                                </NButton>
-                            </div>
-
-                            <div class="col--auto">
-                                <KyoVideos></KyoVideos>
-                            </div>
-
-                            <div class="col--auto">
-                                <KyoUploads></KyoUploads>
-                            </div>
-
-                            <div class="col--auto col--right">
-                                <NSelect style="width: 200px;">
-                                    <NSelectOption value="1">Testitem</NSelectOption>
-                                    <NSelectOption value="2">Testitem</NSelectOption>
-                                    <NSelectOption value="3">Testitem</NSelectOption>
-                                    <NSelectOption value="4">Testitem</NSelectOption>
-                                    <NSelectOption value="5">Testitem</NSelectOption>
-                                </NSelect>
-                            </div>
-
-                        </div>
-                    </KyoFilterbar>
-
-                    <div class="kyo-datatable col--flex-1-0">
-                        <NDraggrid class="kyo-medias" props={datagridProps} on={datagridEvents} />
-                        <NPaginator props={paginatorProps} on={paginatorEvents} />
-                    </div>
-
+                    { this.ctor('renderToolbar')() }
+                    { this.ctor('renderFilterbar')() }
+                    { this.ctor('renderDatagrid')() }
                 </div>
-
             </NLoader>
-        )
+        );
     }
 }

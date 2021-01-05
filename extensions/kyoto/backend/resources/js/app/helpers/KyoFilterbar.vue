@@ -1,6 +1,8 @@
 <template>
     <div class="kyo-filterbar">
-        <slot></slot>
+        <div class="kyo-filterbar__inner">
+            <slot></slot>
+        </div>
     </div>
 </template>
 <script>

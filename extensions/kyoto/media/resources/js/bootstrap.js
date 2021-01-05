@@ -15,6 +15,9 @@ Vue.component(KyoVideos.name, KyoVideos);
 import KyoUploads from "./modals/KyoUploads";
 Vue.component(KyoUploads.name, KyoUploads);
 
+import KyoMediaSelect from "./inputs/KyoMediaSelect";
+Vue.component(KyoMediaSelect.name, KyoMediaSelect);
+
 if ( console && console.log ) {
     console.log('kyoto/media ready.');
 }

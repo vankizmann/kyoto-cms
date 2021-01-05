@@ -62,6 +62,10 @@
                         </div>
 
                         <div class="col--1-1">
+                            <KyoMediaSelect :limit="4" v-model="result.images"></KyoMediaSelect>
+                        </div>
+
+                        <div v-if="false" class="col--1-1">
                             <KyoPageBuilder v-model="result"></KyoPageBuilder>
                         </div>
 

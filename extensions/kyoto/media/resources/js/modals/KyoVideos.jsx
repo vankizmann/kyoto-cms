@@ -8,6 +8,18 @@ export default {
         }
     },
 
+    props: {
+
+        size: {
+            default()
+            {
+                return 'default';
+            },
+            type: [String]
+        }
+
+    },
+
     computed: {
 
         parent()
@@ -20,7 +32,7 @@ export default {
     data()
     {
         return {
-            visible: false, clipboard: null, video: null, filelist: []
+            load: false, visible: false, clipboard: null, video: null
         };
     },
 
@@ -78,6 +90,11 @@ export default {
                 return;
             }
 
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
             let route = this.Route.get('/{locale}/kyoto/media/http/controllers/media/store',
                 this.$root.$data);
 
@@ -85,7 +102,7 @@ export default {
                 id: Nano.UUID(), parent_id: this.parent
             });
 
-            this.$http.post(route, data)
+            this.$http.post(route, data, options)
                 .then(this.fetchDone, this.fetchDone);
         },
 
@@ -115,25 +132,27 @@ export default {
     {
         return (
             <div class="kyo-media__videos">
-                <NButton icon="fa fa-photo-video" vOn:click={() => this.visible = true}>
+                <NButton size={this.size} icon="fa fa-photo-video" vOn:click={() => this.visible = true}>
                     {this.trans('Webvideo')}
                 </NButton>
                 <NModal type="video" vModel={this.visible} selector={false} closable={true} width="800px">
-                    <div class="kyo-video-preview">
-                        { this.ctor('renderPreview')() }
-                    </div>
-                    <div class="kyo-video-text">
-                        <div class="grid grid--row grid--10">
-                            <div class="col--flex-1-1">
-                                <NInput vModel={this.clipboard}></NInput>
-                            </div>
-                            <div class="col--flex-0-0">
-                                <NButton disabled={!this.video} vOn:click={this.storeItem}>
-                                    { this.trans('Save video') }
-                                </NButton>
+                    <NLoader visible={this.load}>
+                        <div class="kyo-video-preview">
+                            { this.ctor('renderPreview')() }
+                        </div>
+                        <div class="kyo-video-text">
+                            <div class="grid grid--row grid--10">
+                                <div class="col--flex-1-1">
+                                    <NInput vModel={this.clipboard}></NInput>
+                                </div>
+                                <div class="col--flex-0-0">
+                                    <NButton disabled={!this.video} vOn:click={this.storeItem}>
+                                        { this.trans('Save video') }
+                                    </NButton>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </NLoader>
                 </NModal>
             </div>
         );

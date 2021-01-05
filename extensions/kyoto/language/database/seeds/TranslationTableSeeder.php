@@ -27,6 +27,24 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value = Translation::create([
+            'source'    => 'Ascending',
+            'target'    => 'Ascending',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Absteigend',
+        ]);
+
+        $value = Translation::create([
+            'source'    => 'Descending',
+            'target'    => 'Descending',
+        ]);
+
+        $value->localized('de')->update([
+            'target'    => 'Aufsteigend',
+        ]);
+
+        $value = Translation::create([
             'source'    => 'Yes',
             'target'    => 'Yes',
         ]);
@@ -617,7 +635,7 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value->localized('de')->update([
-            'target'    => 'Datei erstellen',
+            'target'    => 'Dokument erstellen',
         ]);
 
         $value = Translation::create([
@@ -626,7 +644,7 @@ class TranslationTableSeeder extends Seeder
         ]);
 
         $value->localized('de')->update([
-            'target'    => 'Datei bearbeiten',
+            'target'    => 'Dokument bearbeiten',
         ]);
 
         $value = Translation::create([
