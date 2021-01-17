@@ -12,8 +12,8 @@ Vue.component(KyoPageEdit.name, KyoPageEdit);
 import KyoPageBuilder from "./builder/KyoPageBuilder";
 Vue.component(KyoPageBuilder.name, KyoPageBuilder);
 
-import KyoBlockHeadline from "./blocks/KyoBlockHeadline";
-Vue.component(KyoBlockHeadline.name, KyoBlockHeadline);
+import KyoWidgetHeadline from "./widgets/KyoWidgetHeadline";
+Vue.component(KyoWidgetHeadline.name, KyoWidgetHeadline);
 
 require('./configs/page');
 

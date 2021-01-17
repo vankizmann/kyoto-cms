@@ -1,0 +1,61 @@
+@import "~nano-ui/src/root/vars";
+
+.kyo-widgets {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    // height: calc(100vh);
+    background: $color-background-darker;
+}
+
+.kyo-widgets__inner {
+    overflow: hidden;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    background: $color-white;
+    border-radius: 5px;
+    // border-top: 1px solid $color-gray-15;
+    box-shadow: 2px 0 10px rgba($color-black, 0.1);
+}
+
+.kyo-widgets__widget {
+    order: 3;
+    flex: 0 0 auto;
+    width: 360px;
+    border-left: 1px solid $color-gray-15;
+}
+
+.kyo-widgets__builder {
+    order: 2;
+    flex: 1 1 auto;
+}
+
+.kyo-widgets__extra {
+    order: 1;
+    flex: 0 0 auto;
+    width: 400px;
+    padding: 15px 30px;
+    border-right: 1px solid $color-gray-15;
+}
+
+.kyo-widgets-widget-item {
+    padding: 8px;
+}
+
+.kyo-widgets-builder-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.kyo-widgets-builder-item__head {
+    padding: 15px 30px;
+    background: $color-gray-05;
+    font-weight: bold;
+}
+
+.kyo-widgets-builder-item__body {
+    padding: 15px 30px;
+}
+

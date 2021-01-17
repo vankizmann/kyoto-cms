@@ -38,7 +38,7 @@
 
         </div>
 
-        <NResizer class="kyo-website" :style="websiteStyle" :min-width="minWidth" :max-width="maxWidth" @input="setWidth">
+        <NResizer v-show="website" class="kyo-website" :style="websiteStyle" :min-width="minWidth" :max-width="maxWidth" @input="setWidth">
             <KyoLayoutWebsite>
                 <!-- Website -->
             </KyoLayoutWebsite>
@@ -76,12 +76,28 @@
 
             backendStyle()
             {
-                return { paddingLeft: this.width + 'px' };
+                let style = {
+                    paddingLeft: this.width + 'px'
+                };
+
+                if ( ! this.website ) {
+                    style.paddingLeft = 0;
+                }
+
+                return style;
             },
 
             websiteStyle()
             {
-                return { width: this.width + 'px' };
+                let style = {
+                    width: this.width + 'px'
+                };
+
+                if ( ! this.website ) {
+                    style.width = 0;
+                }
+
+                return style;
             }
 
         },
@@ -89,7 +105,7 @@
         data()
         {
             return {
-                locale: null, modal: false, width: 330, minWidth: 270, maxWidth: 600, strokeCache: []
+                locale: null, modal: false, website: true, width: 330, minWidth: 270, maxWidth: 600, strokeCache: []
             }
         },
 
@@ -121,6 +137,16 @@
         },
 
         methods: {
+
+            showWebsite()
+            {
+                this.website = true;
+            },
+
+            hideWebsite()
+            {
+                this.website = false;
+            },
 
             setLocale(locale)
             {

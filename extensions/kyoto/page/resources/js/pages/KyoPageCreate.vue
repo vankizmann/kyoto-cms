@@ -15,56 +15,45 @@
                 </template>
             </KyoTitlebar>
 
-            <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
+            <KyoPageWidgets class="col--flex-1-0" v-model="result.builder">
 
-                <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
+                <NForm :form="result" :errors="errors">
 
-                    <div class="grid grid-row grid--wrap grid--30">
+                    <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
 
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('State')" prop="state">
-                                <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                    {{ trans('Item is enabled') }}
-                                </NSwitch>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('State')" prop="state">
+                            <NSwitch v-model="result.state" :on-value="1" :off-value="0">
+                                {{ trans('Item is enabled') }}
+                            </NSwitch>
+                        </NFormItem>
 
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Hide')" prop="hide">
-                                <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                    {{ trans('Item is hidden') }}
-                                </NSwitch>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Hide')" prop="hide">
+                            <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
+                                {{ trans('Item is hidden') }}
+                            </NSwitch>
+                        </NFormItem>
 
-                    </div>
-                </NFormGroup>
+                    </NFormGroup>
 
-                <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
-                    <div class="grid grid-row grid--wrap grid--30">
+                    <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
 
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Title')" prop="title">
-                                <NInput v-model="result.title"></NInput>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Title')" prop="title">
+                            <NInput v-model="result.title"></NInput>
+                        </NFormItem>
 
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Slug')" prop="slug">
-                                <NInput v-model="result.slug"></NInput>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Slug')" prop="slug">
+                            <NInput v-model="result.slug"></NInput>
+                        </NFormItem>
 
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Content')" prop="content">
-                                <NTextarea v-model="result.content"></NTextarea>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Content')" prop="content">
+                            <NTextarea v-model="result.content"></NTextarea>
+                        </NFormItem>
 
-                    </div>
-                </NFormGroup>
+                    </NFormGroup>
 
-            </NForm>
+                </NForm>
+
+            </KyoPageWidgets>
 
         </div>
     </NLoader>
@@ -79,6 +68,16 @@
         urls: {
             show: '/{locale}/kyoto/page/http/controllers/page/show',
             store: '/{locale}/kyoto/page/http/controllers/page/store'
+        },
+
+        beforeMount()
+        {
+            this.$root.hideWebsite();
+        },
+
+        beforeDestroy()
+        {
+            this.$root.showWebsite();
         },
 
         methods: {

@@ -7,7 +7,7 @@
 //@import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
-@import "~nano-ui/src/index";
+@import "~nano-ui/nano/index";
 
 @import "./mixins/media";
 @import "./mixins/grid";
@@ -26,6 +26,7 @@
 @import "./app/media";
 @import "./app/upload";
 @import "./app/video";
+@import "./app/widget";
 @import "./app/website";
 @import "./app/datatable";
 @import "./app/datagrid";

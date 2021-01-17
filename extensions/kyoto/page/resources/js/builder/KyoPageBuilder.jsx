@@ -1,6 +1,6 @@
 export default {
 
-    name: 'KyoPageBuilder',
+    name: 'KyoPageWidgets',
 
     props: {
 
@@ -13,26 +13,117 @@ export default {
 
     },
 
+    data()
+    {
+        let widgets = [
+            { id: Nano.UUID(), value: { title: '' }, type: 'headline', name: 'test1' },
+            { id: Nano.UUID(), value: { title: '' }, type: 'headline', name: 'test2' }
+        ]
+
+        return {
+            widgets
+        }
+    },
+
     methods: {
 
-        addRow()
+        transformDrop(source)
         {
-            this.$refs.list.pushItem({ id: Nano.UUID(), type: 'headline' });
+            return Nano.Obj.assign(source, { id: Nano.UUID() });
+        },
+
+        allowDrop(source, target, strategy)
+        {
+            return ! this.value.length || strategy !== 'root';
         }
 
     },
 
-    render(h)
+    renderWidgetNode(props)
     {
-        let renderNode = ({ value }) => {
-            return h(`KyoBlock${Nano.Str.ucfirst(value.type)}`, { props: { value } });
+        return (
+            <div class="kyo-widgets-widget-item">
+                { props.value.type }
+            </div>
+        );
+    },
+
+    renderBuilderNode(props)
+    {
+        return (
+            <NForm class="kyo-widgets-builder-item">
+                <div class="kyo-widgets-builder-item__head" draggable="true">
+                    <div class="grid grid--row grid--middle grid--10">
+                        <div class="col--auto col--left">
+                            { props.value.type }
+                        </div>
+                        <div class="col--auto">
+                            <NButton size="mini" type="info" square={true} icon={this.icons.create} vOn:click={props.copy}></NButton>
+                        </div>
+                        <div class="col--auto">
+                            <NButton size="mini" type="danger" square={true} icon={this.icons.times} vOn:click={props.remove}></NButton>
+                        </div>
+                    </div>
+                </div>
+                <div class="kyo-widgets-builder-item__body">
+                    { this.$render(`KyoWidget${Nano.Str.ucfirst(props.value.type)}`) }
+                </div>
+            </NForm>
+        );
+    },
+
+    render($render)
+    {
+        this.$render = $render;
+
+        let builderProps = {
+            items: this.value,
+            group: ['page-widget'],
+            handle: true,
+            itemHeight: 0,
+            viewportHeight: true,
+            removeNode: false,
+            insertNode: true,
+            useRenderCache: false,
+            keyEvents: false,
+            threshold: 0,
+            allowCurrent: false,
+            transformDrop: this.transformDrop,
+            allowDrop: this.allowDrop,
+            renderNode: this.ctor('renderBuilderNode')
+        }
+
+        let widgetProps = {
+            items: this.widgets,
+            group: ['page-widget'],
+            itemHeight: 0,
+            viewportHeight: true,
+            removeNode: false,
+            insertNode: false,
+            useRenderCache: false,
+            keyEvents: false,
+            threshold: 0,
+            allowCurrent: false,
+            allowDrop: false,
+            renderNode: this.ctor('renderWidgetNode')
+        }
+
+        let builderEvents = {
+            'input': (value) => this.$emit('input', value)
         }
 
         return (
-            <div>
-                <NDraglist ref="list" vModel={this.value.builder} useRenderCache={false} renderNode={renderNode}></NDraglist>
-                <div>
-                    <NButton vOn:click={this.addRow}>Add Row</NButton>
+            <div class="kyo-widgets">
+                <div class="kyo-widgets__inner">
+                    <NDraglist class="kyo-widgets__widget" ref="widget" props={widgetProps}>
+
+                    </NDraglist>
+                    <NDraglist class="kyo-widgets__builder" ref="builder" props={builderProps} on={builderEvents}>
+
+                    </NDraglist>
+                    <div class="kyo-widgets__extra">
+                        { this.$slots.default }
+                    </div>
                 </div>
             </div>
         );

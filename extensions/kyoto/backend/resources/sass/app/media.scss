@@ -22,16 +22,16 @@
     width: 340px;
 }
 
-// .kyo-media-list:before {
-//     content: '\00a0';
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     display: block;
-//     width: 1px;
-//     height: 100%;
-//     background: rgba($color-black, 0.1);
-// }
+.kyo-media-list:before {
+    content: '\00a0';
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: rgba($color-black, 0.05);
+}
 
 .kyo-media-list .n-draglist {
     flex: 1 1 auto;

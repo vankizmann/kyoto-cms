@@ -135,3 +135,19 @@ th {
 .n-popover.n-popover--custom .n-tabs-item {
     padding: 0 20px 20px;
 }
+
+.n-form-group {
+    margin-bottom: 0 !important;
+}
+
+.n-form-group__legend {
+    margin-bottom: 10px;
+}
+
+.n-form-group__legend .n-form-group__label-text {
+    font-weight: bold !important;
+}
+
+.n-form-item {
+    margin-bottom: 28px;
+}

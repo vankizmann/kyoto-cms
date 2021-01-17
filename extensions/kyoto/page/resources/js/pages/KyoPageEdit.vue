@@ -15,64 +15,45 @@
                 </template>
             </KyoTitlebar>
 
-            <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
+            <KyoPageWidgets class="col--flex-1-0" v-model="result.builder">
 
-                <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
+                <NForm :form="result" :errors="errors">
 
-                    <div class="grid grid-row grid--wrap grid--30">
+                    <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
 
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('State')" prop="state">
-                                <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                    {{ trans('Item is enabled') }}
-                                </NSwitch>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Title')" prop="title">
+                            <NInput v-model="result.title"></NInput>
+                        </NFormItem>
 
-                        <div class="col--1-1 col--1-2@sm">
-                            <NFormItem :label="trans('Hide')" prop="hide">
-                                <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                    {{ trans('Item is hidden') }}
-                                </NSwitch>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Slug')" prop="slug">
+                            <NInput v-model="result.slug"></NInput>
+                        </NFormItem>
 
-                    </div>
-                </NFormGroup>
+                        <NFormItem :label="trans('Content')" prop="content">
+                            <NTextarea v-model="result.content"></NTextarea>
+                        </NFormItem>
 
-                <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
-                    <div class="grid grid-row grid--wrap grid--30">
+                    </NFormGroup>
 
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Title')" prop="title">
-                                <NInput v-model="result.title"></NInput>
-                            </NFormItem>
-                        </div>
+                    <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
 
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Slug')" prop="slug">
-                                <NInput v-model="result.slug"></NInput>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('State')" prop="state">
+                            <NSwitch v-model="result.state" :on-value="1" :off-value="0">
+                                {{ trans('Item is enabled') }}
+                            </NSwitch>
+                        </NFormItem>
 
-                        <div class="col--1-1">
-                            <NFormItem :label="trans('Content')" prop="content">
-                                <NTextarea v-model="result.content"></NTextarea>
-                            </NFormItem>
-                        </div>
+                        <NFormItem :label="trans('Hide')" prop="hide">
+                            <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
+                                {{ trans('Item is hidden') }}
+                            </NSwitch>
+                        </NFormItem>
 
-                        <div class="col--1-1">
-                            <KyoMediaSelect :limit="4" v-model="result.images"></KyoMediaSelect>
-                        </div>
+                    </NFormGroup>
 
-                        <div v-if="false" class="col--1-1">
-                            <KyoPageBuilder v-model="result"></KyoPageBuilder>
-                        </div>
+                </NForm>
 
-                    </div>
-                </NFormGroup>
-
-            </NForm>
+            </KyoPageWidgets>
 
         </div>
     </NLoader>
@@ -88,6 +69,16 @@
             show: '/{locale}/kyoto/page/http/controllers/page/show',
             update: '/{locale}/kyoto/page/http/controllers/page/update',
             delete: '/{locale}/kyoto/page/http/controllers/page/delete'
+        },
+
+        beforeMount()
+        {
+            this.$root.hideWebsite();
+        },
+
+        beforeDestroy()
+        {
+            this.$root.showWebsite();
         },
 
         methods: {

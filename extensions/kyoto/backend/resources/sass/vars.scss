@@ -1,8 +1,8 @@
 $color-white:           #ffffff;
-$color-black:           #141925;
+$color-black:           #141b2f;
 
-$color-light:           #ffffff;
-$color-dark:            #1c273e;
+$color-light:           #eff1f6;
+$color-dark:            #434959;
 
 $color-white-light:         lighten($color-white, 3%);
 $color-white-lighter:       lighten($color-white, 6%);
@@ -44,18 +44,11 @@ $color-warning:         #FFA13D;
 $color-danger:          #F44257;
 $color-info:            #37C4EF;
 
-$color-background:      #F8F9FB;
+$color-background:      #f6f7fa;
 
 $box-shadow:            0 0 4px rgba($color-black, 0.125);
 
-$radius-small:          2px;
-$radius-medium:         3px;
-$radius-large:          6px;
-$radius-extended:       12px;
-
-$button-height:         34px;
-$button-ratio:          0.4;
-$input-height:          34px;
-$select-height:         34px;
-
-$form-legend-size:      16px;
+$radius-small:          1px;
+$radius-medium:         2px;
+$radius-large:          8px;
+$radius-extended:       14px;
