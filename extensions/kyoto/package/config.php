@@ -15,8 +15,8 @@ return [
     ],
 
     'backend' => [
-        'kyoto/package::js/index.js',
-        'kyoto/package::css/index.css'
+        // 'kyoto/package::js/index.js',
+        // 'kyoto/package::css/index.css'
     ]
 
 ];

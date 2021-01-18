@@ -19,19 +19,25 @@
 
             </n-form-item>
 
-            <n-form-item label="{{ trans('E-Mail-Address') }}">
+            <n-form-item label2="{{ trans('E-Mail-Address') }}">
                 <n-input name="email" native-type="email" value="{{ request()->old('email') }}"></n-input>
                 @error('email')
                     <div class="n-form-item__error">{{ $message }}</div>
                 @enderror
             </n-form-item>
 
-            <n-form-item label="{{ trans('Password') }}">
+            <n-form-item label2="{{ trans('Password') }}">
                 <n-input name="password" native-type="password" value="{{ request()->old('password') }}"></n-input>
                 @error('password')
                     <div class="n-form-item__error">{{ $message }}</div>
                 @enderror
             </n-form-item>
+
+            <n-select>
+                <n-select-option value="foo" label="foo"></n-select-option>
+            </n-select>
+
+            <n-textarea></n-textarea>
 
             <n-form-item>
                 <n-button button-type="submit">{{ trans('Login') }}</n-button>

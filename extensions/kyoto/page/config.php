@@ -20,7 +20,7 @@ return [
 
     'backend' => [
         'kyoto/page::js/index.js',
-        'kyoto/page::css/index.css'
+        // 'kyoto/page::css/index.css'
     ]
 
 ];

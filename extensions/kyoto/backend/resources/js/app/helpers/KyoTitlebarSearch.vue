@@ -1,7 +1,7 @@
 <template>
     <div class="kyo-titlebar-search">
         <div class="kyo-titlebar-search__input">
-            <NInput v-model="veValue" icon="fa fa-search" icon-position="before" :placeholder="trans('Search')" />
+            <NInput v-model="veValue" icon="fa fa-search" icon-position="before" :placeholder="trans('Search')" @keydown.enter="updateSearch" />
         </div>
         <div class="kyo-titlebar-search__clear">
             <NButton icon="fa fa-times" type="default" :square="true" :disabled="! this.veValue" @click="clearSearch" />
@@ -42,19 +42,19 @@
 
         mounted()
         {
-            this.$watch('veValue', Nano.Any.debounce(this.updateSearch, this.debounce));
+            // this.$watch('veValue', Nano.Any.debounce(this.updateSearch, this.debounce));
         },
 
         methods: {
 
             updateSearch()
             {
-                this.$emit('input', this.veValue);
+                this.$emit('update:modelValue', this.veValue);
             },
 
             clearSearch()
             {
-                this.$emit('input', this.veValue = '');
+                this.$emit('update:modelValue', this.veValue = '');
             }
 
         }

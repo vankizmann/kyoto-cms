@@ -25,7 +25,7 @@ export default {
         Nano.Event.bind('locale:changed', this.loadItems, this._uid);
     },
 
-    beforeDestroy()
+    beforeUnmount()
     {
         Nano.Event.unbind('locale:changed', this._uid);
     },
@@ -67,7 +67,7 @@ export default {
          * Safezone for table
          * @returns {number}
          */
-        safeZone(height)
+        safezone(height)
         {
             return height * 0.235;
         },
@@ -77,6 +77,7 @@ export default {
          */
         loadItems()
         {
+            console.log('load');
             let options = {
                 onLoad: () => this.load = true,
                 onDone: () => this.load = false
@@ -238,25 +239,19 @@ export default {
             allowGroups: ['menu', 'transaction'],
             itemHeight: 38,
             scrollTopOnChange: false,
-            insertNode: false,
-            removeNode: false,
+            disableMove: true,
             allowCurrent: true,
             // renderSelect: true,
             renderExpand: true,
-            viewportHeight: true,
-            ghostMode: true,
-            threshold: 300,
-            safeZone: this.safeZone,
-            renderNode: this.renderNode
+            safezone: this.safezone,
         };
 
-        let events = {
-            'move-code': (target, source, strategy) => {
-                this.startTransaction(target, source, strategy);
-            },
-            'row-dblclick': (row) => {
-                this.gotoEdit(this.Obj.get(row, 'item'));
-            }
+        props['onMoveraw'] = (target, source, strategy) => {
+            this.startTransaction(target, source, strategy);
+        };
+
+        props['onRowDblclick'] = (row) => {
+            this.gotoEdit(this.Obj.get(row, 'item'));
         };
 
         return (
@@ -264,8 +259,12 @@ export default {
                 <div class="kyo-layout-website__header">
                     <NInput vModel={this.search} placeholder={this.trans('Search for ...')}></NInput>
                 </div>
-                <NDraglist class="kyo-layout-website__body" items={this.result} props={props} on={events}>
-                    { /*this.ctor('renderModal')()*/ }
+                <NDraglist class="kyo-layout-website__body" items={this.result} {...props}>
+                    {
+                        {
+                            default: (props) => <KyoWebsiteNode {...props} />
+                        }
+                    }
                 </NDraglist>
             </NLoader>
         );

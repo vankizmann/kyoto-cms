@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let jsExport = {
@@ -37,13 +37,11 @@ let jsExport = {
         ]
     },
     externals: {
-        jquery: '$', vue: 'Vue'
+        vue: 'Vue',
     },
     resolve: {
         alias: {
-            'vue$': path.resolve('node_modules/vue/dist/vue.runtime.esm.js'),
-            'nano-js$': path.resolve('node_modules/nano-js/src/index.js'),
-            'nano-ui$': path.resolve('node_modules/nano-ui/src/index.js'),
+            'vue$': path.resolve('node_modules/vue/dist/vue.esm-bundler.js'),
         },
         extensions: [
             '.js', '.jsx', '.vue'

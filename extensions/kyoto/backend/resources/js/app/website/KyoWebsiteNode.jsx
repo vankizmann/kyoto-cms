@@ -4,7 +4,7 @@ export default {
 
     props: {
 
-        value: {
+        item: {
             required: true
         }
 
@@ -14,12 +14,12 @@ export default {
 
         openEdit()
         {
-            this.$router.push({ name: 'KyoMenuEdit', params: this.value });
+            this.$router.push({ name: 'KyoMenuEdit', params: this.item });
         },
 
         openPreview()
         {
-            window.open(this.value.preview);
+            window.open(this.item.preview);
         }
 
     },
@@ -27,13 +27,13 @@ export default {
     render()
     {
         return (
-            <div class="kyo-website-node grid grid--row grid--middle" data-type={this.value.type}>
+            <div class="kyo-website-node grid grid--row grid--middle" data-type={this.item.type}>
                 <div class="col col--flex-1-1">
-                    { this.value.title }
+                    { this.item.title }
                 </div>
                 <div class="col col--flex-0-0">
-                    <NButton type="info" plain={true} square={true} size="mini" icon="fa fa-pen" vOn:click={this.openEdit} />
-                    <NButton type="primary" plain={true} square={true} size="mini" icon="fa fa-link" vOn:click={this.openPreview} />
+                    <NButton type="info" plain={true} square={true} size="xs" icon="fa fa-pen" onClick={this.openEdit} />
+                    <NButton type="primary" plain={true} square={true} size="xs" icon="fa fa-link" onClick={this.openPreview} />
                 </div>
             </div>
         );

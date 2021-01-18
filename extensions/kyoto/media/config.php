@@ -19,8 +19,8 @@ return [
     ],
 
     'backend' => [
-        'kyoto/media::js/index.js',
-        'kyoto/media::css/index.css'
+        // 'kyoto/media::js/index.js',
+        // 'kyoto/media::css/index.css'
     ]
 
 ];

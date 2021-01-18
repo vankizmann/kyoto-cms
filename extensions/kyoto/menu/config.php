@@ -27,8 +27,8 @@ return [
     ],
 
     'backend' => [
-        'kyoto/menu::js/index.js',
-        'kyoto/menu::css/index.css'
+        // 'kyoto/menu::js/index.js',
+        // 'kyoto/menu::css/index.css'
     ]
 
 ];

@@ -1,22 +1,19 @@
-import Vue from "vue";
-import Axios from "axios";
-
-Axios.defaults.headers.common = {
+axios.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
 };
 
 // Add a request interceptor
-Axios.interceptors.request.use(
+axios.interceptors.request.use(
     (config) => {
 
-        Vue.Obj.get(config, 'onLoad', () => {})();
+        Nano.Obj.get(config, 'onLoad', () => {})();
 
         // Do something before request is sent
         return config;
     },
     (error) => {
 
-        Vue.Obj.get(error.config, 'onDone', () => {})();
+        Nano.Obj.get(error.config, 'onDone', () => {})();
 
         // Do something with request error
         return Promise.reject(error);
@@ -24,13 +21,13 @@ Axios.interceptors.request.use(
 );
 
 // Add a response interceptor
-Axios.interceptors.response.use(
+axios.interceptors.response.use(
     (response) => {
 
-        Vue.Obj.get(response.config, 'onDone', () => {})();
+        Nano.Obj.get(response.config, 'onDone', () => {})();
 
-        if ( Vue.Obj.has(response, 'data.message') ) {
-            Vue.Notify(response.data.message, 'success');
+        if ( Nano.Obj.has(response, 'data.message') ) {
+            Notify(response.data.message, 'success');
         }
 
         // Do something with response data
@@ -38,10 +35,10 @@ Axios.interceptors.response.use(
     },
     (error) => {
 
-        Vue.Obj.get(error.config, 'onDone', () => {})();
+        Nano.Obj.get(error.config, 'onDone', () => {})();
 
-        if ( Vue.Obj.has(error, 'response.data.message') ) {
-            Vue.Notify(error.response.data.message, 'danger');
+        if ( Nano.Obj.has(error, 'response.data.message') ) {
+            Notify(error.response.data.message, 'danger');
         }
 
         // Do something with response error

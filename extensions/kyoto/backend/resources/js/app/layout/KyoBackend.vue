@@ -33,7 +33,7 @@
             </KyoLayoutMainmenu>
 
             <div class="kyo-logout">
-                <a :href="backendPaths.logout"><i class="fa fa-sign-out-alt"></i></a>
+                <a ><i class="fa fa-sign-out-alt"></i></a>
             </div>
 
         </div>
@@ -44,7 +44,7 @@
             </KyoLayoutWebsite>
         </NResizer>
 
-        <NModal v-model="modal" :selector="false" width="auto">
+        <NModal v-model="modal" :listen="false" width="auto">
             <div class="grid grid--col grid--center grid--20-20">
                 <div class="col col--auto">
                     {{ this.trans('Enable system mode?') }}
@@ -116,6 +116,7 @@
 
         mounted()
         {
+            console.log(this)
             this.$watch('locale', () => {
                 Nano.Event.fire('locale:changed');
             });

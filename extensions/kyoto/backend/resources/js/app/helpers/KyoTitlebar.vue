@@ -33,19 +33,19 @@
                 {{ Any.isEmpty(updated) ? trans('Not saved yet') : updated }}
             </NButton>
 
-            <NPopover type="dropdown" trigger="click" position="bottom-end" :window="true" :width="220">
+            <NPopover type="dropdown" trigger="click" position="bottom-end" :width="220">
                 <div class="n-popover-label">
                     {{ trans('Actions') }}
                 </div>
-                <NButton v-if="copyEvent" class="n-popover-option" type="primary" :link="true" @click="copyView = true">
+                <NPopoverOption v-if="copyEvent" type="primary" :link="true" @click="copyView = true">
                     {{ trans('Copy item') }}
-                </NButton>
-                <NButton v-if="deleteEvent" class="n-popover-option" type="danger" :link="true" @click="deleteView = true">
+                </NPopoverOption>
+                <NPopoverOption v-if="deleteEvent" type="danger" :link="true" @click="deleteView = true">
                     {{ trans('Delete item') }}
-                </NButton>
-                <div v-if="! copyEvent && ! deleteEvent" class="n-popover-option n-disabled">
+                </NPopoverOption>
+                <NPopoverOption v-if="! copyEvent && ! deleteEvent" :disabled="true">
                     {{ trans('No actions available') }}
-                </div>
+                </NPopoverOption>
             </NPopover>
 
         </div>
@@ -56,17 +56,17 @@
                 {{ choice('No item selected|One item selected|:count items selected', selected) }}
             </NButton>
 
-            <NPopover type="dropdown" trigger="click" position="bottom-end" :window="true" :width="220">
+            <NPopover trigger="click" position="bottom-end" :width="220">
                 <div class="n-popover-label">
                     {{ trans('Actions') }}
                 </div>
-                <NButton v-if="copyEvent" class="n-popover-option" type="warning" :link="true" :disabled="! selected" @click="copyView = true">
+                <NPopoverOption v-if="copyEvent" type="warning" :link="true" :disabled="! selected" @click="copyView = true">
                     {{ trans('Copy selection') }}
-                </NButton>
-                <NButton v-if="deleteEvent" class="n-popover-option" type="danger" :link="true" :disabled="! selected" @click="deleteView = true">
+                </NPopoverOption>
+                <NPopoverOption v-if="deleteEvent" type="danger" :link="true" :disabled="! selected" @click="deleteView = true">
                     {{ trans('Delete selection') }}
-                </NButton>
-                <div v-if="! copyEvent && ! deleteEvent" class="n-popover-option n-disabled">
+                </NPopoverOption>
+                <div v-if="! copyEvent && ! deleteEvent" :disabled="true">
                     {{ trans('No actions available') }}
                 </div>
             </NPopover>
@@ -77,19 +77,19 @@
             <slot name="action"></slot>
         </div>
 
-        <NConfirm v-if="KyoForm" v-model="copyView" :selector="false" type="warning" @confirm="confirmCopy">
+        <NConfirm v-if="KyoForm" v-model="copyView" :listen="false" type="warning" @confirm="confirmCopy">
             {{ choice('Do you really want to copy this item?') }}
         </NConfirm>
 
-        <NConfirm v-if="KyoForm" v-model="deleteView" :selector="false" type="danger" @confirm="confirmDelete">
+        <NConfirm v-if="KyoForm" v-model="deleteView" :listen="false" type="danger" @confirm="confirmDelete">
             {{ choice('Do you really want to delete this item?') }}
         </NConfirm>
 
-        <NConfirm v-if="KyoIndex" v-model="copyView" :selector="false" type="warning" @confirm="confirmCopy">
+        <NConfirm v-if="KyoIndex" v-model="copyView" :listen="false" type="warning" @confirm="confirmCopy">
             {{ choice('Do you really want to copy :count items?', selected) }}
         </NConfirm>
 
-        <NConfirm v-if="KyoIndex" v-model="deleteView" :selector="false" type="danger" @confirm="confirmDelete">
+        <NConfirm v-if="KyoIndex" v-model="deleteView" :listen="false" type="danger" @confirm="confirmDelete">
             {{ choice('Do you really want to delete :count items?', selected) }}
         </NConfirm>
 
@@ -156,12 +156,12 @@
 
             copyEvent()
             {
-                return !! this.$listeners.copy;
+                return !! this.$attrs.onCopy;
             },
 
             deleteEvent()
             {
-                return !! this.$listeners.delete;
+                return !! this.$attrs.onDelete;
             },
 
             selected()

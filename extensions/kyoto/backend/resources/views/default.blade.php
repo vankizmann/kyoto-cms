@@ -45,6 +45,8 @@
 
     {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') !!}
 
+    {{-- {!! app('kyoto.assets')->script('vue', '//unpkg.com/vue@3') !!}
+    {!! app('kyoto.assets')->script('vue-router', '//unpkg.com/vue-router@4') !!} --}}
     {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
 

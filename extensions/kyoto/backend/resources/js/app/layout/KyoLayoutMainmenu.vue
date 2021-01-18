@@ -4,7 +4,7 @@
             <router-link :to="menu.route">
                 <span>{{ trans(menu.title) }}</span>
             </router-link>
-            <NPopover type="tooltip" :window="true" position="right-center">
+            <NPopover type="tooltip" size="xs" position="right-center">
                 {{ trans(menu.title) }}
             </NPopover>
         </li>

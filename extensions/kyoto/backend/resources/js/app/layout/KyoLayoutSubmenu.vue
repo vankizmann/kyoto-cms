@@ -13,7 +13,11 @@
         computed: {
 
             menus() {
-                return Nano.Arr.filter(this.$route.meta.root.children, (menu) => {
+
+                let menus = Nano.Obj.get(this.$route,
+                    'meta.root.children', []);
+
+                return Nano.Arr.filter(menus, (menu) => {
                     return ! menu.hide;
                 });
             }

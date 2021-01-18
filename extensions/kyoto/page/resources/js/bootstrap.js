@@ -1,21 +1,25 @@
-import Vue from 'vue';
 
-import KyoPages from "./pages/KyoPages";
-Vue.component(KyoPages.name, KyoPages);
 
-import KyoPageCreate from "./pages/KyoPageCreate";
-Vue.component(KyoPageCreate.name, KyoPageCreate);
+// import KyoPageCreate from "./pages/KyoPageCreate";
+// App.component(KyoPageCreate.name, KyoPageCreate);
 
-import KyoPageEdit from "./pages/KyoPageEdit";
-Vue.component(KyoPageEdit.name, KyoPageEdit);
+// import KyoPageEdit from "./pages/KyoPageEdit";
+// App.component(KyoPageEdit.name, KyoPageEdit);
 
-import KyoPageBuilder from "./builder/KyoPageBuilder";
-Vue.component(KyoPageBuilder.name, KyoPageBuilder);
+// import KyoPageBuilder from "./builder/KyoPageBuilder";
+// App.component(KyoPageBuilder.name, KyoPageBuilder);
 
-import KyoWidgetHeadline from "./widgets/KyoWidgetHeadline";
-Vue.component(KyoWidgetHeadline.name, KyoWidgetHeadline);
+// import KyoWidgetHeadline from "./widgets/KyoWidgetHeadline";
+// App.component(KyoWidgetHeadline.name, KyoWidgetHeadline);
 
-require('./configs/page');
+// require('./configs/page');
+
+import KyoPages from "./pages/KyoPages2";
+
+Kyoto.ready(function (App) {
+    App.component(KyoPages.name, KyoPages);
+});
+
 
 if ( console && console.log ) {
     console.log('kyoto/page ready.');

@@ -1,7 +1,7 @@
 <template>
     <div class="kyo-localepanel">
-        <NSelect :value="$root.locale" @input="changeLocale">
-            <NSelectOption v-for="lang in languages" :key="lang.id" :value="lang.locale">{{ lang.language }}</NSelectOption>
+        <NSelect :model-value="$root.locale" @update:modelValue="changeLocale">
+            <NSelectOption v-for="lang in languages" :key="lang.id" :value="lang.locale" :label="lang.language"/>
         </NSelect>
     </div>
 </template>

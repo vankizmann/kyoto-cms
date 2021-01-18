@@ -76,7 +76,7 @@ export default {
         }
     },
 
-    destroyed()
+    unmounted()
     {
         Nano.Event.unbind('locale:changed', this._uid);
     },
