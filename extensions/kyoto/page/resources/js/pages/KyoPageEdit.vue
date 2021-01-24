@@ -3,7 +3,7 @@
         <div class="grid grid--col">
 
             <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
-                <template slot="action">
+                <template v-slot:action>
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
                             {{ trans('Apply') }}
@@ -19,7 +19,7 @@
 
                 <NForm :form="result" :errors="errors">
 
-                    <NFormGroup icon="fa fa-compass" :legend="trans('Menu')">
+                    <NFormGroup icon="fa fa-compass" :label="trans('Menu')">
 
                         <NFormItem :label="trans('Title')" prop="title">
                             <NInput v-model="result.title"></NInput>
@@ -35,7 +35,7 @@
 
                     </NFormGroup>
 
-                    <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
+                    <NFormGroup icon="fa fa-cog" :label="trans('Settings')">
 
                         <NFormItem :label="trans('State')" prop="state">
                             <NSwitch v-model="result.state" :on-value="1" :off-value="0">
@@ -73,12 +73,12 @@
 
         beforeMount()
         {
-            this.$root.hideWebsite();
+            // this.$root.hideWebsite();
         },
 
         beforeDestroy()
         {
-            this.$root.showWebsite();
+            // this.$root.showWebsite();
         },
 
         methods: {

@@ -5,11 +5,11 @@
 
             <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
 
-                <template slot="search">
+                <template v-slot:search>
                     <KyoTitlebarSearch v-model="query.search"></KyoTitlebarSearch>
                 </template>
 
-                <template slot="action">
+                <template v-slot:action>
                     <NButton type="primary" @click="$router.push({ name: 'KyoPackageCreate' })">
                         {{ trans('Create package') }}
                     </NButton>

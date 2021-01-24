@@ -2,7 +2,7 @@
     <NLoader :visible="false">
 
         <KyoTitlebar>
-            <template slot="action">
+            <template v-slot:action>
                 <NButton>{{ trans('Options') }}</NButton>
             </template>
         </KyoTitlebar>

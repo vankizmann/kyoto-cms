@@ -297,7 +297,7 @@ export default {
         return (
             <KyoTitlebar class="col--flex-0-0" vOn:delete={this.deleteItems}>
 
-                <template slot="search">
+                <template v-slot:search>
                     <KyoTitlebarSearch vModel={this.query.search} />
                 </template>
 

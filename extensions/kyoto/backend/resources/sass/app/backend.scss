@@ -4,6 +4,7 @@
     position: relative;
     width: calc(100% - 75px);
     min-height: 100vh;
+    // min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     margin-left: 75px;
@@ -82,24 +83,22 @@
     display: flex;
     height: 100%;
     background: $color-white;
+    padding-right: 4px;
     //background: $color-background-dark;
 }
 
 .kyo-backend > .kyo-website:after {
     content: '\00a0';
-    z-index: 1000;
+    z-index: -1;
     position: absolute;
     top: 0;
     right: 0;
     display: block;
-    width: 1px;
+    width: 4px;
     height: 100%;
-    background: rgba($color-black, 0.085);
+    background: $color-gray-10;
 }
 
-.kyo-backend > .kyo-website .n-resizer {
-    z-index: 10;
-}
 .kyo-backend > .kyo-website .n-load:after {
     background-color: rgba($color-white, 0.4);
 }

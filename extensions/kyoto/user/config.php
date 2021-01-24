@@ -31,7 +31,7 @@ return [
     ],
 
     'backend' => [
-        // 'kyoto/user::js/index.js',
+        'kyoto/user::js/index.js',
         // 'kyoto/user::css/index.css'
     ]
 

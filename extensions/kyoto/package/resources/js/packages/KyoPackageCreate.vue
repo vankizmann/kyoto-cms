@@ -3,7 +3,7 @@
         <div class="grid grid--col">
 
             <KyoTitlebar :link="{ name: 'KyoPackages' }" class="col--flex-0-0">
-                <template slot="action">
+                <template v-slot:action>
                     <NButton type="primary">
                         {{ trans('Save') }}
                     </NButton>

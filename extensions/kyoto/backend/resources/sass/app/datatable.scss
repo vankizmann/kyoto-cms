@@ -1,35 +1,14 @@
 @import "~nano-ui/src/root/vars";
 
 .kyo-datatable {
+    overflow: hidden;
+    flex: 1 1 auto;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
 }
-
-.n-table {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-// .n-table .n-table__wrap {
-//     margin-right: 0;
-//     margin-bottom: 0;
-// }
-
-
-
-// .kyo-datatable .n-resizer {
-//     border-radius: 500px;
-// }
-
-// .kyo-datatable .n-draglist-item.n-current:not(.n-dragover) {
-//     background: transparent;
-// }
 
 .kyo-datatable .n-table {
     flex: 1 1 auto;
@@ -38,32 +17,29 @@
     border-radius: 0;
 }
 
-// .kyo-datatable .n-table .n-table__head,
-// .kyo-datatable .n-table .n-draglist-item {
-//     padding-left: 30px;
-//     padding-right: 30px;
-// }
+.kyo-datatable .n-table__header,
+.kyo-datatable .n-draglist-item {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 // .kyo-datatable .n-table .n-table__head {
 //     border-bottom: 1px solid $--color-gray-10;
 // }
 
-// .kyo-datatable .n-table .n-table-column {
-//     border-left: none;
-// }
-
-// .kyo-datatable .n-table .n-table-column:last-child {
-//     border-right: none;
-// }
+.kyo-datatable .n-table-column {
+    border-left: none;
+    border-right: none;
+}
 
 // .kyo-datatable .n-table .n-table-column .n-table-column__filter > div {
 //     background: $--color-gray-15;
 // }
 
-// .kyo-datatable .n-paginator {
-//     flex: 0 0 auto;
-//     padding: 0 30px;
-//     height: 55px;
-//     color: $--color-black;
-//     border-top: 1px solid $--color-gray-10;
-// }
+.kyo-datatable .n-paginator {
+    flex: 0 0 auto;
+    padding: 0 30px;
+    height: 55px;
+    color: $--color-black;
+    border-top: 1px solid $--color-gray-10;
+}

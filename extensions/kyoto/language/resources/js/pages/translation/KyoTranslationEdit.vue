@@ -3,7 +3,7 @@
         <div class="grid grid--col">
 
             <KyoTitlebar :link="{ name: 'KyoTranslations' }" class="col--flex-0-0" @delete="deleteItem">
-                <template slot="action">
+                <template v-slot:action>
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
                             {{ trans('Apply') }}
@@ -17,7 +17,7 @@
 
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
-                <NFormGroup icon="fa fa-cog" :legend="trans('Settings')">
+                <NFormGroup icon="fa fa-cog" :label="trans('Settings')">
 
                     <div class="grid grid-row grid--wrap grid--30">
 
@@ -32,7 +32,7 @@
                     </div>
                 </NFormGroup>
 
-                <NFormGroup icon="fa fa-language" :legend="trans('Translation')">
+                <NFormGroup icon="fa fa-language" :label="trans('Translation')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1">

@@ -1,5 +1,3 @@
-import { countBy } from "lodash";
-
 export default {
 
     name: 'KyoLayoutWebsite',

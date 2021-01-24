@@ -51,8 +51,13 @@ require('./config/axios');
 
 Nano.Dom.ready(function () {
 
-    let App = Vue.createApp(require("./layout/KyoBackend").default);
-    // App = createApp({});
+    let rootComponent = {};
+
+    if ( Nano.Dom.find('[data-root="true"]').get(0) ) {
+        rootComponent = require("./layout/KyoBackend").default;
+    }
+
+    let App = Vue.createApp(rootComponent);
 
     let KyoLayoutMainmenu = require("./layout/KyoLayoutMainmenu").default;
     let KyoLayoutSubmenu = require("./layout/KyoLayoutSubmenu").default;

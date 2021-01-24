@@ -5,11 +5,11 @@
 
             <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
 
-                <template slot="search">
+                <template v-slot:search>
                     <KyoTitlebarSearch v-model="query.search"></KyoTitlebarSearch>
                 </template>
 
-                <template slot="action">
+                <template v-slot:action>
                     <NButton type="primary" @click="$router.push({ name: 'KyoPolicyCreate' })">
                         {{ trans('Create policy') }}
                     </NButton>
@@ -20,24 +20,15 @@
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
 
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :sort="true" :filter="true">
-                    <router-link slot-scope="{ value }" :to="{ name: 'KyoPolicyEdit', params: value }">{{ value.title }}</router-link>
+                    <template v-slot:default="{ item }">
+                        <router-link :to="{ name: 'KyoPolicyEdit', params: item }">{{ item.title }}</router-link>
+                    </template>
                 </NTableColumn>
 
-                <NTableColumn type="string" prop="type" :label="trans('Type')" :fluid="true" :sort="true" :filter="true">
-                    <!-- Column -->
-                </NTableColumn>
-
-                <NTableColumn type="string" prop="action" :label="trans('Action')" :fluid="true" :sort="true" :filter="true">
-                    <!-- Column -->
-                </NTableColumn>
-
-                <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true">
-                    <!-- Column -->
-                </NTableColumn>
-
-                <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :sort="true" :filter="true">
-                    <!-- Column -->
-                </NTableColumn>
+                <NTableColumn type="string" prop="type" :label="trans('Type')" :fluid="true" :sort="true" :filter="true"></NTableColumn>
+                <NTableColumn type="string" prop="action" :label="trans('Action')" :fluid="true" :sort="true" :filter="true"></NTableColumn>
+                <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true"></NTableColumn>
+                <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :sort="true" :filter="true"></NTableColumn>
 
             </KyoDatatable>
 

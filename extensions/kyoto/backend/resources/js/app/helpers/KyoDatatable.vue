@@ -1,11 +1,11 @@
 <template>
     <div class="kyo-datatable">
 
-        <NTable :items="KyoIndex.result.data" :disable-move="true" v-model:selected="KyoIndex.selected" v-model:expanded="KyoIndex.expanded" v-model:filter="KyoIndex.query.filter" v-model:sort-prop="KyoIndex.query.prop" v-model:sort-dir="KyoIndex.query.dir" :item-height="40" :loading-init="0" :allow-drag="KyoIndex.allowDrag" :allow-drop="KyoIndex.allowDrop" :safezone="KyoIndex.safeZone" :render-expand="renderExpand" :group="group" :allow-groups="allowGroups" @move="KyoIndex.onMove" @row-dblclick="rowDblclick">
+        <NTable :items="KyoIndex.result.data" :disable-move="true" v-model:selected="KyoIndex.selected" v-model:expanded="KyoIndex.expanded" v-model:filter="KyoIndex.query.filter" v-model:sort-prop="KyoIndex.query.prop" v-model:sort-dir="KyoIndex.query.dir" :item-height="40" :loading-init="0" :allow-drag="KyoIndex.allowDrag" :allow-drop="KyoIndex.allowDrop" :safezone="KyoIndex.safezone" :render-expand="renderExpand" :group="group" :allow-groups="allowGroups" @move="KyoIndex.onMove" @row-dblclick="rowDblclick">
             <slot></slot>
         </NTable>
 
-        <!-- <NPaginator :page.sync="KyoIndex.query.page" :limit.sync="KyoIndex.query.limit" :total="KyoIndex.result.total" :layout="renderPagination ? ['limit', 'count', 'spacer', 'goto', 'pages'] : ['count']"></NPaginator> -->
+        <NPaginator v-model:page="KyoIndex.query.page" v-model:limit="KyoIndex.query.limit" :total="KyoIndex.result.total" :layout="renderPagination ? ['limit', 'count', 'spacer', 'goto', 'pages'] : ['count']"></NPaginator>
 
     </div>
 </template>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="kyo-login">
-        <n-form :propagation="true" action="{{ request()->fullUrl() }}" method="post">
+        <n-form :prevent="false" action="{{ request()->fullUrl() }}" method="post">
 
             @csrf
 
@@ -32,12 +32,6 @@
                     <div class="n-form-item__error">{{ $message }}</div>
                 @enderror
             </n-form-item>
-
-            <n-select>
-                <n-select-option value="foo" label="foo"></n-select-option>
-            </n-select>
-
-            <n-textarea></n-textarea>
 
             <n-form-item>
                 <n-button button-type="submit">{{ trans('Login') }}</n-button>

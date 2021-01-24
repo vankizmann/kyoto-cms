@@ -2,10 +2,19 @@ export default {
 
     name: 'KyoWebsiteNode',
 
-    props: {
+    inject: {
 
-        item: {
-            required: true
+        NDraggableItem: {
+            default: undefined,
+        }
+
+    },
+
+    computed: {
+
+        item()
+        {
+            return this.NDraggableItem.item;
         }
 
     },

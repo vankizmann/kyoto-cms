@@ -20,7 +20,7 @@ return [
     ],
 
     'backend' => [
-        // 'kyoto/language::js/index.js',
+        'kyoto/language::js/index.js',
         // 'kyoto/language::css/index.css'
     ]
 

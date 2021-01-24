@@ -143,7 +143,7 @@ export default {
          */
         allowDrag()
         {
-            return false;
+            return true;
         },
 
         /**
@@ -159,7 +159,7 @@ export default {
          * Safezone for table
          * @returns {number}
          */
-        safeZone(height)
+        safezone(height)
         {
             return height * 0.51;
         },

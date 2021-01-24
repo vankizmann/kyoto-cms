@@ -3,7 +3,7 @@
         <div class="grid grid--col">
 
             <KyoTitlebar :link="{ name: 'KyoRoles' }" class="col--flex-0-0" @delete="deleteItem">
-                <template slot="action">
+                <template v-slot:action>
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
                             {{ trans('Apply') }}
@@ -14,10 +14,10 @@
                     </NButtonGroup>
                 </template>
             </KyoTitlebar>
-            
+
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
-                <NFormGroup icon="fa fa-paragraph" :legend="trans('Info')">
+                <NFormGroup icon="fa fa-paragraph" :label="trans('Info')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1">
@@ -35,7 +35,7 @@
                     </div>
                 </NFormGroup>
 
-                <NFormGroup icon="fa fa-user-shield" :legend="trans('Access')">
+                <NFormGroup icon="fa fa-user-shield" :label="trans('Access')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1">

@@ -13,9 +13,14 @@ let postcssSvg = require('postcss-inline-svg')({
     paths: [__dirname + '/resources/img']
 });
 
+let postcssPrefix = require('autoprefixer')({
+    browsers: ['last 40 versions'],
+    grid: true
+})
+
 
 mix.options({
-    clearConsole: true, processCssUrls: false, postCss: [postcssSvg],
+    clearConsole: true, processCssUrls: false, postCss: [postcssPrefix, postcssSvg],
 });
 
 /**

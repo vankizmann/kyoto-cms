@@ -3,7 +3,7 @@
         <div class="grid grid--col">
 
             <KyoTitlebar :back="true" class="col--flex-0-0">
-                <template slot="action">
+                <template v-slot:action>
                     <NButtonGroup>
                         <NButton type="primary" @click="storeItemClose">
                             {{ trans('Save') }}
@@ -14,7 +14,7 @@
 
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
-                <NFormGroup icon="fa fa-info" :legend="trans('Info')">
+                <NFormGroup icon="fa fa-info" :label="trans('Info')">
                     <div class="grid grid-row grid--wrap grid--30">
 
                         <div class="col--1-1">

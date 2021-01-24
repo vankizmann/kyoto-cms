@@ -74,18 +74,6 @@ class FrontendMenuTableSeeder extends Seeder
         ]);
 
         Menu::create([
-            'type'   => 'kyoto/menu::redirect',
-            'layout' => null,
-            'option' => ['url' => 'http://wieistmeineip.de'],
-            'state'  => 1,
-            'hide'   => 0,
-            'title'  => 'wieistmeineip.de',
-            'slug'   => 'wieistmeineip-de',
-            'matrix' => 1,
-            'parent' => $default,
-        ]);
-
-        Menu::create([
             'type'   => 'kyoto/shop::product',
             'layout' => null,
             'option' => [],
@@ -96,6 +84,20 @@ class FrontendMenuTableSeeder extends Seeder
             'matrix' => 1,
             'parent' => $default,
         ]);
+
+        for ($x = 0; $x <= 200; $x++) {
+            Menu::create([
+                'type'   => 'kyoto/menu::redirect',
+                'layout' => null,
+                'option' => ['url' => 'http://wieistmeineip.de'],
+                'state'  => 1,
+                'hide'   => 0,
+                'title'  => 'wieistmeineip.de ' . $x,
+                'slug'   => 'wieistmeineip-de ' . $x,
+                'matrix' => 1,
+                'parent' => $default,
+            ]);
+        }
 
     }
 

@@ -29,7 +29,7 @@
 
         <div v-if="KyoForm" class="kyo-titlebar__description">
 
-            <NButton :link="true" :square="true" icon="fa fa-angle-down">
+            <NButton :link="true" icon-position="after" icon="fa fa-angle-down">
                 {{ Any.isEmpty(updated) ? trans('Not saved yet') : updated }}
             </NButton>
 
@@ -52,7 +52,7 @@
 
         <div v-if="KyoIndex" class="kyo-titlebar__description">
 
-            <NButton :link="true" type="default" icon="fa fa-angle-down">
+            <NButton :link="true" icon-position="after" icon="fa fa-angle-down">
                 {{ choice('No item selected|One item selected|:count items selected', selected) }}
             </NButton>
 

@@ -1,8 +1,8 @@
 <template>
     <NLoader :visible="load" size="small">
-        <NSelect :key="UUID()" :value="value" @input="updateInput">
+        <NSelect v-model="modelValue">
             <template v-for="item in items">
-                <NSelectOption :value="item.id">{{ item.title }}</NSelectOption>
+                <NSelectOption :value="item.id" :label="item.title" />
             </template>
         </NSelect>
     </NLoader>
@@ -14,7 +14,7 @@
 
         props: {
 
-            value: {
+            modelValue: {
                 default()
                 {
                     return null;

@@ -1,8 +1,6 @@
 <template>
     <NLoader :visible="load">
-        <NTransfer :key="UUID()" :value="value" :items="items" label-prop="title" :source-label="trans('Available')" :target-label="trans('Active')" @input="updateInput">
-            <!-- TRANSFER -->
-        </NTransfer>
+        <NTransfer v-model="modelValue" :options="items" label-prop="title" :source-label="trans('Available')" :target-label="trans('Active')" />
     </NLoader>
 </template>
 <script>
@@ -12,10 +10,10 @@
 
         props: {
 
-            value: {
+            modelValue: {
                 default()
                 {
-                    return null;
+                    return [];
                 }
             }
 
@@ -60,6 +58,7 @@
 
             fetchDone(res)
             {
+                console.log(res.data);
                 Nano.Data.set('kyo-policies', this.items = res.data);
             },
 

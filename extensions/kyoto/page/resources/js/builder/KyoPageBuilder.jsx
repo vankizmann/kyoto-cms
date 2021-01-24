@@ -43,7 +43,7 @@ export default {
     {
         return (
             <div class="kyo-widgets-widget-item">
-                { props.value.type }
+                { props.item.type }
             </div>
         );
     },
@@ -55,7 +55,7 @@ export default {
                 <div class="kyo-widgets-builder-item__head" draggable="true">
                     <div class="grid grid--row grid--middle grid--10">
                         <div class="col--auto col--left">
-                            { props.value.type }
+                            { props.item.type }
                         </div>
                         <div class="col--auto">
                             <NButton size="mini" type="info" square={true} icon={this.icons.create} vOn:click={props.copy}></NButton>
@@ -66,19 +66,18 @@ export default {
                     </div>
                 </div>
                 <div class="kyo-widgets-builder-item__body">
-                    { this.$render(`KyoWidget${Nano.Str.ucfirst(props.value.type)}`) }
+                    { Vue.h(Vue.resolveComponent(`KyoWidget${Nano.Str.ucfirst(props.item.type)}`)) }
                 </div>
             </NForm>
         );
     },
 
-    render($render)
+    render()
     {
-        this.$render = $render;
-
         let builderProps = {
             items: this.value,
             group: ['page-widget'],
+            allowGroups: ['page-widget'],
             handle: true,
             itemHeight: 0,
             viewportHeight: true,
@@ -115,14 +114,14 @@ export default {
         return (
             <div class="kyo-widgets">
                 <div class="kyo-widgets__inner">
-                    <NDraglist class="kyo-widgets__widget" ref="widget" props={widgetProps}>
+                    <NDraglist class="kyo-widgets__widget" ref="widget" {...widgetProps}>
 
                     </NDraglist>
-                    <NDraglist class="kyo-widgets__builder" ref="builder" props={builderProps} on={builderEvents}>
+                    <NDraglist class="kyo-widgets__builder" ref="builder" {...builderProps}>
 
                     </NDraglist>
                     <div class="kyo-widgets__extra">
-                        { this.$slots.default }
+                        { this.$slots.default && this.$slots.default() }
                     </div>
                 </div>
             </div>

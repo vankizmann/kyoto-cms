@@ -38,7 +38,7 @@
 
         </div>
 
-        <NResizer v-show="website" class="kyo-website" :style="websiteStyle" :min-width="minWidth" :max-width="maxWidth" @input="setWidth">
+        <NResizer v-show="website" class="kyo-website" :style="websiteStyle" :min-width="minWidth" :max-width="maxWidth" @update:modelValue="setWidth">
             <KyoLayoutWebsite>
                 <!-- Website -->
             </KyoLayoutWebsite>
@@ -157,6 +157,9 @@
             setWidth(width)
             {
                 Nano.Event.fire('website:resize', width);
+
+console.log('biereschiss');
+                Nano.Dom.find(window).fire('resize')
             },
 
             eventKeydown(event)

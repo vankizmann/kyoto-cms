@@ -26,6 +26,8 @@ class UserRequest extends FormRequest {
         return [
             'state'           => 'required|integer',
             'name'            => 'required',
+            'role_id'         => 'required',
+            'gate_id'         => 'required',
             'email'           => 'required|email',
             'fooword'         => 'required_new',
             'fooword_confirm' => 'required_with:fooword|same:fooword',
