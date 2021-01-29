@@ -1,20 +1,19 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-titlebar {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    height: 85px;
+    height: 120px;
     padding: 20px 30px;
-    margin-bottom: 20px;
 }
 
 .kyo-titlebar__back {
     flex: 0 0 auto;
     padding-right: 20px;
     margin-right: 20px;
-    border-right: 1px solid $--color-gray-10;
+    border-right: 1px solid $color-gray-10;
 }
 
 .kyo-titlebar__back i {
@@ -44,12 +43,12 @@
 }
 
 .kyo-titlebar__description .n-button {
-    color: $--color-black !important;
+    color: $color-black !important;
     padding: 8px 10px;
 }
 
 .kyo-titlebar__description .n-button .n-icon {
-    color: $--color-gray-70 !important;
+    color: $color-gray-70 !important;
 }
 
 .kyo-titlebar__delete {
@@ -83,13 +82,13 @@
 
 .kyo-titlebar-search__input .n-button.n-button--default {
     cursor: default;
-    color: $--color-gray-40;
+    color: $color-gray-40;
     border: none;
     background: transparent;
 }
 
 .kyo-titlebar-search__clear .n-button.n-button--default {
-    color: $--color-gray-40;
+    color: $color-gray-40;
     border: none;
     background: transparent;
 }

@@ -4,9 +4,9 @@
             <router-link :to="menu.route">
                 <span>{{ trans(menu.title) }}</span>
             </router-link>
-            <NPopover type="tooltip" size="xs" position="right-center">
+            <n-popover type="tooltip" size="sm">
                 {{ trans(menu.title) }}
-            </NPopover>
+            </n-popover>
         </li>
     </ul>
 </template>
@@ -18,9 +18,7 @@
         computed: {
 
             menus() {
-                return Nano.Arr.filter(window.backendRoutes, (menu) => {
-                    return ! menu.hide;
-                });
+                return kyoto.getVisibleRoutes();
             }
 
         },
@@ -29,7 +27,15 @@
 
             getComponentClass(menu)
             {
-                return Nano.Obj.get(menu, 'slug', 'undefined');
+                let classList = [
+                    pi.Obj.get(menu, 'slug', 'undefined')
+                ];
+
+                if ( this.$route.path.indexOf(menu.route) !== -1 ) {
+                    classList.push('is-loose-active');
+                }
+
+                return classList;
             }
 
         }

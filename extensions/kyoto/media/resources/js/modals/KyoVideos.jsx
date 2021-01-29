@@ -74,19 +74,19 @@ export default {
             let youtube = this.clipboard.match(/^https?:\/\/(www\.)?youtube\.[a-z]{2,3}\/watch\?v=([^\&]+)/);
 
             if ( youtube ) {
-                this.video = { file: Nano.Arr.last(youtube), type: 'video/youtube' };
+                this.video = { file: pi.Arr.last(youtube), type: 'video/youtube' };
             }
 
             let vimeo = this.clipboard.match(/^https?:\/\/(www\.)?vimeo\.[a-z]{2,3}\/([^\&\?]+)/);
 
             if ( vimeo ) {
-                this.video = { file: Nano.Arr.last(vimeo), type: 'video/vimeo' };
+                this.video = { file: pi.Arr.last(vimeo), type: 'video/vimeo' };
             }
         },
 
         storeItem()
         {
-            if ( Nano.Any.isEmpty(this.video) ) {
+            if ( pi.Any.isEmpty(this.video) ) {
                 return;
             }
 
@@ -98,8 +98,8 @@ export default {
             let route = this.Route.get('/{locale}/kyoto/media/http/controllers/media/store',
                 this.$root.$data);
 
-            let data = Nano.Obj.assign({}, this.video, {
-                id: Nano.UUID(), parent_id: this.parent
+            let data = pi.Obj.assign({}, this.video, {
+                id: pi.UUID(), parent_id: this.parent
             });
 
             this.$http.post(route, data, options)
@@ -110,7 +110,7 @@ export default {
         {
             this.visible = false;
 
-            Nano.Event.fire('media:refresh');
+            pi.Event.fire('media:refresh');
         }
 
     },

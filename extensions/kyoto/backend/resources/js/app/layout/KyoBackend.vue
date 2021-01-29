@@ -1,47 +1,50 @@
 <template>
-    <div class="kyo-backend" :style="backendStyle">
+    <div class="kyo-backend">
         <div class="kyo-header">
-            <div class="grid grid--row grid--30">
 
-                <KyoLayoutSubmenu class="col--flex-0-0 col--left">
-                    <!-- Submenu -->
-                </KyoLayoutSubmenu>
-
-                <KyoLayoutUserpanel class="col--flex-0-0">
-                    <!-- Backenduser -->
-                </KyoLayoutUserpanel>
-
-                <KyoLayoutLanguage class="col--flex-0-0">
-                    <!-- Language -->
-                </KyoLayoutLanguage>
-
+            <div class="kyo-header__menu">
+                <KyoLayoutMainmenu></KyoLayoutMainmenu>
             </div>
+
+            <div class="kyo-header__language">
+                <KyoLayoutLanguage></KyoLayoutLanguage>
+            </div>
+
         </div>
 
-        <div class="kyo-body full-height-child">
+        <div class="kyo-navigation">
+
+            <div class="kyo-navigation__logo">
+                <router-link to="/"><b>kyoto</b> cms</router-link>
+            </div>
+
+            <div class="kyo-navigation__dash">
+                <KyoLayoutDash></KyoLayoutDash>
+            </div>
+
+            <div class="kyo-navigation__menu">
+                <KyoLayoutSubmenu></KyoLayoutSubmenu>
+            </div>
+
+            <div class="kyo-navigation__user">
+                <KyoLayoutUser></KyoLayoutUser>
+            </div>
+
+            <div class="kyo-navigation__logout">
+                <a :href="logout">{{ trans('Logout') }}</a>
+            </div>
+
+
+        </div>
+
+        <div class="kyo-body">
             <router-view />
         </div>
 
-        <div class="kyo-sidebar">
-
-            <div class="kyo-logo">
-                <router-link to="/"><span>Kyoto CMS</span></router-link>
-            </div>
-
-            <KyoLayoutMainmenu>
-                <!-- Mainmenu -->
-            </KyoLayoutMainmenu>
-
-            <div class="kyo-logout">
-                <a ><i class="fa fa-sign-out-alt"></i></a>
-            </div>
-
-        </div>
-
-        <NResizer v-show="website" class="kyo-website" :style="websiteStyle" :min-width="minWidth" :max-width="maxWidth" @update:modelValue="setWidth">
-            <KyoLayoutWebsite>
+        <NResizer v-show="website" class="kyo-website" :min-width="minWidth" :max-width="maxWidth" @update:modelValue="setWidth">
+            <KyoWebsite>
                 <!-- Website -->
-            </KyoLayoutWebsite>
+            </KyoWebsite>
         </NResizer>
 
         <NModal v-model="modal" :listen="false" width="auto">
@@ -50,10 +53,10 @@
                     {{ this.trans('Enable system mode?') }}
                 </div>
                 <div class="col col--auto">
-                    <NButton type="primary" @click="enableMode">
+                    <NButton type="warning" @click="enableMode">
                         {{ trans('Enable')}}
                     </NButton>
-                    <NButton type="secondary" @click="disableMode">
+                    <NButton type="primary" @click="disableMode">
                         {{ trans('Disable')}}
                     </NButton>
                 </div>
@@ -69,22 +72,14 @@
 
         computed: {
 
+            logout()
+            {
+                return kyoto.paths.logout;
+            },
+
             backendPaths()
             {
                 return window.backendPaths;
-            },
-
-            backendStyle()
-            {
-                let style = {
-                    paddingLeft: this.width + 'px'
-                };
-
-                if ( ! this.website ) {
-                    style.paddingLeft = 0;
-                }
-
-                return style;
             },
 
             websiteStyle()
@@ -116,25 +111,40 @@
 
         mounted()
         {
-            console.log(this)
+            kyoto.addDash({
+                type: 'tree',
+                title: this.trans('Show menu tree'),
+                description: this.trans('Force the visibility of menu tree'),
+                keys: ['tree', 'show', 'menu'],
+                callback: this.showWebsite
+            });
+
+            kyoto.addDash({
+                type: 'tree',
+                title: this.trans('Hide menu tree'),
+                description: this.trans('Force the visibility of menu tree'),
+                keys: ['tree', 'hide', 'menu'],
+                callback: this.hideWebsite
+            });
+
             this.$watch('locale', () => {
-                Nano.Event.fire('locale:changed');
+                pi.Event.fire('locale:changed');
             });
 
             this.$watch('width', () => {
-                Nano.Event.fire('website:resized');
+                pi.Event.fire('website:resized');
             });
 
-            Nano.Event.bind('locale:change', (locale) => {
+            pi.Event.bind('locale:change', (locale) => {
                 this.locale = locale;
             });
 
-            Nano.Event.bind('website:resize', (width) => {
+            pi.Event.bind('website:resize', (width) => {
                 this.width = width;
             });
 
-            Nano.Dom.find(window).on('keyup', this.eventKeyup);
-            Nano.Dom.find(window).on('keydown', this.eventKeydown);
+            pi.Dom.find(window).on('keyup', this.eventKeyup);
+            pi.Dom.find(window).on('keydown', this.eventKeydown);
         },
 
         methods: {
@@ -151,22 +161,21 @@
 
             setLocale(locale)
             {
-                Nano.Event.fire('locale:change', locale);
+                pi.Event.fire('locale:change', locale);
             },
 
             setWidth(width)
             {
-                Nano.Event.fire('website:resize', width);
+                pi.Event.fire('website:resize', width);
 
-console.log('biereschiss');
-                Nano.Dom.find(window).fire('resize')
+                pi.Dom.find(window).fire('resize')
             },
 
             eventKeydown(event)
             {
-                Nano.Arr.add(this.strokeCache, event.which);
+                pi.Arr.add(this.strokeCache, event.which);
 
-                if ( ! Nano.Arr.contains(this.strokeCache, [18, 79]) ) {
+                if ( ! pi.Arr.contains(this.strokeCache, [18, 79]) ) {
                     return;
                 }
 
@@ -175,19 +184,19 @@ console.log('biereschiss');
 
             eventKeyup(event)
             {
-                Nano.Arr.remove(this.strokeCache, event.which);
+                pi.Arr.remove(this.strokeCache, event.which);
             },
 
             enableMode()
             {
-                Nano.Cookie.set('kyoto_sysmode', '1');
+                pi.Cookie.set('kyoto_sysmode', '1');
 
                 window.location.reload();
             },
 
             disableMode()
             {
-                Nano.Cookie.set('kyoto_sysmode', '0');
+                pi.Cookie.set('kyoto_sysmode', '0');
 
                 window.location.reload();
             }

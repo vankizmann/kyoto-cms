@@ -1,0 +1,39 @@
+@import "~@kizmann/nano-ui/nano/root/vars";
+
+.kyo-userpanel {
+
+}
+
+.kyo-userpanel > a {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+}
+
+.kyo-userpanel > a:before {
+    content: '\00a0';
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: $color-danger;
+    border-radius: 500px;
+    border: 2px solid $color-black;
+}
+
+.n-popover--user .n-popover__frame {
+    margin-top: 15px;
+    background: $color-white;
+    border-radius: $lg-radius;
+    box-shadow: 0 1px 10px rgba($color-shadow, 0.1);
+}
+
+
+//.n-popover.n-popover--userpanel .n-popover__frame {
+//    background: $color-white;
+//    border-radius: $radius-medium;
+//    box-shadow: 0 1px 4px rgba($color-black, 0.1);
+//}

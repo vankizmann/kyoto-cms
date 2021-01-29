@@ -2,7 +2,7 @@ import Vue from 'vue';
 window.Vue = Vue;
 
 import Nano from "nano-js";
-Nano.install(Vue.prototype);
+pi.install(Vue.prototype);
 
 import VueNano from "nano-ui";
 Vue.use(VueNano, {
@@ -79,6 +79,6 @@ let router = new VueRouter({
 });
 
 
-Nano.Dom.ready(() => {
+pi.Dom.ready(() => {
     window.App = new Vue({ router }).$mount('#app');
 });

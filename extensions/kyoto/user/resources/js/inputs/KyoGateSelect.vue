@@ -44,8 +44,8 @@
 
             loadGates()
             {
-                if ( Nano.Data.has('kyo-gates') ) {
-                    return this.items = Nano.Data.get('kyo-gates', []);
+                if ( pi.Data.has('kyo-gates') ) {
+                    return this.items = pi.Data.get('kyo-gates', []);
                 }
 
                 let options = {
@@ -62,12 +62,12 @@
 
             fetchDone(res)
             {
-                Nano.Data.set('kyo-gates', this.items = res.data);
+                pi.Data.set('kyo-gates', this.items = res.data);
             },
 
             fetchError()
             {
-                Nano.Any.delay(this.loadGates, 1500);
+                pi.Any.delay(this.loadGates, 1500);
             }
 
         }

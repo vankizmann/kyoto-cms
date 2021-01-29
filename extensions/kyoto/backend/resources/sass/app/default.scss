@@ -1,4 +1,4 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 [v-cloak] {
     display: none;
@@ -13,17 +13,17 @@
 }
 
 html, body {
-    font-size: 15px;
+    font-size: 13px;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
-    font-size: 14px;
+    font-family: 'Poppins', 'Helvetica', 'Arial', sans-serif;
+    font-size: 13px;
     font-weight: 400;
     color: $color-black;
-    background-color: $--color-background;
+    background-color: $color-background;
     background-size: cover;
     background-position: center center;
     overflow: hidden;
@@ -35,7 +35,7 @@ div, span, a {
 
 a {
     text-decoration: none;
-    color: $--color-primary;
+    color: $color-primary;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -67,7 +67,7 @@ h6 {
 }
 
 p {
-    color: $--color-black;
+    color: $color-black;
     font-size: 1.0rem;
 }
 
@@ -76,33 +76,33 @@ th {
 }
 
 .text--primary {
-    color: $--color-primary;
+    color: $color-primary;
 }
 
 .text--secondary {
-    color: $--color-secondary;
+    color: $color-secondary;
 }
 
 .text--success {
-    color: $--color-success;
+    color: $color-success;
 }
 
 .text--warning {
-    color: $--color-warning;
+    color: $color-warning;
 }
 
 .text--danger {
-    color: $--color-danger;
+    color: $color-danger;
 }
 
 .text--info {
-    color: $--color-info;
+    color: $color-info;
 }
 
 .info {
     padding-top: 5px;
     font-size: 13px;
-    color: $--color-gray-60;
+    color: $color-gray-60;
 }
 
 .full-height {
@@ -133,22 +133,28 @@ th {
     flex: 1 1 auto !important;
 }
 
-.n-popover.n-popover--custom .n-tabs-item {
-    padding: 0 20px 20px;
+.n-popover--tooltip .n-popover__frame {
+    box-shadow: none;
+    color: $color-gray-10;
+    background: $color-black;
 }
 
-.n-form-group {
-    margin-bottom: 0 !important;
+.n-table .n-table__header {
+    box-shadow: none;
 }
 
-.n-form-group__legend {
-    margin-bottom: 10px;
-}
-
-.n-form-group__legend .n-form-group__label-text {
-    font-weight: bold !important;
-}
-
-.n-form-item {
-    margin-bottom: 28px;
-}
+//.n-form-group {
+//    margin-bottom: 0 !important;
+//}
+//
+//.n-form-group__legend {
+//    margin-bottom: 10px;
+//}
+//
+//.n-form-group__legend .n-form-group__label-text {
+//    font-weight: bold !important;
+//}
+//
+//.n-form-item {
+//    margin-bottom: 28px;
+//}

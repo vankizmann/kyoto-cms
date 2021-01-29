@@ -95,15 +95,15 @@
 
             config()
             {
-                if ( Nano.Any.isEmpty(this.result.type) ) {
+                if ( pi.Any.isEmpty(this.result.type) ) {
                     return {};
                 }
 
-                if ( ! Nano.Data.has(this.result.type) ) {
+                if ( ! pi.Data.has(this.result.type) ) {
                     return {};
                 }
 
-                return Nano.Data.get(this.result.type);
+                return pi.Data.get(this.result.type);
             }
 
         },

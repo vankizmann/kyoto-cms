@@ -1,4 +1,4 @@
-import { Arr, Obj } from 'nano-js';
+import { Arr, Obj } from "@kizmann/pico-js";
 
 export default {
 
@@ -33,7 +33,7 @@ export default {
         };
 
         let defaults = {
-            query: query, result: {}, expanded: [], selected: [], load: true
+            query: query, result: {}, current: null, expanded: [], selected: [], load: true
         };
 
         let data = Obj.assign(defaults,
@@ -72,13 +72,13 @@ export default {
         this.loadItems();
 
         if ( this.ctor('localized', false) ) {
-            Nano.Event.bind('locale:changed', this.loadItems, this._uid);
+            pi.Event.bind('locale:changed', this.loadItems, this._uid);
         }
     },
 
     unmounted()
     {
-        Nano.Event.unbind('locale:changed', this._uid);
+        pi.Event.unbind('locale:changed', this._uid);
     },
 
     watch: {
@@ -198,7 +198,7 @@ export default {
          */
         moveItems(source, target, strategy)
         {
-            if ( Nano.Any.isEmpty(target) ) {
+            if ( pi.Any.isEmpty(target) ) {
                 return;
             }
 

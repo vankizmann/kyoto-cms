@@ -141,7 +141,7 @@
 
             menuTitle()
             {
-                return Nano.Obj.get(this.$route, 'meta.menu.title');
+                return pi.Obj.get(this.$route, 'meta.menu.title');
             },
 
             search()
@@ -187,8 +187,8 @@
         watch: {
 
             'title': function () {
-                if ( ! Nano.Any.isEmpty(this.title) ) {
-                    Nano.Dom.title(this.trans(this.title));
+                if ( ! pi.Any.isEmpty(this.title) ) {
+                    pi.Dom.title(this.trans(this.title));
                 }
             }
 

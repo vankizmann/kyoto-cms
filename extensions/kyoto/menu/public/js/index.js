@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -86,1350 +86,99 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoConnectorSelect',
-  props: {
-    value: {
-      "default": function _default() {
-        return null;
-      }
-    }
-  },
-  data: function data() {
-    return {
-      load: false,
-      items: []
-    };
-  },
-  mounted: function mounted() {
-    this.loadConnectors();
-  },
-  methods: {
-    updateInput: function updateInput(value) {
-      this.$emit('input', value);
-    },
-    loadConnectors: function loadConnectors() {
-      var _this = this;
-
-      if (Nano.Data.has('kyo-connectors')) {
-        return this.items = Nano.Data.get('kyo-connectors', []);
-      }
-
-      var options = {
-        onLoad: function onLoad() {
-          return _this.load = true;
-        },
-        onDone: function onDone() {
-          return _this.load = false;
-        }
-      };
-      var route = this.Route.get('/{locale}/kyoto/package/http/controllers/package/connector', this.$root.$data);
-      this.$http.get(route, options).then(this.fetchDone, this.fetchError);
-    },
-    fetchDone: function fetchDone(res) {
-      Nano.Data.set('kyo-connectors', this.items = res.data);
-    },
-    fetchError: function fetchError() {
-      Nano.Any.delay(this.loadConnectors, 1500);
-    }
-  }
-});
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'KyoConnectorSelect',\n  props: {\n    modelValue: {\n      \"default\": function _default() {\n        return null;\n      }\n    }\n  },\n  data: function data() {\n    return {\n      load: false,\n      items: []\n    };\n  },\n  mounted: function mounted() {\n    this.loadConnectors();\n  },\n  methods: {\n    updateInput: function updateInput(value) {\n      this.$emit('update:modelValue', value);\n    },\n    loadConnectors: function loadConnectors() {\n      var _this = this;\n\n      if (pi.Data.has('kyo-connectors')) {\n        return this.items = pi.Data.get('kyo-connectors', []);\n      }\n\n      var options = {\n        onLoad: function onLoad() {\n          return _this.load = true;\n        },\n        onDone: function onDone() {\n          return _this.load = false;\n        }\n      };\n      var route = this.Route.get('/{locale}/kyoto/package/http/controllers/package/connector', this.$root.$data);\n      this.$http.get(route, options).then(this.fetchDone, this.fetchError);\n    },\n    fetchDone: function fetchDone(res) {\n      pi.Data.set('kyo-connectors', this.items = res.data);\n    },\n    fetchError: function fetchError() {\n      pi.Any.delay(this.loadConnectors, 1500);\n    }\n  }\n});\n\n//# sourceURL=webpack:///./resources/js/inputs/KyoConnectorSelect.vue?./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoMenuCreate',
-  localized: true,
-  urls: {
-    show: '/{locale}/kyoto/language/http/controllers/language/show',
-    store: '/{locale}/kyoto/language/http/controllers/language/store'
-  },
-  computed: {
-    config: function config() {
-      if (Nano.Any.isEmpty(this.result.type)) {
-        return {};
-      }
-
-      if (!Nano.Data.has(this.result.type)) {
-        return {};
-      }
-
-      return Nano.Data.get(this.result.type);
-    }
-  },
-  methods: {
-    gotoEdit: function gotoEdit(row) {
-      this.$router.push({
-        name: 'KyoLanguageEdit',
-        params: row.data
-      });
-      console.log(row.data);
-    },
-    gotoIndex: function gotoIndex() {
-      this.$router.push({
-        name: 'KyoLanguages'
-      });
-    }
-  },
-  "extends": window.KyoForm
-});
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'KyoMenuCreate',\n  localized: true,\n  urls: {\n    show: '/{locale}/kyoto/language/http/controllers/language/show',\n    store: '/{locale}/kyoto/language/http/controllers/language/store'\n  },\n  computed: {\n    config: function config() {\n      if (pi.Any.isEmpty(this.result.type)) {\n        return {};\n      }\n\n      if (!pi.Data.has(this.result.type)) {\n        return {};\n      }\n\n      return pi.Data.get(this.result.type);\n    }\n  },\n  methods: {\n    gotoEdit: function gotoEdit(row) {\n      this.$router.push({\n        name: 'KyoLanguageEdit',\n        params: row.data\n      });\n      console.log(row.data);\n    },\n    gotoIndex: function gotoIndex() {\n      this.$router.push({\n        name: 'KyoLanguages'\n      });\n    }\n  },\n  \"extends\": window.KyoForm\n});\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuCreate.vue?./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../inputs/KyoConnectorSelect */ "./resources/js/inputs/KyoConnectorSelect.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoMenuEdit',
-  components: {
-    KyoConnectorSelect: _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  localized: true,
-  urls: {
-    show: '/{locale}/kyoto/menu/http/controllers/menu/show',
-    update: '/{locale}/kyoto/menu/http/controllers/menu/update',
-    "delete": '/{locale}/kyoto/menu/http/controllers/menu/delete'
-  },
-  computed: {
-    config: function config() {
-      if (Nano.Any.isEmpty(this.result.type)) {
-        return {};
-      }
-
-      if (!Nano.Data.has(this.result.type)) {
-        return {};
-      }
-
-      return Nano.Data.get(this.result.type);
-    }
-  },
-  methods: {
-    gotoIndex: function gotoIndex() {
-      this.$router.push({
-        name: 'KyoMenus'
-      });
-    }
-  },
-  "extends": window.KyoForm
-});
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../inputs/KyoConnectorSelect */ \"./resources/js/inputs/KyoConnectorSelect.vue\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'KyoMenuEdit',\n  localized: true,\n  urls: {\n    show: '/{locale}/kyoto/menu/http/controllers/menu/show',\n    update: '/{locale}/kyoto/menu/http/controllers/menu/update',\n    \"delete\": '/{locale}/kyoto/menu/http/controllers/menu/delete'\n  },\n  computed: {\n    config: function config() {\n      if (pi.Any.isEmpty(this.result.type)) {\n        return {};\n      }\n\n      if (!pi.Data.has(this.result.type)) {\n        return {};\n      }\n\n      return pi.Data.get(this.result.type);\n    }\n  },\n  methods: {\n    gotoIndex: function gotoIndex() {\n      this.$router.push({\n        name: 'KyoMenus'\n      });\n    }\n  },\n  \"extends\": window.KyoForm\n});\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuEdit.vue?./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0!./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'KyoMenus',
-  localized: true,
-  urls: {
-    index: '/{locale}/kyoto/menu/http/controllers/menu/index',
-    "delete": '/{locale}/kyoto/menu/http/controllers/menu/delete',
-    move: '/{locale}/kyoto/menu/http/controllers/menu/move'
-  },
-  defaults: function defaults() {
-    var query = {
-      page: 1,
-      limit: 25,
-      prop: 'updated_at',
-      dir: 'asc',
-      filter: [],
-      search: '',
-      columns: ['title']
-    };
-    return {
-      query: query
-    };
-  },
-  methods: {
-    allowDrag: function allowDrag() {
-      return true;
-    },
-    allowDrop: function allowDrop() {
-      return true;
-    },
-    safeZone: function safeZone(height) {
-      return height * 0.26;
-    }
-  },
-  "extends": window.KyoIndex
-});
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'KyoMenus',\n  localized: true,\n  urls: {\n    index: '/{locale}/kyoto/menu/http/controllers/menu/index',\n    \"delete\": '/{locale}/kyoto/menu/http/controllers/menu/delete',\n    move: '/{locale}/kyoto/menu/http/controllers/menu/move'\n  },\n  defaults: function defaults() {\n    var query = {\n      page: 1,\n      limit: 25,\n      prop: 'updated_at',\n      dir: 'asc',\n      filter: [],\n      search: '',\n      columns: ['title']\n    };\n    return {\n      query: query\n    };\n  },\n  methods: {\n    allowDrag: function allowDrag() {\n      return true;\n    },\n    allowDrop: function allowDrop() {\n      return true;\n    },\n    safeZone: function safeZone(height) {\n      return height * 0.26;\n    }\n  },\n  \"extends\": window.KyoIndex\n});\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenus.vue?./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20& ***!
-  \*****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20 ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "NLoader",
-    { attrs: { visible: _vm.load, size: "small" } },
-    [
-      _c(
-        "NSelect",
-        {
-          key: _vm.UUID(),
-          attrs: { value: _vm.value },
-          on: { input: _vm.updateInput }
-        },
-        [
-          _vm._l(_vm.items, function(item) {
-            return [
-              _c("NSelectOption", { attrs: { value: item.value } }, [
-                _vm._v(_vm._s(item.label))
-              ])
-            ]
-          })
-        ],
-        2
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"vue\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_NSelectOption = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NSelectOption\")\n  const _component_NSelect = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NSelect\")\n  const _component_NLoader = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NLoader\")\n\n  return (Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"openBlock\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createBlock\"])(_component_NLoader, {\n    visible: $data.load,\n    size: \"sm\"\n  }, {\n    default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n      Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NSelect, {\n        \"model-value\": $props.modelValue,\n        \"onUpdate:modelValue\": $options.updateInput\n      }, {\n        default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n          (Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"openBlock\"])(true), Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createBlock\"])(vue__WEBPACK_IMPORTED_MODULE_0__[\"Fragment\"], null, Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"renderList\"])($data.items, (item) => {\n            return (Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"openBlock\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createBlock\"])(_component_NSelectOption, {\n              value: item.value,\n              label: item.label\n            }, null, 8 /* PROPS */, [\"value\", \"label\"]))\n          }), 256 /* UNKEYED_FRAGMENT */))\n        ]),\n        _: 1 /* STABLE */\n      }, 8 /* PROPS */, [\"model-value\", \"onUpdate:modelValue\"])\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"visible\"]))\n}\n\n//# sourceURL=webpack:///./resources/js/inputs/KyoConnectorSelect.vue?./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535 ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "NLoader",
-    { staticClass: "full-height-child", attrs: { visible: _vm.load } },
-    [
-      _c(
-        "div",
-        { staticClass: "grid grid--col" },
-        [
-          _c(
-            "KyoTitlebar",
-            {
-              staticClass: "col--flex-0-0",
-              attrs: { link: { name: "KyoLanguages" } }
-            },
-            [
-              _c(
-                "template",
-                { slot: "action" },
-                [
-                  _c(
-                    "NButtonGroup",
-                    [
-                      _c(
-                        "NButton",
-                        {
-                          attrs: { type: "primary" },
-                          on: { click: _vm.storeItem }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.trans("Apply")) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "NButton",
-                        {
-                          attrs: { type: "primary" },
-                          on: { click: _vm.storeItemClose }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.trans("Save")) +
-                              "\n                    "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "NForm",
-            {
-              staticClass: "kyo-dataform col--flex-1-0",
-              attrs: { form: _vm.result, errors: _vm.errors }
-            },
-            [
-              _c(
-                "NFormGroup",
-                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "grid grid-row grid--wrap grid--30" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("State"),
-                                prop: "state"
-                              }
-                            },
-                            [
-                              _c(
-                                "NSwitch",
-                                {
-                                  attrs: { "on-value": 1, "off-value": 0 },
-                                  model: {
-                                    value: _vm.result.state,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.result, "state", $$v)
-                                    },
-                                    expression: "result.state"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.trans("Menu is enabled")) +
-                                      "\n                            "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: { label: _vm.trans("Hide"), prop: "hide" }
-                            },
-                            [
-                              _c(
-                                "NSwitch",
-                                {
-                                  attrs: { "on-value": 1, "off-value": 0 },
-                                  model: {
-                                    value: _vm.result.hide,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.result, "hide", $$v)
-                                    },
-                                    expression: "result.hide"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.trans("Menu is hidden")) +
-                                      "\n                            "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "NFormGroup",
-                { attrs: { icon: "fa fa-compass", legend: _vm.trans("Menu") } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "grid grid-row grid--wrap grid--30" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("Title"),
-                                prop: "title"
-                              }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.title,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "title", $$v)
-                                  },
-                                  expression: "result.title"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: { label: _vm.trans("Slug"), prop: "slug" }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.slug,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "slug", $$v)
-                                  },
-                                  expression: "result.slug"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("Identifier"),
-                                prop: "ident"
-                              }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.ident,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "ident", $$v)
-                                  },
-                                  expression: "result.ident"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: { label: _vm.trans("Type"), prop: "type" }
-                            },
-                            [
-                              _c("KyoConnectorSelect", {
-                                model: {
-                                  value: _vm.result.type,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "type", $$v)
-                                  },
-                                  expression: "result.type"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("NConfig", {
-                attrs: {
-                  value: _vm.result.option,
-                  config: _vm.config,
-                  scope: {}
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"vue\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst _hoisted_1 = { class: \"grid grid--col\" }\nconst _hoisted_2 = { class: \"grid grid-row grid--wrap grid--30\" }\nconst _hoisted_3 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_4 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_5 = { class: \"grid grid-row grid--wrap grid--30\" }\nconst _hoisted_6 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_7 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_8 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_9 = { class: \"col--1-1 col--1-2@sm\" }\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_NButton = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NButton\")\n  const _component_NButtonGroup = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NButtonGroup\")\n  const _component_KyoTitlebar = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoTitlebar\")\n  const _component_NSwitch = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NSwitch\")\n  const _component_NFormItem = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NFormItem\")\n  const _component_NFormGroup = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NFormGroup\")\n  const _component_NInput = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NInput\")\n  const _component_KyoConnectorSelect = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoConnectorSelect\")\n  const _component_NConfig = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NConfig\")\n  const _component_NForm = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NForm\")\n  const _component_NLoader = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NLoader\")\n\n  return (Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"openBlock\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createBlock\"])(_component_NLoader, {\n    visible: _ctx.load,\n    class: \"full-height-child\"\n  }, {\n    default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n      Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_1, [\n        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoTitlebar, {\n          link: { name: 'KyoLanguages' },\n          class: \"col--flex-0-0\"\n        }, {\n          action: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButtonGroup, null, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButton, {\n                  type: \"primary\",\n                  onClick: _ctx.storeItem\n                }, {\n                  default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Apply')), 1 /* TEXT */)\n                  ]),\n                  _: 1 /* STABLE */\n                }, 8 /* PROPS */, [\"onClick\"]),\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButton, {\n                  type: \"primary\",\n                  onClick: _ctx.storeItemClose\n                }, {\n                  default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Save')), 1 /* TEXT */)\n                  ]),\n                  _: 1 /* STABLE */\n                }, 8 /* PROPS */, [\"onClick\"])\n              ]),\n              _: 1 /* STABLE */\n            })\n          ]),\n          _: 1 /* STABLE */\n        }),\n        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NForm, {\n          form: _ctx.result,\n          errors: _ctx.errors,\n          class: \"kyo-dataform col--flex-1-0\"\n        }, {\n          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormGroup, {\n              icon: \"fa fa-cog\",\n              label: _ctx.trans('Settings')\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_2, [\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_3, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('State'),\n                      prop: \"state\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NSwitch, {\n                          modelValue: _ctx.result.state,\n                          \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => (_ctx.result.state = $event)),\n                          \"on-value\": 1,\n                          \"off-value\": 0\n                        }, {\n                          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Menu is enabled')), 1 /* TEXT */)\n                          ]),\n                          _: 1 /* STABLE */\n                        }, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_4, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Hide'),\n                      prop: \"hide\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NSwitch, {\n                          modelValue: _ctx.result.hide,\n                          \"onUpdate:modelValue\": _cache[2] || (_cache[2] = $event => (_ctx.result.hide = $event)),\n                          \"on-value\": 1,\n                          \"off-value\": 0\n                        }, {\n                          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Menu is hidden')), 1 /* TEXT */)\n                          ]),\n                          _: 1 /* STABLE */\n                        }, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ])\n                ])\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormGroup, {\n              icon: \"fa fa-compass\",\n              label: _ctx.trans('Menu')\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_5, [\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_6, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Title'),\n                      prop: \"title\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NInput, {\n                          modelValue: _ctx.result.title,\n                          \"onUpdate:modelValue\": _cache[3] || (_cache[3] = $event => (_ctx.result.title = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_7, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Slug'),\n                      prop: \"slug\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NInput, {\n                          modelValue: _ctx.result.slug,\n                          \"onUpdate:modelValue\": _cache[4] || (_cache[4] = $event => (_ctx.result.slug = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_8, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Identifier'),\n                      prop: \"ident\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NInput, {\n                          modelValue: _ctx.result.ident,\n                          \"onUpdate:modelValue\": _cache[5] || (_cache[5] = $event => (_ctx.result.ident = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_9, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Type'),\n                      prop: \"type\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoConnectorSelect, {\n                          modelValue: _ctx.result.type,\n                          \"onUpdate:modelValue\": _cache[6] || (_cache[6] = $event => (_ctx.result.type = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ])\n                ])\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NConfig, {\n              value: _ctx.result.option,\n              config: $options.config,\n              scope: {}\n            }, null, 8 /* PROPS */, [\"value\", \"config\"])\n          ]),\n          _: 1 /* STABLE */\n        }, 8 /* PROPS */, [\"form\", \"errors\"])\n      ])\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"visible\"]))\n}\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuCreate.vue?./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa& ***!
-  \**************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "NLoader",
-    { staticClass: "full-height-child", attrs: { visible: _vm.load } },
-    [
-      _c(
-        "div",
-        { staticClass: "grid grid--col" },
-        [
-          _c(
-            "KyoTitlebar",
-            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItem } },
-            [
-              _c(
-                "template",
-                { slot: "action" },
-                [
-                  _c(
-                    "NButtonGroup",
-                    [
-                      _c(
-                        "NButton",
-                        {
-                          attrs: { type: "primary" },
-                          on: { click: _vm.updateItem }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.trans("Apply")) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "NButton",
-                        {
-                          attrs: { type: "primary" },
-                          on: { click: _vm.updateCloseItem }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.trans("Save")) +
-                              "\n                    "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "NForm",
-            {
-              staticClass: "kyo-dataform col--flex-1-0",
-              attrs: { form: _vm.result, errors: _vm.errors }
-            },
-            [
-              _c(
-                "NFormGroup",
-                { attrs: { icon: "fa fa-cog", legend: _vm.trans("Settings") } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "grid grid-row grid--wrap grid--30" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("State"),
-                                prop: "state"
-                              }
-                            },
-                            [
-                              _c(
-                                "NSwitch",
-                                {
-                                  attrs: { "on-value": 1, "off-value": 0 },
-                                  model: {
-                                    value: _vm.result.state,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.result, "state", $$v)
-                                    },
-                                    expression: "result.state"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.trans("Menu is enabled")) +
-                                      "\n                            "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: { label: _vm.trans("Hide"), prop: "hide" }
-                            },
-                            [
-                              _c(
-                                "NSwitch",
-                                {
-                                  attrs: { "on-value": 1, "off-value": 0 },
-                                  model: {
-                                    value: _vm.result.hide,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.result, "hide", $$v)
-                                    },
-                                    expression: "result.hide"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.trans("Menu is hidden")) +
-                                      "\n                            "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "NFormGroup",
-                { attrs: { icon: "fa fa-compass", legend: _vm.trans("Menu") } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "grid grid-row grid--wrap grid--30" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("Title"),
-                                prop: "title"
-                              }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.title,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "title", $$v)
-                                  },
-                                  expression: "result.title"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: { label: _vm.trans("Slug"), prop: "slug" }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.slug,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "slug", $$v)
-                                  },
-                                  expression: "result.slug"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: {
-                                label: _vm.trans("Identifier"),
-                                prop: "ident"
-                              }
-                            },
-                            [
-                              _c("NInput", {
-                                model: {
-                                  value: _vm.result.ident,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "ident", $$v)
-                                  },
-                                  expression: "result.ident"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col--1-1 col--1-2@sm" },
-                        [
-                          _c(
-                            "NFormItem",
-                            {
-                              attrs: { label: _vm.trans("Type"), prop: "type" }
-                            },
-                            [
-                              _c("KyoConnectorSelect", {
-                                model: {
-                                  value: _vm.result.type,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.result, "type", $$v)
-                                  },
-                                  expression: "result.type"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("NConfig", {
-                attrs: { value: _vm.result, config: _vm.config, scope: {} }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"vue\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst _hoisted_1 = { class: \"grid grid--col\" }\nconst _hoisted_2 = { class: \"grid grid-row grid--wrap grid--30\" }\nconst _hoisted_3 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_4 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_5 = { class: \"grid grid-row grid--wrap grid--30\" }\nconst _hoisted_6 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_7 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_8 = { class: \"col--1-1 col--1-2@sm\" }\nconst _hoisted_9 = { class: \"col--1-1 col--1-2@sm\" }\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_NButton = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NButton\")\n  const _component_NButtonGroup = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NButtonGroup\")\n  const _component_KyoTitlebar = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoTitlebar\")\n  const _component_NSwitch = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NSwitch\")\n  const _component_NFormItem = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NFormItem\")\n  const _component_NFormGroup = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NFormGroup\")\n  const _component_NInput = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NInput\")\n  const _component_KyoConnectorSelect = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoConnectorSelect\")\n  const _component_NConfig = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NConfig\")\n  const _component_NForm = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NForm\")\n  const _component_NLoader = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NLoader\")\n\n  return (Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"openBlock\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createBlock\"])(_component_NLoader, {\n    visible: _ctx.load,\n    class: \"full-height-child\"\n  }, {\n    default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n      Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_1, [\n        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoTitlebar, {\n          class: \"col--flex-0-0\",\n          onDelete: _ctx.deleteItem\n        }, {\n          action: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButtonGroup, null, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButton, {\n                  type: \"primary\",\n                  onClick: _ctx.updateItem\n                }, {\n                  default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Apply')), 1 /* TEXT */)\n                  ]),\n                  _: 1 /* STABLE */\n                }, 8 /* PROPS */, [\"onClick\"]),\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButton, {\n                  type: \"primary\",\n                  onClick: _ctx.updateCloseItem\n                }, {\n                  default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Save')), 1 /* TEXT */)\n                  ]),\n                  _: 1 /* STABLE */\n                }, 8 /* PROPS */, [\"onClick\"])\n              ]),\n              _: 1 /* STABLE */\n            })\n          ]),\n          _: 1 /* STABLE */\n        }, 8 /* PROPS */, [\"onDelete\"]),\n        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NForm, {\n          form: _ctx.result,\n          errors: _ctx.errors,\n          class: \"kyo-dataform col--flex-1-0\"\n        }, {\n          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormGroup, {\n              icon: \"fa fa-cog\",\n              label: _ctx.trans('Settings')\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_2, [\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_3, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('State'),\n                      prop: \"state\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NSwitch, {\n                          modelValue: _ctx.result.state,\n                          \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => (_ctx.result.state = $event)),\n                          \"on-value\": 1,\n                          \"off-value\": 0\n                        }, {\n                          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Menu is enabled')), 1 /* TEXT */)\n                          ]),\n                          _: 1 /* STABLE */\n                        }, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_4, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Hide'),\n                      prop: \"hide\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NSwitch, {\n                          modelValue: _ctx.result.hide,\n                          \"onUpdate:modelValue\": _cache[2] || (_cache[2] = $event => (_ctx.result.hide = $event)),\n                          \"on-value\": 1,\n                          \"off-value\": 0\n                        }, {\n                          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Menu is hidden')), 1 /* TEXT */)\n                          ]),\n                          _: 1 /* STABLE */\n                        }, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ])\n                ])\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormGroup, {\n              icon: \"fa fa-compass\",\n              label: _ctx.trans('Menu')\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_5, [\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_6, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Title'),\n                      prop: \"title\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NInput, {\n                          modelValue: _ctx.result.title,\n                          \"onUpdate:modelValue\": _cache[3] || (_cache[3] = $event => (_ctx.result.title = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_7, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Slug'),\n                      prop: \"slug\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NInput, {\n                          modelValue: _ctx.result.slug,\n                          \"onUpdate:modelValue\": _cache[4] || (_cache[4] = $event => (_ctx.result.slug = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_8, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Identifier'),\n                      prop: \"ident\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NInput, {\n                          modelValue: _ctx.result.ident,\n                          \"onUpdate:modelValue\": _cache[5] || (_cache[5] = $event => (_ctx.result.ident = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ]),\n                  Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_9, [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NFormItem, {\n                      label: _ctx.trans('Type'),\n                      prop: \"type\"\n                    }, {\n                      default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoConnectorSelect, {\n                          modelValue: _ctx.result.type,\n                          \"onUpdate:modelValue\": _cache[6] || (_cache[6] = $event => (_ctx.result.type = $event))\n                        }, null, 8 /* PROPS */, [\"modelValue\"])\n                      ]),\n                      _: 1 /* STABLE */\n                    }, 8 /* PROPS */, [\"label\"])\n                  ])\n                ])\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NConfig, {\n              value: _ctx.result,\n              config: $options.config,\n              scope: {}\n            }, null, 8 /* PROPS */, [\"value\", \"config\"])\n          ]),\n          _: 1 /* STABLE */\n        }, 8 /* PROPS */, [\"form\", \"errors\"])\n      ])\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"visible\"]))\n}\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuEdit.vue?./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c& ***!
-  \***********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0!./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "NLoader",
-    { staticClass: "full-height-child", attrs: { visible: _vm.load } },
-    [
-      _c(
-        "div",
-        { staticClass: "grid grid--col" },
-        [
-          _c(
-            "KyoTitlebar",
-            { staticClass: "col--flex-0-0", on: { delete: _vm.deleteItems } },
-            [
-              _c(
-                "template",
-                { slot: "search" },
-                [
-                  _c("KyoTitlebarSearch", {
-                    model: {
-                      value: _vm.query.search,
-                      callback: function($$v) {
-                        _vm.$set(_vm.query, "search", $$v)
-                      },
-                      expression: "query.search"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "template",
-                { slot: "action" },
-                [
-                  _c(
-                    "NButton",
-                    {
-                      attrs: { type: "primary" },
-                      on: {
-                        click: function($event) {
-                          return _vm.$router.push({ name: "KyoMenuCreate" })
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.trans("Create menu")) +
-                          "\n                "
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "KyoDatatable",
-            {
-              staticClass: "col--flex-1-1",
-              attrs: { "render-expand": true },
-              on: { "row-dblclick": _vm.gotoEdit }
-            },
-            [
-              _c("NTableColumn", {
-                attrs: {
-                  type: "string",
-                  prop: "title",
-                  label: _vm.trans("Title"),
-                  fluid: true,
-                  filter: true
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(ref) {
-                      var value = ref.value
-                      return _c(
-                        "router-link",
-                        {
-                          attrs: { to: { name: "KyoMenuEdit", params: value } }
-                        },
-                        [_vm._v(_vm._s(value.title))]
-                      )
-                    }
-                  }
-                ])
-              }),
-              _vm._v(" "),
-              _c("NTableColumn", {
-                attrs: {
-                  type: "string",
-                  prop: "route",
-                  label: _vm.trans("Route"),
-                  fluid: true,
-                  filter: true
-                }
-              }),
-              _vm._v(" "),
-              _c("NTableColumn", {
-                attrs: {
-                  type: "datetime",
-                  prop: "updated_at",
-                  label: _vm.trans("Modified"),
-                  filter: true
-                }
-              }),
-              _vm._v(" "),
-              _c("NTableColumn", {
-                attrs: {
-                  type: "datetime",
-                  prop: "created_at",
-                  label: _vm.trans("Created"),
-                  filter: true
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () {
-        injectStyles.call(
-          this,
-          (options.functional ? this.parent : this).$root.$options.shadowRoot
-        )
-      }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"vue\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst _hoisted_1 = { class: \"grid grid--col\" }\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_KyoTitlebarSearch = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoTitlebarSearch\")\n  const _component_NButton = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NButton\")\n  const _component_KyoTitlebar = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoTitlebar\")\n  const _component_router_link = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"router-link\")\n  const _component_NTableColumn = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NTableColumn\")\n  const _component_KyoDatatable = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"KyoDatatable\")\n  const _component_NLoader = Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"resolveComponent\"])(\"NLoader\")\n\n  return (Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"openBlock\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createBlock\"])(_component_NLoader, {\n    visible: _ctx.load,\n    class: \"full-height-child\"\n  }, {\n    default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n      Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(\"div\", _hoisted_1, [\n        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoTitlebar, {\n          class: \"col--flex-0-0\",\n          onDelete: _ctx.deleteItems\n        }, {\n          search: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoTitlebarSearch, {\n              modelValue: _ctx.query.search,\n              \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => (_ctx.query.search = $event))\n            }, null, 8 /* PROPS */, [\"modelValue\"])\n          ]),\n          action: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NButton, {\n              type: \"primary\",\n              onClick: _cache[2] || (_cache[2] = $event => (_ctx.$router.push({ name: 'KyoMenuCreate' })))\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(_ctx.trans('Create menu')), 1 /* TEXT */)\n              ]),\n              _: 1 /* STABLE */\n            })\n          ]),\n          _: 1 /* STABLE */\n        }, 8 /* PROPS */, [\"onDelete\"]),\n        Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_KyoDatatable, {\n          class: \"col--flex-1-1\",\n          \"render-expand\": true,\n          onRowDblclick: _ctx.gotoEdit\n        }, {\n          default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NTableColumn, {\n              type: \"string\",\n              prop: \"title\",\n              label: _ctx.trans('Title'),\n              fluid: true,\n              filter: true\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(({ item }) => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_router_link, {\n                  to: { name: 'KyoMenuEdit', params: item }\n                }, {\n                  default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                    Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createTextVNode\"])(Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"toDisplayString\"])(item.title), 1 /* TEXT */)\n                  ]),\n                  _: 2 /* DYNAMIC */\n                }, 1032 /* PROPS, DYNAMIC_SLOTS */, [\"to\"])\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NTableColumn, {\n              type: \"string\",\n              prop: \"route\",\n              label: _ctx.trans('Route'),\n              fluid: true,\n              filter: true\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createCommentVNode\"])(\" Column \")\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NTableColumn, {\n              type: \"datetime\",\n              prop: \"updated_at\",\n              label: _ctx.trans('Modified'),\n              filter: true\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createCommentVNode\"])(\" Column \")\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"]),\n            Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createVNode\"])(_component_NTableColumn, {\n              type: \"datetime\",\n              prop: \"created_at\",\n              label: _ctx.trans('Created'),\n              filter: true\n            }, {\n              default: Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"withCtx\"])(() => [\n                Object(vue__WEBPACK_IMPORTED_MODULE_0__[\"createCommentVNode\"])(\" Column \")\n              ]),\n              _: 1 /* STABLE */\n            }, 8 /* PROPS */, [\"label\"])\n          ]),\n          _: 1 /* STABLE */\n        }, 8 /* PROPS */, [\"onRowDblclick\"])\n      ])\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"visible\"]))\n}\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenus.vue?./node_modules/vue-loader/dist/templateLoader.js??ref--5!./node_modules/vue-loader/dist??ref--8-0");
 
 /***/ }),
 
@@ -1441,158 +190,7 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _pages_menu_KyoMenus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/menu/KyoMenus */ "./resources/js/pages/menu/KyoMenus.vue");
-/* harmony import */ var _pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/menu/KyoMenuEdit */ "./resources/js/pages/menu/KyoMenuEdit.vue");
-/* harmony import */ var _pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/menu/KyoMenuCreate */ "./resources/js/pages/menu/KyoMenuCreate.vue");
-
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenus__WEBPACK_IMPORTED_MODULE_1__["default"].name, _pages_menu_KyoMenus__WEBPACK_IMPORTED_MODULE_1__["default"]);
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_2__["default"].name, _pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_2__["default"]);
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(_pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__["default"].name, _pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_3__["default"]);
-Nano.Store.add('menus', function (setter) {
-  var route = Nano.Route.get('/{locale}/kyoto/menu/http/controllers/menu/index', {
-    locale: window.App.locale
-  });
-  vue__WEBPACK_IMPORTED_MODULE_0___default.a.$http.get(route).then(function (res) {
-    return setter(res.data.data);
-  }, function () {
-    return false;
-  });
-});
-Nano.Event.bind('locale:changed', function () {
-  Nano.Store.refresh('menus');
-});
-
-__webpack_require__(/*! ./configs/vue */ "./resources/js/configs/vue.js");
-
-__webpack_require__(/*! ./configs/redirect */ "./resources/js/configs/redirect.js");
-
-if (console && console.log) {
-  console.log('kyoto/menu ready.');
-}
-
-/***/ }),
-
-/***/ "./resources/js/configs/redirect.js":
-/*!******************************************!*\
-  !*** ./resources/js/configs/redirect.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-Nano.Data.set('kyoto/menu::redirect', {
-  'NFormGroup:00': {
-    props: {
-      legend: Nano.Locale.trans('Redirect'),
-      icon: 'fa fa-directions'
-    },
-    content: {
-      'div:00': {
-        "class": 'grid grid--row grid--wrap grid--30',
-        content: {
-          'div:00': {
-            "class": 'col--1-1 col--1-2@sm',
-            content: {
-              'NFormItem:00': {
-                props: {
-                  label: Nano.Locale.trans('URL')
-                },
-                content: {
-                  'NInput:00': {
-                    model: {
-                      path: 'option.url'
-                    }
-                  }
-                }
-              }
-            }
-          },
-          'div:10': {
-            "class": 'col--1-1 col--1-2@sm',
-            content: {
-              'NFormItem:00': {
-                props: {
-                  label: Nano.Locale.trans('Menu')
-                },
-                content: {
-                  'NInput:00': {
-                    model: {
-                      path: 'option.redirect'
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/js/configs/vue.js":
-/*!*************************************!*\
-  !*** ./resources/js/configs/vue.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-Nano.Data.set('kyoto/menu::vue', {
-  'NFormGroup:00': {
-    props: {
-      legend: Nano.Locale.trans('Vue'),
-      icon: 'fab fa-vuejs'
-    },
-    content: {
-      'div:00': {
-        "class": 'grid grid--row grid--wrap grid--30',
-        content: {
-          'div:00': {
-            "class": 'col--1-1 col--1-2@sm',
-            content: {
-              'NFormItem:00': {
-                props: {
-                  label: Nano.Locale.trans('Component')
-                },
-                content: {
-                  'NInput:00': {
-                    model: {
-                      path: 'option.component'
-                    }
-                  }
-                }
-              }
-            }
-          },
-          'div:10': {
-            "class": 'col--1-1 col--1-2@sm',
-            content: {
-              'NFormItem:00': {
-                props: {
-                  label: Nano.Locale.trans('Menu')
-                },
-                content: {
-                  'NInput:00': {
-                    model: {
-                      path: 'option.redirect'
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-});
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pages_menu_KyoMenus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/menu/KyoMenus */ \"./resources/js/pages/menu/KyoMenus.vue\");\n/* harmony import */ var _pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/menu/KyoMenuEdit */ \"./resources/js/pages/menu/KyoMenuEdit.vue\");\n/* harmony import */ var _pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/menu/KyoMenuCreate */ \"./resources/js/pages/menu/KyoMenuCreate.vue\");\n/* harmony import */ var _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inputs/KyoConnectorSelect */ \"./resources/js/inputs/KyoConnectorSelect.vue\");\n\nkyoto.component(_pages_menu_KyoMenus__WEBPACK_IMPORTED_MODULE_0__[\"default\"].name, _pages_menu_KyoMenus__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\nkyoto.component(_pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_1__[\"default\"].name, _pages_menu_KyoMenuEdit__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\nkyoto.component(_pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_2__[\"default\"].name, _pages_menu_KyoMenuCreate__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\nkyoto.component(_inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_3__[\"default\"].name, _inputs_KyoConnectorSelect__WEBPACK_IMPORTED_MODULE_3__[\"default\"]); // require('./configs/vue');\n// require('./configs/redirect');\n\nif (console && console.log) {\n  console.log('kyoto/menu ready.');\n}\n\n//# sourceURL=webpack:///./resources/js/bootstrap.js?");
 
 /***/ }),
 
@@ -1604,64 +202,31 @@ Nano.Data.set('kyoto/menu::vue', {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoConnectorSelect.vue?vue&type=template&id=05b97b20& */ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&");
-/* harmony import */ var _KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoConnectorSelect.vue?vue&type=script&lang=js& */ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/inputs/KyoConnectorSelect.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _KyoConnectorSelect_vue_vue_type_template_id_05b97b20__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoConnectorSelect.vue?vue&type=template&id=05b97b20 */ \"./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20\");\n/* harmony import */ var _KyoConnectorSelect_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoConnectorSelect.vue?vue&type=script&lang=js */ \"./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js\");\n/* empty/unused harmony star reexport */\n\n\n_KyoConnectorSelect_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render = _KyoConnectorSelect_vue_vue_type_template_id_05b97b20__WEBPACK_IMPORTED_MODULE_0__[\"render\"]\n/* hot reload */\nif (false) {}\n\n_KyoConnectorSelect_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].__file = \"resources/js/inputs/KyoConnectorSelect.vue\"\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_KyoConnectorSelect_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n//# sourceURL=webpack:///./resources/js/inputs/KyoConnectorSelect.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./KyoConnectorSelect.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoConnectorSelect_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--0!../../../node_modules/vue-loader/dist??ref--8-0!./KyoConnectorSelect.vue?vue&type=script&lang=js */ \"./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=script&lang=js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoConnectorSelect_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* empty/unused harmony star reexport */ \n\n//# sourceURL=webpack:///./resources/js/inputs/KyoConnectorSelect.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20& ***!
-  \***********************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20 ***!
+  \**********************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./KyoConnectorSelect.vue?vue&type=template&id=05b97b20& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoConnectorSelect_vue_vue_type_template_id_05b97b20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoConnectorSelect_vue_vue_type_template_id_05b97b20__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/dist/templateLoader.js??ref--5!../../../node_modules/vue-loader/dist??ref--8-0!./KyoConnectorSelect.vue?vue&type=template&id=05b97b20 */ \"./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/inputs/KyoConnectorSelect.vue?vue&type=template&id=05b97b20\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoConnectorSelect_vue_vue_type_template_id_05b97b20__WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n\n\n//# sourceURL=webpack:///./resources/js/inputs/KyoConnectorSelect.vue?");
 
 /***/ }),
 
@@ -1673,64 +238,31 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KyoMenuCreate_vue_vue_type_template_id_659b1535___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoMenuCreate.vue?vue&type=template&id=659b1535& */ "./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535&");
-/* harmony import */ var _KyoMenuCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoMenuCreate.vue?vue&type=script&lang=js& */ "./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _KyoMenuCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _KyoMenuCreate_vue_vue_type_template_id_659b1535___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _KyoMenuCreate_vue_vue_type_template_id_659b1535___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/menu/KyoMenuCreate.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _KyoMenuCreate_vue_vue_type_template_id_659b1535__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoMenuCreate.vue?vue&type=template&id=659b1535 */ \"./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535\");\n/* harmony import */ var _KyoMenuCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoMenuCreate.vue?vue&type=script&lang=js */ \"./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js\");\n/* empty/unused harmony star reexport */\n\n\n_KyoMenuCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render = _KyoMenuCreate_vue_vue_type_template_id_659b1535__WEBPACK_IMPORTED_MODULE_0__[\"render\"]\n/* hot reload */\nif (false) {}\n\n_KyoMenuCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].__file = \"resources/js/pages/menu/KyoMenuCreate.vue\"\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_KyoMenuCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuCreate.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/***/ "./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoMenuCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--0!../../../../node_modules/vue-loader/dist??ref--8-0!./KyoMenuCreate.vue?vue&type=script&lang=js */ \"./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=script&lang=js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* empty/unused harmony star reexport */ \n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuCreate.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535& ***!
-  \**********************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535 ***!
+  \*********************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuCreate_vue_vue_type_template_id_659b1535___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoMenuCreate.vue?vue&type=template&id=659b1535& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuCreate_vue_vue_type_template_id_659b1535___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuCreate_vue_vue_type_template_id_659b1535___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuCreate_vue_vue_type_template_id_659b1535__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ref--5!../../../../node_modules/vue-loader/dist??ref--8-0!./KyoMenuCreate.vue?vue&type=template&id=659b1535 */ \"./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuCreate.vue?vue&type=template&id=659b1535\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuCreate_vue_vue_type_template_id_659b1535__WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuCreate.vue?");
 
 /***/ }),
 
@@ -1742,64 +274,31 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa& */ "./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa&");
-/* harmony import */ var _KyoMenuEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoMenuEdit.vue?vue&type=script&lang=js& */ "./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _KyoMenuEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/menu/KyoMenuEdit.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa */ \"./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa\");\n/* harmony import */ var _KyoMenuEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoMenuEdit.vue?vue&type=script&lang=js */ \"./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js\");\n/* empty/unused harmony star reexport */\n\n\n_KyoMenuEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render = _KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa__WEBPACK_IMPORTED_MODULE_0__[\"render\"]\n/* hot reload */\nif (false) {}\n\n_KyoMenuEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].__file = \"resources/js/pages/menu/KyoMenuEdit.vue\"\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_KyoMenuEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuEdit.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js ***!
+  \*************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoMenuEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--0!../../../../node_modules/vue-loader/dist??ref--8-0!./KyoMenuEdit.vue?vue&type=script&lang=js */ \"./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=script&lang=js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* empty/unused harmony star reexport */ \n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuEdit.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa& ***!
-  \********************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa ***!
+  \*******************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ref--5!../../../../node_modules/vue-loader/dist??ref--8-0!./KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa */ \"./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenuEdit.vue?vue&type=template&id=bf1dc0fa\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenuEdit_vue_vue_type_template_id_bf1dc0fa__WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenuEdit.vue?");
 
 /***/ }),
 
@@ -1811,88 +310,42 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KyoMenus_vue_vue_type_template_id_09e0dd2c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoMenus.vue?vue&type=template&id=09e0dd2c& */ "./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c&");
-/* harmony import */ var _KyoMenus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoMenus.vue?vue&type=script&lang=js& */ "./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _KyoMenus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _KyoMenus_vue_vue_type_template_id_09e0dd2c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _KyoMenus_vue_vue_type_template_id_09e0dd2c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/menu/KyoMenus.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _KyoMenus_vue_vue_type_template_id_09e0dd2c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KyoMenus.vue?vue&type=template&id=09e0dd2c */ \"./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c\");\n/* harmony import */ var _KyoMenus_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KyoMenus.vue?vue&type=script&lang=js */ \"./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js\");\n/* empty/unused harmony star reexport */\n\n\n_KyoMenus_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render = _KyoMenus_vue_vue_type_template_id_09e0dd2c__WEBPACK_IMPORTED_MODULE_0__[\"render\"]\n/* hot reload */\nif (false) {}\n\n_KyoMenus_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].__file = \"resources/js/pages/menu/KyoMenus.vue\"\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_KyoMenus_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenus.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
+/***/ "./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js ***!
+  \**********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoMenus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenus_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--0!../../../../node_modules/vue-loader/dist??ref--8-0!./KyoMenus.vue?vue&type=script&lang=js */ \"./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=script&lang=js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenus_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* empty/unused harmony star reexport */ \n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenus.vue?");
 
 /***/ }),
 
-/***/ "./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c& ***!
-  \*****************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c ***!
+  \****************************************************************************/
+/*! exports provided: render */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenus_vue_vue_type_template_id_09e0dd2c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./KyoMenus.vue?vue&type=template&id=09e0dd2c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenus_vue_vue_type_template_id_09e0dd2c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KyoMenus_vue_vue_type_template_id_09e0dd2c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/sass/bootstrap.scss":
-/*!***************************************!*\
-  !*** ./resources/sass/bootstrap.scss ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenus_vue_vue_type_template_id_09e0dd2c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ref--5!../../../../node_modules/vue-loader/dist??ref--8-0!./KyoMenus.vue?vue&type=template&id=09e0dd2c */ \"./node_modules/vue-loader/dist/templateLoader.js?!./node_modules/vue-loader/dist/index.js?!./resources/js/pages/menu/KyoMenus.vue?vue&type=template&id=09e0dd2c\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_dist_templateLoader_js_ref_5_node_modules_vue_loader_dist_index_js_ref_8_0_KyoMenus_vue_vue_type_template_id_09e0dd2c__WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n\n\n//# sourceURL=webpack:///./resources/js/pages/menu/KyoMenus.vue?");
 
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************!*\
-  !*** multi ./resources/js/bootstrap.js ./resources/sass/bootstrap.scss ***!
-  \*************************************************************************/
+/*!*****************************************!*\
+  !*** multi ./resources/js/bootstrap.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensions/kyoto/menu/resources/sass/bootstrap.scss */"./resources/sass/bootstrap.scss");
-
+eval("module.exports = __webpack_require__(/*! ./resources/js/bootstrap.js */\"./resources/js/bootstrap.js\");\n\n\n//# sourceURL=webpack:///multi_./resources/js/bootstrap.js?");
 
 /***/ }),
 
@@ -1903,7 +356,7 @@ module.exports = __webpack_require__(/*! /Users/kizmann/Sites/kyoto-cms/extensio
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = Vue;
+eval("module.exports = Vue;\n\n//# sourceURL=webpack:///external_%22Vue%22?");
 
 /***/ })
 

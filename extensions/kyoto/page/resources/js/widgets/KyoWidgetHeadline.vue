@@ -27,7 +27,7 @@ export default {
 
     mounted()
     {
-        this.$watch('value', Nano.Any.debounce(this.NDraggableItem.export, 100), { deep: true });
+        this.$watch('value', pi.Any.debounce(this.NDraggableItem.export, 100), { deep: true });
     }
 
 }

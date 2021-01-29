@@ -1,88 +1,66 @@
-import { NanoInstall } from "nano-ui";
+import { Obj, Arr, Dom, Locale } from "@kizmann/pico-js";
+import { Install as VueNano } from "@kizmann/nano-ui";
 
 import KyoIndex from "./prototypes/KyoIndex";
-window.KyoIndex = KyoIndex;
+global.KyoIndex = KyoIndex;
 
 import KyoForm from "./prototypes/KyoForm";
-window.KyoForm = KyoForm;
+global.KyoForm = KyoForm;
 
-window.baseTitle = document.title;
+import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";
+kyoto.component(KyoLayoutMainmenu.name, KyoLayoutMainmenu);
+
+import KyoLayoutSubmenu from "./layout/KyoLayoutSubmenu";
+kyoto.component(KyoLayoutSubmenu.name, KyoLayoutSubmenu);
+
+import KyoLayoutDash from "./layout/KyoLayoutDash";
+kyoto.component(KyoLayoutDash.name, KyoLayoutDash);
+
+import KyoLayoutLanguage from "./layout/KyoLayoutLanguage";
+kyoto.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
+
+import KyoLayoutUser from "./layout/KyoLayoutUser";
+kyoto.component(KyoLayoutUser.name, KyoLayoutUser);
+
+import KyoTitlebar from "./helpers/KyoTitlebar";
+kyoto.component(KyoTitlebar.name, KyoTitlebar);
+
+import KyoTitlebarSearch from "./helpers/KyoTitlebarSearch";
+kyoto.component(KyoTitlebarSearch.name, KyoTitlebarSearch);
+
+import KyoFilterbar from "./helpers/KyoFilterbar";
+kyoto.component(KyoFilterbar.name, KyoFilterbar);
+
+import KyoDatatable from "./helpers/KyoDatatable";
+kyoto.component(KyoDatatable.name, KyoDatatable);
+
+import KyoWebsite from "./website/KyoWebsite";
+kyoto.component(KyoWebsite.name, KyoWebsite);
+
+import KyoWebsiteNode from "./website/KyoWebsiteNode";
+kyoto.component(KyoWebsiteNode.name, KyoWebsiteNode);
+
+import KyoDashboard from "./pages/dashboard/KyoDashboard";
+kyoto.component(KyoDashboard.name, KyoDashboard);
+
+import KyoBackend from "./layout/KyoBackend";
 
 
 // router = router.afterEach((to) => {
-//     Nano.Dom.title(Nano.Locale.trans(Nano.Obj.get(to, 'meta.menu.title')));
+//     pi.Dom.title(pi.Locale.trans(pi.Obj.get(to, 'meta.menu.title')));
 // });
-
-class Kyoto {
-
-    static components = {};
-    static functions = [];
-
-    static component(name, data = null)
-    {
-        if ( data === null ) {
-            return Nano.Obj.get(this.components, name)
-        }
-
-        Nano.Obj.set(this.components, name, data);
-    }
-
-    static register(App)
-    {
-        Nano.Arr.each(this.functions, (callback) => {
-            callback(App);
-        });
-
-        Nano.Obj.each(this.components, (data, name) => {
-            App.component(name, data);
-        });
-    }
-
-    static ready(callback)
-    {
-        Nano.Arr.push(this.functions, callback);
-    }
-
-}
-
-window.Kyoto = Kyoto;
 
 require('./config/axios');
 
-Nano.Dom.ready(function () {
+Dom.ready(function () {
 
     let rootComponent = {};
 
-    if ( Nano.Dom.find('[data-root="true"]').get(0) ) {
-        rootComponent = require("./layout/KyoBackend").default;
+    if ( Dom.find('[data-root="true"]').get(0) ) {
+        rootComponent = KyoBackend;
     }
 
-    let App = Vue.createApp(rootComponent);
-
-    let KyoLayoutMainmenu = require("./layout/KyoLayoutMainmenu").default;
-    let KyoLayoutSubmenu = require("./layout/KyoLayoutSubmenu").default;
-    let KyoLayoutLanguage = require("./layout/KyoLayoutLanguage").default;
-    let KyoLayoutUserpanel = require("./layout/KyoLayoutUserpanel").default;
-    let KyoLayoutWebsite = require("./layout/KyoLayoutWebsite").default;
-    let KyoWebsiteNode = require("./website/KyoWebsiteNode").default;
-    let KyoTitlebar = require("./helpers/KyoTitlebar").default;
-    let KyoTitlebarSearch = require("./helpers/KyoTitlebarSearch").default;
-    let KyoFilterbar = require("./helpers/KyoFilterbar").default;
-    let KyoDatatable = require("./helpers/KyoDatatable").default;
-
-    let KyoDashboard = require("./pages/dashboard/KyoDashboard").default;
-    App.component(KyoDashboard.name, KyoDashboard);
-
-    App.component(KyoLayoutMainmenu.name, KyoLayoutMainmenu);
-    App.component(KyoLayoutSubmenu.name, KyoLayoutSubmenu);
-    App.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
-    App.component(KyoLayoutUserpanel.name, KyoLayoutUserpanel);
-    App.component(KyoLayoutWebsite.name, KyoLayoutWebsite);
-    App.component(KyoWebsiteNode.name, KyoWebsiteNode);
-    App.component(KyoTitlebar.name, KyoTitlebar);
-    App.component(KyoTitlebarSearch.name, KyoTitlebarSearch);
-    App.component(KyoFilterbar.name, KyoFilterbar);
-    App.component(KyoDatatable.name, KyoDatatable);
+    const App = Vue.createApp(rootComponent);
 
     App.config.devtools = true;
 
@@ -90,15 +68,20 @@ Nano.Dom.ready(function () {
         App.config.globalProperties.$http = axios;
     });
 
-    App.use(function (App) {
-        Kyoto.register(App);
+    Obj.each(kyoto.components, (value, key) => {
+        App.component(key, value)
     });
 
-    let routes =[];
+    Arr.each(kyoto.waiters, (callback) => {
+        callback(App);
+    });
 
-    Nano.Arr.recursive(window.backendRoutes || [], 'children', (menu, cascade) => {
 
-        let root = Nano.Arr.first(cascade) || menu;
+    let routes = [];
+
+    Arr.recursive(kyoto.routes, 'children', (menu, cascade) => {
+
+        let root = Arr.first(cascade) || menu;
 
         let data = {
             id: menu.id, name: menu.id, path: menu.route, meta: { root, menu }
@@ -109,23 +92,35 @@ Nano.Dom.ready(function () {
         }
 
         if ( menu.option.redirect ) {
-            data.redirect = () => Nano.Arr.find(routes, { id: menu.option.redirect });
+            data.redirect = () => Arr.find(routes, { id: menu.option.redirect });
+        }
+
+        let gotoFunction = () => {
+            AppRouter.push({ name: data.name });
+        };
+
+        if ( data.component && ! data.path.match(/:[a-z][^?]/) ) {
+            kyoto.addDash({
+                type: 'goto',
+                title: Locale.trans(menu.title),
+                description: menu.route,
+                tags: [menu.slug],
+                callback: gotoFunction
+            });
         }
 
         routes.push(data);
     });
 
-    let router = VueRouter.createRouter({
-        history: VueRouter.createWebHistory(Nano.Obj.get(window, 'backendPaths.base', '/')),
-        mode: 'history',
-        routes: routes,
+    let history = VueRouter.createWebHistory(
+        kyoto.paths.base);
+
+    const AppRouter = VueRouter.createRouter({
+        history, mode: 'history', routes: routes,
     });
 
-    App.use(router);
-
-    App.use(function (App) {
-        NanoInstall(App);
-    });
+    App.use(AppRouter);
+    App.use(VueNano);
 
     App.mount('#app');
 });

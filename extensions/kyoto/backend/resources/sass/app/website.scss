@@ -1,66 +1,104 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-layout-website {
-    overflow: hidden;
-    width: 100%;
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    align-items: stretch;
+    justify-content: stretch;
+    border-right: 1px solid $color-gray-10;
 }
 
 .kyo-layout-website__header {
-    position: relative;
     flex: 0 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: $color-white;
-    box-shadow: 0 0 6px rgba($color-black, 0.15);
+    width: 100%;
+    padding: 20px 30px;
+    border-bottom: 1px solid $color-gray-10;
 }
 
-.kyo-layout-website__header:after {
-    content: '\00a0';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
+.kyo-layout-website__search input {
     display: block;
     width: 100%;
-    height: 1px;
-    background: rgba($color-black, 0.055);
-}
-
-.kyo-layout-website__header .n-input {
-    border: 0;
-    height: 74px;
-    padding: 0 15px 0 30px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
     background: transparent;
-}
-
-.kyo-layout-website__header .n-button {
-    margin-right: 15px
-}
-
-.kyo-layout-website__footer {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 10px;
-    height: 55px;
-    //border-top: 1px solid $color-background-dark;
 }
 
 .kyo-layout-website__body {
     flex: 1 1 auto;
+    width: 100%;
+}
+
+//.kyo-layout-website {
+//    order: 10;
+//    overflow: hidden;
+//    width: 100%;
+//    height: 100%;
+//    display: flex;
+//    flex-direction: column;
+//}
+//
+//.kyo-layout-website__header {
+//    position: relative;
+//    flex: 0 0 auto;
+//    display: flex;
+//    flex-direction: row;
+//    align-items: center;
+//    background: $color-white;
+//    box-shadow: 0 0 6px rgba($color-black, 0.15);
+//}
+//
+//.kyo-layout-website__header:after {
+//    content: '\00a0';
+//    position: absolute;
+//    bottom: -1px;
+//    left: 0;
+//    display: block;
+//    width: 100%;
+//    height: 1px;
+//    background: rgba($color-black, 0.055);
+//}
+//
+//.kyo-layout-website__header .n-input {
+//    border: 0;
+//    height: 74px;
+//    padding: 0 15px 0 30px;
+//    background: transparent;
+//}
+//
+//.kyo-layout-website__header .n-button {
+//    margin-right: 15px
+//}
+//
+//.kyo-layout-website__footer {
+//    flex: 0 0 auto;
+//    display: flex;
+//    flex-direction: row;
+//    align-items: center;
+//    padding: 0 10px;
+//    height: 55px;
+//    //border-top: 1px solid $color-background-dark;
+//}
+//
+//.kyo-layout-website__body {
+//    flex: 1 1 auto;
+//}
+//
+.kyo-layout-website__body .n-draglist-item {
+    padding: 0 15px 0 10px;
 }
 
 .kyo-website-node {
     overflow: hidden;
     position: relative;
     width: 100%;
-    padding: 0 10px 0 30px;
     height: 38px;
-    font-size: 14px;
+    padding-left: 30px;
 }
 
 .kyo-website-node > div:first-child {
@@ -79,7 +117,7 @@
     display: block;
 }
 
-.kyo-website-node > div .n-button__wrapper {
+.kyo-website-node .n-button {
     margin-left: 4px;
 }
 
@@ -97,37 +135,37 @@
 }
 
 .kyo-website-node[data-type="kyoto/backend::admin"]:before {
-    background-image: svg-load('icon_system.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_system.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::domain"]:before {
-    background-image: svg-load('icon_domain.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_domain.svg');
 }
 
 .kyo-website-node[data-type="kyoto/page::page"]:before {
-    background-image: svg-load('icon_page.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_page.svg');
 }
 
 .kyo-website-node[data-type="kyoto/user::login"]:before {
-    background-image: svg-load('icon_user.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_user.svg');
 }
 
 .kyo-website-node[data-type="kyoto/user::logout"]:before {
-    background-image: svg-load('icon_user.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_user.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::vue"]:before {
-    background-image: svg-load('icon_vue.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_vue.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::menu"]:before {
-    background-image: svg-load('icon_menu.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_menu.svg');
 }
 
 .kyo-website-node[data-type="kyoto/menu::redirect"]:before {
-    background-image: svg-load('icon_redirect.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_redirect.svg');
 }
 
 .kyo-website-node[data-type="kyoto/shop::product"]:before {
-    background-image: svg-load('icon_product.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_product.svg');
 }

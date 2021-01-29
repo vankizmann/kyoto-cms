@@ -14,12 +14,10 @@
 
             menus() {
 
-                let menus = Nano.Obj.get(this.$route,
+                let menus = pi.Obj.get(this.$route,
                     'meta.root.children', []);
 
-                return Nano.Arr.filter(menus, (menu) => {
-                    return ! menu.hide;
-                });
+                return kyoto.getVisibleRoutes(menus);
             }
 
         }

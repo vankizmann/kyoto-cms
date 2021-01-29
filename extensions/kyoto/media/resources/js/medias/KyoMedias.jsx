@@ -63,7 +63,7 @@ export default {
     mounted()
     {
         this.$watch('query.parent', this.loadItems);
-        Nano.Event.bind('media:refresh', this.loadItems);
+        pi.Event.bind('media:refresh', this.loadItems);
     },
 
     watch: {
@@ -82,7 +82,7 @@ export default {
 
         setParent()
         {
-            this.parent = Nano.Arr.last(this.result.breadcrumbs);
+            this.parent = pi.Arr.last(this.result.breadcrumbs);
         },
 
         getParent()
@@ -101,7 +101,7 @@ export default {
 
         gotoParent()
         {
-            if ( Nano.Obj.get(this.parent, 'above.id') === this.root ) {
+            if ( pi.Obj.get(this.parent, 'above.id') === this.root ) {
                 return this.gotoHome();
             }
 
@@ -116,12 +116,12 @@ export default {
 
         gotoFolder(row)
         {
-            if ( Nano.Obj.get(row, 'item.id') === this.root ) {
+            if ( pi.Obj.get(row, 'item.id') === this.root ) {
                 return this.gotoHome();
             }
 
             if ( ! this.navigation ) {
-                return this.query.parent = Nano.Obj.get(row, 'item.id');
+                return this.query.parent = pi.Obj.get(row, 'item.id');
             }
 
             this.$router.push({
@@ -155,7 +155,7 @@ export default {
 
         gotoEdit(row)
         {
-            Nano.Arr.has(['system/folder', 'system/above'], row.item.type) ?
+            pi.Arr.has(['system/folder', 'system/above'], row.item.type) ?
                 this.gotoFolder(row) : this.gotoFile(row);
         },
 
@@ -180,8 +180,8 @@ export default {
                 return false;
             }
 
-            return Nano.Arr.has(['system/folder', 'system/above'],
-                Nano.Obj.get(target, 'item.type'));
+            return pi.Arr.has(['system/folder', 'system/above'],
+                pi.Obj.get(target, 'item.type'));
         }
 
     },
@@ -281,7 +281,7 @@ export default {
             return this.ctor('renderFolderNode')(value);
         }
 
-        if ( ! Nano.Any.isEmpty(value.view) ) {
+        if ( ! pi.Any.isEmpty(value.view) ) {
             return this.ctor('renderViewNode')(value);
         }
 

@@ -1,4 +1,4 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 [v-cloak] {
     display: none;
@@ -22,7 +22,7 @@ body {
     font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
     font-weight: 400;
     color: $color-black;
-    background-color: $--color-white;
+    background-color: $color-white;
     background-size: cover;
     background-position: center center;
 }
@@ -33,7 +33,7 @@ div, a {
 
 a {
     text-decoration: none;
-    color: $--color-primary;
+    color: $color-primary;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -65,7 +65,7 @@ h6 {
 }
 
 p {
-    color: $--color-black;
+    color: $color-black;
     font-size: 1.0rem;
 }
 
@@ -76,7 +76,7 @@ th {
 .info {
     padding-top: 5px;
     font-size: 13px;
-    color: $--color-gray-60;
+    color: $color-gray-60;
 }
 
 .full-height {

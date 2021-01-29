@@ -1,11 +1,10 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-widgets {
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    border-top: 1px solid $color-gray-10;
     // height: calc(100vh);
-    background: $color-background-darker;
 }
 
 .kyo-widgets__inner {
@@ -13,17 +12,17 @@
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
-    background: $color-white;
+    //background: $color-white;
     border-radius: 5px;
-    // border-top: 1px solid $color-gray-15;
-    box-shadow: 2px 0 10px rgba($color-black, 0.1);
+    // border-top: 1px solid $color-gray-10;
+    //box-shadow: 2px 0 10px rgba($color-shadow, 0.1);
 }
 
 .kyo-widgets__widget {
     order: 3;
     flex: 0 0 auto;
     width: 360px;
-    border-left: 1px solid $color-gray-15;
+    border-left: 1px solid $color-gray-10;
 }
 
 .kyo-widgets__builder {
@@ -35,8 +34,11 @@
     order: 1;
     flex: 0 0 auto;
     width: 400px;
+    border-right: 1px solid $color-gray-10;
+}
+
+.kyo-widgets__wrap {
     padding: 15px 30px;
-    border-right: 1px solid $color-gray-15;
 }
 
 .kyo-widgets-widget-item {

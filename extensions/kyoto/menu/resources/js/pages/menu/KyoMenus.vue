@@ -20,7 +20,9 @@
             <KyoDatatable class="col--flex-1-1" :render-expand="true" @row-dblclick="gotoEdit">
 
                 <NTableColumn type="string" prop="title" :label="trans('Title')" :fluid="true" :filter="true">
-                    <router-link slot-scope="{ value }" :to="{ name: 'KyoMenuEdit', params: value }">{{ value.title }}</router-link>
+                    <template v-slot:default="{ item }">
+                        <router-link :to="{ name: 'KyoMenuEdit', params: item }">{{ item.title }}</router-link>
+                    </template>
                 </NTableColumn>
 
                 <NTableColumn type="string" prop="route" :label="trans('Route')" :fluid="true" :filter="true">

@@ -1,4 +1,4 @@
-import { Arr, Obj, Any } from 'nano-js';
+import { Arr, Obj, Any } from "@kizmann/pico-js";
 
 export default {
 
@@ -53,11 +53,12 @@ export default {
         };
     },
 
-    beforeRouteUpdate(to, from, next)
-    {
-        this.loadItem(to);
+    watch: {
 
-        next();
+        '$route.path': function () {
+            this.loadItem(this.$route);
+        }
+
     },
 
     ready()
@@ -67,16 +68,16 @@ export default {
 
     mounted()
     {
-        this.loadItem();
-
         if ( this.ctor('localized', false) ) {
-            Nano.Event.bind('locale:changed', this.loadItem, this._uid);
+            pi.Event.bind('locale:changed', this.loadItem, this._uid);
         }
+
+        this.loadItem();
     },
 
     unmounted()
     {
-        Nano.Event.unbind('locale:changed', this._uid);
+        pi.Event.unbind('locale:changed', this._uid);
     },
 
     methods: {
@@ -115,12 +116,12 @@ export default {
 
             let query = {};
 
-            if ( Nano.Obj.has(this.$route, 'params.id') ) {
-                query.id = Nano.Obj.get(this.$route, 'params.id');
+            if ( pi.Obj.has(this.$route, 'params.id') ) {
+                query.id = pi.Obj.get(this.$route, 'params.id');
             }
 
-            if ( Nano.Obj.has(nextRoute, 'params.id') ) {
-                query.id = Nano.Obj.get(nextRoute, 'params.id');
+            if ( pi.Obj.has(nextRoute, 'params.id') ) {
+                query.id = pi.Obj.get(nextRoute, 'params.id');
             }
 
             let route = this.Route.get(this.ctor('urls.show'),
@@ -144,7 +145,7 @@ export default {
             let route = this.Route.get(this.ctor('urls.update'),
                 this.$root.$data, query);
 
-            let data = Nano.Obj.assign({}, this.result,
+            let data = pi.Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -166,7 +167,7 @@ export default {
                 this.$root.$data, query);
 
 
-            let data = Nano.Obj.assign({}, this.result,
+            let data = pi.Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -184,7 +185,7 @@ export default {
                 this.$root.$data);
 
 
-            let data = Nano.Obj.assign({}, this.result,
+            let data = pi.Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -201,7 +202,7 @@ export default {
             let route = this.Route.get(this.ctor('urls.store'),
                 this.$root.$data);
 
-            let data = Nano.Obj.assign({}, this.result,
+            let data = pi.Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -249,7 +250,7 @@ export default {
         fetchDoneSave(res)
         {
             if ( this.ctor('refresh', false) ) {
-                Nano.Event.fire('website:refresh');
+                pi.Event.fire('website:refresh');
             }
 
             this.result = Obj.get(res.data, 'data', {});
@@ -260,7 +261,7 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
 
             if ( this.ctor('refresh', false) ) {
-                Nano.Event.fire('website:refresh');
+                pi.Event.fire('website:refresh');
             }
 
             this.gotoEdit(res.data);
@@ -271,7 +272,7 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
 
             if ( this.ctor('refresh', false) ) {
-                Nano.Event.fire('website:refresh');
+                pi.Event.fire('website:refresh');
             }
 
             this.gotoIndex(res.data);

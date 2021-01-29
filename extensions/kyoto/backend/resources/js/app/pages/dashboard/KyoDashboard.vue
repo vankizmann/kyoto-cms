@@ -1,5 +1,5 @@
 <template>
-    <NLoader :visible="false">
+    <NScrollbar>
 
         <KyoTitlebar>
             <template v-slot:action>
@@ -17,12 +17,22 @@
 
             </div>
         </div>
-    </NLoader>
+    </NScrollbar>
 </template>
 <script>
     export default {
 
         name: 'KyoDashboard',
+
+        beforeMount()
+        {
+            this.$root.hideWebsite();
+        },
+
+        beforeUnmount()
+        {
+            this.$root.showWebsite();
+        },
 
     }
 </script>

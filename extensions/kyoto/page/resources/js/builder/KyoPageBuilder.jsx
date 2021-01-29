@@ -16,8 +16,8 @@ export default {
     data()
     {
         let widgets = [
-            { id: Nano.UUID(), value: { title: '' }, type: 'headline', name: 'test1' },
-            { id: Nano.UUID(), value: { title: '' }, type: 'headline', name: 'test2' }
+            { id: pi.UUID(), value: { title: '' }, type: 'headline', name: 'test1' },
+            { id: pi.UUID(), value: { title: '' }, type: 'headline', name: 'test2' }
         ]
 
         return {
@@ -29,7 +29,7 @@ export default {
 
         transformDrop(source)
         {
-            return Nano.Obj.assign(source, { id: Nano.UUID() });
+            return pi.Obj.assign(source, { id: pi.UUID() });
         },
 
         allowDrop(source, target, strategy)
@@ -66,7 +66,7 @@ export default {
                     </div>
                 </div>
                 <div class="kyo-widgets-builder-item__body">
-                    { Vue.h(Vue.resolveComponent(`KyoWidget${Nano.Str.ucfirst(props.item.type)}`)) }
+                    { Vue.h(Vue.resolveComponent(`KyoWidget${pi.Str.ucfirst(props.item.type)}`)) }
                 </div>
             </NForm>
         );
@@ -120,9 +120,11 @@ export default {
                     <NDraglist class="kyo-widgets__builder" ref="builder" {...builderProps}>
 
                     </NDraglist>
-                    <div class="kyo-widgets__extra">
-                        { this.$slots.default && this.$slots.default() }
-                    </div>
+                    <NScrollbar class="kyo-widgets__extra">
+                        <div class="kyo-widgets__wrap">
+                            { this.$slots.default && this.$slots.default() }
+                        </div>
+                    </NScrollbar>
                 </div>
             </div>
         );

@@ -44,8 +44,8 @@
 
             loadRoles()
             {
-                if ( Nano.Data.has('kyo-roles') ) {
-                    return this.items = Nano.Data.get('kyo-roles', []);
+                if ( pi.Data.has('kyo-roles') ) {
+                    return this.items = pi.Data.get('kyo-roles', []);
                 }
 
                 let options = {
@@ -62,12 +62,12 @@
 
             fetchDone(res)
             {
-                Nano.Data.set('kyo-roles', this.items = res.data);
+                pi.Data.set('kyo-roles', this.items = res.data);
             },
 
             fetchError()
             {
-                Nano.Any.delay(this.loadRoles, 1500);
+                pi.Any.delay(this.loadRoles, 1500);
             }
 
         }

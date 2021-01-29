@@ -1,7 +1,7 @@
-Nano.Data.set('kyoto/menu::vue', {
+pi.Data.set('kyoto/menu::vue', {
     'NFormGroup:00': {
         props: {
-            legend: Nano.Locale.trans('Vue'),
+            legend: pi.Locale.trans('Vue'),
             icon: 'fab fa-vuejs'
         },
         content: {
@@ -13,7 +13,7 @@ Nano.Data.set('kyoto/menu::vue', {
                         content: {
                             'NFormItem:00': {
                                 props: {
-                                    label: Nano.Locale.trans('Component')
+                                    label: pi.Locale.trans('Component')
                                 },
                                 content: {
                                     'NInput:00': {
@@ -30,7 +30,7 @@ Nano.Data.set('kyoto/menu::vue', {
                         content: {
                             'NFormItem:00': {
                                 props: {
-                                    label: Nano.Locale.trans('Menu')
+                                    label: pi.Locale.trans('Menu')
                                 },
                                 content: {
                                     'NInput:00': {

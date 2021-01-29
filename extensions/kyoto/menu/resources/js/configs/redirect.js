@@ -1,7 +1,7 @@
-Nano.Data.set('kyoto/menu::redirect', {
+pi.Data.set('kyoto/menu::redirect', {
     'NFormGroup:00': {
         props: {
-            legend: Nano.Locale.trans('Redirect'),
+            legend: pi.Locale.trans('Redirect'),
             icon: 'fa fa-directions'
         },
         content: {
@@ -13,7 +13,7 @@ Nano.Data.set('kyoto/menu::redirect', {
                         content: {
                             'NFormItem:00': {
                                 props: {
-                                    label: Nano.Locale.trans('URL')
+                                    label: pi.Locale.trans('URL')
                                 },
                                 content: {
                                     'NInput:00': {
@@ -30,7 +30,7 @@ Nano.Data.set('kyoto/menu::redirect', {
                         content: {
                             'NFormItem:00': {
                                 props: {
-                                    label: Nano.Locale.trans('Menu')
+                                    label: pi.Locale.trans('Menu')
                                 },
                                 content: {
                                     'NInput:00': {

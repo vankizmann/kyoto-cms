@@ -1,4 +1,4 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-datagrid {
     display: flex;
@@ -50,6 +50,6 @@
     flex: 0 0 auto;
     padding: 0 30px;
     height: 55px;
-    color: $--color-black;
-    border-top: 1px solid $--color-gray-10;
+    color: $color-black;
+    border-top: 1px solid $color-gray-10;
 }

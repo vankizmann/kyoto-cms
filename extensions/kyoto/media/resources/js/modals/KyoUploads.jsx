@@ -112,7 +112,7 @@ export default {
                 return;
             }
 
-            Nano.Obj.each(event.dataTransfer.files, this.addFile);
+            pi.Obj.each(event.dataTransfer.files, this.addFile);
 
             if ( ! this.filelist.length ) {
                 return;
@@ -120,12 +120,12 @@ export default {
 
             this.visible = true;
 
-            Nano.Any.delay(this.storeItem, 150);
+            pi.Any.delay(this.storeItem, 150);
         },
 
         addLegacy()
         {
-            Nano.Obj.each(this.$refs.legacy.files, this.addFile);
+            pi.Obj.each(this.$refs.legacy.files, this.addFile);
 
             if ( ! this.filelist.length ) {
                 return;
@@ -133,19 +133,19 @@ export default {
 
             this.visible = true;
 
-            Nano.Any.delay(this.storeItem, 150);
+            pi.Any.delay(this.storeItem, 150);
         },
 
         addFile(file)
         {
             this.filelist.push({
-                id: Nano.UUID(), parent_id: this.parent, file: file
+                id: pi.UUID(), parent_id: this.parent, file: file
             });
         },
 
         changeText(callback = null)
         {
-            if ( Nano.Any.isFunction(callback) ) {
+            if ( pi.Any.isFunction(callback) ) {
                 callback.call(this);
             }
 
@@ -166,7 +166,7 @@ export default {
 
         storeItem()
         {
-            if ( Nano.Any.isEmpty(this.filelist) ) {
+            if ( pi.Any.isEmpty(this.filelist) ) {
                 return;
             }
 
@@ -179,23 +179,23 @@ export default {
                 cancelToken: this.cancelToken.token
             };
 
-            this.$http.post(route, Nano.Ajax.form(this.filelist[0]), options)
+            this.$http.post(route, pi.Ajax.form(this.filelist[0]), options)
                 .then(this.fetchDone, this.fetchDone);
         },
 
         fetchDone()
         {
             this.text = this.changeText(() => {
-                Nano.Arr.removeIndex(this.filelist, 0);
+                pi.Arr.removeIndex(this.filelist, 0);
             });
 
-            if ( ! Nano.Any.isEmpty(this.filelist) ) {
-                return Nano.Any.delay(this.storeItem, 100);
+            if ( ! pi.Any.isEmpty(this.filelist) ) {
+                return pi.Any.delay(this.storeItem, 100);
             }
 
             this.visible = false;
 
-            Nano.Event.fire('media:refresh');
+            pi.Event.fire('media:refresh');
         }
 
     },

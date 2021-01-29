@@ -5,9 +5,9 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 //@import "~@fortawesome/fontawesome-free/scss/regular";
-@import "~@fortawesome/fontawesome-free/scss/brands";
+//@import "~@fortawesome/fontawesome-free/scss/brands";
 
-@import "~nano-ui/nano/index";
+@import "~@kizmann/nano-ui/nano/index";
 
 @import "./mixins/media";
 @import "./mixins/grid";
@@ -18,7 +18,8 @@
 @import "./app/login";
 @import "./app/header";
 @import "./app/menu";
-@import "./app/userpanel";
+@import "./app/dash";
+@import "./app/user";
 @import "./app/localepanel";
 @import "./app/titlebar";
 @import "./app/filterbar";

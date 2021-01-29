@@ -2,6 +2,18 @@ export default {
 
     name: 'KyoWebsiteNode',
 
+    props: {
+
+        value: {
+            required: true
+        },
+
+        item: {
+            required: true
+        }
+
+    },
+
     inject: {
 
         NDraggableItem: {
@@ -12,10 +24,10 @@ export default {
 
     computed: {
 
-        item()
-        {
-            return this.NDraggableItem.item;
-        }
+        // item()
+        // {
+        //     return this.NDraggableItem.item;
+        // }
 
     },
 
@@ -41,8 +53,7 @@ export default {
                     { this.item.title }
                 </div>
                 <div class="col col--flex-0-0">
-                    <NButton type="info" plain={true} square={true} size="xs" icon="fa fa-pen" onClick={this.openEdit} />
-                    <NButton type="primary" plain={true} square={true} size="xs" icon="fa fa-link" onClick={this.openPreview} />
+                    <NButton type="info" square={true} size="xs" icon="fa fa-link" onClick={this.openPreview} />
                 </div>
             </div>
         );

@@ -34,7 +34,7 @@ export default {
 
         patterns()
         {
-            return Nano.Arr.map(this.allowed, (item) => {
+            return pi.Arr.map(this.allowed, (item) => {
                 return new RegExp('^' + item.replace('/', '\\/').replace('*', '[^\\/]+') + '$');
             });
         }
@@ -52,7 +52,7 @@ export default {
 
         'visible': function () {
             if ( this.visible ) {
-                this.items = Nano.Arr.clone(this.value);
+                this.items = pi.Arr.clone(this.value);
             }
         }
 
@@ -69,22 +69,22 @@ export default {
 
         transformDrop(source)
         {
-            return Nano.Obj.assign(source, {
-                uid: Nano.UUID()
+            return pi.Obj.assign(source, {
+                uid: pi.UUID()
             });
         },
 
         allowDrop(source)
         {
-            if ( Nano.Any.isEmpty(this.allowed) ) {
+            if ( pi.Any.isEmpty(this.allowed) ) {
                 return true;
             }
 
-            let rainbow = Nano.Arr.each(this.patterns, (pattern) => {
+            let rainbow = pi.Arr.each(this.patterns, (pattern) => {
                 return !! source.item.type.match(pattern);
             });
 
-            return Nano.Arr.has(rainbow, true);
+            return pi.Arr.has(rainbow, true);
         }
 
     },
@@ -200,7 +200,7 @@ export default {
             return this.ctor('renderFolderNode')(props);
         }
 
-        if ( ! Nano.Any.isEmpty(props.value.view) ) {
+        if ( ! pi.Any.isEmpty(props.value.view) ) {
             return this.ctor('renderViewNode')(props);
         }
 

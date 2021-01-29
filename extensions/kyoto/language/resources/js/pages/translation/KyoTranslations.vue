@@ -1,24 +1,23 @@
 <template>
-    <NLoader :visible="load" class="auto-height-child">
+    <NLoader :visible="load" class="grid grid--col">
 
-        <div class="grid grid--col">
+        <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
 
-            <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
+            <template v-slot:search>
+                <KyoTitlebarSearch v-model="query.search"></KyoTitlebarSearch>
+            </template>
 
-                <template v-slot:search>
-                    <KyoTitlebarSearch v-model="query.search"></KyoTitlebarSearch>
-                </template>
+            <template v-slot:action>
+                <NButton type="primary" @click="$router.push({ name: 'KyoTranslationCreate' })">
+                    {{ trans('Create translation') }}
+                </NButton>
+            </template>
 
-                <template v-slot:action>
-                    <NButton type="primary" @click="$router.push({ name: 'KyoTranslationCreate' })">
-                        {{ trans('Create translation') }}
-                    </NButton>
-                </template>
+        </KyoTitlebar>
 
-            </KyoTitlebar>
+        <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
 
-            <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
-
+            <template v-slot:default>
                 <NTableColumn type="string" prop="source" :label="trans('Source')" :fluid="true" :sort="true" :filter="true">
                     <template v-slot:default="{ item }">
                         <router-link :to="{ name: 'KyoTranslationEdit', params: item }">{{ item.source }}</router-link>
@@ -29,10 +28,18 @@
                 <NTableColumn type="string" prop="package" :label="trans('Package')" :sort="true" :filter="true"></NTableColumn>
                 <NTableColumn type="datetime" prop="updated_at" :label="trans('Modified')" :sort="true" :filter="true"></NTableColumn>
                 <NTableColumn type="datetime" prop="created_at" :label="trans('Created')" :sort="true" :filter="true"></NTableColumn>
+            </template>
 
-            </KyoDatatable>
+            <template v-slot:info>
+                <n-info-column type="string" prop="source" :label="trans('Source')"></n-info-column>
+                <n-info-column type="string" prop="target" :label="trans('Target')"></n-info-column>
+                <n-info-column type="string" prop="package" :label="trans('Package')"></n-info-column>
+                <n-info-column type="datetime" prop="updated_at" :label="trans('Modified')"></n-info-column>
+                <n-info-column type="datetime" prop="created_at" :label="trans('Created')"></n-info-column>
+            </template>
 
-        </div>
+        </KyoDatatable>
+
     </NLoader>
 </template>
 <script>

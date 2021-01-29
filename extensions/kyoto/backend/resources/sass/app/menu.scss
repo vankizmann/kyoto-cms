@@ -1,93 +1,109 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-mainmenu {
     flex: 1 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    padding: 10px 0;
+    margin-left: -5px;
 }
 
 .kyo-mainmenu li {
     padding: 0;
 }
 
+.kyo-mainmenu li:not(:last-child) {
+    margin-right: 20px;
+}
+
 .kyo-mainmenu li a {
     position: relative;
-    display: block;
-    color: $--color-black;
-}
-
-.kyo-mainmenu li a:before {
-    content: '\00a0';
-    display: block;
-    font-size: 26px;
-    width: 55px;
-    height: 55px;
-    margin: 10px;
-    line-height: 75px;
-    text-align: center;
-    font-family: "Font Awesome 5 Free", sans-serif;
-    background-size: 35px 35px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 16px;
-    background-color: $color-black-lighter;
-    box-shadow: 2px 0 8px rgba($color-black, 0.1);
-}
-
-.kyo-mainmenu li a:after {
-    content: '\00a0';
-    position: absolute;
-    top: 50%;
-    right: 6px;
-    display: block;
-    width: 8px;
-    height: 8px;
-    transform: translateY(-50%) scale(0);
-    border-radius: 500px;
-    background: $--color-primary-lighter;
-    transition: transform 0.15s;
-}
-
-.kyo-mainmenu li:hover a:after,
-.kyo-mainmenu li a.router-link-active:after {
-    transform: translateY(-50%) scale(1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    color: $color-gray-60;
 }
 
 .kyo-mainmenu li a span {
     display: none;
 }
 
+.kyo-mainmenu li.is-loose-active a {
+    color: $color-black;
+}
+
+
+.kyo-mainmenu li a:before {
+    content: '\00a0';
+    display: block;
+    width: 40px;
+    height: 60px;
+    text-align: center;
+    background-size: 32px 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    //border-radius: 16px;
+    //background-color: $color-primary-lighter;
+    //box-shadow: 2px 0 8px rgba($color-black, 0.1);
+}
+
+//.kyo-mainmenu li a:after {
+//    content: '\00a0';
+//    position: absolute;
+//    bottom: 0;
+//    left: 50%;
+//    display: block;
+//    width: 8px;
+//    height: 8px;
+//    margin-left: -4px;
+//    transform: scale(0);
+//    border-radius: 500px;
+//    background: $color-black;
+//    transition: transform 0.15s;
+//}
+//
+//.kyo-mainmenu li:hover a:after,
+//.kyo-mainmenu li a.is-loose-active:after {
+//    transform: scale(1);
+//}
+
+.kyo-mainmenu li a span {
+    //font-weight: 400;
+    //display: none;
+}
+
 .kyo-mainmenu li.dashboard a:before {
-    background-image: svg-load('icon_dashboard.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_dashboard.svg');
 }
 
 .kyo-mainmenu li.users a:before {
-    background-image: svg-load('icon_user.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_user.svg');
 }
 
 .kyo-mainmenu li.pages a:before {
-    background-image: svg-load('icon_page.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_page.svg');
 }
 
 .kyo-mainmenu li.languages a:before {
-    background-image: svg-load('icon_language.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_language.svg');
 }
 
 .kyo-mainmenu li.packages a:before {
-    background-image: svg-load('icon_system.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_system.svg');
 }
 
 .kyo-mainmenu li.menus a:before {
-    background-image: svg-load('icon_menu.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_menu.svg');
 }
 
 .kyo-mainmenu li.products a:before {
-    background-image: svg-load('icon_product.svg');
+    background-image: url('/extensions/kyoto/backend/img/color/icons_product.svg');
 }
 
 .kyo-mainmenu li a.router-link-active {
-    color: $--color-primary;
+    color: $color-primary;
 }
 
 .kyo-submenu {
@@ -102,9 +118,10 @@
 }
 
 .kyo-submenu li a {
-    color: $--color-gray-70;
+    color: $color-gray-50;
 }
 
 .kyo-submenu li a.router-link-active {
-    color: $--color-primary;
+    color: $color-white;
+    font-weight: 600;
 }

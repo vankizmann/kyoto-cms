@@ -1,6 +1,6 @@
 <template>
-    <NLoader :visible="load" class="full-height-child">
-        <div class="grid grid--col">
+    <NLoader :visible="load">
+        <NScrollbar class="full-height grid grid--col">
 
             <KyoTitlebar :link="{ name: 'KyoRoles' }" class="col--flex-0-0" @delete="deleteItem">
                 <template v-slot:action>
@@ -49,7 +49,7 @@
 
             </NForm>
 
-        </div>
+        </NScrollbar>
     </NLoader>
 </template>
 <script>

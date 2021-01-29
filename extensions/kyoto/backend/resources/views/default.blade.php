@@ -18,41 +18,38 @@
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
-    <script>
-        window._locales = JSON.parse('{!! json_encode(app('kyoto.backend')->getTranslations()) !!}');
-    </script>
-
-    <script>
-        window.backendPaths = {
-            base: '{{ app('kyoto.backend')->basePath() }}',
-            login: '{{ app('kyoto.backend')->loginPath() }}',
-            logout: '{{ app('kyoto.backend')->logoutPath() }}'
-        };
-    </script>
-
-    <script>
-        window.backendUser = JSON.parse('{!! json_encode(app('kyoto.backend')->backendUser()) !!}');
-    </script>
-
-    <script>
-        window.backendLanguages = JSON.parse('{!! json_encode(app('kyoto.backend')->backendLanguages()) !!}');
-    </script>
-
-    <script>
-        window.backendRoutes = JSON.parse('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
-    </script>
-
-
-    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap') !!}
-
-    {{-- {!! app('kyoto.assets')->script('vue', '//unpkg.com/vue@3') !!}
-    {!! app('kyoto.assets')->script('vue-router', '//unpkg.com/vue-router@4') !!} --}}
-    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> --}}
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap') !!}
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap') !!}
     {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
 
 
     {!! app('kyoto.backend')->output() !!}
+
+    <script>
+        kyoto.setUser('{!! json_encode(app('kyoto.backend')->backendUser()) !!}');
+    </script>
+
+    <script>
+        kyoto.setLanguages('{!! json_encode(app('kyoto.backend')->backendLanguages()) !!}');
+    </script>
+
+    <script>
+        kyoto.setRoutes('{!! json_encode(app('kyoto.backend')->backendRoutes()) !!}');
+    </script>
+
+    <script>
+        kyoto.setTranslations('{!! json_encode(app('kyoto.backend')->getTranslations()) !!}');
+    </script>
+
+    <script>
+        kyoto.setPaths({
+            base:       '{{ app('kyoto.backend')->basePath() }}',
+            login:      '{{ app('kyoto.backend')->loginPath() }}',
+            logout:     '{{ app('kyoto.backend')->logoutPath() }}'
+        });
+    </script>
+
 </head>
 <body class="body body--root">
 

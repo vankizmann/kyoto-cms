@@ -1,4 +1,4 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-login {
     position: relative;
@@ -8,7 +8,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: $--color-background;
+    background: $color-background;
 }
 
 .kyo-login h1 {
@@ -23,9 +23,9 @@
     flex: 1 0 auto;
     max-width: 500px;
     padding: 40px;
-    border-radius: $radius-medium;
-    background: $--color-white;
-    box-shadow: 0 0 8px rgba($--color-black, 0.1);
+    border-radius: $md-radius;
+    background: $color-white;
+    box-shadow: 0 0 8px rgba($color-black, 0.1);
 }
 
 .kyo-login .n-button__wrapper {

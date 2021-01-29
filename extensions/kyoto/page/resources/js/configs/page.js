@@ -1,7 +1,7 @@
-Nano.Data.set('kyoto/page::page', {
+pi.Data.set('kyoto/page::page', {
     'NFormGroup:00': {
         props: {
-            legend: Nano.Locale.trans('Page'),
+            legend: pi.Locale.trans('Page'),
             icon: 'fa fa-file'
         },
         content: {
@@ -13,7 +13,7 @@ Nano.Data.set('kyoto/page::page', {
                         content: {
                             'NFormItem:00': {
                                 props: {
-                                    label: Nano.Locale.trans('Page'),
+                                    label: pi.Locale.trans('Page'),
                                     prop: 'option.page_id'
                                 },
                                 content: {

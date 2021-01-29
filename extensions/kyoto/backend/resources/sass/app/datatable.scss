@@ -1,8 +1,7 @@
-@import "~nano-ui/src/root/vars";
+@import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-datatable {
     overflow: hidden;
-    flex: 1 1 auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@
 }
 
 // .kyo-datatable .n-table .n-table__head {
-//     border-bottom: 1px solid $--color-gray-10;
+//     border-bottom: 1px solid $color-gray-10;
 // }
 
 .kyo-datatable .n-table-column {
@@ -33,13 +32,13 @@
 }
 
 // .kyo-datatable .n-table .n-table-column .n-table-column__filter > div {
-//     background: $--color-gray-15;
+//     background: $color-gray-15;
 // }
 
 .kyo-datatable .n-paginator {
     flex: 0 0 auto;
     padding: 0 30px;
     height: 55px;
-    color: $--color-black;
-    border-top: 1px solid $--color-gray-10;
+    color: $color-black;
+    border-top: 1px solid $color-gray-10;
 }

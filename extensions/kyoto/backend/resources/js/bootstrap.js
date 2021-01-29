@@ -1,18 +1,26 @@
 import jQuery from 'jquery';
-window.$ = window.jQuery = jQuery;
+global.$ = global.jQuery = jQuery;
 
 const Vue = require('vue/dist/vue.esm-bundler');
-window.Vue = Vue;
+global.Vue = Vue;
 
-// import VueRouter from 'vue-router/dist/vue-router.global';
 const VueRouter = require('vue-router/dist/vue-router.esm-bundler');
-window.VueRouter = VueRouter;
+global.VueRouter = VueRouter;
 
 const Axios = require('axios');
-window.axios = Axios;
+global.axios = Axios;
 
-import Nano from 'nano-js';
-window.Nano = Nano;
+const moment = require('moment/dist/moment');
+global.moment = moment;
+
+import { Pico } from "@kizmann/pico-js";
+global.pi = Pico;
+
+import { Nano } from '@kizmann/nano-ui';
+global.nano = Nano;
+
+import { Kyoto } from './lib/kyoto';
+global.kyoto = Kyoto;
 
 require('./app/app');
 

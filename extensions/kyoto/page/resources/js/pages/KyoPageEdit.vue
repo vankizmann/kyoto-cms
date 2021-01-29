@@ -1,61 +1,59 @@
 <template>
-    <NLoader :visible="load" class="full-height-child">
-        <div class="grid grid--col">
+    <NLoader :visible="load" class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
-                <template v-slot:action>
-                    <NButtonGroup>
-                        <NButton type="primary" @click="updateItem">
-                            {{ trans('Apply') }}
-                        </NButton>
-                        <NButton type="primary" @click="updateCloseItem">
-                            {{ trans('Save') }}
-                        </NButton>
-                    </NButtonGroup>
-                </template>
-            </KyoTitlebar>
+        <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
+            <template v-slot:action>
+                <NButtonGroup>
+                    <NButton type="primary" @click="updateItem">
+                        {{ trans('Apply') }}
+                    </NButton>
+                    <NButton type="primary" @click="updateCloseItem">
+                        {{ trans('Save') }}
+                    </NButton>
+                </NButtonGroup>
+            </template>
+        </KyoTitlebar>
 
-            <KyoPageWidgets class="col--flex-1-0" v-model="result.builder">
+        <KyoPageWidgets class="col--flex-1-1" v-model="result.builder">
 
-                <NForm :form="result" :errors="errors">
+            <NForm :form="result" :errors="errors">
 
-                    <NFormGroup icon="fa fa-compass" :label="trans('Menu')">
+                <NFormGroup icon="fa fa-compass" :label="trans('Menu')">
 
-                        <NFormItem :label="trans('Title')" prop="title">
-                            <NInput v-model="result.title"></NInput>
-                        </NFormItem>
+                    <NFormItem :label="trans('Title')" prop="title">
+                        <NInput v-model="result.title"></NInput>
+                    </NFormItem>
 
-                        <NFormItem :label="trans('Slug')" prop="slug">
-                            <NInput v-model="result.slug"></NInput>
-                        </NFormItem>
+                    <NFormItem :label="trans('Slug')" prop="slug">
+                        <NInput v-model="result.slug"></NInput>
+                    </NFormItem>
 
-                        <NFormItem :label="trans('Content')" prop="content">
-                            <NTextarea v-model="result.content"></NTextarea>
-                        </NFormItem>
+                    <NFormItem :label="trans('Content')" prop="content">
+                        <NTextarea v-model="result.content"></NTextarea>
+                    </NFormItem>
 
-                    </NFormGroup>
+                </NFormGroup>
 
-                    <NFormGroup icon="fa fa-cog" :label="trans('Settings')">
+                <NFormGroup icon="fa fa-cog" :label="trans('Settings')">
 
-                        <NFormItem :label="trans('State')" prop="state">
-                            <NSwitch v-model="result.state" :on-value="1" :off-value="0">
-                                {{ trans('Item is enabled') }}
-                            </NSwitch>
-                        </NFormItem>
+                    <NFormItem :label="trans('State')" prop="state">
+                        <NSwitch v-model="result.state" :on-value="1" :off-value="0">
+                            {{ trans('Item is enabled') }}
+                        </NSwitch>
+                    </NFormItem>
 
-                        <NFormItem :label="trans('Hide')" prop="hide">
-                            <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
-                                {{ trans('Item is hidden') }}
-                            </NSwitch>
-                        </NFormItem>
+                    <NFormItem :label="trans('Hide')" prop="hide">
+                        <NSwitch v-model="result.hide" :on-value="1" :off-value="0">
+                            {{ trans('Item is hidden') }}
+                        </NSwitch>
+                    </NFormItem>
 
-                    </NFormGroup>
+                </NFormGroup>
 
-                </NForm>
+            </NForm>
 
-            </KyoPageWidgets>
+        </KyoPageWidgets>
 
-        </div>
     </NLoader>
 </template>
 <script>
@@ -73,12 +71,12 @@
 
         beforeMount()
         {
-            // this.$root.hideWebsite();
+            this.$root.hideWebsite();
         },
 
-        beforeDestroy()
+        beforeUnmount()
         {
-            // this.$root.showWebsite();
+            this.$root.showWebsite();
         },
 
         methods: {

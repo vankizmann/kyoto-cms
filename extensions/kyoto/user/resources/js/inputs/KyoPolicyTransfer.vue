@@ -40,8 +40,8 @@
 
             loadPolicies()
             {
-                if ( Nano.Data.has('kyo-policies') ) {
-                    return this.items = Nano.Data.get('kyo-policies', []);
+                if ( pi.Data.has('kyo-policies') ) {
+                    return this.items = pi.Data.get('kyo-policies', []);
                 }
 
                 let options = {
@@ -59,12 +59,12 @@
             fetchDone(res)
             {
                 console.log(res.data);
-                Nano.Data.set('kyo-policies', this.items = res.data);
+                pi.Data.set('kyo-policies', this.items = res.data);
             },
 
             fetchError()
             {
-                Nano.Any.delay(this.loadPolicies, 1500);
+                pi.Any.delay(this.loadPolicies, 1500);
             }
 
         }

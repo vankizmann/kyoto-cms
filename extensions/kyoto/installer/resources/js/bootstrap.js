@@ -4,7 +4,7 @@ window.$ = window.jQuery = jQuery;
 import Axios from 'axios';
 window.axios = Axios;
 
-import Nano from 'nano-js';
+import Nano from "@kizmann/pico-js";
 window.Nano = Nano;
 
 require('./app/app');

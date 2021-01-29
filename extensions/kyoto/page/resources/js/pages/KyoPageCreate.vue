@@ -75,7 +75,7 @@
             this.$root.hideWebsite();
         },
 
-        beforeDestroy()
+        beforeUnmount()
         {
             this.$root.showWebsite();
         },

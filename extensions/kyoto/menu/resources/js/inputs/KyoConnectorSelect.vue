@@ -1,8 +1,8 @@
 <template>
-    <NLoader :visible="load" size="small">
-        <NSelect :key="UUID()" :value="value" @input="updateInput">
+    <NLoader :visible="load" size="sm">
+        <NSelect :model-value="modelValue" @update:modelValue="updateInput">
             <template v-for="item in items">
-                <NSelectOption :value="item.value">{{ item.label }}</NSelectOption>
+                <NSelectOption :value="item.value" :label="item.label" />
             </template>
         </NSelect>
     </NLoader>
@@ -14,7 +14,7 @@
 
         props: {
 
-            value: {
+            modelValue: {
                 default()
                 {
                     return null;
@@ -39,13 +39,13 @@
 
             updateInput(value)
             {
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
             },
 
             loadConnectors()
             {
-                if ( Nano.Data.has('kyo-connectors') ) {
-                    return this.items = Nano.Data.get('kyo-connectors', []);
+                if ( pi.Data.has('kyo-connectors') ) {
+                    return this.items = pi.Data.get('kyo-connectors', []);
                 }
 
                 let options = {
@@ -62,12 +62,12 @@
 
             fetchDone(res)
             {
-                Nano.Data.set('kyo-connectors', this.items = res.data);
+                pi.Data.set('kyo-connectors', this.items = res.data);
             },
 
             fetchError()
             {
-                Nano.Any.delay(this.loadConnectors, 1500);
+                pi.Any.delay(this.loadConnectors, 1500);
             }
 
         }
