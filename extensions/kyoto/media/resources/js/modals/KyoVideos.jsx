@@ -47,19 +47,23 @@ export default {
     mounted()
     {
         this.Dom.find(window).on('focus',
-            this.eventFocus, this._uid);
+            this.eventFocus, this._.uid);
     },
 
-    beforeDestroy()
+    beforeUnmount()
     {
         this.Dom.find(window).off('focus',
-            null, this._uid);
+            null, this._.uid);
     },
 
     methods: {
 
         eventFocus(event)
         {
+            if ( ! navigator.clipboard ) {
+                return;
+            }
+
             navigator.clipboard.readText().then((data) => {
                 if ( data.match(/^https?:\/\//) ) {
                     this.clipboard = data;
@@ -128,31 +132,38 @@ export default {
         return null;
     },
 
+    renderModal()
+    {
+        return (
+            <NLoader visible={this.load}>
+                <div class="kyo-video-preview">
+                    { this.ctor('renderPreview')() }
+                </div>
+                <div class="kyo-video-text">
+                    <div class="grid grid--row grid--10">
+                        <div class="col--flex-1-1">
+                            <NInput vModel={this.clipboard}></NInput>
+                        </div>
+                        <div class="col--flex-0-0">
+                            <NButton disabled={!this.video} onClick={this.storeItem}>
+                                { this.trans('Save video') }
+                            </NButton>
+                        </div>
+                    </div>
+                </div>
+            </NLoader>
+        );
+    },
+
     render()
     {
         return (
             <div class="kyo-media__videos">
-                <NButton size={this.size} icon="fa fa-photo-video" vOn:click={() => this.visible = true}>
+                <NButton size={this.size} icon="fa fa-photo-video" onClick={() => this.visible = true}>
                     {this.trans('Webvideo')}
                 </NButton>
-                <NModal type="video" vModel={this.visible} selector={false} closable={true} width="800px">
-                    <NLoader visible={this.load}>
-                        <div class="kyo-video-preview">
-                            { this.ctor('renderPreview')() }
-                        </div>
-                        <div class="kyo-video-text">
-                            <div class="grid grid--row grid--10">
-                                <div class="col--flex-1-1">
-                                    <NInput vModel={this.clipboard}></NInput>
-                                </div>
-                                <div class="col--flex-0-0">
-                                    <NButton disabled={!this.video} vOn:click={this.storeItem}>
-                                        { this.trans('Save video') }
-                                    </NButton>
-                                </div>
-                            </div>
-                        </div>
-                    </NLoader>
+                <NModal type="video" vModel={this.visible} listen={false} width="800px">
+
                 </NModal>
             </div>
         );

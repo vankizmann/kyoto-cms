@@ -211,7 +211,7 @@ export default {
 
         return (
             <div class="kyo-layout-website__search">
-                <input type="text" {...props} />
+                <i class="fa fa-search"></i><input type="text" {...props} />
             </div>
         )
     },
@@ -246,10 +246,11 @@ export default {
             group: ['menu'],
             allowGroups: ['menu', 'transaction'],
             itemHeight: 38,
+            itemOffset: 26,
             scrollTopOnChange: false,
             disableMove: true,
             allowCurrent: true,
-            // renderSelect: true,
+            renderSelect: true,
             renderExpand: true,
             safezone: this.safezone,
         };

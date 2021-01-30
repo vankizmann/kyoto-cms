@@ -1,16 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require("path");
+const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { VueLoaderPlugin } = require('vue-loader');
 
-let jsExport = {
-    entry: ['./resources/js/bootstrap.js'],
-    output: {
-        filename: 'index.js',
-        path: path.resolve('public/js'),
-    },
+let config = {
+    entry: ["./resources/js/bootstrap.js"],
     module: {
         rules: [
             {
@@ -30,68 +26,124 @@ let jsExport = {
                 ],
                 use: ['vue-loader']
             }
-        ]
+        ],
     },
     externals: {
-        jquery: '$', vue: 'Vue',
+        'vue': {
+            root: 'Vue', commonjs2: 'vue', commonjs: 'vue', amd: 'vue'
+        },
+        '@kizmann/pico-js': {
+            root: 'pi', commonjs2: '@kizmann/pico-js', commonjs: '@kizmann/pico-js', amd: '@kizmann/pico-js'
+        },
+        '@kizmann/nano-js': {
+            root: 'nano', commonjs2: '@kizmann/nano-js', commonjs: '@kizmann/nano-js', amd: '@kizmann/nano-js'
+        },
     },
     resolve: {
         alias: {
-            'vue$': path.resolve('node_modules/vue/dist/vue.esm.js'),
+            '@kizmann/pico-js': '@kizmann/pico-js/dist/pico-js.esm.js',
+            '@kizmann/nano-ui': '@kizmann/nano-ui/dist/nano-ui.esm.js'
         },
         extensions: [
             '.js', '.jsx', '.vue'
         ]
     },
-    optimization: {
-        minimizer: [new TerserPlugin()]
-    },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            minimize: true, debug: false,
-        }),
-        new VueLoaderPlugin(
-            //
-        ),
-        new webpack.optimize.AggressiveMergingPlugin(),
-    ],
+        // new CopyPlugin([
+        //     { from: '**/*', to: 'img/', context: 'resources/img/' }
+        // ]),
+        new VueLoaderPlugin()
+    ]
 };
 
-let cssExport = {
-    entry: "./resources/sass/bootstrap.scss",
-    output: {
-        filename: '.ignore.js',
-        path: path.resolve('public/css')
-    },
+let style = {
+    entry: ["./resources/sass/bootstrap.scss"],
     module: {
         rules: [
             {
                 test: /\.scss$/,
-                include: [
-                    path.resolve('resources/sass'),
-                ],
-                use: [MiniCssExtractPlugin.loader, 'css-loader?url=false', 'postcss-loader', 'sass-loader']
-            },
-            {
-                test: /\.css$/,
-                include: [
-                    path.resolve('resources/sass'),
-                ],
-                use: [MiniCssExtractPlugin.loader, 'css-loader?url=false', 'postcss-loader', 'style-loader']
+                use: [
+                    MiniCssExtractPlugin.loader, 'css-loader?url=false', 'postcss-loader', 'sass-loader'
+                ]
             }
-        ]
+        ],
+
     },
     resolve: {
+        alias: {
+            '@src': path.resolve(__dirname, 'resources')
+        },
         extensions: ['.scss', '.css']
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "index.css"
+            filename: 'css/index.css'
         }),
-        new CopyPlugin([
-            // { from: '**/*', to: 'public/img/', context: 'resources/img/' },
-        ]),
     ]
 };
 
-module.exports = [jsExport, cssExport];
+module.exports = function (env, argv) {
+
+    config.mode = argv.mode;
+
+    if ( argv.mode === 'development' ) {
+        config.devtool = 'eval-source-map';
+    }
+
+    if ( argv.mode === 'production' ) {
+        config.devtool = 'source-map';
+    }
+
+    /**
+     * @const __dirname
+     */
+
+    let globalPackage = Object.assign({
+
+        output: {
+            filename: "js/index.js",
+            path: path.resolve(__dirname, "public"),
+            libraryTarget: "umd"
+        }
+
+    }, config);
+
+    let stylePackage = Object.assign({
+
+        output: {
+            filename: ".ignore.js",
+            path: path.resolve(__dirname, "public"),
+        }
+
+    }, style);
+
+    if ( argv.mode === 'development' ) {
+        return [globalPackage, stylePackage];
+    }
+
+    let loaderOptions = new webpack.LoaderOptionsPlugin({
+        minimize: true
+    });
+
+    globalPackage.plugins.push(loaderOptions);
+    stylePackage.plugins.push(loaderOptions);
+
+    let terserOptions = {
+        mangle: true
+    }
+
+    let terser = new TerserPlugin({
+        terserOptions, extractComments: false,
+    });
+
+    let optimization = {
+        minimize: true, minimizer: []
+    };
+
+    optimization.minimizer.push(terser);
+
+    globalPackage.optimization = optimization;
+    stylePackage.optimization = optimization;
+
+    return [globalPackage, stylePackage];
+}

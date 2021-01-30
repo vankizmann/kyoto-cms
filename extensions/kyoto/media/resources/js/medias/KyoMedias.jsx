@@ -62,7 +62,6 @@ export default {
 
     mounted()
     {
-        this.$watch('query.parent', this.loadItems);
         pi.Event.bind('media:refresh', this.loadItems);
     },
 
@@ -70,6 +69,11 @@ export default {
 
         '$route': function () {
             this.getParent();
+        },
+
+        'query.parent': function () {
+            console.log('fu');
+            this.loadItems();
         },
 
         'result.breadcrumbs': function () {
@@ -162,12 +166,12 @@ export default {
 
         allowSelect(source)
         {
-            return source.veItem.type !== 'system/above';
+            return source.item.type !== 'system/above';
         },
 
         allowDrag(source)
         {
-            return source.veItem.type !== 'system/above';
+            return source.item.type !== 'system/above';
         },
 
         allowDrop(source, target)
@@ -197,7 +201,7 @@ export default {
         };
 
         return (
-            <a href="javascript:void(0)" vOn:click={clickEvent}>
+            <a href="javascript:void(0)" onClick={clickEvent}>
                 { value.title }
             </a>
         );
@@ -271,21 +275,21 @@ export default {
         );
     },
 
-    renderNode({ value })
+    renderNode({ item })
     {
-        if ( value.type === 'system/above' ) {
-            return this.ctor('renderAboveNode')(value);
+        if ( item.type === 'system/above' ) {
+            return this.ctor('renderAboveNode')(item);
         }
 
-        if ( value.type === 'system/folder' ) {
-            return this.ctor('renderFolderNode')(value);
+        if ( item.type === 'system/folder' ) {
+            return this.ctor('renderFolderNode')(item);
         }
 
-        if ( ! pi.Any.isEmpty(value.view) ) {
-            return this.ctor('renderViewNode')(value);
+        if ( ! pi.Any.isEmpty(item.view) ) {
+            return this.ctor('renderViewNode')(item);
         }
 
-        return this.ctor('renderIconNode')(value);
+        return this.ctor('renderIconNode')(item);
     },
 
     renderToolbar()
@@ -295,12 +299,10 @@ export default {
         }
 
         return (
-            <KyoTitlebar class="col--flex-0-0" vOn:delete={this.deleteItems}>
-
-                <template v-slot:search>
-                    <KyoTitlebarSearch vModel={this.query.search} />
-                </template>
-
+            <KyoTitlebar class="col--flex-0-0" onDelete={this.deleteItems}>
+                {
+                    { search: () => <KyoTitlebarSearch vModel={this.query.search} /> }
+                }
             </KyoTitlebar>
         );
     },
@@ -309,7 +311,7 @@ export default {
     {
         let rootButton = (
             <div class="col--auto">
-                <NButton size={this.size} icon="fa fa-home" disabled={!this.query.parent} vOn:click={this.gotoHome}>
+                <NButton icon="fa fa-home" disabled={!this.query.parent} onClick={this.gotoHome}>
                     { this.trans('Root') }
                 </NButton>
             </div>
@@ -317,7 +319,7 @@ export default {
 
         let aboveButton = (
             <div class="col--auto">
-                <NButton size={this.size} icon="fa fa-arrow-up" disabled={!this.query.parent} vOn:click={this.gotoParent}>
+                <NButton icon="fa fa-arrow-up" disabled={!this.query.parent} onClick={this.gotoParent}>
                     { this.trans('Above') }
                 </NButton>
             </div>
@@ -325,7 +327,7 @@ export default {
 
         let createFolder = (
             <div class="col--auto">
-                <NButton size={this.size} type="success" icon="fa fa-folder" vOn:click={this.gotoCreate}>
+                <NButton type="success" icon="fa fa-folder" onClick={this.gotoCreate}>
                     { this.trans('Folder') }
                 </NButton>
             </div>
@@ -333,13 +335,13 @@ export default {
 
         let createVideo = (
             <div class="col--auto">
-                <KyoVideos size={this.size}></KyoVideos>
+                <KyoVideos></KyoVideos>
             </div>
         );
 
         let createFile = (
             <div class="col--auto">
-                <KyoUploads size={this.size}></KyoUploads>
+                <KyoUploads></KyoUploads>
             </div>
         );
 
@@ -358,7 +360,7 @@ export default {
 
         let sortSelect = (
             <div class="col--auto">
-                <NSelect size={this.size} vModel={this.query.prop} style="width: 140px;" options={sortOptions}>
+                <NSelect vModel={this.query.prop} style="width: 140px;" options={sortOptions}>
                     { /* Sortfields */ }
                 </NSelect>
             </div>
@@ -371,7 +373,7 @@ export default {
 
         let orderSelect = (
             <div class="col--auto">
-                <NSelect size={this.size} vModel={this.query.dir} style="width: 140px;" options={orderOptions}>
+                <NSelect vModel={this.query.dir} style="width: 140px;" options={orderOptions}>
                     { /* Orderfields */ }
                 </NSelect>
             </div>
@@ -382,7 +384,7 @@ export default {
         ];
 
         if ( this.navigation ) {
-            renderItems.push(createFolder, createVideo, createFile);
+            renderItems.push(createFolder, /*createVideo,*/ createFile);
         }
 
         renderItems.push(spacerDiv, sortSelect, orderSelect);
@@ -402,44 +404,36 @@ export default {
             current: this.current,
             selected: this.selected,
             items: this.result.data,
+            itemWidth: 150,
             itemHeight: 215,
             renderSelect: true,
             insertNode: false,
             removeNode: false,
             moveItems: false,
+            deathzone: 50,
             allowSelect: this.allowSelect,
             allowDrag: this.allowDrag,
             allowDrop: this.allowDrop,
-            renderNode: this.ctor('renderNode')
-        }
-
-        let draggridEvents = {
-            'update:current': (value) => this.current = value,
-            'update:selected': (value) => this.selected = value,
-            'move': this.onMove,
-            'row-dblclick': this.gotoEdit
+            renderNode: this.ctor('renderNode'),
+            'onMove': this.onMove,
+            'onRowDblclick': this.gotoEdit,
+            'onUpdate:current': (value) => this.current = value,
+            'onUpdate:selected': (value) => this.selected = value
         }
 
         let paginatorProps = {
             page: this.query.page,
             limit: this.query.limit,
             total: this.result.total,
-            layout: ['limit', 'count', 'spacer', 'goto', 'pages']
-        }
-
-        let paginatorEvents = {
-            'update:page': (value) => this.query.page = value,
-            'update:limit': (value) => this.query.limit = value
+            layout: ['limit', 'count', 'spacer', 'goto', 'pages'],
+            'onUpdate:page': (value) => this.query.page = value,
+            'onUpdate:limit': (value) => this.query.limit = value
         }
 
         return (
             <div class="kyo-datagrid col--flex-1-0">
-                <NDraggrid props={draggridProps} on={draggridEvents}>
-                    { /* Filegrid */ }
-                </NDraggrid>
-                <NPaginator props={paginatorProps} on={paginatorEvents}>
-                    { /* Pagination */ }
-                </NPaginator>
+                <NDraggrid {...draggridProps} />
+                <NPaginator {...paginatorProps} />
             </div>
         );
     },

@@ -29,20 +29,22 @@
     border-color: $color-danger;
 }
 
-.kyo-datagrid .n-draggrid .n-scrollbar-content {
-    padding: 20px;
+.kyo-datagrid .n-draggrid .n-scrollbar__wrap {
+    padding: 15px 25px;
+}
+
+.kyo-datagrid .n-draggrid .n-virtualscroller__item {
+    padding: 5px;
 }
 
 .kyo-datagrid .n-draggrid .n-draggrid-item {
     overflow: hidden;
-    float: left;
-    width: 160px;
-    margin: 10px;
-    border-radius: 7px;
+    border-radius: $lg-radius;
     border: 2px solid transparent;
 }
 
 .kyo-datagrid .n-draggrid .n-draggrid-item .n-draggrid-item__select {
+    order: 200;
     margin: 0 auto 10px;
 }
 

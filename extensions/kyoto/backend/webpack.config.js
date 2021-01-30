@@ -50,9 +50,9 @@ let config = {
         ]
     },
     plugins: [
-        // new CopyPlugin([
-        //     { from: '**/*', to: 'img/', context: 'resources/img/' }
-        // ]),
+        new CopyPlugin([
+            { from: '**/*', to: 'img/', context: 'resources/img/' }
+        ]),
         new VueLoaderPlugin()
     ]
 };

@@ -1,3 +1,5 @@
+import { Arr, Obj, Any, Event, UUID } from "@kizmann/pico-js";
+
 export default {
 
     name: 'KyoUploads',
@@ -6,18 +8,6 @@ export default {
         KyoIndex: {
             fallback: undefined
         }
-    },
-
-    props: {
-
-        size: {
-            default()
-            {
-                return 'default';
-            },
-            type: [String]
-        }
-
     },
 
     computed: {
@@ -44,38 +34,41 @@ export default {
     mounted()
     {
         this.Dom.find(document.body).on('drop',
-            this.eventDrop, this._uid);
+            this.eventDrop, this._.uid);
 
         this.Dom.find(document.body).on('dragenter',
-            this.eventDragenter, this._uid);
+            this.eventDragenter, this._.uid);
 
         this.Dom.find(document.body).on('dragend',
-            this.eventDragend, this._uid);
+            this.eventDragend, this._.uid);
 
         this.Dom.find(document.body).on('dragover',
-            this.eventDragover, this._uid);
+            this.eventDragover, this._.uid);
     },
 
-    beforeDestroy()
+    beforeUnmount()
     {
         this.Dom.find(document.body).off('drop',
-            null, this._uid);
+            null, this._.uid);
 
         this.Dom.find(document.body).off('dragenter',
-            null, this._uid);
+            null, this._.uid);
 
         this.Dom.find(document.body).off('dragend',
-            null, this._uid);
+            null, this._.uid);
 
         this.Dom.find(document.body).off('dragover',
-            null, this._uid);
+            null, this._.uid);
     },
 
     methods: {
 
         eventDragenter(event)
         {
-            if ( ! event.dataTransfer.files.length && ! event.dataTransfer.items.length ) {
+            let isEmpty = ! event.dataTransfer.files.length &&
+                ! event.dataTransfer.items.length;
+
+            if ( isEmpty ) {
                 return;
             }
 
@@ -84,10 +77,6 @@ export default {
 
         eventDragover(event)
         {
-            if ( ! this.visible ) {
-                return;
-            }
-
             event.preventDefault();
         },
 
@@ -102,7 +91,10 @@ export default {
 
         eventDrop(event)
         {
-            if ( ! event.dataTransfer.files.length && ! event.dataTransfer.items.length ) {
+            let isEmpty = ! event.dataTransfer.files.length &&
+                ! event.dataTransfer.items.length;
+
+            if ( isEmpty ) {
                 return;
             }
 
@@ -112,7 +104,7 @@ export default {
                 return;
             }
 
-            pi.Obj.each(event.dataTransfer.files, this.addFile);
+            Obj.each(event.dataTransfer.files, this.addFile);
 
             if ( ! this.filelist.length ) {
                 return;
@@ -120,12 +112,12 @@ export default {
 
             this.visible = true;
 
-            pi.Any.delay(this.storeItem, 150);
+            Any.delay(this.storeItem, 150);
         },
 
         addLegacy()
         {
-            pi.Obj.each(this.$refs.legacy.files, this.addFile);
+            Obj.each(this.$refs.legacy.files, this.addFile);
 
             if ( ! this.filelist.length ) {
                 return;
@@ -133,19 +125,19 @@ export default {
 
             this.visible = true;
 
-            pi.Any.delay(this.storeItem, 150);
+            Any.delay(this.storeItem, 150);
         },
 
         addFile(file)
         {
             this.filelist.push({
-                id: pi.UUID(), parent_id: this.parent, file: file
+                id: UUID(), parent_id: this.parent, file: file
             });
         },
 
         changeText(callback = null)
         {
-            if ( pi.Any.isFunction(callback) ) {
+            if ( Any.isFunction(callback) ) {
                 callback.call(this);
             }
 
@@ -166,7 +158,7 @@ export default {
 
         storeItem()
         {
-            if ( pi.Any.isEmpty(this.filelist) ) {
+            if ( Any.isEmpty(this.filelist) ) {
                 return;
             }
 
@@ -179,23 +171,25 @@ export default {
                 cancelToken: this.cancelToken.token
             };
 
-            this.$http.post(route, pi.Ajax.form(this.filelist[0]), options)
+            let formData = Any.form(this.filelist[0]);
+
+            this.$http.post(route, formData, options)
                 .then(this.fetchDone, this.fetchDone);
         },
 
         fetchDone()
         {
             this.text = this.changeText(() => {
-                pi.Arr.removeIndex(this.filelist, 0);
+                Arr.removeIndex(this.filelist, 0);
             });
 
-            if ( ! pi.Any.isEmpty(this.filelist) ) {
-                return pi.Any.delay(this.storeItem, 100);
+            if ( ! Any.isEmpty(this.filelist) ) {
+                return Any.delay(this.storeItem, 100);
             }
 
             this.visible = false;
 
-            pi.Event.fire('media:refresh');
+            Event.fire('media:refresh');
         }
 
     },
@@ -204,10 +198,10 @@ export default {
     {
         return (
             <div class="kyo-media__uploads">
-                <NButton size={this.size} icon="fa fa-cloud-upload-alt" vOn:click={() => this.$refs.legacy.click()}>
+                <NButton icon="fa fa-cloud-upload-alt" onClick={() => this.$refs.legacy.click()}>
                     {this.trans('Upload')}
                 </NButton>
-                <NModal type="upload" visible={this.visible} selector={false} closable={false} width="360px">
+                <NModal vModel={this.visible} listen={false} closable={false} width="360px">
                     <div class="kyo-upload-animation">
                         { /* Cool animation here */}
                     </div>
@@ -215,7 +209,7 @@ export default {
                         { this.trans(this.text, { count: this.filelist.length }) }
                     </div>
                 </NModal>
-                <input ref="legacy" type="file" style="display: none !important;" vOn:change={this.addLegacy} multiple/>
+                <input ref="legacy" type="file" style="display: none !important;" onChange={this.addLegacy} multiple/>
             </div>
         );
     }

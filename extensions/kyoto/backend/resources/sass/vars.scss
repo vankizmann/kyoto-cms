@@ -17,7 +17,7 @@ $color-black-dark:          darken($color-black, 3%);
 $color-black-darker:        darken($color-black, 6%);
 
 $color-darkmix:             #171d38;
-$color-lightmix:            #ffffff;
+$color-lightmix:            #fafafa;
 
 $color-gray-05:         mix($color-darkmix, $color-lightmix, 0.05 * 100%);
 $color-gray-10:         mix($color-darkmix, $color-lightmix, 0.10 * 100%);
