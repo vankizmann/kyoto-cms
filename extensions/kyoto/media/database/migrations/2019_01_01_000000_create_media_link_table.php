@@ -13,7 +13,7 @@ class CreateMediaLinkTable extends Migration
             $table->uuid('id')
                 ->primary();
 
-            $table->uuid('sequence')
+            $table->integer('sequence')
                 ->nullable();
 
             $table->uuid('media_id')

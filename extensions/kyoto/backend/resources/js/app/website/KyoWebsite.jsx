@@ -71,7 +71,6 @@ export default {
          */
         loadItems()
         {
-            console.log('load');
             let options = {
                 onLoad: () => this.load = true,
                 onDone: () => this.load = false

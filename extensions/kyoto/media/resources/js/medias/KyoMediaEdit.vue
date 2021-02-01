@@ -1,6 +1,6 @@
 <template>
-    <NLoader :visible="load" class="full-height-child">
-        <div class="grid grid--col">
+    <NLoader :visible="load">
+        <NScrollbar class="full-height grid grid--col">
 
             <KyoTitlebar :back="true" class="col--flex-0-0" @delete="deleteItem">
                 <template v-slot:action>
@@ -16,6 +16,10 @@
             </KyoTitlebar>
 
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
+
+                <div v-if="result.view">
+                    <img :src="result.url" alt="">
+                </div>
 
                 <NFormGroup icon="fa fa-info" :label="trans('Info')">
                     <div class="grid grid-row grid--wrap grid--30">
@@ -43,7 +47,7 @@
 
             </NForm>
 
-        </div>
+        </NScrollbar>
     </NLoader>
 </template>
 <script>

@@ -56,6 +56,8 @@ class Media extends \Kyoto\Support\Database\Model
         'parent', 'children'
     ];
 
+    protected $with = ['links'];
+
 
     protected static function boot()
     {
@@ -103,9 +105,17 @@ class Media extends \Kyoto\Support\Database\Model
                 app('kyoto.media')->deleteSource($model->view);
             }
 
+            $model->links()->delete();
+
         });
 
         parent::boot();
+    }
+
+    public function links()
+    {
+        return $this->hasMany(MediaLink::class, 'media_id')
+            ->without('media');
     }
 
     public function getIdAttribute()

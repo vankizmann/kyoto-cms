@@ -14,13 +14,17 @@ return [
         PageTableSeeder::class
     ],
 
+    'providers' => [
+        Kyoto\Page\PageServiceProvider::class
+    ],
+
     'connectors' => [
         'page' => \Kyoto\Page\Connectors\PageConnector::class
     ],
 
     'backend' => [
         'kyoto/page::js/index.js',
-        // 'kyoto/page::css/index.css'
+         'kyoto/page::css/index.css'
     ]
 
 ];

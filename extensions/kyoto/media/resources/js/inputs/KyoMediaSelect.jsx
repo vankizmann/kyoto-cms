@@ -4,7 +4,7 @@ export default {
 
     props: {
 
-        value: {
+        modelValue: {
             default()
             {
                 return [];
@@ -52,7 +52,7 @@ export default {
 
         'visible': function () {
             if ( this.visible ) {
-                this.items = pi.Arr.clone(this.value);
+                this.items = pi.Arr.clone(this.modelValue);
             }
         }
 
@@ -64,7 +64,7 @@ export default {
         {
             this.visible = false;
 
-            this.$emit('input', this.items);
+            this.$emit('update:modelValue', this.items);
         },
 
         transformDrop(source)
@@ -95,30 +95,30 @@ export default {
             'kyo-media-list-item'
         ];
 
-        if ( this.limit && props.index > this.limit ) {
+        if ( this.limit && props.value.index >= this.limit ) {
             classList.push('kyo-media-list-item--off');
         }
 
         let buttonProps = {
             type: 'danger',
-            size: 'mini',
+            size: 'xs',
             square: true,
-            icon: this.icons.times
+            icon: nano.Icons.times
         }
 
         return (
             <div class={classList}>
                 <div class="kyo-media-list-item__image">
-                    <img src={ props.value.urls['square/sm'] } />
+                    <img src={ props.item.urls['square/sm'] } />
                 </div>
                 <div class="kyo-media-list-item__title">
-                    <span>{ props.value.title }</span>
+                    <span>{ props.item.title }</span>
                 </div>
                 <div class="kyo-media-list-item__meta">
-                    <span>{ props.value.type }</span>
+                    <span>{ props.item.type }</span>
                 </div>
                 <div class="kyo-media-list-item__delete">
-                    <NButton props={buttonProps} vOn:click={props.remove} />
+                    <NButton {...buttonProps} onClick={props.remove} />
                 </div>
             </div>
         );
@@ -130,30 +130,30 @@ export default {
             'kyo-media-list-item'
         ];
 
-        if ( this.limit && props.index > this.limit ) {
+        if ( this.limit && props.value.index >= this.limit ) {
             classList.push('kyo-media-list-item--off');
         }
 
         let buttonProps = {
             type: 'danger',
-            size: 'mini',
+            size: 'xs',
             square: true,
-            icon: this.icons.times
+            icon: nano.Icons.times
         }
 
         return (
             <div class={classList}>
                 <div class="kyo-media-list-item__icon" data-type={props.value.type}>
-                    <span>{ props.value.file.replace(/^(.*?)\./, '') }</span>
+                    <span>{ props.item.file.replace(/^(.*?)\./, '') }</span>
                 </div>
                 <div class="kyo-media-list-item__title">
-                    <span>{ props.value.title }</span>
+                    <span>{ props.item.title }</span>
                 </div>
                 <div class="kyo-media-list-item__meta">
-                    <span>{ props.value.type }</span>
+                    <span>{ props.item.type }</span>
                 </div>
                 <div class="kyo-media-list-item__delete">
-                    <NButton props={buttonProps} vOn:click={props.remove} />
+                    <NButton {...buttonProps} onClick={props.remove} />
                 </div>
             </div>
         );
@@ -165,30 +165,30 @@ export default {
             'kyo-media-list-item'
         ];
 
-        if ( this.limit && props.index > this.limit ) {
+        if ( this.limit && props.value.index >= this.limit ) {
             classList.push('kyo-media-list-item--off');
         }
 
         let buttonProps = {
             type: 'danger',
-            size: 'mini',
+            size: 'xs',
             square: true,
-            icon: this.icons.times
+            icon: nano.Icons.times
         }
 
         return (
             <div class={classList}>
-                <div class="kyo-media-list-item__icon" data-type={props.value.type}>
-                    <span>{ props.value.count }</span>
+                <div class="kyo-media-list-item__icon" data-type={props.item.type}>
+                    <span>{ props.item.count }</span>
                 </div>
                 <div class="kyo-media-list-item__title">
-                    <span>{ props.value.title }</span>
+                    <span>{ props.item.title }</span>
                 </div>
                 <div class="kyo-media-list-item__meta">
-                    <span>{ props.value.type }</span>
+                    <span>{ props.item.type }</span>
                 </div>
                 <div class="kyo-media-list-item__delete">
-                    <NButton props={buttonProps} vOn:click={props.remove} />
+                    <NButton {...buttonProps} onClick={props.remove} />
                 </div>
             </div>
         );
@@ -196,11 +196,11 @@ export default {
 
     renderNode(props)
     {
-        if ( props.value.type === 'system/folder' ) {
+        if ( props.item.type === 'system/folder' ) {
             return this.ctor('renderFolderNode')(props);
         }
 
-        if ( ! pi.Any.isEmpty(props.value.view) ) {
+        if ( ! pi.Any.isEmpty(props.item.view) ) {
             return this.ctor('renderViewNode')(props);
         }
 
@@ -211,24 +211,20 @@ export default {
     {
         let draglistProps = {
             items: this.items,
-            viewportHeight: true,
             itemHeight: 100,
             uniqueProp: 'uid',
             transformDrop: this.transformDrop,
             allowDrop: this.allowDrop,
-            renderNode: this.ctor('renderNode')
-        };
-
-        let draglistEvents = {
-            'input': (value) => this.items = value
+            safezone: (height) => height * 0.51,
+            'onUpdate:items': (value) => this.items = value
         };
 
         return (
             <div class="kyo-media-list">
-                <NDraglist props={draglistProps} on={draglistEvents}>
-                    { /* Draglist */ }
+                <NDraglist {...draglistProps}>
+                    {{ default: this.ctor('renderNode') }}
                 </NDraglist>
-                <NButton class="kyo-media-list__apply" vOn:click={this.applyItems}>
+                <NButton class="kyo-media-list__apply" onClick={this.applyItems}>
                     { this.trans('Apply') }
                 </NButton>
             </div>
@@ -246,12 +242,11 @@ export default {
     {
         return (
             <div>
-                <NButton vOn:click={() => this.visible = true}>
+                <NButton>
                     { this.trans('Select files') }
                 </NButton>
-                <NModal vModel={this.visible} selector={false} raw={true} type="media" width="100%" height="100%">
-                    { this.ctor('renderGrid')() }
-                    { this.ctor('renderList')() }
+                <NModal vModel={this.visible} type="media" width="100%" height="100%">
+                    {{ raw: () => [this.ctor('renderGrid')(), this.ctor('renderList')()] }}
                 </NModal>
             </div>
         );

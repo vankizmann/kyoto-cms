@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     border-top: 1px solid $color-gray-10;
-    // height: calc(100vh);
 }
 
 .kyo-widgets__inner {
@@ -12,52 +11,87 @@
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
-    //background: $color-white;
-    border-radius: 5px;
+    // background: $color-white;
+    //border-radius: 5px;
     // border-top: 1px solid $color-gray-10;
-    //box-shadow: 2px 0 10px rgba($color-shadow, 0.1);
+    // box-shadow: 2px 0 10px rgba($color-shadow, 0.1);
 }
 
 .kyo-widgets__widget {
-    order: 3;
+    order: 2;
     flex: 0 0 auto;
     width: 360px;
-    border-left: 1px solid $color-gray-10;
+    background: $color-gray-10;
+    //border-left: 1px solid $color-gray-10;
 }
 
 .kyo-widgets__builder {
-    order: 2;
+    order: 1;
     flex: 1 1 auto;
+    background: $color-background;
 }
 
 .kyo-widgets__extra {
-    order: 1;
+    //display: none;
+    order: 3;
     flex: 0 0 auto;
     width: 400px;
-    border-right: 1px solid $color-gray-10;
+    border-left: 1px solid $color-gray-10;
+}
+
+.kyo-widgets__builder .n-scrollbar__wrap {
+    //padding: 20px;
+}
+
+.kyo-widgets__builder .n-virtualscroller__inner {
+    overflow: hidden;
+    padding: 20px 0;
+    //background: $color-white;
+    //border-radius: $lg-radius;
+    //box-shadow: 0 1px 8px rgba($color-shadow, 0.1);
+}
+
+//.kyo-widgets__builder .n-virtualscroller__item {
+//    padding: 5px;
+//}
+
+.kyo-widgets__builder .n-draglist-item {
+    //border-radius: $lg-radius;
+    //border-bottom: 1px solid $color-gray-10;
+    //box-shadow: 0 1px 4px rgba($color-shadow, 0.1);
+}
+
+.kyo-widgets__builder .n-draglist-item .n-draglist-item__handle {
+    padding: 15px 0;
+    width: 30px;
+    align-items: flex-start;
+    background: $color-white;
+    border-bottom: 1px solid $color-gray-10;
+    //background: linear-gradient(-70deg, $color-black, $color-dark-light);
+}
+
+.kyo-widgets__builder .n-draglist-item .n-draglist-item__ellipsis {
+    color: $color-gray-70;
 }
 
 .kyo-widgets__wrap {
     padding: 15px 30px;
 }
 
-.kyo-widgets-widget-item {
+.kyo-widget-item {
+    margin: 8px;
     padding: 8px;
+    background: $color-background;
 }
 
-.kyo-widgets-builder-item {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.kyo-widgets-builder-item__head {
-    padding: 15px 30px;
-    background: $color-gray-05;
-    font-weight: bold;
+.kyo-builder-item {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px 30px;
+    border-bottom: 1px solid $color-gray-10;
 }
 
 .kyo-widgets-builder-item__body {
-    padding: 15px 30px;
+    padding: 5px 30px 20px;
 }
 

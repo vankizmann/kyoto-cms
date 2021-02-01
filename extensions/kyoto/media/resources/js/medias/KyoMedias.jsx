@@ -72,7 +72,6 @@ export default {
         },
 
         'query.parent': function () {
-            console.log('fu');
             this.loadItems();
         },
 
@@ -91,7 +90,8 @@ export default {
 
         getParent()
         {
-            this.query.parent = window.location.hash.replace(/^#/, '');
+            this.query.parent = window.location.hash
+                .replace(/^#/, '') || this.root;
         },
 
         gotoHome()
@@ -311,7 +311,7 @@ export default {
     {
         let rootButton = (
             <div class="col--auto">
-                <NButton icon="fa fa-home" disabled={!this.query.parent} onClick={this.gotoHome}>
+                <NButton icon="fa fa-home" disabled={this.query.parent === this.root} onClick={this.gotoHome}>
                     { this.trans('Root') }
                 </NButton>
             </div>
@@ -319,7 +319,7 @@ export default {
 
         let aboveButton = (
             <div class="col--auto">
-                <NButton icon="fa fa-arrow-up" disabled={!this.query.parent} onClick={this.gotoParent}>
+                <NButton icon="fa fa-arrow-up" disabled={this.query.parent === this.root} onClick={this.gotoParent}>
                     { this.trans('Above') }
                 </NButton>
             </div>
@@ -384,7 +384,7 @@ export default {
         ];
 
         if ( this.navigation ) {
-            renderItems.push(createFolder, /*createVideo,*/ createFile);
+            renderItems.push(createFolder, createVideo, createFile);
         }
 
         renderItems.push(spacerDiv, sortSelect, orderSelect);
@@ -405,12 +405,11 @@ export default {
             selected: this.selected,
             items: this.result.data,
             itemWidth: 150,
-            itemHeight: 215,
+            itemHeight: 240,
             renderSelect: true,
-            insertNode: false,
-            removeNode: false,
             moveItems: false,
             deathzone: 50,
+            threshold: 0,
             allowSelect: this.allowSelect,
             allowDrag: this.allowDrag,
             allowDrop: this.allowDrop,

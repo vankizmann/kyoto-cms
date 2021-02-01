@@ -220,4 +220,10 @@ class MediaManager {
         return $medias;
     }
 
+    public function deleteMediaLinks($unique)
+    {
+        MediaLink::where('foreign_id', $unique)
+            ->orderBy('sequence', 'asc')->delete();
+    }
+
 }

@@ -159,11 +159,11 @@ export default {
     {
         return (
             <div class="kyo-media__videos">
-                <NButton size={this.size} icon="fa fa-photo-video" onClick={() => this.visible = true}>
+                <NButton icon="fa fa-photo-video">
                     {this.trans('Webvideo')}
                 </NButton>
-                <NModal type="video" vModel={this.visible} listen={false} width="800px">
-
+                <NModal type="video" vModel={this.visible} width="800px">
+                    { this.ctor('renderModal')() }
                 </NModal>
             </div>
         );

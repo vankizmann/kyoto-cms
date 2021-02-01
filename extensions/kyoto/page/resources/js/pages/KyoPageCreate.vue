@@ -49,6 +49,10 @@
                             <NTextarea v-model="result.content"></NTextarea>
                         </NFormItem>
 
+                        <NFormItem :label="trans('Images')" prop="images">
+                            <KyoMediaSelect v-model="result.images" :limit="3"></KyoMediaSelect>
+                        </NFormItem>
+
                     </NFormGroup>
 
                 </NForm>

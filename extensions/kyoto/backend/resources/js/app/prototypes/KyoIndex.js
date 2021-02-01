@@ -170,6 +170,7 @@ export default {
          */
         onMove(source, target, strategy)
         {
+            console.log(source, target, strategy);
             this.moveItems(source, target, strategy);
         },
 

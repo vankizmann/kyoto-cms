@@ -13,7 +13,7 @@ class MediaController extends \App\Http\Controllers\Controller
     {
         $parent_id = $request->query('parent');
 
-        if ( empty($parent_id) ) {
+        if ( $parent_id === '00000000-0000-0000-0000-000000000000' ) {
             $parent_id = null;
         }
 
@@ -165,6 +165,10 @@ class MediaController extends \App\Http\Controllers\Controller
         $data = array_merge($request->input(), [
             'id' => uuid(), 'type' => $file->getMimeType()
         ]);
+
+        if ( $data['parent_id'] === '00000000-0000-0000-0000-000000000000' ) {
+            $data['parent_id'] = null;
+        }
 
         $media = new Media($data);
 

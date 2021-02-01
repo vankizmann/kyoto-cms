@@ -361,14 +361,16 @@
   position: relative; }
 
 .n-virtualscroller__row {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start; }
+
+.n-virtualscroller--absolute .n-virtualscroller__row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%; }
 
 .n-virtualscroller__item {
   position: relative;
@@ -381,6 +383,9 @@
   flex: 0 0 auto; }
 
 div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
+  flex-direction: row; }
+
+.n-virtualscroller--absolute div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
   position: absolute;
   left: 0;
   right: 0;
@@ -4724,11 +4729,10 @@ div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
   position: absolute;
   display: inline-flex;
   flex-direction: column;
-  opacity: 0;
-  transition: opacity 0.15s ease-in; }
+  transition: opacity 0.1s ease-out; }
 
-.n-popover.n-ready {
-  opacity: 1; }
+.n-popover:not(.n-ready) {
+  opacity: 0; }
 
 .n-popover > div:first-child:last-child {
   flex: 1 1 auto; }
@@ -5042,11 +5046,7 @@ div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 3%;
-  transition: opacity 0.15s ease-in; }
-
-.n-modal:not(.n-ready) {
-  opacity: 0; }
+  padding: 3%; }
 
 .n-modal.n-hidden {
   display: none; }
@@ -5059,7 +5059,7 @@ div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
   left: 0;
   right: 0;
   background: rgba(9, 11, 16, 0.6);
-  transition: opacity 0.6s 0.1s linear; }
+  transition: opacity 0.5s ease-in-out; }
 
 .n-modal:not(.n-ready) .n-modal__backdrop {
   opacity: 0; }
@@ -5076,7 +5076,13 @@ div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
   min-height: 0;
   max-height: 100%;
   margin: auto;
-  box-shadow: 0 1px 5px 1px rgba(57, 89, 183, 0.2); }
+  box-shadow: 0 1px 5px 1px rgba(57, 89, 183, 0.2);
+  transform: translateY(0);
+  transition: opacity 0.2s 0.1s ease-out, transform 0.2s 0.1s ease-out; }
+
+.n-modal:not(.n-ready) .n-modal__frame {
+  opacity: 0;
+  transform: translateY(20px); }
 
 .n-modal--center-center > .n-modal__frame {
   margin: auto; }

@@ -33,7 +33,7 @@
                 {{ Any.isEmpty(updated) ? trans('Not saved yet') : updated }}
             </NButton>
 
-            <NPopover type="dropdown" trigger="click" position="bottom-end" :width="220">
+            <NPopover trigger="click" :width="220">
                 <div class="n-popover-label">
                     {{ trans('Actions') }}
                 </div>
@@ -56,7 +56,7 @@
                 {{ choice('No item selected|One item selected|:count items selected', selected) }}
             </NButton>
 
-            <NPopover trigger="click" position="bottom-end" :width="220">
+            <NPopover trigger="click" :width="220">
                 <div class="n-popover-label">
                     {{ trans('Actions') }}
                 </div>

@@ -201,7 +201,7 @@ export default {
                 <NButton icon="fa fa-cloud-upload-alt" onClick={() => this.$refs.legacy.click()}>
                     {this.trans('Upload')}
                 </NButton>
-                <NModal vModel={this.visible} listen={false} closable={false} width="360px">
+                <NModal type="upload" vModel={this.visible} listen={false} closable={false} width="360px">
                     <div class="kyo-upload-animation">
                         { /* Cool animation here */}
                     </div>

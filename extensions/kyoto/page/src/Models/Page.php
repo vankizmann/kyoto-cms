@@ -56,6 +56,8 @@ class Page extends \Kyoto\Support\Database\Model
         'menus'
     ];
 
+    protected $images = [];
+
     protected static function boot()
     {
         static::saving(function ($model) {
@@ -65,9 +67,20 @@ class Page extends \Kyoto\Support\Database\Model
         });
 
         static::saved(function ($model) {
+
             Kyoto::localized(null, function () use ($model) {
                 KyotoConnector::find('kyoto/page::page')->syncronize($model);
             });
+
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->saveMediaLinks($model->id, $model->images);
+            }
+        });
+
+        static::deleted(function ($model) {
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->deleteMediaLinks($model->id);
+            }
         });
 
         parent::boot();
@@ -106,7 +119,7 @@ class Page extends \Kyoto\Support\Database\Model
 
     public function setImagesAttribute($value)
     {
-        app('kyoto.media')->saveMediaLinks($this->id, $value);
+        $this->images = $value;
     }
 
 }

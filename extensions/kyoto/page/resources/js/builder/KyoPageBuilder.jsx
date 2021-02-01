@@ -1,10 +1,13 @@
+import { resolveComponent, h } from "vue";
+import { Arr, Obj, Any } from "@kizmann/pico-js";
+
 export default {
 
     name: 'KyoPageWidgets',
 
     props: {
 
-        value: {
+        modelValue: {
             default()
             {
                 return [];
@@ -13,28 +16,59 @@ export default {
 
     },
 
+    provide()
+    {
+        return {
+            KyoPageBuilder: this
+        }
+    },
+
     data()
     {
-        let widgets = [
-            { id: pi.UUID(), value: { title: '' }, type: 'headline', name: 'test1' },
-            { id: pi.UUID(), value: { title: '' }, type: 'headline', name: 'test2' }
-        ]
-
         return {
-            widgets
-        }
+            load: false, widgets: []
+        };
+    },
+
+    mounted()
+    {
+        this.fetchWidgets();
     },
 
     methods: {
 
+        fetchWidgets()
+        {
+            let options = {
+                onLoad: () => this.load = true,
+                onDone: () => this.load = false
+            };
+
+            let route = this.Route.get('/{locale}/kyoto/page/http/controllers/widget/list',
+                this.$root.$data);
+
+            this.$http.get(route, options)
+                .then(this.fetchDone, this.fetchError);
+        },
+
+        fetchDone(res)
+        {
+            this.widgets = res.data;
+        },
+
+        fetchError(res)
+        {
+
+        },
+
         transformDrop(source)
         {
-            return pi.Obj.assign(source, { id: pi.UUID() });
+            return pi.Obj.assign(source.node, { id: pi.UUID() });
         },
 
         allowDrop(source, target, strategy)
         {
-            return ! this.value.length || strategy !== 'root';
+            return ! this.modelValue.length || strategy !== 'root';
         }
 
     },
@@ -42,84 +76,68 @@ export default {
     renderWidgetNode(props)
     {
         return (
-            <div class="kyo-widgets-widget-item">
-                { props.item.type }
+            <div class="kyo-widget-item">
+                <h4>{ props.item.title }</h4>
+                <p>{ props.item.description }</p>
             </div>
         );
     },
 
     renderBuilderNode(props)
     {
-        return (
-            <NForm class="kyo-widgets-builder-item">
-                <div class="kyo-widgets-builder-item__head" draggable="true">
-                    <div class="grid grid--row grid--middle grid--10">
-                        <div class="col--auto col--left">
-                            { props.item.type }
-                        </div>
-                        <div class="col--auto">
-                            <NButton size="mini" type="info" square={true} icon={this.icons.create} vOn:click={props.copy}></NButton>
-                        </div>
-                        <div class="col--auto">
-                            <NButton size="mini" type="danger" square={true} icon={this.icons.times} vOn:click={props.remove}></NButton>
-                        </div>
-                    </div>
-                </div>
-                <div class="kyo-widgets-builder-item__body">
-                    { Vue.h(Vue.resolveComponent(`KyoWidget${pi.Str.ucfirst(props.item.type)}`)) }
-                </div>
-            </NForm>
-        );
+        props.class = [
+            'kyo-builder-item'
+        ];
+
+        if ( props.item.state === 0 ) {
+            props.class.push('is-hidden');
+        }
+
+        return h(resolveComponent(props.item.type), props);
     },
 
     render()
     {
         let builderProps = {
-            items: this.value,
+            items: this.modelValue,
             group: ['page-widget'],
             allowGroups: ['page-widget'],
             handle: true,
+            renderHandle: true,
             itemHeight: 0,
-            viewportHeight: true,
-            removeNode: false,
+            removeNode: true,
             insertNode: true,
-            useRenderCache: false,
             keyEvents: false,
             threshold: 0,
-            allowCurrent: false,
+            lazyload: false,
+            renderCurrent: false,
+            // renderHandle: true,
+            safezone: (height) => height * 0.51,
             transformDrop: this.transformDrop,
-            allowDrop: this.allowDrop,
-            renderNode: this.ctor('renderBuilderNode')
+            // allowDrop: this.allowDrop,
+            renderNode: this.ctor('renderBuilderNode'),
+            'onUpdate:items': (value) => this.$emit('update:modelValue', value)
         }
 
         let widgetProps = {
-            items: this.widgets,
+            items: pi.Any.vals(this.widgets),
             group: ['page-widget'],
             itemHeight: 0,
-            viewportHeight: true,
             removeNode: false,
             insertNode: false,
-            useRenderCache: false,
             keyEvents: false,
             threshold: 0,
+            lazyload: false,
             allowCurrent: false,
             allowDrop: false,
             renderNode: this.ctor('renderWidgetNode')
         }
 
-        let builderEvents = {
-            'input': (value) => this.$emit('input', value)
-        }
-
         return (
             <div class="kyo-widgets">
                 <div class="kyo-widgets__inner">
-                    <NDraglist class="kyo-widgets__widget" ref="widget" {...widgetProps}>
-
-                    </NDraglist>
-                    <NDraglist class="kyo-widgets__builder" ref="builder" {...builderProps}>
-
-                    </NDraglist>
+                    <NDraglist class="kyo-widgets__widget" ref="widget" {...widgetProps} />
+                    <NDraglist class="kyo-widgets__builder" ref="builder" {...builderProps} />
                     <NScrollbar class="kyo-widgets__extra">
                         <div class="kyo-widgets__wrap">
                             { this.$slots.default && this.$slots.default() }

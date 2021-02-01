@@ -1,5 +1,15 @@
 @import "~@kizmann/nano-ui/nano/root/vars";
 
+.n-modal.n-modal--upload .n-modal__wrap {
+    padding: 0 0 15px 0;
+}
+
+.n-modal.n-modal--upload .n-modal__frame {
+    overflow: hidden;
+    background: $color-dark;
+    border-radius: $lg-radius;
+}
+
 .kyo-upload-animation {
     position: relative;
     margin: 0 auto;
@@ -53,12 +63,4 @@
     color: $color-gray-60;
     height: 36px;
     line-height: 18px;
-}
-
-.n-modal.n-modal--upload .n-modal__frame {
-    overflow: hidden;
-    border-radius: 12px;
-    color: $color-white;
-    background: $color-black;
-    padding: 0 20px 30px;
 }

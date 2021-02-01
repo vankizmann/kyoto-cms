@@ -119,6 +119,10 @@ Dom.ready(function () {
         history, mode: 'history', routes: routes,
     });
 
+    nano.Icons = Obj.assign(nano.Icons, {
+        copy: 'fa fa-copy'
+    });
+
     App.use(AppRouter);
     App.use(VueNano);
 
