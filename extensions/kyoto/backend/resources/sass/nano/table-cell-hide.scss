@@ -1,0 +1,32 @@
+@import "~@kizmann/nano-ui/nano/root/vars";
+
+.n-info-field--hide,
+.n-table-cell--hide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: $color-gray-50;
+}
+
+.n-info-field--hide.is-visible,
+.n-table-cell--hide.is-visible {
+    color: $color-black;
+}
+
+.n-info-field--hide:before,
+.n-table-cell--hide:before {
+    content: '\00a0';
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 500px;
+    margin-right: 7px;
+    background: $color-gray-15;
+}
+
+.n-info-field--hide.is-visible:before,
+.n-table-cell--hide.is-visible:before {
+    background: rgba($color-black, 0.9);
+}
+

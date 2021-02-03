@@ -1,0 +1,51 @@
+@import "~@kizmann/nano-ui/nano/root/vars";
+
+.n-info-field--state,
+.n-table-cell--state {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: $color-gray-50;
+}
+
+.n-info-field--state.is-enabled,
+.n-table-cell--state.is-enabled {
+    color: $color-primary;
+}
+
+.n-info-field--state.is-disabled,
+.n-table-cell--state.is-disabled {
+    color: $color-danger;
+}
+
+.n-info-field--state.is-deleted,
+.n-table-cell--state.is-deleted {
+    color: $color-warning;
+}
+
+.n-info-field--state:before,
+.n-table-cell--state:before {
+    content: '\00a0';
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 500px;
+    margin-right: 7px;
+    background: $color-gray-15;
+}
+
+.n-info-field--state.is-enabled:before,
+.n-table-cell--state.is-enabled:before {
+    background: rgba($color-primary, 0.9);
+}
+
+.n-info-field--state.is-disabled:before,
+.n-table-cell--state.is-disabled:before {
+    background: rgba($color-danger, 0.9);
+}
+
+.n-info-field--state.is-deleted:before,
+.n-table-cell--state.is-deleted:before {
+    background: rgba($color-warning, 0.9);
+}

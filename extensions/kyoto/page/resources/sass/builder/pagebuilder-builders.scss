@@ -1,0 +1,31 @@
+@import "~@kyoto/sass/vars";
+
+.kyo-pagebuilder-builders {
+    position: relative;
+    order: 1;
+    flex: 1 1 auto;
+    background: $color-white;
+    border-right: 1px solid $color-gray-10;
+}
+
+.kyo-pagebuilder-builders .n-draglist {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.kyo-pagebuilder-builders .n-virtualscroller__inner {
+    padding: 20px 0;
+}
+
+.kyo-pagebuilder-builders .n-draglist-item__ellipsis {
+    color: $color-gray-70;
+}
+
+.kyo-builder-item {
+    padding: 25px 30px;
+}
+
+

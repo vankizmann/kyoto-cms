@@ -7,6 +7,33 @@ global.KyoIndex = KyoIndex;
 import KyoForm from "./prototypes/KyoForm";
 global.KyoForm = KyoForm;
 
+import NTableCellState from "./table/table-cell/NTableCellState";
+kyoto.component(NTableCellState.name, NTableCellState);
+
+import NTableFilterState from "./table/table-filter/NTableFilterState";
+kyoto.component(NTableFilterState.name, NTableFilterState);
+
+import NTableCellHide from "./table/table-cell/NTableCellHide";
+kyoto.component(NTableCellHide.name, NTableCellHide);
+
+import NTableFilterHide from "./table/table-filter/NTableFilterHide";
+kyoto.component(NTableFilterHide.name, NTableFilterHide);
+
+import NTableCellLink from "./table/table-cell/NTableCellLink";
+kyoto.component(NTableCellLink.name, NTableCellLink);
+
+import NTableFilterLink from "./table/table-filter/NTableFilterLink";
+kyoto.component(NTableFilterLink.name, NTableFilterLink);
+
+import NInfoFieldState from "./table/info-field/NInfoFieldState";
+kyoto.component(NInfoFieldState.name, NInfoFieldState);
+
+import NInfoFieldHide from "./table/info-field/NInfoFieldHide";
+kyoto.component(NInfoFieldHide.name, NInfoFieldHide);
+
+import NInfoFieldLink from "./table/info-field/NInfoFieldLink";
+kyoto.component(NInfoFieldLink.name, NInfoFieldLink);
+
 import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";
 kyoto.component(KyoLayoutMainmenu.name, KyoLayoutMainmenu);
 
@@ -39,6 +66,9 @@ kyoto.component(KyoWebsite.name, KyoWebsite);
 
 import KyoWebsiteNode from "./website/KyoWebsiteNode";
 kyoto.component(KyoWebsiteNode.name, KyoWebsiteNode);
+
+import KyoWysiwyg from "./wysiwyg/KyoWysiwyg";
+kyoto.component(KyoWysiwyg.name, KyoWysiwyg);
 
 import KyoDashboard from "./pages/dashboard/KyoDashboard";
 kyoto.component(KyoDashboard.name, KyoDashboard);
@@ -75,7 +105,6 @@ Dom.ready(function () {
     Arr.each(kyoto.waiters, (callback) => {
         callback(App);
     });
-
 
     let routes = [];
 
@@ -120,7 +149,8 @@ Dom.ready(function () {
     });
 
     nano.Icons = Obj.assign(nano.Icons, {
-        copy: 'fa fa-copy'
+        copy: 'fa fa-copy',
+        search: 'fa fa-search'
     });
 
     App.use(AppRouter);

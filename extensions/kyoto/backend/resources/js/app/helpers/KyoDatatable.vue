@@ -5,7 +5,7 @@
             <slot name="default"></slot>
         </NTable>
 
-        <n-info v-if="$slots.info && KyoIndex.current" ref="info" :item="KyoIndex.current">
+        <n-info v-show="$slots.info && KyoIndex.current" ref="info" :item="KyoIndex.current">
             <slot name="info"></slot>
         </n-info>
 

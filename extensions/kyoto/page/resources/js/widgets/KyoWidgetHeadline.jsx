@@ -116,7 +116,24 @@ export default {
         return (
             <div class={classList}>
                 { this.ctor('renderHeader')() }
-                <textarea ref="textarea" type="text" rows="1" style={style} {...props} />
+                <div class="grid grid--row grid--5" style="margin-top: -10px; margin-bottom: 20px;">
+                    <div class="col--flex-0-0">
+                        <NButton size="sm" type="wysiwyg" icon="fa fa-bold">
+                            Bold
+                        </NButton>
+                    </div>
+                    <div class="col--flex-0-0">
+                        <NButton size="sm" type="wysiwyg" icon="fa fa-italic">
+                            Italic
+                        </NButton>
+                    </div>
+                    <div class="col--flex-0-0">
+                        <NButton size="sm" type="wysiwyg" icon="fa fa-underline">
+                            Underline
+                        </NButton>
+                    </div>
+                </div>
+                <textarea ref="textarea" rows="1" style={style} {...props} />
             </div>
         )
     }

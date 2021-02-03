@@ -1,0 +1,29 @@
+@import "../vars";
+
+.kyo-squire,
+.kyo-squire p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.kyo-squire h1,
+.kyo-squire h2,
+.kyo-squire h3,
+.kyo-squire h4,
+.kyo-squire h5,
+.kyo-squire h6,
+.kyo-squire p {
+    margin-bottom: 15px;
+}
+
+.kyo-squire .text-left {
+    text-align: left;
+}
+
+.kyo-squire .text-center {
+    text-align: center;
+}
+
+.kyo-squire .text-right {
+    text-align: right;
+}

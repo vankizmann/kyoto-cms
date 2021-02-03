@@ -1,0 +1,24 @@
+@import "~@kyoto/sass/vars";
+
+.kyo-widget-wysiwyg textarea {
+    appearance: none;
+    resize: none;
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.6;
+    border: 0;
+    color: $color-gray-90;
+    background: transparent;
+}
+
+
+.n-button--wysiwyg {
+    cursor: default;
+    color: $color-gray-70;
+    background: rgba($color-gray-50, 0.15);
+}
+
+.n-button--wysiwyg:hover {
+    background: rgba($color-gray-50, 0.25);
+}

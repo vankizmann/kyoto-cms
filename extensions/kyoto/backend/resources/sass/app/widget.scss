@@ -1,6 +1,7 @@
 @import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-widgets {
+    position: relative;
     display: flex;
     flex-direction: column;
     border-top: 1px solid $color-gray-10;
@@ -17,18 +18,64 @@
     // box-shadow: 2px 0 10px rgba($color-shadow, 0.1);
 }
 
-.kyo-widgets__widget {
+
+.kyo-widgets-widget {
+    position: relative;
     order: 2;
     flex: 0 0 auto;
     width: 360px;
-    background: $color-gray-10;
+    background: $color-background;
+    //background: $color-gray-10;
     //border-left: 1px solid $color-gray-10;
 }
 
-.kyo-widgets__builder {
-    order: 1;
-    flex: 1 1 auto;
-    background: $color-background;
+.kyo-widgets-widget__search {
+    z-index: 10;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    border-radius: $md-radius;
+    background: $color-black;
+    box-shadow: 0 1px 4px rgba($color-shadow, 0.1);
+}
+
+.kyo-widgets-widget__search i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: -15px;
+    text-align: center;
+    border-radius: $md-radius;
+    color: $color-gray-70;
+    background: $color-dark;
+}
+
+.kyo-widgets-widget__search input {
+    appearance: none;
+    border: 0;
+    height: 50px;
+    line-height: 30px;
+    padding: 10px 50px 10px 20px;
+    background: transparent;
+    color: $color-white;
+}
+
+.kyo-widgets-widget .n-draglist {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.kyo-widgets-widget .n-draglist .n-scrollbar__wrap {
+    padding-top: 80px;
 }
 
 .kyo-widgets__extra {
@@ -39,11 +86,18 @@
     border-left: 1px solid $color-gray-10;
 }
 
-.kyo-widgets__builder .n-scrollbar__wrap {
+.kyo-widgets-builder {
+    order: 1;
+    flex: 1 1 auto;
+    border-right: 1px solid $color-gray-10;
+    background: $color-white;
+}
+
+.kyo-widgets-builder .n-scrollbar__wrap {
     //padding: 20px;
 }
 
-.kyo-widgets__builder .n-virtualscroller__inner {
+.kyo-widgets-builder .n-virtualscroller__inner {
     overflow: hidden;
     padding: 20px 0;
     //background: $color-white;
@@ -51,26 +105,29 @@
     //box-shadow: 0 1px 8px rgba($color-shadow, 0.1);
 }
 
-//.kyo-widgets__builder .n-virtualscroller__item {
+//.kyo-widgets-builder .n-virtualscroller__item {
 //    padding: 5px;
 //}
 
-.kyo-widgets__builder .n-draglist-item {
+.kyo-widgets-builder .n-draglist-item {
+    max-width: 800px;
+    margin: 0 auto;
     //border-radius: $lg-radius;
     //border-bottom: 1px solid $color-gray-10;
     //box-shadow: 0 1px 4px rgba($color-shadow, 0.1);
 }
 
-.kyo-widgets__builder .n-draglist-item .n-draglist-item__handle {
+.kyo-widgets-builder .n-draglist-item .n-draglist-item__handle {
+    cursor: move;
     padding: 15px 0;
     width: 30px;
     align-items: flex-start;
-    background: $color-white;
-    border-bottom: 1px solid $color-gray-10;
+    //background: $color-white;
+    //border-bottom: 1px solid $color-gray-10;
     //background: linear-gradient(-70deg, $color-black, $color-dark-light);
 }
 
-.kyo-widgets__builder .n-draglist-item .n-draglist-item__ellipsis {
+.kyo-widgets-builder .n-draglist-item .n-draglist-item__ellipsis {
     color: $color-gray-70;
 }
 
@@ -79,16 +136,30 @@
 }
 
 .kyo-widget-item {
-    margin: 8px;
-    padding: 8px;
-    background: $color-background;
+    margin: 0 15px 10px;
+    padding: 15px 25px;
+    border-radius: $md-radius;
+    background: $color-white;
+    border-left: 3px solid mix($color-primary, $color-white, 80%);
+    box-shadow: 0 1px 3px rgba($color-shadow, 0.2);
+}
+
+.kyo-widget-item h4 {
+    font-size: 14px;
+}
+
+.kyo-widget-item p {
+    color: $color-gray-60;
+    font-size: 12px;
+}
+
+.kyo-widget-builder {
+
 }
 
 .kyo-builder-item {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 25px 30px;
-    border-bottom: 1px solid $color-gray-10;
+    //border-bottom: 1px solid $color-gray-10;
 }
 
 .kyo-widgets-builder-item__body {

@@ -13,6 +13,9 @@ global.axios = Axios;
 const moment = require('moment/dist/moment');
 global.moment = moment;
 
+const DOMPurify = require('dompurify');
+global.DOMPurify = DOMPurify;
+
 import { Pico } from "@kizmann/pico-js";
 global.pi = Pico;
 

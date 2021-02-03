@@ -1,0 +1,95 @@
+@import "~@kyoto/sass/vars";
+
+.kyo-pagebuilder-widgets {
+    position: relative;
+    order: 2;
+    flex: 0 0 auto;
+    width: 360px;
+    background: $color-gray-05;
+}
+
+.kyo-pagebuilder-widgets .n-draglist {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.kyo-pagebuilder-widgets .n-draglist .n-scrollbar__wrap {
+    padding-top: 80px;
+}
+
+.kyo-pagebuilder-widgets__header {
+    z-index: 10;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+    border-radius: $md-radius;
+    background: $color-black;
+    box-shadow: 0 1px 4px rgba($color-shadow, 0.1);
+}
+
+.kyo-pagebuilder-widgets__icon {
+    order: 2;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 10px 10px 10px 0;
+    background: $color-dark;
+    border-radius: $md-radius;
+}
+
+.kyo-pagebuilder-widgets__icon i {
+    font-size: 12px;
+    color: $color-gray-70;
+}
+
+.kyo-pagebuilder-widgets__input {
+    order: 1;
+    flex: 1 1 auto;
+}
+
+.kyo-pagebuilder-widgets__input input {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 30px;
+    border: 0;
+    padding: 10px 10px 10px 20px;
+    background: transparent;
+    color: $color-white;
+}
+
+.kyo-widgets__wrap {
+    padding: 15px 30px;
+}
+
+.kyo-pagebuilder-widgets__item {
+    margin: 0 15px 10px;
+    padding: 15px 25px;
+    border-radius: $md-radius;
+    background: $color-white;
+    border-left: 3px solid mix($color-primary, $color-white, 80%);
+    box-shadow: 0 1px 3px rgba($color-shadow, 0.2);
+}
+
+.kyo-pagebuilder-widgets__item h4 {
+    font-size: 14px;
+}
+
+.kyo-pagebuilder-widgets__item p {
+    color: $color-gray-60;
+    font-size: 12px;
+}

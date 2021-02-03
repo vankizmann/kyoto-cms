@@ -6,7 +6,7 @@ $--grid-steps: (
 ) !default;
 
 $--grid-gutters: (
-    10px, 15px, 20px, 30px, 40px, 60px
+    5px, 10px, 15px, 20px, 30px, 40px, 60px
 ) !default;
 
 @mixin grid-container($suffix: '') {

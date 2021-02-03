@@ -1,6 +1,7 @@
 @import "~@kizmann/nano-ui/nano/root/vars";
 
 .kyo-layout-website {
+    overflow: hidden;
     position: absolute !important;
     top: 0;
     bottom: 0;
@@ -23,6 +24,7 @@
     width: 100%;
     padding: 15px 30px 15px 60px;
     border-bottom: 1px solid $color-gray-10;
+    box-shadow: 0 0 3px rgba($color-shadow, 0.2);
 }
 
 .kyo-layout-website__header i {

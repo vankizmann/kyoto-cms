@@ -1,4 +1,6 @@
+@import "./builder/pagebuilder";
+@import "./builder/pagebuilder-widgets";
+@import "./builder/pagebuilder-builders";
 @import "./helpers/widget-options";
-
-@import "./widgets/headline";
-@import "./widgets/wysiwyg";
+@import "./widgets/widget-headline";
+@import "./widgets/widget-wysiwyg";

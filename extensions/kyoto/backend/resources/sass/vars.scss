@@ -40,7 +40,7 @@ $color-gray-90:         mix($color-darkmix, $color-lightmix, 0.90 * 100%);
 $color-gray-95:         mix($color-darkmix, $color-lightmix, 0.95 * 100%);
 
 $color-primary:         #4e7bff;
-$color-secondary:       #6e68e6;
+$color-secondary:       $color-gray-40;
 
 $color-success:         #3ed786;
 $color-warning:         #ffac2f;
@@ -183,4 +183,5 @@ $colors: (
     ),
 ) !default;
 
-@import "~@kizmann/nano-ui/nano/index.scss";
+
+@import "~@kizmann/nano-ui/nano/root/vars";

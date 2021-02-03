@@ -6,10 +6,6 @@ export default {
 
     props: {
 
-        item: {
-            required: true
-        },
-
         width: {
             default()
             {
@@ -26,7 +22,7 @@ export default {
             default: undefined
         },
 
-        KyoPageBuilder: {
+        KyoPagebuilder: {
             default: undefined
         },
 
@@ -40,7 +36,7 @@ export default {
 
         widget()
         {
-            return Obj.get(this.KyoPageBuilder.widgets,
+            return Obj.get(this.KyoPagebuilder.widgets,
                 this.KyoWidget.item.type);
         },
 

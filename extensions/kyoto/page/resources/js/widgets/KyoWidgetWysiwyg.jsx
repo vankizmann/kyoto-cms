@@ -7,35 +7,12 @@ export default {
 
     extends: KyoWidget,
 
-    data()
-    {
-        return { height: 0 };
-    },
-
-    mounted()
-    {
-        this.getHeight();
-    },
-
     methods: {
 
-        onResize()
+        onInput(value)
         {
-            this.getHeight();
+            this.data.title = value;
         },
-
-        onInput(event)
-        {
-            this.data.title = event.target.value;
-
-            this.getHeight();
-        },
-
-        getHeight()
-        {
-            this.height = Dom.find(this.$refs.textarea)
-                .actual(el => el.scrollHeight);
-        }
 
     },
 
@@ -46,21 +23,13 @@ export default {
         ];
 
         let props = {
-            value: this.data.title,
             placeholder: this.trans('Enter your text'),
-            onInput: this.onInput
         };
-
-        let style = {};
-
-        if ( this.height ) {
-            style.height = this.height + 'px';
-        }
 
         return (
             <div class={classList}>
-                <KyoWidgetTitlebar></KyoWidgetTitlebar>
-                <textarea ref="textarea" rows="2" style={style} {...props} />
+                <KyoWidgetTitlebar />
+                <KyoWysiwyg vModel={this.data.title} {...props} />
             </div>
         )
     }

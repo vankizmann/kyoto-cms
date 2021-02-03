@@ -13,6 +13,7 @@ let config = {
                 test: /.jsx?$/,
                 include: [
                     path.resolve('resources/js'),
+                    path.resolve('node_modules/@kizmann/nano-ui/src'),
                 ],
                 loader: 'babel-loader',
                 options: {
@@ -41,9 +42,9 @@ let config = {
     },
     resolve: {
         alias: {
-            '@src': path.resolve(__dirname, 'resources'),
-            '@kizmann/pico-js': '@kizmann/pico-js/dist/pico-js.esm.js',
-            '@kizmann/nano-ui': '@kizmann/nano-ui/dist/nano-ui.esm.js'
+            '@kyoto': path.resolve(__dirname, 'resources'),
+            '@kizmann/pico-js$': '@kizmann/pico-js/dist/pico-js.js',
+            '@kizmann/nano-ui$': '@kizmann/nano-ui/dist/nano-ui.js'
         },
         extensions: [
             '.js', '.jsx', '.vue'
@@ -72,7 +73,7 @@ let style = {
     },
     resolve: {
         alias: {
-            '@src': path.resolve(__dirname, 'resources')
+            '@kyoto': path.resolve(__dirname, 'resources')
         },
         extensions: ['.scss', '.css']
     },

@@ -9,43 +9,63 @@
     flex: 1 0 auto;
 }
 
-.kyo-datagrid .n-draggrid .n-draggrid-item.n-current {
-    background-color: rgba($color-gray-50, 0.1);
-}
-
-.kyo-datagrid .n-draggrid .n-draggrid-item.n-selected {
-    border-color: $color-primary;
-}
-
-.kyo-datagrid .n-draggrid .n-draggrid-item.n-dragover {
-    background-color: rgba($color-gray-50, 0.2);
-}
-
-.kyo-datagrid .n-draggrid .n-draggrid-item.n-nodrop {
-    background-color: rgba($color-danger, 0.2);
-}
-
 .kyo-datagrid .n-draggrid .n-draggrid-item.n-selected.n-nodrop {
-    border-color: $color-danger;
+    background: transparent;
 }
+
+//.kyo-datagrid .n-draggrid .n-draggrid-item.n-selected {
+//    border-color: $color-primary;
+//}
+//
+//.kyo-datagrid .n-draggrid .n-draggrid-item.n-dragover {
+//    background-color: rgba($color-gray-50, 0.2);
+//}
+//
+//.kyo-datagrid .n-draggrid .n-draggrid-item.n-nodrop {
+//    background-color: rgba($color-danger, 0.2);
+//}
+//
+//.kyo-datagrid .n-draggrid .n-draggrid-item.n-selected.n-nodrop {
+//    border-color: $color-danger;
+//}
 
 .kyo-datagrid .n-draggrid .n-scrollbar__wrap {
     padding: 15px 25px;
 }
 
 .kyo-datagrid .n-draggrid .n-virtualscroller__item {
-    padding: 5px;
+    padding: 10px;
 }
 
 .kyo-datagrid .n-draggrid .n-draggrid-item {
     overflow: hidden;
-    border-radius: $lg-radius;
-    border: 2px solid transparent;
+    //border-radius: $md-radius;
+    //border: 2px solid transparent;
 }
 
-.kyo-datagrid .n-draggrid .n-draggrid-item .n-draggrid-item__select {
-    order: 200;
-    margin: 0 auto 10px;
+.kyo-datagrid .n-draggrid .n-draggrid-item__select {
+    order: 10;
+    z-index: 20;
+    position: absolute;
+    top: 15px;
+    right: 17px;
+    width: 28px;
+    height: 28px;
+    opacity: 0;
+    //margin: -7px auto 7px;
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item:hover .n-draggrid-item__select,
+.kyo-datagrid .n-draggrid .n-draggrid-item.n-selected .n-draggrid-item__select {
+    opacity: 1;
+}
+
+.kyo-datagrid .n-draggrid .n-draggrid-item__checkbox {
+    border-color: rgba($color-gray-25, 0.50);
+    background: rgba($color-white, 0.40);
+    width: 20px;
+    height: 20px;
+    border-radius: 500px;
 }
 
 .kyo-datagrid .n-paginator {

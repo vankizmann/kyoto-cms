@@ -13,8 +13,14 @@ kyoto.component(KyoPageEdit.name, KyoPageEdit);
 import KyoWidgetOptions from "./helpers/KyoWidgetOptions";
 kyoto.component(KyoWidgetOptions.name, KyoWidgetOptions);
 
-import KyoPageBuilder from "./builder/KyoPageBuilder";
-kyoto.component(KyoPageBuilder.name, KyoPageBuilder);
+import KyoPagebuilder from "./builder/KyoPagebuilder";
+kyoto.component(KyoPagebuilder.name, KyoPagebuilder);
+
+import KyoPagebuilderWidgets from "./builder/KyoPagebuilderWidgets";
+kyoto.component(KyoPagebuilderWidgets.name, KyoPagebuilderWidgets);
+
+import KyoPagebuilderBuilders from "./builder/KyoPagebuilderBuilders";
+kyoto.component(KyoPagebuilderBuilders.name, KyoPagebuilderBuilders);
 
 import KyoWidgetHeadline from "./widgets/KyoWidgetHeadline";
 kyoto.component(KyoWidgetHeadline.name, KyoWidgetHeadline);

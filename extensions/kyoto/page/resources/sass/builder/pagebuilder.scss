@@ -1,0 +1,27 @@
+@import "~@kyoto/sass/vars";
+
+.kyo-pagebuilder {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+    border-top: 1px solid $color-gray-10;
+}
+
+.kyo-pagebuilder .kyo-pagebuilder-widgets,
+.kyo-pagebuilder .kyo-pagebuilder-builders,
+.kyo-pagebuilder .kyo-pagebuilder-extras {
+    box-shadow: inset 0 3px 3px -3px rgba($color-shadow, 0.2);
+}
+
+.kyo-pagebuilder-extras {
+    order: 3;
+    flex: 0 0 auto;
+    width: 400px;
+    border-left: 1px solid $color-gray-10;
+}
+
+.kyo-pagebuilder-extras__wrap {
+    padding: 15px 30px;
+}

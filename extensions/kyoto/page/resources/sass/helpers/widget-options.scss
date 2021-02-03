@@ -6,7 +6,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin: -5px 0 10px;
+    margin: -10px 0 20px;
 }
 
 .kyo-widget-options .n-button:not(.n-disabled) {
@@ -33,12 +33,12 @@
 
 .kyo-widget-options__title .n-button {
     padding: 0 10px;
-    height: 26px;
+    height: 24px;
     border-radius: $md-radius;
 }
 
 .kyo-widget-options__title .n-button--default {
-    color: $color-gray-60;
+    color: $color-primary;
 }
 
 .kyo-builder-item.is-hidden .kyo-widget-options__title .n-button--default {
@@ -46,7 +46,7 @@
 }
 
 .kyo-widget-options__title .n-button--default:not(.n-disabled) {
-    background: rgba($color-gray-50, 0.15);
+    background: rgba($color-primary, 0.15);
 }
 
 .kyo-builder-item.is-hidden .kyo-widget-options__title .n-button--default:not(.n-disabled) {

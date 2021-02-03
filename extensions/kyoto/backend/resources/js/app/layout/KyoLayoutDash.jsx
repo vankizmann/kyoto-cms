@@ -164,7 +164,7 @@ export default {
             }
 
             let isInput = Dom.find(event.target)
-                .closest('input,textarea,select');
+                .closest('input,textarea,select,[contenteditable]');
 
             if ( isInput ) {
                 return;

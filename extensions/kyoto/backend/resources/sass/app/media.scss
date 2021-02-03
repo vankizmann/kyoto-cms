@@ -149,9 +149,18 @@
 }
 
 .kyo-media-grid-item__image {
+    overflow: hidden;
     position: relative;
     flex: 0 0 auto;
-    background: $color-gray-15;
+    background: $color-gray-10;
+}
+
+.n-draggrid-item.n-selected .kyo-media-grid-item__image {
+    background: $color-primary;
+}
+
+.n-draggrid-item.n-selected .kyo-media-grid-item__image img {
+    opacity: 0.5;
 }
 
 .kyo-media-grid-item__image:before {
@@ -159,7 +168,7 @@
     display: block;
     width: 100%;
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 80%;
 }
 
 .kyo-media-list-item__image img,
@@ -176,6 +185,7 @@
 .kyo-media-grid-item__icon {
     position: relative;
     flex: 0 0 auto;
+    background: $color-background;
 }
 
 .kyo-media-grid-item__icon:before {
@@ -183,7 +193,7 @@
     display: block;
     width: 100%;
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 80%;
     background-size: 80% 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -213,7 +223,7 @@
 .kyo-media-grid-item__title {
     overflow: hidden;
     flex: 0 0 auto;
-    padding: 10px 10px 0;
+    padding: 7px 10px 0;
     text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -222,7 +232,7 @@
 .kyo-media-grid-item__meta {
     overflow: hidden;
     flex: 0 0 auto;
-    padding: 0 10px 5px;
+    padding: 0 10px 10px;
     font-size: 12px;
     text-align: center;
     white-space: nowrap;
