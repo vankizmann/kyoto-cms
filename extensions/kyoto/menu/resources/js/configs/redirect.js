@@ -1,7 +1,7 @@
 pi.Data.set('kyoto/menu::redirect', {
     'NFormGroup:00': {
-        props: {
-            legend: pi.Locale.trans('Redirect'),
+        $props: {
+            label: pi.Locale.trans('Redirect'),
             icon: 'fa fa-directions'
         },
         content: {
@@ -12,7 +12,7 @@ pi.Data.set('kyoto/menu::redirect', {
                         class: 'col--1-1 col--1-2@sm',
                         content: {
                             'NFormItem:00': {
-                                props: {
+                                $props: {
                                     label: pi.Locale.trans('URL')
                                 },
                                 content: {
@@ -29,7 +29,7 @@ pi.Data.set('kyoto/menu::redirect', {
                         class: 'col--1-1 col--1-2@sm',
                         content: {
                             'NFormItem:00': {
-                                props: {
+                                $props: {
                                     label: pi.Locale.trans('Menu')
                                 },
                                 content: {

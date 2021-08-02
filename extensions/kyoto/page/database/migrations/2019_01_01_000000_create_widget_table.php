@@ -13,6 +13,9 @@ class CreateWidgetTable extends Migration
             $table->uuid('id')
                 ->primary();
 
+            $table->uuid('source_id')
+                ->nullable();
+
             $table->integer('state')
                 ->default(1);
 

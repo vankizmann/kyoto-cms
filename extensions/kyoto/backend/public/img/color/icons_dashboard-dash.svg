@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.5;fill:#95ABBF;enable-background:new    ;}
+	.st1{fill:#F44257;}
+	.st2{fill:#4D90F4;}
+	.st3{fill:#CC213E;}
+	.st4{fill:#FFAC2F;}
+	.st5{display:none;}
+	.st6{display:inline;opacity:0;fill:#3B80FF;}
+	.st7{display:inline;opacity:0.25;fill:#3B80FF;}
+	.st8{display:inline;fill:#3B80FF;}
+	.st9{display:inline;}
+	.st10{fill:#3B80FF;}
+	.st11{fill:#FFFFFF;}
+	.st12{fill:#1765F5;}
+	.st13{display:none;fill:#FFFFFF;}
+	.st14{opacity:0;}
+	.st15{opacity:0.25;}
+	.st16{display:none;fill:#EA9126;}
+	.st17{fill:#ED9726;}
+	.st18{fill:#35495F;}
+	.st19{fill:#3EBA70;}
+	.st20{opacity:0.5;fill:#B9C0C9;enable-background:new    ;}
+	.st21{fill:#C9791B;}
+</style>
+<g id="Dashboard">
+	<rect class="st14" width="500" height="500"/>
+	<circle class="st15" cx="252.1806" cy="249" r="188.9569"/>
+	<path d="M251.333,450.667c-53.8673,0-104.51-20.9771-142.5998-59.0668S49.666,302.8673,49.666,249
+		s20.9775-104.5104,59.0672-142.6002S197.4657,47.333,251.333,47.333s104.5108,20.9771,142.6006,59.0668S453,195.1327,453,249
+		s-20.9766,104.5104-59.0664,142.6002S305.2003,450.667,251.333,450.667z M251.333,72.7532
+		c-97.1826,0-176.2468,79.0641-176.2468,176.2468s79.0641,176.2468,176.2468,176.2468S427.5798,346.1826,427.5798,249
+		S348.5157,72.7532,251.333,72.7532z"/>
+	<path d="M123.3846,261.7101c-7.0195,0-12.7101-5.6906-12.7101-12.7101c0-77.5594,63.0987-140.6585,140.6585-140.6585
+		c22.0449,0,43.1573,4.9599,62.752,14.742c6.2806,3.1353,8.83,10.7684,5.6947,17.049c-3.1353,6.2802-10.7688,8.8305-17.0494,5.6943
+		c-16.0366-8.0059-33.3293-12.0651-51.3973-12.0651c-63.5423,0-115.2383,51.6956-115.2383,115.2383
+		C136.0947,256.0195,130.4041,261.7101,123.3846,261.7101z"/>
+	<circle cx="251.3333" cy="301.5351" r="37.283"/>
+	<path d="M241.9557,294.6781l20.4739,12.7438l91.5427-140.024c3.5189-5.6537,1.7885-13.0898-3.8651-16.6089
+		c-5.6538-3.5191-13.09-1.7886-16.6092,3.8651L241.9557,294.6781z"/>
+</g>
+</svg>

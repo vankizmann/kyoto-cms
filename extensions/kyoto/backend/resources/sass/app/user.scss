@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-userpanel {
 
@@ -21,14 +21,18 @@
     height: 10px;
     background: $color-danger;
     border-radius: 500px;
-    border: 2px solid $color-black;
+    border: 2px solid $color-background;
 }
 
 .n-popover--user .n-popover__frame {
     margin-top: 15px;
     background: $color-white;
-    border-radius: $lg-radius;
+    border-radius: $md-radius;
     box-shadow: 0 1px 10px rgba($color-shadow, 0.1);
+}
+
+.n-popover--user .n-popover__body {
+    padding: 0 !important;
 }
 
 

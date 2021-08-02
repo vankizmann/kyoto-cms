@@ -1,8 +1,16 @@
-import { Arr, Obj, Any } from "@kizmann/pico-js";
+import { Arr, Obj, Any, Event } from "@kizmann/pico-js";
 
 export default {
 
     name: 'KyoIndex',
+
+    inject: {
+
+        NModal: {
+            default: undefined
+        }
+
+    },
 
     localized: false,
 
@@ -14,10 +22,20 @@ export default {
         delete: null
     },
 
-
     stored: [
         //
     ],
+
+    props: {
+
+        id: {
+            default()
+            {
+                return null;
+            }
+        }
+
+    },
 
     defaults()
     {
@@ -55,8 +73,12 @@ export default {
 
     watch: {
 
+        'id': function () {
+            this.loadItem();
+        },
+
         '$route.path': function () {
-            this.loadItem(this.$route);
+            this.loadItem();
         }
 
     },
@@ -69,7 +91,7 @@ export default {
     mounted()
     {
         if ( this.ctor('localized', false) ) {
-            pi.Event.bind('locale:changed', this.loadItem, this._uid);
+            Event.bind('locale:changed', this.loadItem, this._.uid);
         }
 
         this.loadItem();
@@ -77,7 +99,7 @@ export default {
 
     unmounted()
     {
-        pi.Event.unbind('locale:changed', this._uid);
+        Event.unbind('locale:changed', this._.uid);
     },
 
     methods: {
@@ -107,7 +129,7 @@ export default {
         /**
          * Fetch items from server
          */
-        loadItem(nextRoute)
+        loadItem()
         {
             let options = {
                 onLoad: () => this.load = true,
@@ -116,12 +138,12 @@ export default {
 
             let query = {};
 
-            if ( pi.Obj.has(this.$route, 'params.id') ) {
-                query.id = pi.Obj.get(this.$route, 'params.id');
+            if ( Obj.has(this.$route, 'params.id') ) {
+                query.id = Obj.get(this.$route, 'params.id');
             }
 
-            if ( pi.Obj.has(nextRoute, 'params.id') ) {
-                query.id = pi.Obj.get(nextRoute, 'params.id');
+            if ( ! Any.isEmpty(this.id) ) {
+                query.id = this.id;
             }
 
             let route = this.Route.get(this.ctor('urls.show'),
@@ -145,7 +167,7 @@ export default {
             let route = this.Route.get(this.ctor('urls.update'),
                 this.$root.$data, query);
 
-            let data = pi.Obj.assign({}, this.result,
+            let data = Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -167,7 +189,7 @@ export default {
                 this.$root.$data, query);
 
 
-            let data = pi.Obj.assign({}, this.result,
+            let data = Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -185,7 +207,7 @@ export default {
                 this.$root.$data);
 
 
-            let data = pi.Obj.assign({}, this.result,
+            let data = Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -202,7 +224,7 @@ export default {
             let route = this.Route.get(this.ctor('urls.store'),
                 this.$root.$data);
 
-            let data = pi.Obj.assign({}, this.result,
+            let data = Obj.assign({}, this.result,
                 this.override);
 
             this.$http.post(route, data, options)
@@ -250,7 +272,7 @@ export default {
         fetchDoneSave(res)
         {
             if ( this.ctor('refresh', false) ) {
-                pi.Event.fire('website:refresh');
+                Event.fire('website:refresh');
             }
 
             this.result = Obj.get(res.data, 'data', {});
@@ -261,7 +283,7 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
 
             if ( this.ctor('refresh', false) ) {
-                pi.Event.fire('website:refresh');
+                Event.fire('website:refresh');
             }
 
             this.gotoEdit(res.data);
@@ -272,7 +294,11 @@ export default {
             this.result = Obj.get(res.data, 'data', {});
 
             if ( this.ctor('refresh', false) ) {
-                pi.Event.fire('website:refresh');
+                Event.fire('website:refresh');
+            }
+
+            if ( this.NModal ) {
+                return this.NModal.closeModal();
             }
 
             this.gotoIndex(res.data);

@@ -99,6 +99,8 @@ export default {
 
         let props = {
             group: ['page', 'transaction'],
+            handle: true,
+            renderHandle: true,
             onRowDblclick: this.gotoEdit
         }
 

@@ -22,7 +22,7 @@ class WidgetLocale extends Model
     protected $casts = [
         'id'            => 'string',
         'locale'        => 'string',
-        'data'          => 'string'
+        'data'          => 'array'
     ];
 
 }

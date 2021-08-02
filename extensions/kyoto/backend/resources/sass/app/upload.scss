@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .n-modal.n-modal--upload .n-modal__wrap {
     padding: 0 0 15px 0;
@@ -6,7 +6,7 @@
 
 .n-modal.n-modal--upload .n-modal__frame {
     overflow: hidden;
-    background: $color-dark;
+    background: $color-black;
     border-radius: $lg-radius;
 }
 

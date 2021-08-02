@@ -1,4 +1,4 @@
-import { Arr, Obj } from "@kizmann/pico-js";
+import { Arr, Obj, Any, Event } from "@kizmann/pico-js";
 
 export default {
 
@@ -72,13 +72,13 @@ export default {
         this.loadItems();
 
         if ( this.ctor('localized', false) ) {
-            pi.Event.bind('locale:changed', this.loadItems, this._uid);
+            Event.bind('locale:changed', this.loadItems, this._.uid);
         }
     },
 
     unmounted()
     {
-        pi.Event.unbind('locale:changed', this._uid);
+        Event.unbind('locale:changed', this._.uid);
     },
 
     watch: {
@@ -199,7 +199,7 @@ export default {
          */
         moveItems(source, target, strategy)
         {
-            if ( pi.Any.isEmpty(target) ) {
+            if ( Any.isEmpty(target) ) {
                 return;
             }
 

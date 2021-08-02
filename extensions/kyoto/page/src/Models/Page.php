@@ -21,7 +21,7 @@ class Page extends \Kyoto\Support\Database\Model
     ];
 
     protected $appends = [
-        'transaction', 'images'
+        'transaction', 'images', 'widgets'
     ];
 
     protected $fields = [
@@ -29,7 +29,7 @@ class Page extends \Kyoto\Support\Database\Model
     ];
 
     protected $localized = [
-        'title', 'slug', 'content', 'builder'
+        'title', 'slug', 'content'
     ];
 
     protected $attributes = [
@@ -39,7 +39,6 @@ class Page extends \Kyoto\Support\Database\Model
         'title'         => null,
         'slug'          => null,
         'content'       => null,
-        'builder'       => null
     ];
 
     protected $casts = [
@@ -49,7 +48,6 @@ class Page extends \Kyoto\Support\Database\Model
         'title'         => 'string',
         'slug'          => 'string',
         'content'       => 'string',
-        'builder'       => 'array'
     ];
 
     protected $with = [
@@ -58,29 +56,44 @@ class Page extends \Kyoto\Support\Database\Model
 
     protected $images = [];
 
+    protected $widgets = [];
+
     protected static function boot()
     {
         static::saving(function ($model) {
+
             if ( $model->isBaseLocale() && empty($model->slug) ) {
                 $model->setSlugAttribute($model->title);
             }
+
         });
 
         static::saved(function ($model) {
+
+            if ( Kyoto::isReady() ) {
+                app('kyoto.widget')->saveWidgets($model->id, $model->widgets);
+            }
+
+            if ( Kyoto::isReady() ) {
+                app('kyoto.media')->saveMediaLinks($model->id, $model->images);
+            }
 
             Kyoto::localized(null, function () use ($model) {
                 KyotoConnector::find('kyoto/page::page')->syncronize($model);
             });
 
-            if ( Kyoto::isReady() ) {
-                app('kyoto.media')->saveMediaLinks($model->id, $model->images);
-            }
         });
 
         static::deleted(function ($model) {
+
+            if ( Kyoto::isReady() ) {
+                app('kyoto.widget')->deleteWidgets($model->id);
+            }
+
             if ( Kyoto::isReady() ) {
                 app('kyoto.media')->deleteMediaLinks($model->id);
             }
+
         });
 
         parent::boot();
@@ -90,6 +103,10 @@ class Page extends \Kyoto\Support\Database\Model
     {
         if ( isset($attributes['images']) ) {
             $this->setImagesAttribute($attributes['images']);
+        }
+
+        if ( isset($attributes['widgets']) ) {
+            $this->setWidgetsAttribute($attributes['widgets']);
         }
 
         return parent::fill($attributes);
@@ -120,6 +137,16 @@ class Page extends \Kyoto\Support\Database\Model
     public function setImagesAttribute($value)
     {
         $this->images = $value;
+    }
+
+    public function getWidgetsAttribute()
+    {
+        return app('kyoto.widget')->fetchWidgets($this->id);
+    }
+
+    public function setWidgetsAttribute($value)
+    {
+        $this->widgets = $value;
     }
 
 }

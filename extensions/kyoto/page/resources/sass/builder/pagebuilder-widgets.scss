@@ -5,7 +5,7 @@
     order: 2;
     flex: 0 0 auto;
     width: 360px;
-    background: $color-gray-05;
+    background: $color-background;
 }
 
 .kyo-pagebuilder-widgets .n-draglist {
@@ -33,7 +33,7 @@
     justify-content: stretch;
     border-radius: $md-radius;
     background: $color-black;
-    box-shadow: 0 1px 4px rgba($color-shadow, 0.1);
+    box-shadow: 0 0 4px 1px rgba($color-shadow, 0.1);
 }
 
 .kyo-pagebuilder-widgets__icon {
@@ -46,7 +46,7 @@
     width: 30px;
     height: 30px;
     margin: 10px 10px 10px 0;
-    background: $color-dark;
+    background: $color-black;
     border-radius: $md-radius;
 }
 

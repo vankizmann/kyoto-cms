@@ -1,3 +1,5 @@
+import { Arr, Obj, Any, Route, Event, UUID } from "@kizmann/pico-js";
+
 export default {
 
     name: 'KyoWebsite',
@@ -9,21 +11,21 @@ export default {
         };
 
         return {
-            query, result: [], search: '', load: true, modal: false
+            query, result: [], search: '', id: null, load: true, modal: false
         };
     },
 
     mounted()
     {
         this.loadItems();
-
-        pi.Event.bind('website:refresh', this.loadItems, this._.uid);
-        pi.Event.bind('locale:changed', this.loadItems, this._.uid);
+        Event.bind('website:refresh', () => this.loadItems(), this._.uid);
+        Event.bind('locale:changed', () => this.loadItems(), this._.uid);
     },
 
     beforeUnmount()
     {
-        pi.Event.unbind('locale:changed', this._.uid);
+        Event.unbind('website:refresh', this._.uid);
+        Event.unbind('locale:changed', this._.uid);
     },
 
     methods: {
@@ -76,7 +78,7 @@ export default {
                 onDone: () => this.load = false
             };
 
-            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/index',
+            let route = Route.get('/{locale}/kyoto/menu/http/controllers/menu/index',
                 this.$root.$data, this.query);
 
             this.$http.get(route, options)
@@ -93,11 +95,11 @@ export default {
                 onDone: () => this.load = false
             };
 
-            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
+            let route = Route.get('/{locale}/kyoto/menu/http/controllers/menu/move',
                 this.$root.$data);
 
-            sources = pi.Arr.each(sources, (source) => {
-                return pi.Obj.get(source, 'id');
+            sources = Arr.each(sources, (source) => {
+                return Obj.get(source, 'id');
             });
 
             let data = { source: sources, target, strategy };
@@ -115,7 +117,7 @@ export default {
 
             let data = { source: sources, target, strategy };
 
-            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/transaction',
+            let route = Route.get('/{locale}/kyoto/menu/http/controllers/menu/transaction',
                 this.$root.$data);
 
             this.$http.post(route, data, options)
@@ -154,7 +156,7 @@ export default {
                 ids: this.selected
             };
 
-            let route = this.Route.get('/{locale}/kyoto/menu/http/controllers/menu/delete',
+            let route = Route.get('/{locale}/kyoto/menu/http/controllers/menu/delete',
                 this.$root.$data);
 
             this.$http.post(route, query, options)
@@ -167,8 +169,8 @@ export default {
          */
         gotoEdit(row)
         {
-            if ( pi.Obj.has(row, 'connector.edit') ) {
-                this.$router.push(pi.Obj.get(row, 'connector.edit'));
+            if ( Obj.has(row, 'connector.edit') ) {
+                this.$router.push(Obj.get(row, 'connector.edit'));
             }
         },
 
@@ -180,19 +182,19 @@ export default {
         resetFormBuffer(item = {})
         {
             return {
-                title: pi.Obj.get(item, 'title', ''), slug: pi.Obj.get(item, 'slug', '')
+                title: Obj.get(item, 'title', ''), slug: Obj.get(item, 'slug', '')
             };
         },
 
         startTransaction(sources, target, strategy)
         {
-            let items = pi.Arr.map(sources, (source) => {
+            let items = Arr.map(sources, (source) => {
                 return source.item;
             });
 
-            target = pi.Obj.get(target, 'item.id');
+            target = Obj.get(target, 'item.id');
 
-            if ( pi.Arr.findIndex(items, { transaction: null }) !== -1 ) {
+            if ( Arr.findIndex(items, { transaction: null }) !== -1 ) {
                 return this.moveItems(sources, target, strategy);
             }
 
@@ -212,13 +214,49 @@ export default {
             <div class="kyo-layout-website__search">
                 <i class="fa fa-search"></i><input type="text" {...props} />
             </div>
-        )
+        );
+    },
+
+    renderAction()
+    {
+        let propsCreate = {
+            type: 'default',
+            size: 'sm',
+            square: true,
+            icon: 'fa fa-plus',
+            onClick: () => this.$router.push({ name: 'KyoMenuCreate' })
+        };
+
+        let propsRemove = {
+            type: 'default',
+            size: 'sm',
+            square: true,
+            icon: 'fa fa-minus',
+            onClick: () => this.$router.push({ name: 'KyoMenuCreate' })
+        };
+
+        let propsRefresh = {
+            type: 'default',
+            size: 'sm',
+            square: true,
+            icon: 'fa fa-sync',
+            onClick: () => this.loadItems()
+        };
+
+        return (
+            <div class="kyo-layout-website__action">
+                <NButton {...propsCreate} />
+                <NButton {...propsRemove} />
+                <div class="spacer"></div>
+                <NButton {...propsRefresh} />
+            </div>
+        );
     },
 
     renderModal()
     {
         return (
-            <NModal selector={false} vModel={this.modal}>
+            <NModal listen={false} vModel={this.modal}>
                 <template slot="header">
                     { this.trans('Attach item to menu') }
                 </template>
@@ -266,6 +304,7 @@ export default {
             <NLoader visible={this.load} class="kyo-layout-website">
                 <div class="kyo-layout-website__header">
                     { this.ctor('renderSearch')() }
+                    { this.ctor('renderAction')() }
                 </div>
                 <NDraglist class="kyo-layout-website__body" items={this.result} {...props}>
                     {

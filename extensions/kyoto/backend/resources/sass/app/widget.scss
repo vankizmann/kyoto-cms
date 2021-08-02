@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-widgets {
     position: relative;
@@ -53,7 +53,7 @@
     text-align: center;
     border-radius: $md-radius;
     color: $color-gray-70;
-    background: $color-dark;
+    background: $color-black;
 }
 
 .kyo-widgets-widget__search input {
@@ -124,7 +124,7 @@
     align-items: flex-start;
     //background: $color-white;
     //border-bottom: 1px solid $color-gray-10;
-    //background: linear-gradient(-70deg, $color-black, $color-dark-light);
+    //background: linear-gradient(-70deg, $color-black, $color-black-light);
 }
 
 .kyo-widgets-builder .n-draglist-item .n-draglist-item__ellipsis {

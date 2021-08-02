@@ -6,7 +6,8 @@ use Kyoto\Page\Models\Widget;
 use Kyoto\Page\Widgets\HeadlineWidget;
 use Kyoto\Page\Widgets\WysiwygWidget;
 
-class WidgetManager {
+class WidgetManager
+{
 
     public $loaded = [
         //
@@ -45,7 +46,6 @@ class WidgetManager {
         return $model;
     }
 
-
     public function onModelSaving($model)
     {
         foreach ( $this->loaded as $widget ) {
@@ -57,7 +57,6 @@ class WidgetManager {
         return $model;
     }
 
-
     public function onModelSaved($model)
     {
         foreach ( $this->loaded as $widget ) {
@@ -68,7 +67,6 @@ class WidgetManager {
 
         return $model;
     }
-
 
     public function onModelDeleting($model)
     {
@@ -93,11 +91,15 @@ class WidgetManager {
         return $model;
     }
 
-    public function getModelData($model, $data)
+    public function getModelData($model, $data = null)
     {
+        if ( is_string($data) ) {
+            $data = json_decode($data, true);
+        }
+
         foreach ( $this->loaded as $widget ) {
             if ( $widget->match($model) ) {
-               $data = $widget->prototype((array) $data);
+                $data = $widget->prototype($data ?: []);
             }
         }
 
@@ -117,6 +119,45 @@ class WidgetManager {
         }
 
         return $widgets;
+    }
+
+    public function saveWidgets($unique, $widgets = [])
+    {
+        foreach ( $widgets as $index => $widget ) {
+
+            $condition = [
+                'id' => $widget['id']
+            ];
+
+            $data = array_merge([
+                'sequence'  => $index,
+                'source_id' => $unique,
+            ], $widget);
+
+            Widget::firstOrNew($condition)->fill($data)->save();
+        }
+
+        return $this;
+    }
+
+    public function fetchWidgets($unique)
+    {
+        $results = [];
+
+        $widgets = Widget::where('source_id', $unique)
+            ->orderBy('sequence', 'asc')->get();
+
+        foreach ( $widgets as $widget ) {
+            $results[] = $widget;
+        }
+
+        return $results;
+    }
+
+    public function deleteWidgets($unique)
+    {
+        Widget::where('source_id', $unique)
+            ->orderBy('sequence', 'asc')->delete();
     }
 
 }

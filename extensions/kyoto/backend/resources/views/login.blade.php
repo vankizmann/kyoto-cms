@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
-    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap') !!}
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap') !!}
 
     {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}

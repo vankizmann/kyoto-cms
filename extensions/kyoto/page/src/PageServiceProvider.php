@@ -29,6 +29,9 @@ class PageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ( ! app('kyoto')->isReady() ) {
+            return;
+        }
 
         app('kyoto.widget')->getWidgets();
         //

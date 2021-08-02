@@ -76,6 +76,17 @@ class PageTableSeeder extends Seeder
         KyotoConnector::find('kyoto/page::page')
             ->transaction($menu, $imprint)->save();
 
+        for ($i = 0; $i < 100; $i++) {
+            Page::create([
+                'id'        => uuid(),
+                'state'     => 1,
+                'title'     => 'Test ' . $i,
+                'slug'      => 'test-' . $i,
+                'content'   => 'Hi im the test',
+                'guard_id'  => null,
+            ]);
+        }
+
         //$menu->makeFirstChildOf($footer);
 
         // foreach ( Menu::where('type', 'kyoto/page::page')->get() as $menu ) {

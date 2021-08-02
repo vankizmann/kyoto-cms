@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-layout-dash {
     overflow: hidden;
@@ -6,42 +6,43 @@
 }
 
 .kyo-layout-dash .n-button {
+    z-index: 10;
     position: absolute;
     top: 5px;
     right: 5px;
     width: 30px !important;
     height: 30px !important;
-    font-size: 10px;
+    font-size: 12px;
     color: $color-white;
-    background: $color-dark;
+    background: $color-black-light;
 }
 
 .kyo-layout-dash input {
     cursor: default;
     display: block;
     opacity: 0;
-    width: 200px;
+    width: 220px;
     max-width: 40px;
     height: 40px;
     border: 0;
     padding: 0 15px 0 15px;
-    border-radius: 3px;
+    border-radius: $md-radius;
     color: $color-white;
-    background: $color-dark;
+    background: $color-black-light;
     transition: max-width 0.15s, opacity 0.15s;
 }
 
 .kyo-layout-dash.is-focus input {
     opacity: 1;
-    max-width: 200px;
+    max-width: 220px;
 }
 
 .n-popover--dash {
     overflow: hidden;
     margin-top: 5px;
-    color: $color-white;
-    background: $color-black;
-    border-radius: $lg-radius;
+    color: $color-black;
+    background: $color-white;
+    border-radius: $md-radius;
     box-shadow: 0 1px 10px rgba($color-shadow, 0.1);
 }
 
@@ -53,7 +54,7 @@
 .kyo-layout-dash__empty {
     cursor: default;
     padding: 16px 30px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -64,20 +65,20 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: stretch;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .kyo-layout-dash__item:hover {
-    background: rgba($color-dark, 0.7);
+    background: $color-gray-05;
 }
 
 .kyo-layout-dash__item.is-focus {
-    background: rgba($color-dark, 1.0);
+    background: $color-gray-05;
 }
 
-//.kyo-layout-dash__item:not(:last-child) {
-//    border-bottom: 1px solid $color-dark-light;
-//}
+.kyo-layout-dash__item:not(:last-child) {
+    border-bottom: 1px solid $color-gray-10;
+}
 
 .kyo-layout-dash__type {
     width: 80px;
@@ -87,83 +88,36 @@
     justify-content: flex-end;
     padding: 0 13px 0 7px;
     text-align: right;
-    border-right: 1px solid rgba($color-gray-50, 0.1);
+    border-right: 1px solid $color-gray-15;
 }
 
 .kyo-layout-dash__type span {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 15px;
-    color: mix($color-primary, $color-white, 85%);
+    color: mix($color-primary, $color-gray-30, 75%);
 }
 
 .kyo-layout-dash__item[data-type="tree"] .kyo-layout-dash__type span {
-    color: mix($color-info, $color-white, 70%);
+    color: mix($color-info, $color-gray-30, 75%);
 }
 
 .kyo-layout-dash__item[data-type="locale"] .kyo-layout-dash__type span {
-    color: mix($color-success, $color-white, 70%);
+    color: mix($color-success, $color-gray-30, 75%);
 }
-
 
 .kyo-layout-dash__title {
     padding: 0 7px 0 13px;
 }
 
 .kyo-layout-dash__title h4 {
-    font-size: 13px;
-    line-height: 15px;
-    color: $color-white;
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-gray-95;
     font-weight: 500;
 }
 
 .kyo-layout-dash__title p {
     margin-top: 5px;
-    font-size: 11px;
-    color: $color-gray-70;
-}
-
-//.kyo-layout-dash__item:before {
-//    content: '\00a0';
-//    position: absolute;
-//    top: 50%;
-//    right: 15px;
-//    display: block;
-//    width: 30px;
-//    height: 30px;
-//    text-align: center;
-//    background-size: 22px 22px;
-//    background-position: center;
-//    background-repeat: no-repeat;
-//    transform: translateY(-50%);
-//    //border-radius: 16px;
-//    //background-color: $color-primary-lighter;
-//    //box-shadow: 2px 0 8px rgba($color-black, 0.1);
-//}
-
-[data-icon="kyoto/dash::dashboard"]:before {
-    background-image: svg-load('color/icons_dashboard.svg');
-}
-
-[data-icon="kyoto/dash::users"]:before {
-    background-image: svg-load('color/icons_user.svg');
-}
-
-[data-icon="kyoto/dash::pages"]:before {
-    background-image: svg-load('color/icons_page.svg');
-}
-
-[data-icon="kyoto/dash::languages"]:before {
-    background-image: svg-load('color/icons_language.svg');
-}
-
-[data-icon="kyoto/dash::packages"]:before {
-    background-image: svg-load('color/icons_system.svg');
-}
-
-[data-icon="kyoto/dash::menus"]:before {
-    background-image: svg-load('color/icons_menu.svg');
-}
-
-[data-icon="kyoto/dash::products"]:before {
-    background-image: svg-load('color/icons_product.svg');
+    font-size: 12px;
+    color: $color-gray-60;
 }

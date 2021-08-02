@@ -33,10 +33,10 @@ class MenuController extends \App\Http\Controllers\Controller
         $menu = new Menu;
 
         if ( ! empty($id) ) {
-            $menu = Menu::findOrFail($id);
+            $menu = Menu::findOrNew($id);
         }
 
-        return response()->json([ 'data' => $menu ]);
+        return response()->json(['data' => $menu]);
     }
 
     public function store(MenuRequest $request)

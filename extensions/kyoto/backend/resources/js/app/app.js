@@ -43,6 +43,9 @@ kyoto.component(KyoLayoutSubmenu.name, KyoLayoutSubmenu);
 import KyoLayoutDash from "./layout/KyoLayoutDash";
 kyoto.component(KyoLayoutDash.name, KyoLayoutDash);
 
+import KyoLayoutBreadcrumbs from "./layout/KyoLayoutBreadcrumbs";
+kyoto.component(KyoLayoutBreadcrumbs.name, KyoLayoutBreadcrumbs);
+
 import KyoLayoutLanguage from "./layout/KyoLayoutLanguage";
 kyoto.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
 
@@ -69,6 +72,9 @@ kyoto.component(KyoWebsiteNode.name, KyoWebsiteNode);
 
 import KyoWysiwyg from "./wysiwyg/KyoWysiwyg";
 kyoto.component(KyoWysiwyg.name, KyoWysiwyg);
+
+import KyoWysiwygNative from "./wysiwyg/tags/KyoWysiwygNative";
+kyoto.component(KyoWysiwygNative.name, KyoWysiwygNative);
 
 import KyoDashboard from "./pages/dashboard/KyoDashboard";
 kyoto.component(KyoDashboard.name, KyoDashboard);
@@ -128,7 +134,7 @@ Dom.ready(function () {
             AppRouter.push({ name: data.name });
         };
 
-        if ( data.component && ! data.path.match(/:[a-z][^?]/) ) {
+        if ( data.component && ! data.path.match(/(:[a-z][^?]|create)/) ) {
             kyoto.addDash({
                 type: 'goto',
                 title: Locale.trans(menu.title),
@@ -150,7 +156,11 @@ Dom.ready(function () {
 
     nano.Icons = Obj.assign(nano.Icons, {
         copy: 'fa fa-copy',
-        search: 'fa fa-search'
+        language: 'fa fa-language',
+        search: 'fa fa-search',
+        bold: 'fa fa-bold',
+        italic: 'fa fa-italic',
+        underline: 'fa fa-underline'
     });
 
     App.use(AppRouter);

@@ -20,61 +20,421 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b29a395-69e5-470b-8a2d-3dd57070eb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/info-field/NInfoFieldHide.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/info-field/NInfoFieldLink.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/info-field/NInfoFieldState.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/table-cell/NTableCellHide.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/table-cell/NTableCellLink.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/table-cell/NTableCellState.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/table-filter/NTableFilterHide.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/table-filter/NTableFilterLink.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/table/table-filter/NTableFilterState.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/KyoWysiwyg.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/nano/table-cell-hide.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/nano/table-cell-state.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/wysiwyg/wysiwyg.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilderBuilders.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilderWidgets.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPages.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder-builders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder-widgets.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_dashboard-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_dashboard.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_domain-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_domain.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_home-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_home.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_language-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_language.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_menu-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_menu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_page-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_page.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_product-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_product.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_redirect-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_redirect.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_system-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_system.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_theme-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_theme.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_user-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_user.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_vue-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layout/color/export/icons_vue.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ad.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ae.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/af.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ai.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/al.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/am.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/an.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ao.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/aq.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/as.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/at.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/au.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/aw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ax.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/az.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ba.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bd.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/be.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bi.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bj.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bq.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/br.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/by.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/bz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ca.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cd.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ch.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ci.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ck.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/co.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cx.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/cz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/de.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/dj.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/dk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/dm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/do.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/dz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ec.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ee.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/eg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/eh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/er.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/es.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/et.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/eu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/fi.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/fj.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/fk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/fm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/fo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/fr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ga.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gb-eng.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gb-nir.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gb-sct.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gb-wls.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gd.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ge.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gi.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gq.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/gy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/hk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/hm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/hn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/hr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ht.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/hu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/id.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ie.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/il.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/im.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/in.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/io.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/iq.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ir.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/is.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/it.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/je.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/jm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/jo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/jp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ke.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ki.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/km.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ky.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/kz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/la.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/li.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ls.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/lv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ly.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ma.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/md.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/me.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ml.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mq.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ms.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mx.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/my.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/mz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/na.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/nc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ne.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/nf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ng.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ni.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/nl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/no.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/np.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/nr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/nu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/nz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/om.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pa.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ph.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ps.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/pw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/py.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/qa.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/re.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ro.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/rs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ru.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/rw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sa.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sd.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/se.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/si.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sj.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/so.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ss.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/st.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sx.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/sz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/td.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/th.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tj.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tl.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/to.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/tz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ua.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ug.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/um.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/us.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/uy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/uz.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/va.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/vc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ve.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/vg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/vi.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/vn.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/vu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/wf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ws.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/xk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/ye.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/yt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/za.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/zm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/country/zw.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_dashboard-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_domain-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_home-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_language-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_menu-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_page-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_product-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_redirect-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_system-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_theme-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_user-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_vue-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto-image.ai" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto-image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/~ai-3d9f43be-e20b-4d70-9879-62ed32831e56_.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_dashboard-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_domain-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_home-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_language-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_menu-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_page-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_product-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_redirect-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_system-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_theme-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_user-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_vue-dash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto-image.ai" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto-image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutBreadcrumbs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags/KyoWysiwygAlign.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags/KyoWysiwygHeadline.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags/KyoWysiwygLink.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags/KyoWysiwygList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags/KyoWysiwygNative.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags/KyoWysiwygParagraph.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/layout/language.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layout/color/icons.ai" beforeDir="false" afterPath="$PROJECT_DIR$/_layout/color/icons.ai" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_dashboard.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_dashboard.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_domain.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_domain.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_home.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_home.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_language.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_language.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_menu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_menu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_page.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_page.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_product.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_product.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_redirect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_redirect.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_system.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_system.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_theme.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_theme.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_user.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_vue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/color/icons_vue.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.png" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_dashboard.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_dashboard.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_domain.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_domain.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_home.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_home.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_language.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_language.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_menu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_menu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_page.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_page.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_product.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_product.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_redirect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_redirect.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_system.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_system.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_theme.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_theme.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_user.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_vue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/color/icons_vue.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/config/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/config/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoTitlebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoTitlebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoBackend.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutDash.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutDash.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/layout/KyoLayoutLanguage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/prototypes/KyoForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/prototypes/KyoForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/prototypes/KyoIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/prototypes/KyoIndex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/website/KyoWebsite.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/website/KyoWebsite.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/KyoWysiwyg.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/KyoWysiwyg.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/backend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/backend.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dash.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dash.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dashboard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dashboard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dataform.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dataform.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/datagrid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/datagrid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/datatable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/datatable.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/default.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/filterbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/filterbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/localepanel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/localepanel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/media.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/menu.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/titlebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/titlebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/upload.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/upload.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/user.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/video.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/video.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/website.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/website.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/widget.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/widget.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/bootstrap.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/mixins/grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/mixins/grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/nano/table-cell-hide.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/nano/table-cell-hide.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/nano/table-cell-state.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/nano/table-cell-state.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/wysiwyg/wysiwyg.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/wysiwyg/wysiwyg.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/installer/resources/scss/app/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/installer/resources/scss/app/default.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/installer/resources/scss/app/installer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/installer/resources/scss/app/installer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/media/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/media/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/media/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/media/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/media/resources/js/medias/KyoMedias.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/media/resources/js/medias/KyoMedias.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/frontend/resources/scss/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/frontend/resources/scss/vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/installer/resources/scss/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/installer/resources/scss/bootstrap.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/BackendMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/database/seeds/BackendMenuTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/public/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/configs/redirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/configs/redirect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/resources/js/pages/menu/KyoMenuCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/menu/src/Http/Controllers/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/database/migrations/2019_01_01_000000_create_page_locale_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/database/migrations/2019_01_01_000000_create_page_locale_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/database/migrations/2019_01_01_000000_create_page_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/database/migrations/2019_01_01_000000_create_page_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/database/migrations/2019_01_01_000000_create_widget_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/database/migrations/2019_01_01_000000_create_widget_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/database/seeds/PageTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/database/seeds/PageTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPageBuilder.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilder.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/helpers/KyoWidgetOptions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/helpers/KyoWidgetOptions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPages.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilderBuilders.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilderBuilders.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilderWidgets.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/builder/KyoPagebuilderWidgets.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPageEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPageEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPages.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/widgets/KyoWidgetHeadline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/widgets/KyoWidgetHeadline.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/widgets/KyoWidgetWysiwyg.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/widgets/KyoWidgetWysiwyg.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/bootstrap.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder-widgets.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder-widgets.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/builder/pagebuilder.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/helpers/widget-options.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/helpers/widget-options.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets/headline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets/widget-headline.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets/wysiwyg.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets/widget-wysiwyg.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/Http/Controllers/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/Http/Controllers/WidgetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets/widget-wysiwyg.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets/widget-wysiwyg.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/PageLocale.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/PageLocale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/Widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/Widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/WidgetLocale.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/Models/WidgetLocale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/PageServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/PageServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/src/WidgetManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/src/WidgetManager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -350,11 +710,11 @@
       <recent name="$PROJECT_DIR$/extensions/kyoto/page/resources/sass/widgets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/wysiwyg/tags" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/page/src" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/website" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/backend/resources/lang/en" />
       <recent name="$PROJECT_DIR$/extensions/kyoto/backend/resources/lang" />
-      <recent name="$PROJECT_DIR$/extensions/kyoto/frontend/resources" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Http">
@@ -521,7 +881,39 @@
       <workItem from="1612332561004" duration="1360000" />
       <workItem from="1612343348628" duration="14674000" />
       <workItem from="1612374858975" duration="1820000" />
-      <workItem from="1612388492041" duration="40000" />
+      <workItem from="1612388492041" duration="5112000" />
+      <workItem from="1612479391785" duration="3536000" />
+      <workItem from="1612525585458" duration="865000" />
+      <workItem from="1612636272611" duration="2670000" />
+      <workItem from="1612711089318" duration="4753000" />
+      <workItem from="1612723361238" duration="520000" />
+      <workItem from="1612873959225" duration="18067000" />
+      <workItem from="1612952166083" duration="363000" />
+      <workItem from="1613065344709" duration="1736000" />
+      <workItem from="1613089221278" duration="9755000" />
+      <workItem from="1613135586649" duration="2371000" />
+      <workItem from="1613146564048" duration="1633000" />
+      <workItem from="1613245424837" duration="738000" />
+      <workItem from="1613473347769" duration="1492000" />
+      <workItem from="1614292451054" duration="2623000" />
+      <workItem from="1614342774092" duration="407000" />
+      <workItem from="1614865188247" duration="5353000" />
+      <workItem from="1614936632079" duration="493000" />
+      <workItem from="1616187027978" duration="1850000" />
+      <workItem from="1616189219429" duration="2399000" />
+      <workItem from="1616328234480" duration="1992000" />
+      <workItem from="1616534902390" duration="672000" />
+      <workItem from="1617128571223" duration="3197000" />
+      <workItem from="1617526138652" duration="592000" />
+      <workItem from="1619770411659" duration="692000" />
+      <workItem from="1619861949828" duration="274000" />
+      <workItem from="1620033159421" duration="946000" />
+      <workItem from="1620209642018" duration="1208000" />
+      <workItem from="1621935700709" duration="586000" />
+      <workItem from="1623411350920" duration="650000" />
+      <workItem from="1626436071796" duration="7781000" />
+      <workItem from="1626620863103" duration="1276000" />
+      <workItem from="1626694528564" duration="6542000" />
     </task>
     <task id="LOCAL-00001" summary="*">
       <created>1611975480432</created>
@@ -537,7 +929,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612146678848</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="*">
+      <created>1612388647297</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612388647297</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,6 +955,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="*" />
     <option name="LAST_COMMIT_MESSAGE" value="*" />

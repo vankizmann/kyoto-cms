@@ -3,7 +3,6 @@
 namespace Kyoto\Page\Models;
 
 use Kyoto\Application\Facades\Kyoto;
-use Kyoto\Support\Database\Traits\Hide;
 use Kyoto\Support\Database\Traits\State;
 use Kyoto\Support\Database\Traits\Translatable;
 
@@ -32,7 +31,7 @@ class Widget extends \Kyoto\Support\Database\Model
         'id'            => 'string',
         'state'         => 'integer',
         'type'          => 'string',
-        'data'          => 'object'
+        'data'          => 'array'
     ];
 
     protected static function boot()
@@ -78,10 +77,7 @@ class Widget extends \Kyoto\Support\Database\Model
 
     public function getDataAttribute()
     {
-        $this->attributes['data'] = app('kyoto.widget')
-            ->getModelData($this, $this->attributes['data'] ?: []);
-
-        return $this->attributes['data'];
+        return app('kyoto.widget')->getModelData($this, $this->attributes['data']);
     }
 
 }

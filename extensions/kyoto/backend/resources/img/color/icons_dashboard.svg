@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 <style type="text/css">
@@ -8,17 +8,25 @@
 	.st2{fill:#4D90F4;}
 	.st3{fill:#CC213E;}
 	.st4{fill:#FFAC2F;}
-	.st5{fill:#FFFFFF;}
-	.st6{fill:#1765F5;}
-	.st7{display:none;fill:#FFFFFF;}
-	.st8{display:none;fill:#EA9126;}
-	.st9{fill:#ED9726;}
-	.st10{fill:#35495F;}
-	.st11{fill:#3EBA70;}
-	.st12{opacity:0.5;fill:#B9C0C9;enable-background:new    ;}
-	.st13{fill:#C9791B;}
+	.st5{display:none;}
+	.st6{display:inline;opacity:0;fill:#3B80FF;}
+	.st7{display:inline;opacity:0.25;fill:#3B80FF;}
+	.st8{display:inline;fill:#3B80FF;}
+	.st9{display:inline;}
+	.st10{fill:#3B80FF;}
+	.st11{fill:#FFFFFF;}
+	.st12{fill:#1765F5;}
+	.st13{display:none;fill:#FFFFFF;}
+	.st14{opacity:0;}
+	.st15{opacity:0.25;}
+	.st16{display:none;fill:#EA9126;}
+	.st17{fill:#ED9726;}
+	.st18{fill:#35495F;}
+	.st19{fill:#3EBA70;}
+	.st20{opacity:0.5;fill:#B9C0C9;enable-background:new    ;}
+	.st21{fill:#C9791B;}
 </style>
-<g id="Ebene_1_2_">
+<g id="Ebene_1_9_">
 	<path class="st2" d="M148.7609,418.324c-6.1335,0-12.3236-1.8534-17.6847-5.7062c-26.0706-18.7357-47.716-43.6358-62.5971-72.0083
 		c-15.3925-29.3474-23.5289-62.4777-23.5289-95.8084c0-55.1707,21.4844-107.0394,60.4969-146.051
 		c39.0116-39.0116,90.8803-60.4965,146.0505-60.4965c28.4707,0,56.0594,5.6947,82.0008,16.9261

@@ -7,69 +7,6 @@ export default {
 
     extends: KyoWidget,
 
-    data()
-    {
-        return { height: 0 };
-    },
-
-    mounted()
-    {
-        this.getHeight();
-    },
-
-    watch: {
-
-        'data.tag': function () {
-            this.$nextTick(this.getHeight);
-        },
-
-        'data.title': function () {
-            this.$nextTick(this.getHeight);
-        }
-
-    },
-
-    methods: {
-
-        onResize()
-        {
-            this.getHeight();
-        },
-
-        onInput(event)
-        {
-            this.data.title = event.target.value;
-        },
-
-        getHeight()
-        {
-            this.height = Dom.find(this.$refs.textarea)
-                .actual(el => el.scrollHeight);
-        }
-
-    },
-
-    renderTag(value)
-    {
-        let classList = [
-            'kyo-widget-headline__tag'
-        ];
-
-        if ( value === this.data.tag ) {
-            classList.push('is-active');
-        }
-
-        let setTag = () => {
-            this.data.tag = value;
-
-            this.$nextTick(this.getHeight);
-        }
-
-        return (
-            <span class={classList} onClick={setTag}>{ value }</span>
-        );
-    },
-
     renderHeader()
     {
         let options = {
@@ -86,12 +23,6 @@ export default {
                 <NSelect vModel={this.data.tag} options={options} />
             </KyoWidgetTitlebar>
         );
-
-        return (
-            <div class="kyo-widget-headline__tags">
-                { Arr.each(tags, this.ctor('renderTag'))}
-            </div>
-        )
     },
 
     render()
@@ -102,9 +33,8 @@ export default {
         ];
 
         let props = {
-            value: this.data.title,
+            renderList: ['b', 'i', 'u', ['atl', 'atc', 'atr']],
             placeholder: this.trans('Enter your headline'),
-            onInput: this.onInput
         };
 
         let style = {};
@@ -116,24 +46,7 @@ export default {
         return (
             <div class={classList}>
                 { this.ctor('renderHeader')() }
-                <div class="grid grid--row grid--5" style="margin-top: -10px; margin-bottom: 20px;">
-                    <div class="col--flex-0-0">
-                        <NButton size="sm" type="wysiwyg" icon="fa fa-bold">
-                            Bold
-                        </NButton>
-                    </div>
-                    <div class="col--flex-0-0">
-                        <NButton size="sm" type="wysiwyg" icon="fa fa-italic">
-                            Italic
-                        </NButton>
-                    </div>
-                    <div class="col--flex-0-0">
-                        <NButton size="sm" type="wysiwyg" icon="fa fa-underline">
-                            Underline
-                        </NButton>
-                    </div>
-                </div>
-                <textarea ref="textarea" rows="1" style={style} {...props} />
+                <KyoWysiwyg vModel={this.data.title} {...props} />
             </div>
         )
     }

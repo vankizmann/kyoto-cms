@@ -34,13 +34,13 @@
             </NButton>
 
             <NPopover trigger="click" :width="220">
-                <div class="n-popover-label">
+                <NPopoverGroup>
                     {{ trans('Actions') }}
-                </div>
-                <NPopoverOption v-if="copyEvent" type="primary" :link="true" @click="copyView = true">
+                </NPopoverGroup>
+                <NPopoverOption v-if="copyEvent" type="info" icon="fa fa-copy" @click="copyView = true">
                     {{ trans('Copy item') }}
                 </NPopoverOption>
-                <NPopoverOption v-if="deleteEvent" type="danger" :link="true" @click="deleteView = true">
+                <NPopoverOption v-if="deleteEvent" type="danger" icon="fa fa-times" @click="deleteView = true">
                     {{ trans('Delete item') }}
                 </NPopoverOption>
                 <NPopoverOption v-if="! copyEvent && ! deleteEvent" :disabled="true">
@@ -57,13 +57,13 @@
             </NButton>
 
             <NPopover trigger="click" :width="220">
-                <div class="n-popover-label">
+                <NPopoverGroup>
                     {{ trans('Actions') }}
-                </div>
-                <NPopoverOption v-if="copyEvent" type="warning" :link="true" :disabled="! selected" @click="copyView = true">
+                </NPopoverGroup>
+                <NPopoverOption v-if="copyEvent" type="info" icon="fa fa-copy" :disabled="! selected" @click="copyView = !! selected">
                     {{ trans('Copy selection') }}
                 </NPopoverOption>
-                <NPopoverOption v-if="deleteEvent" type="danger" :link="true" :disabled="! selected" @click="deleteView = true">
+                <NPopoverOption v-if="deleteEvent" type="danger" icon="fa fa-times" :disabled="! selected" @click="deleteView = !! selected">
                     {{ trans('Delete selection') }}
                 </NPopoverOption>
                 <div v-if="! copyEvent && ! deleteEvent" :disabled="true">

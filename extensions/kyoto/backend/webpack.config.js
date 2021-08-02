@@ -29,17 +29,6 @@ let config = {
             }
         ],
     },
-    externals: {
-        // 'vue': {
-        //     root: 'Vue', commonjs2: 'vue', commonjs: 'vue', amd: 'vue'
-        // },
-        // 'vue': {
-        //     root: 'Vue', commonjs2: 'vue', commonjs: 'vue', amd: 'vue'
-        // },
-        // '@kizmann/pico-js': {
-        //     root: 'pi', commonjs2: '@kizmann/pico-js', commonjs: '@kizmann/pico-js', amd: '@kizmann/pico-js'
-        // }
-    },
     resolve: {
         alias: {
             '@kyoto': path.resolve(__dirname, 'resources'),
@@ -53,6 +42,9 @@ let config = {
     plugins: [
         new CopyPlugin([
             { from: '**/*', to: 'img/', context: 'resources/img/' }
+        ]),
+        new CopyPlugin([
+            { from: '*', to: 'country/', context: 'node_modules/svg-country-flags/svg/' }
         ]),
         new VueLoaderPlugin()
     ]

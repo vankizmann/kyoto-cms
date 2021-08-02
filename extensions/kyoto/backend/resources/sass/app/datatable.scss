@@ -1,12 +1,40 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-datatable {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.kyo-datatable__body {
+    flex: 1 1 auto;
+    min-height: 100%;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
+}
+
+.kyo-datatable__side {
+    position: relative;
+    flex: 0 0 auto !important;
+    width: 320px;
+    background: $color-gray-05;
+    border-left: 1px solid $color-gray-10;
+}
+
+.kyo-datatable__side > .n-scrollbar {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .kyo-datatable .n-table {

@@ -62,6 +62,7 @@ export default {
             items: this.KyoPagebuilder.modelValue,
             group: ['page-widget'],
             allowGroups: ['page-widget'],
+            useKeys: true,
             handle: true,
             renderHandle: true,
             itemHeight: 0,

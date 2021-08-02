@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-mainmenu {
     flex: 1 0 auto;
@@ -14,7 +14,7 @@
 }
 
 .kyo-mainmenu li:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 .kyo-mainmenu li a {
@@ -23,30 +23,16 @@
     flex-direction: row;
     align-items: center;
     font-weight: 500;
-    color: $color-gray-60;
+    color: $color-gray-30;
 }
 
 .kyo-mainmenu li a span {
-    display: none;
+    //display: none;
 }
 
 .kyo-mainmenu li.is-loose-active a {
-    color: $color-black;
-}
-
-
-.kyo-mainmenu li a:before {
-    content: '\00a0';
-    display: block;
-    width: 40px;
-    height: 60px;
-    text-align: center;
-    background-size: 32px 32px;
-    background-position: center;
-    background-repeat: no-repeat;
-    //border-radius: 16px;
-    //background-color: $color-primary-lighter;
-    //box-shadow: 2px 0 8px rgba($color-black, 0.1);
+    font-weight: bold;
+    color: $color-white;
 }
 
 //.kyo-mainmenu li a:after {
@@ -75,31 +61,31 @@
 }
 
 .kyo-mainmenu li.dashboard a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_dashboard.svg');
+    background-image: svg-load('color/icons_dashboard-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.users a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_user.svg');
+    background-image: svg-load('color/icons_user-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.pages a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_page.svg');
+    background-image: svg-load('color/icons_page-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.languages a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_language.svg');
+    background-image: svg-load('color/icons_language-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.packages a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_system.svg');
+    background-image: svg-load('color/icons_system-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.menus a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_menu.svg');
+    background-image: svg-load('color/icons_menu-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li.products a:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_product.svg');
+    background-image: svg-load('color/icons_product-dash.svg', fill=$color-primary);
 }
 
 .kyo-mainmenu li a.router-link-active {

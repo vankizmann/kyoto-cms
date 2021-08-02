@@ -1,0 +1,60 @@
+@import "~@kizmann/nano-ui/src/root/vars";
+
+.kyo-layout-language {
+    cursor: default;
+    width: 100%;
+}
+
+.n-popover--locale {
+    //margin-top: 5px;
+}
+
+.kyo-layout-language__display {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 64px;
+    padding: 0 15px;
+}
+
+.kyo-layout-language__display:hover,
+.kyo-layout-language__display.n-open {
+    background: $color-black-light;
+}
+
+.kyo-layout-language__display .n-icon:last-child {
+    order: 2;
+    flex: 0 0 auto;
+    display: block;
+    width: 20px;
+    margin-left: 12px;
+    text-align: center;
+    color: $color-gray-60;
+    transition: transform 0.15s;
+}
+
+.kyo-layout-language__display.n-open .n-icon:last-child {
+    transform: scaleY(-1);
+}
+
+.kyo-layout-language__display span {
+    order: 1;
+    flex: 1 1 auto;
+    line-height: 1.2;
+}
+
+.kyo-layout-language__display span,
+.n-popover--locale .n-popover-option span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.kyo-layout-language__display span i,
+.n-popover--locale .n-popover-option span i {
+    opacity: 0.5;
+    font-size: 12px;
+    font-style: normal;
+}

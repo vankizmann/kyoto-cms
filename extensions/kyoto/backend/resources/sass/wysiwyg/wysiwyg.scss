@@ -27,3 +27,17 @@
 .kyo-squire .text-right {
     text-align: right;
 }
+
+.n-button--wysiwyg {
+    cursor: default;
+    color: $color-gray-70;
+    background: rgba($color-gray-50, 0.15);
+}
+
+.n-button--wysiwyg:hover {
+    background: rgba($color-gray-50, 0.25);
+}
+
+.n-button--wysiwyg.is-active {
+    color: $color-black;
+}

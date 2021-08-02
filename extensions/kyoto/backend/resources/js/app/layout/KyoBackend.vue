@@ -1,39 +1,35 @@
 <template>
     <div class="kyo-backend">
-        <div class="kyo-header">
-
-            <div class="kyo-header__menu">
-                <KyoLayoutMainmenu></KyoLayoutMainmenu>
-            </div>
-
-            <div class="kyo-header__language">
-                <KyoLayoutLanguage></KyoLayoutLanguage>
-            </div>
-
-        </div>
 
         <div class="kyo-navigation">
 
+            <div class="kyo-navigation__notify">
+                <a href="javascript:void(0)">
+                    <img src="/extensions/kyoto/backend/img/kyoto-image.svg" alt="kyoto cms">
+                </a>
+            </div>
+
             <div class="kyo-navigation__logo">
-                <router-link to="/"><b>kyoto</b> cms</router-link>
+                <router-link to="/">
+                    <img src="/extensions/kyoto/backend/img/kyoto.svg" alt="kyoto cms">
+                </router-link>
+            </div>
+
+            <div class="kyo-navigation__menu">
+                <KyoLayoutMainmenu></KyoLayoutMainmenu>
+            </div>
+
+            <div v-if="false" class="kyo-navigation__menu">
+                <KyoLayoutSubmenu></KyoLayoutSubmenu>
             </div>
 
             <div class="kyo-navigation__dash">
                 <KyoLayoutDash></KyoLayoutDash>
             </div>
 
-            <div class="kyo-navigation__menu">
-                <KyoLayoutSubmenu></KyoLayoutSubmenu>
+            <div class="kyo-navigation__language">
+                <KyoLayoutLanguage></KyoLayoutLanguage>
             </div>
-
-            <div class="kyo-navigation__user">
-                <KyoLayoutUser></KyoLayoutUser>
-            </div>
-
-            <div class="kyo-navigation__logout">
-                <a :href="logout">{{ trans('Logout') }}</a>
-            </div>
-
 
         </div>
 

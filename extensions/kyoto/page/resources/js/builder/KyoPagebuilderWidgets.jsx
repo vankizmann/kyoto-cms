@@ -93,6 +93,7 @@ export default {
         let props = {
             items: widgets,
             group: ['page-widget'],
+            useKeys: true,
             itemHeight: 0,
             removeNode: false,
             keyEvents: false,

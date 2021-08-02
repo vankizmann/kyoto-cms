@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .n-modal.n-modal--media .n-modal__frame {
     overflow: hidden;
@@ -85,7 +85,7 @@
     display: block;
     width: 100px;
     height: 100px;
-    background: rgba($color-black, 0.1);
+    background: rgba($color-gray-50, 0.1);
 }
 
 .kyo-media-list-item__image img {

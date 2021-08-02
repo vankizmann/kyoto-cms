@@ -11,7 +11,7 @@ import KyoConnectorSelect from "./inputs/KyoConnectorSelect";
 kyoto.component(KyoConnectorSelect.name, KyoConnectorSelect);
 
 // require('./configs/vue');
-// require('./configs/redirect');
+require('./configs/redirect');
 
 if ( console && console.log ) {
     console.log('kyoto/menu ready.');

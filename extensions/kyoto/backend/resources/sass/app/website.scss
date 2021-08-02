@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-layout-website {
     overflow: hidden;
@@ -11,7 +11,6 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
-    border-right: 1px solid $color-gray-10;
 }
 
 .kyo-layout-website .n-draglist-item__element {
@@ -21,30 +20,72 @@
 .kyo-layout-website__header {
     position: relative;
     flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 15px 30px 15px 60px;
-    border-bottom: 1px solid $color-gray-10;
-    box-shadow: 0 0 3px rgba($color-shadow, 0.2);
 }
 
-.kyo-layout-website__header i {
+.kyo-layout-website__search,
+.kyo-layout-website__action {
+    position: relative;
+    width: 100%;
+    background: $color-gray-05;
+    border-bottom: 1px solid $color-gray-10;
+}
+
+.kyo-layout-website__search i {
     position: absolute;
     top: 50%;
-    left: 30px;
+    left: 15px;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     margin-top: -10px;
     line-height: 20px;
     text-align: center;
+    color: $color-gray-60;
 }
 
 .kyo-layout-website__search input {
+    appearance: none;
     display: block;
     width: 100%;
-    height: 30px;
-    line-height: 30px;
+    height: 56px;
+    line-height: 36px;
+    padding: 10px 10px 10px 50px;
     border: none;
+    background: transparent;
+}
+
+.kyo-layout-website__action {
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.kyo-layout-website__action > * {
+    flex: 0 0 auto;
+}
+
+.kyo-layout-website__action > *:not(:first-child) {
+    margin-left: 5px;
+}
+
+.kyo-layout-website__action > .spacer {
+    flex: 1 1 auto;
+    min-width: auto;
+}
+
+.kyo-layout-website__action .n-button {
+    color: $color-gray-80;
+    background: $color-gray-10;
+}
+
+.kyo-layout-website__action .n-button:hover {
+    background: $color-gray-15;
+    //box-shadow: 0 0 3px rgba($color-shadow, 0.1);
 }
 
 .kyo-layout-website__body {
@@ -106,9 +147,9 @@
 //.kyo-layout-website__body {
 //    flex: 1 1 auto;
 //}
-//
+
 .kyo-layout-website__body .n-draglist-item {
-    padding: 0 15px 0 10px;
+    padding: 0 15px;
 }
 
 .kyo-website-node {
@@ -136,7 +177,7 @@
 }
 
 .kyo-website-node .n-button {
-    margin-left: 4px;
+    margin-left: 6px;
 }
 
 .kyo-website-node:before {
@@ -153,37 +194,37 @@
 }
 
 .kyo-website-node[data-type="kyoto/backend::admin"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_system.svg');
+    background-image: svg-load('color/icons_system-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/menu::domain"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_domain.svg');
+    background-image: svg-load('color/icons_domain-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/page::page"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_page.svg');
+    background-image: svg-load('color/icons_page-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/user::login"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_user.svg');
+    background-image: svg-load('color/icons_user-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/user::logout"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_user.svg');
+    background-image: svg-load('color/icons_user-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/menu::vue"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_vue.svg');
+    background-image: svg-load('color/icons_vue-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/menu::menu"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_menu.svg');
+    background-image: svg-load('color/icons_menu-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/menu::redirect"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_redirect.svg');
+    background-image: svg-load('color/icons_redirect-dash.svg', fill=$color-primary);
 }
 
 .kyo-website-node[data-type="kyoto/shop::product"]:before {
-    background-image: url('/extensions/kyoto/backend/img/color/icons_product.svg');
+    background-image: svg-load('color/icons_product-dash.svg', fill=$color-primary);
 }

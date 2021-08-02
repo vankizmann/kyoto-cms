@@ -1,17 +1,12 @@
 <template>
-    <NLoader :visible="load" class="full-height-child">
-        <div class="grid grid--col">
+    <NLoader :visible="load" class="full-height auto-height-child">
+        <NScrollbar :relative="true" class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoLanguages' }" class="col--flex-0-0">
+            <KyoTitlebar :title="trans('Create menu')" class="col--flex-0-0">
                 <template v-slot:action>
-                    <NButtonGroup>
-                        <NButton type="primary" @click="storeItem">
-                            {{ trans('Apply') }}
-                        </NButton>
-                        <NButton type="primary" @click="storeItemClose">
-                            {{ trans('Save') }}
-                        </NButton>
-                    </NButtonGroup>
+                    <NButton type="primary" @click="storeItemClose">
+                        {{ trans('Save') }}
+                    </NButton>
                 </template>
             </KyoTitlebar>
 
@@ -74,7 +69,7 @@
 
             </NForm>
 
-        </div>
+        </NScrollbar>
     </NLoader>
 </template>
 <script>
@@ -85,8 +80,8 @@
         localized: true,
 
         urls: {
-            show: '/{locale}/kyoto/language/http/controllers/language/show',
-            store: '/{locale}/kyoto/language/http/controllers/language/store'
+            show: '/{locale}/kyoto/menu/http/controllers/menu/show',
+            store: '/{locale}/kyoto/menu/http/controllers/menu/store'
         },
 
         computed: {
@@ -113,8 +108,6 @@
                 this.$router.push({
                     name: 'KyoLanguageEdit', params: row.data
                 });
-
-                console.log(row.data);
             },
 
             gotoIndex()

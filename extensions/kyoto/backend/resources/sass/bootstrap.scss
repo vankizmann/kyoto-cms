@@ -2,7 +2,8 @@
 
 @import '~backpack.css';
 
-@import "~@kizmann/nano-ui/nano/index";
+@import "~@kizmann/nano-ui/src/index";
+@import "~@kizmann/nano-ui/themes/basic/index";
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -12,6 +13,8 @@
 @import "./mixins/media";
 @import "./mixins/grid";
 @import "./mixins/space";
+
+@import "./app/layout/language";
 
 @import "./app/default";
 @import "./app/backend";

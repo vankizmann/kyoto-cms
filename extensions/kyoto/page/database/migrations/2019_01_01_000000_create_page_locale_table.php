@@ -28,9 +28,6 @@ class CreatePageLocaleTable extends Migration
             $table->string('content')
                 ->nullable();
 
-            $table->text('builder')
-                ->nullable();
-
             $table->timestamps();
         });
     }

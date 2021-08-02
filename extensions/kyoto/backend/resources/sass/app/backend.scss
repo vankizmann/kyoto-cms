@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-backend {
     position: absolute;
@@ -6,7 +6,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding-top: 150px;
+    padding-top: 64px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -16,19 +16,20 @@
 
 .kyo-header {
     z-index: 10;
+    flex: 0 0 auto;
     position: absolute;
-    top: 60px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 90px;
-    display: flex;
+    height: 64px;
+    display: none;
     flex-direction: row;
     align-items: stretch;
     justify-content: stretch;
     padding: 0 30px;
-    background: $color-white;
-    border-bottom: 1px solid $color-gray-10;
-    //box-shadow: 0 1px 6px rgba($color-shadow, 0.1);
+    color: $color-white;
+    background: $color-black;
+    box-shadow: 0 1px 6px rgba($color-shadow, 0.1);
 }
 
 .kyo-header__menu {
@@ -48,60 +49,59 @@
     margin-right: 30px;
 }
 
-.kyo-header__language {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: stretch;
-}
-
-.kyo-header__language > div {
-    width: 170px;
-}
-
-.kyo-header__language .n-select {
-    background: $color-gray-05;
-    border-color: transparent;
-}
-
-.kyo-header__language .n-select:not(.n-disabled):hover,
-.kyo-header__language .n-select:not(.n-disabled).n-focus {
-    background: $color-gray-05;
-    border-color: transparent;
-}
-
 .kyo-navigation {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 64px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: stretch;
-    padding: 0 30px;
+    color: $color-white;
     background: $color-black;
-    //border-top: 1px solid $color-gray-05;
-    //box-shadow: 0 1px 5px rgba($color-shadow, 0.1);
 }
 
 .kyo-navigation a {
     color: $color-white;
 }
 
-.kyo-navigation__logo {
+.kyo-navigation__notify {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
+    width: 64px;
+    background: $color-primary;
+}
+
+.kyo-navigation__notify a {
+    color: $color-white;
+    font-size: 15px;
+}
+
+
+.kyo-navigation__notify img {
+    width: 28px;
+}
+
+.kyo-navigation__logo {
+    flex: 0 0 auto;
+    display: flex;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
 }
 
 .kyo-navigation__logo a {
     color: $color-white;
     font-size: 18px;
+}
+
+.kyo-navigation__logo img {
+    width: 74px;
 }
 
 .kyo-navigation__dash {
@@ -119,7 +119,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin-right: 30px;
+    padding: 0 30px;
 }
 
 .kyo-navigation__user {
@@ -129,6 +129,15 @@
     align-items: center;
     justify-content: flex-start;
     margin-right: 30px;
+}
+
+.kyo-navigation__language {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+    width: 250px;
 }
 
 .kyo-navigation__logout {
@@ -175,6 +184,8 @@
 .kyo-website {
     order: 5;
     flex: 0 0 auto;
-    width: 25%;
+    width: 340px;
     min-height: 0;
+    background: $color-white;
+    border-right: 1px solid $color-gray-10;
 }

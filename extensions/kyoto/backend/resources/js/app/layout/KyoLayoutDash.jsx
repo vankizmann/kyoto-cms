@@ -305,7 +305,8 @@ export default {
         let props = {
             type: 'default',
             square: true,
-            icon: 'fa fa-terminal'
+            icon: 'fa fa-terminal',
+            onClick: () => this.onFocus()
         };
 
         return (

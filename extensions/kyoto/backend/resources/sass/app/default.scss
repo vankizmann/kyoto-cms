@@ -1,4 +1,4 @@
-@import "~@kizmann/nano-ui/nano/root/vars";
+@import "~@kizmann/nano-ui/src/root/vars";
 
 [v-cloak] {
     display: none;
@@ -13,20 +13,24 @@
 }
 
 html, body {
-    font-size: 13px;
+    font-size: 14px;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: 'Poppins', 'Helvetica', 'Arial', sans-serif;
-    font-size: 13px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
     font-weight: 400;
     color: $color-black;
-    background-color: $color-background;
+    background-color: $color-white;
     background-size: cover;
     background-position: center center;
     overflow: hidden;
+}
+
+input, textarea {
+    color: $color-black;
 }
 
 div, span, a {
@@ -101,7 +105,7 @@ th {
 
 .info {
     padding-top: 5px;
-    font-size: 13px;
+    font-size: 14px;
     color: $color-gray-60;
 }
 
@@ -133,43 +137,47 @@ th {
     flex: 1 1 auto !important;
 }
 
+.n-popover--default .n-popover__frame,
+.n-popover--select .n-select__body,
+.n-popover--select .n-select__empty {
+    border: 1px solid rgba($color-shadow, 0.10);
+    box-shadow: 0 1px 5px rgba($color-shadow, 0.10);
+}
+
 .n-popover--tooltip .n-popover__frame {
     box-shadow: none;
     color: $color-gray-10;
     background: $color-black;
 }
 
-.n-draglist-item.n-current {
-    background: rgba($color-gray-50, 0.05);
-}
-
-.n-table .n-draglist-item {
-    border-bottom: 1px solid $color-gray-05;
-}
-
-.n-table .n-table__header {
-    border-bottom: 1px solid $color-gray-10;
-    box-shadow: 0 0 3px rgba($color-shadow, 0.2);
-}
-
 .n-info {
     border: none;
-    border-top: 1px solid $color-gray-10;
     border-radius: 0 !important;
 }
+//
+//.n-info .n-info__body {
+//    display: flex;
+//    flex-direction: row;
+//    flex-wrap: wrap;
+//    align-items: flex-start;
+//    justify-content: flex-start;
+//    padding: 10px 30px 0;
+//}
+//
+//.n-info .n-info__body .n-info__column {
+//    flex: 0 1 auto;
+//    width: 33.32%;
+//}
 
-.n-info .n-info__body {
+.n-modal--form .n-modal__frame {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 10px 30px 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
 }
 
-.n-info .n-info__body .n-info__column {
-    flex: 0 1 auto;
-    width: 33.32%;
+.n-modal--form .n-modal__frame > * {
+    flex: 1 1 auto;
 }
 
 //.n-form-group {

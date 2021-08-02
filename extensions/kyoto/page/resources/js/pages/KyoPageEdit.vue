@@ -14,7 +14,7 @@
             </template>
         </KyoTitlebar>
 
-        <KyoPageWidgets class="col--flex-1-1" v-model="result.builder">
+        <KyoPageWidgets class="col--flex-1-1" v-model="result.widgets">
 
             <NForm :form="result" :errors="errors">
 
@@ -66,6 +66,7 @@
         name: 'KyoPageEdit',
 
         localized: true,
+        refresh: true,
 
         urls: {
             show: '/{locale}/kyoto/page/http/controllers/page/show',
