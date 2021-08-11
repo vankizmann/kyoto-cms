@@ -1,11 +1,11 @@
 @import "./base";
 
 $--media-steps: (
-    'xs': '(min-width: 576px)',
-    'sm': '(min-width: 768px)',
-    'md': '(min-width: 992px)',
-    'lg': '(min-width: 1200px)',
-    'xl': '(min-width: 1440px)'
+    'xs': '(min-width: 360px)',
+    'sm': '(min-width: 480px)',
+    'md': '(min-width: 768px)',
+    'lg': '(min-width: 1024px)',
+    'xl': '(min-width: 1280px)'
 ) !default;
 
 @mixin media($suffix: '') {

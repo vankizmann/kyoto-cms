@@ -132,7 +132,6 @@ export default {
         return (
             <NLoader visible={this.load} class="full-height-child">
                 <div class="grid grid--col">
-                    { this.ctor('renderTitlebar')() }
                     { this.ctor('renderDatatable')() }
                 </div>
             </NLoader>

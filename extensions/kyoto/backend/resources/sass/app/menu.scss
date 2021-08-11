@@ -1,113 +1,58 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
-.kyo-mainmenu {
+.kyo-menu {
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    padding: 10px 0;
-    margin-left: -5px;
+    align-items: center;
+    padding: 10px 10px;
 }
 
-.kyo-mainmenu li {
+.kyo-menu li {
     padding: 0;
 }
 
-.kyo-mainmenu li:not(:last-child) {
-    margin-right: 30px;
+.kyo-menu li:not(:first-child) {
+    margin-left: 5px;
 }
 
-.kyo-mainmenu li a {
+.kyo-menu li a {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-weight: 500;
-    color: $color-gray-30;
+    color: rgba($color-white, 0.6);
+    padding: 8px 12px;
+    border-radius: $md-radius;
+    transition: background 0.1s, color 0.1s;
 }
 
-.kyo-mainmenu li a span {
-    //display: none;
+.kyo-menu li:hover a,
+.kyo-menu li a.n-open {
+    color: rgba($color-white, 0.8);
 }
 
-.kyo-mainmenu li.is-loose-active a {
-    font-weight: bold;
+.kyo-menu li.is-loose-active a {
     color: $color-white;
+    background-color: rgba($color-white, 0.15);
 }
 
-//.kyo-mainmenu li a:after {
-//    content: '\00a0';
-//    position: absolute;
-//    bottom: 0;
-//    left: 50%;
-//    display: block;
-//    width: 8px;
-//    height: 8px;
-//    margin-left: -4px;
-//    transform: scale(0);
-//    border-radius: 500px;
-//    background: $color-black;
-//    transition: transform 0.15s;
-//}
-//
-//.kyo-mainmenu li:hover a:after,
-//.kyo-mainmenu li a.is-loose-active:after {
-//    transform: scale(1);
-//}
-
-.kyo-mainmenu li a span {
-    //font-weight: 400;
-    //display: none;
+.kyo-menu__list li a {
+    display: block;
+    padding: 6px 14px;
+    color: rgba($color-black, 0.8);
+    transition: background 0.1s, color 0.1s;
 }
 
-.kyo-mainmenu li.dashboard a:before {
-    background-image: svg-load('color/icons_dashboard-dash.svg', fill=$color-primary);
+.kyo-menu__list li a:hover {
+    background: rgba($color-black, 0.1);
 }
 
-.kyo-mainmenu li.users a:before {
-    background-image: svg-load('color/icons_user-dash.svg', fill=$color-primary);
+.kyo-menu__list li a:first-child {
+    padding-top: 8px;
 }
 
-.kyo-mainmenu li.pages a:before {
-    background-image: svg-load('color/icons_page-dash.svg', fill=$color-primary);
+.kyo-menu__list li a:last-child {
+    padding-bottom: 8px;
 }
 
-.kyo-mainmenu li.languages a:before {
-    background-image: svg-load('color/icons_language-dash.svg', fill=$color-primary);
-}
-
-.kyo-mainmenu li.packages a:before {
-    background-image: svg-load('color/icons_system-dash.svg', fill=$color-primary);
-}
-
-.kyo-mainmenu li.menus a:before {
-    background-image: svg-load('color/icons_menu-dash.svg', fill=$color-primary);
-}
-
-.kyo-mainmenu li.products a:before {
-    background-image: svg-load('color/icons_product-dash.svg', fill=$color-primary);
-}
-
-.kyo-mainmenu li a.router-link-active {
+.kyo-menu__list li.is-loose-active a {
     color: $color-primary;
-}
-
-.kyo-submenu {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.kyo-submenu li:not(:last-child) {
-    margin-right: 30px;
-}
-
-.kyo-submenu li a {
-    color: $color-gray-50;
-}
-
-.kyo-submenu li a.router-link-active {
-    color: $color-white;
-    font-weight: bold;
 }

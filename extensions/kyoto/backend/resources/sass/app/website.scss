@@ -1,5 +1,13 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
+.kyo-website {
+    flex: 0 0 auto;
+    width: 340px;
+    height: 100%;
+    background: $color-white;
+    border-right: 1px solid $color-gray-10;
+}
+
 .kyo-layout-website {
     overflow: hidden;
     position: absolute !important;
@@ -29,8 +37,8 @@
 .kyo-layout-website__action {
     position: relative;
     width: 100%;
-    background: $color-gray-05;
-    border-bottom: 1px solid $color-gray-10;
+    border-bottom: 1px solid $color-gray-15;
+    box-shadow: 0 0 3px rgba($color-shadow, 0.1);
 }
 
 .kyo-layout-website__search i {

@@ -4,6 +4,8 @@ export class Kyoto {
 
     static pagetitle = null;
 
+    static icon = null;
+
     static user = null;
 
     static paths = {
@@ -29,6 +31,26 @@ export class Kyoto {
         return Kyoto.pagetitle;
     }
 
+    static setIcon(value)
+    {
+        Kyoto.icon = value;
+    }
+
+    static getIcon()
+    {
+        return Kyoto.icon;
+    }
+
+    static getPath(key, fallback = null)
+    {
+        return Obj.get(Kyoto.paths, key, fallback);
+    }
+
+    static setPath(key, value)
+    {
+        Obj.set(Kyoto.paths, key, value);
+    }
+
     static setPaths(paths)
     {
         if ( Any.isString(paths) ) {
@@ -36,6 +58,15 @@ export class Kyoto {
         }
 
         Kyoto.paths = paths;
+    }
+
+    static getUser(key = null, fallback = null)
+    {
+        if ( Any.isEmpty(key) ) {
+            return Kyoto.user;
+        }
+
+         return Obj.get(this.user, key, fallback);
     }
 
     static setUser(user)

@@ -61,7 +61,7 @@ kyoto.component(KyoTitlebarSearch.name, KyoTitlebarSearch);
 import KyoFilterbar from "./helpers/KyoFilterbar";
 kyoto.component(KyoFilterbar.name, KyoFilterbar);
 
-import KyoDatatable from "./helpers/KyoDatatable";
+import KyoDatatable from "./helpers/KyoDatatable.jsx";
 kyoto.component(KyoDatatable.name, KyoDatatable);
 
 import KyoWebsite from "./website/KyoWebsite";
@@ -79,7 +79,7 @@ kyoto.component(KyoWysiwygNative.name, KyoWysiwygNative);
 import KyoDashboard from "./pages/dashboard/KyoDashboard";
 kyoto.component(KyoDashboard.name, KyoDashboard);
 
-import KyoBackend from "./layout/KyoBackend";
+import KyoBackend from "./backend/KyoBackend";
 
 
 // router = router.afterEach((to) => {

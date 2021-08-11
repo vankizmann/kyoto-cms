@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#4b5bd8">
     <meta name="theme-color" content="#ffffff">
 
-    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap') !!}
+    {!! app('kyoto.assets')->style('google-font', '//fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap') !!}
     {!! app('kyoto.assets')->script('script', 'kyoto/backend::js/index.js') !!}
     {!! app('kyoto.assets')->style('style', 'kyoto/backend::css/index.css') !!}
 
@@ -42,19 +42,31 @@
     </script>
 
     <script>
-        kyoto.setPaths({
-            base:       '{{ app('kyoto.backend')->basePath() }}',
-            login:      '{{ app('kyoto.backend')->loginPath() }}',
-            logout:     '{{ app('kyoto.backend')->logoutPath() }}'
-        });
+        kyoto.setIcon('{{ asset('kyoto/backend::img/kyoto-square.svg') }}');
+    </script>
+
+    <script>
+        kyoto.setPath('base', '{{ app('kyoto.backend')->basePath() }}');
+    </script>
+
+    <script>
+        kyoto.setPath('login', '{{ app('kyoto.backend')->loginPath() }}');
+    </script>
+
+    <script>
+        kyoto.setPath('logout', '{{ app('kyoto.backend')->logoutPath() }}');
     </script>
 
 </head>
 <body class="body body--root">
 
-    <div id="app" data-root="true">
-        <kyo-backend>Loading...</kyo-backend>
-    </div>
+<div id="app" data-root="true">
+    <kyo-backend>Loading...</kyo-backend>
+</div>
+
+<div id="background">
+    <img src="{{ asset('kyoto/backend::img/background.jpg') }}">
+</div>
 
 </body>
 </html>

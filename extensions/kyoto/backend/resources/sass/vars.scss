@@ -21,8 +21,8 @@ $color-gray-85:         mix($color-black, $color-white, 0.85 * 100%);
 $color-gray-90:         mix($color-black, $color-white, 0.90 * 100%);
 $color-gray-95:         mix($color-black, $color-white, 0.95 * 100%);
 
-$color-primary:         #5F6FEF;
-$color-secondary:       #5F6FEF;
+$color-primary:         #3B80FF;
+$color-secondary:       #3B80FF;
 
 $color-success:         #3ed786;
 $color-warning:         #ffac2f;
@@ -102,13 +102,13 @@ $xl-radius:                 9px;
 $form: (
     'xs': (
         'size': 22px,
-        'font': 10px,
+        'font': 12px,
         'radius': $xs-radius,
         'ratio': 0.40,
     ),
     'sm': (
         'size': 28px,
-        'font': 12px,
+        'font': 13px,
         'radius': $sm-radius,
         'ratio': 0.40,
     ),

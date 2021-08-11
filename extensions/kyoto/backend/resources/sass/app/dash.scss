@@ -1,11 +1,15 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
-.kyo-layout-dash {
+.kyo-dash {
     overflow: hidden;
     position: relative;
 }
 
-.kyo-layout-dash .n-button {
+.kyo-dash__popover .n-scrollbar {
+    max-height: 340px;
+}
+
+.kyo-dash .n-button {
     z-index: 10;
     position: absolute;
     top: 5px;
@@ -17,7 +21,7 @@
     background: $color-black-light;
 }
 
-.kyo-layout-dash input {
+.kyo-dash input {
     cursor: default;
     display: block;
     opacity: 0;
@@ -32,7 +36,7 @@
     transition: max-width 0.15s, opacity 0.15s;
 }
 
-.kyo-layout-dash.is-focus input {
+.kyo-dash.is-focus input {
     opacity: 1;
     max-width: 220px;
 }
@@ -50,15 +54,15 @@
     max-height: 280px;
 }
 
-.kyo-layout-dash__info,
-.kyo-layout-dash__empty {
+.kyo-dash__info,
+.kyo-dash__empty {
     cursor: default;
     padding: 16px 30px;
     font-size: 14px;
     text-align: center;
 }
 
-.kyo-layout-dash__item {
+.kyo-dash__item {
     position: relative;
     cursor: default;
     display: flex;
@@ -68,19 +72,16 @@
     padding: 15px 0;
 }
 
-.kyo-layout-dash__item:hover {
-    background: $color-gray-05;
+.kyo-dash__item:not(:last-child) {
+    border-bottom: 1px solid rgba($color-black, 0.1);
 }
 
-.kyo-layout-dash__item.is-focus {
-    background: $color-gray-05;
+.kyo-dash__item.is-focus {
+    background: rgba($color-primary, 0.1);
+    border-bottom-color: rgba($color-black, 0.05);
 }
 
-.kyo-layout-dash__item:not(:last-child) {
-    border-bottom: 1px solid $color-gray-10;
-}
-
-.kyo-layout-dash__type {
+.kyo-dash__type {
     width: 80px;
     display: flex;
     flex-direction: row;
@@ -88,35 +89,35 @@
     justify-content: flex-end;
     padding: 0 13px 0 7px;
     text-align: right;
-    border-right: 1px solid $color-gray-15;
+    border-right: 1px solid rgba($color-black, 0.1);
 }
 
-.kyo-layout-dash__type span {
+.kyo-dash__type span {
     font-size: 13px;
     line-height: 15px;
     color: mix($color-primary, $color-gray-30, 75%);
 }
 
-.kyo-layout-dash__item[data-type="tree"] .kyo-layout-dash__type span {
+.kyo-dash__item[data-type="tree"] .kyo-dash__type span {
     color: mix($color-info, $color-gray-30, 75%);
 }
 
-.kyo-layout-dash__item[data-type="locale"] .kyo-layout-dash__type span {
+.kyo-dash__item[data-type="locale"] .kyo-dash__type span {
     color: mix($color-success, $color-gray-30, 75%);
 }
 
-.kyo-layout-dash__title {
+.kyo-dash__title {
     padding: 0 7px 0 13px;
 }
 
-.kyo-layout-dash__title h4 {
+.kyo-dash__title h4 {
     font-size: 14px;
     line-height: 16px;
     color: $color-gray-95;
     font-weight: 500;
 }
 
-.kyo-layout-dash__title p {
+.kyo-dash__title p {
     margin-top: 5px;
     font-size: 12px;
     color: $color-gray-60;

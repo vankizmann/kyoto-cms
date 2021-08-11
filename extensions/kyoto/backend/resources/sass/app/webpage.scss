@@ -1,0 +1,146 @@
+@import "~@kizmann/nano-ui/src/root/vars";
+
+.kyo-webpage {
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 auto;
+    width: 340px;
+    height: 100%;
+    background: $color-white;
+    border-right: 1px solid $color-gray-10;
+}
+
+.kyo-webpage__body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.kyo-webpage__tree {
+    flex: 1 1 auto;
+}
+
+.kyo-webpage__search {
+    flex: 0 0 auto;
+    height: 58px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid $color-gray-15;
+    box-shadow: 0 0 3px rgba($color-shadow, 0.15);
+
+    @include NTransButton();
+}
+
+.kyo-webpage__search .n-input {
+    border: 0;
+}
+
+.kyo-webpage__search .n-input input {
+    height: 58px;
+}
+
+.kyo-webpage__search .n-button .fa-sync {
+    transition: transform 0.3s ease;
+}
+
+.kyo-webpage__search .n-button:hover .fa-sync {
+    transform: rotate(90deg);
+}
+
+.kyo-webpage-node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px 0 5px;
+}
+
+.kyo-webpage-node__title {
+    flex: 1 1 auto;
+}
+
+.kyo-webpage-node__tools {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @include NTransButton();
+}
+
+.kyo-webpage-node__tools > *:not(:first-child) {
+    margin-left: 3px;
+}
+
+.kyo-webpage-node:not(:hover) .kyo-webpage-node__tools {
+    display: none;
+}
+
+/**
+ * Node icon list
+ */
+
+.kyo-webpage-node:before {
+    content: '\00a0';
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    display: block;
+    width: 26px;
+    line-height: 26px;
+    font-size: 13px;
+    margin-right: 5px;
+    text-align: center;
+    color: rgba($color-primary, 0.8);
+}
+
+.kyo-webpage-node[data-type="kyoto/backend::admin"]:before {
+    content: '\f7d9';
+}
+
+.kyo-webpage-node[data-type="kyoto/menu::redirect"]:before {
+    content: '\f35d';
+    font-size: 12px;
+}
+
+.kyo-webpage-node[data-type="kyoto/menu::domain"]:before {
+    content: '\f7a2';
+    font-size: 14px;
+}
+
+.kyo-webpage-node[data-type="kyoto/menu::menu"]:before {
+    content: '\f5fd';
+}
+
+.kyo-webpage-node[data-type="kyoto/menu::vue"]:before {
+    content: '\f41f';
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+    font-size: 15px;
+}
+
+.kyo-webpage-node[data-type="kyoto/page::page"]:before {
+    content: '\f15c';
+}
+
+.kyo-webpage-node[data-type="kyoto/user::login"]:before {
+    content: '\f2f6';
+}
+
+.kyo-webpage-node[data-type="kyoto/user::logout"]:before {
+    content: '\f2f5';
+}
+
+.kyo-webpage-node[data-type="kyoto/shop::product"]:before {
+    content: '\f07a';
+}
+

@@ -31,5 +31,9 @@
     @yield('content')
 </div>
 
+<div id="background">
+    <img src="{{ asset('kyoto/backend::img/background.jpg') }}">
+</div>
+
 </body>
 </html>

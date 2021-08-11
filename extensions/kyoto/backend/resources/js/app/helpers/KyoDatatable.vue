@@ -98,7 +98,12 @@
             {
                 console.log('dblclick')
                 this.$emit('row-dblclick', ...args);
-            }
+            },
+
+        },
+
+        render()
+        {
 
         }
 

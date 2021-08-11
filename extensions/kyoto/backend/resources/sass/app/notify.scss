@@ -1,0 +1,114 @@
+@import "~@kizmann/nano-ui/src/root/vars";
+
+.kyo-notify {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+}
+
+.kyo-notify__button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: $md-radius;
+    background: rgba($color-white, 0.3);
+    transition: background 0.1s;
+}
+
+.kyo-notify__button:hover,
+.kyo-notify__button.n-open {
+    background: rgba($color-white, 0.4);
+}
+
+.kyo-notify__button img {
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+
+.kyo-notify.has-message .kyo-notify__button:before {
+    content: '\00a0';
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: $color-info-light;
+    box-shadow: 0 1px 3px rgba($color-black, 0.1);
+    border-radius: 500px;
+    transform: translate(-50%, -50%);
+}
+
+.kyo-notify__popover {
+    @include NTransButton();
+}
+
+.kyo-notify-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid rgba($color-black, 0.1);
+}
+
+.kyo-notify-user > *:not(:first-child) {
+    margin-left: 5px;
+}
+
+.kyo-notify-user__image {
+    flex: 0 0 auto;
+    overflow: hidden;
+    width: 34px;
+    height: 34px;
+    border-radius: 500px;
+}
+
+.kyo-notify-user__info {
+    flex: 1 1 auto;
+    padding: 0 10px;
+}
+
+.kyo-notify-user__info span {
+    font-size: 15px;
+}
+
+.kyo-notify-user__login {
+    flex: 0 0 auto;
+}
+
+.kyo-notify-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba($color-black, 0.1);
+}
+
+.kyo-notify-action__title {
+    flex: 1 1 auto;
+}
+
+.kyo-notify-action__title h4 {
+    font-size: 15px;
+}
+
+.kyo-notify-action__button {
+    flex: 0 0 auto;
+}
+
+.kyo-notify-messages {
+    height: 220px;
+}
+
+.kyo-notify-messages .n-empty-icon {
+    margin: 30px 0;
+}

@@ -301,10 +301,9 @@ export default {
         };
 
         return (
-            <NLoader visible={this.load} class="kyo-layout-website">
+            <NLoader visible={this.load} class="kyo-website">
                 <div class="kyo-layout-website__header">
                     { this.ctor('renderSearch')() }
-                    { this.ctor('renderAction')() }
                 </div>
                 <NDraglist class="kyo-layout-website__body" items={this.result} {...props}>
                     {
