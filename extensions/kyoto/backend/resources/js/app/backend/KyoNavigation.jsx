@@ -1,6 +1,7 @@
 import KyoNotify from "./KyoNotify";
 import KyoMenu from "./KyoMenu";
 import KyoDash from "./KyoDash";
+import KyoLanguage from "./KyoLanguage";
 
 export default {
 
@@ -10,6 +11,7 @@ export default {
         [KyoNotify.name]: KyoNotify,
         [KyoMenu.name]: KyoMenu,
         [KyoDash.name]: KyoDash,
+        [KyoLanguage.name]: KyoLanguage,
     },
 
     renderNotify()
@@ -27,6 +29,11 @@ export default {
         return (<KyoDash />);
     },
 
+    renderLanguage()
+    {
+        return (<KyoLanguage />);
+    },
+
     render()
     {
         return (
@@ -34,6 +41,7 @@ export default {
                 { this.ctor('renderNotify')() }
                 { this.ctor('renderMenu')() }
                 { this.ctor('renderDash')() }
+                { this.ctor('renderLanguage')() }
             </div>
         );
     }

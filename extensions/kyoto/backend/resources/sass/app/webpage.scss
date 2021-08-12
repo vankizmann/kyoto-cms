@@ -47,6 +47,16 @@
     height: 58px;
 }
 
+.kyo-webpage__search .n-input .n-button {
+    color: $color-gray-40;
+    background-color: rgba($color-black, 0.1);
+}
+
+.kyo-webpage__search .n-input .n-button:hover {
+    color: $color-gray-60 !important;
+    background-color: rgba($color-black, 0.15);
+}
+
 .kyo-webpage__search .n-button .fa-sync {
     transition: transform 0.3s ease;
 }
@@ -101,7 +111,7 @@
     font-size: 13px;
     margin-right: 5px;
     text-align: center;
-    color: rgba($color-primary, 0.8);
+    color: rgba($color-primary, 0.9);
 }
 
 .kyo-webpage-node[data-type="kyoto/backend::admin"]:before {
@@ -130,6 +140,7 @@
 
 .kyo-webpage-node[data-type="kyoto/page::page"]:before {
     content: '\f15c';
+    font-size: 14px;
 }
 
 .kyo-webpage-node[data-type="kyoto/user::login"]:before {

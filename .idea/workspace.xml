@@ -20,54 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b29a395-69e5-470b-8a2d-3dd57070eb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto-icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto-square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoBackend.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoDash.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoNavigation.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoNotify.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoWebpage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoWebpageNode.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/body.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/navigation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/notify.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/webpage.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/bg-test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoDashNode.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoLanguage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto-square.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto-square.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.png" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/kyoto.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/progressbar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/img/~ai-3d9f43be-e20b-4d70-9879-62ed32831e56_.tmp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto-image.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto-image.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/img/kyoto.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/helpers/KyoDatatable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/website/KyoWebsite.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/website/KyoWebsite.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/lib/kyoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/lib/kyoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/backend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/backend.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoDash.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoDash.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoNavigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoNavigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoWebpage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/js/app/backend/KyoWebpage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dash.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/dash.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/datatable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/datatable.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/default.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/layout/language.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/layout/language.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/menu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/titlebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/titlebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/website.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/website.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/bootstrap.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/mixins/media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/mixins/media.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/vars.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/kyoto/user/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/kyoto/user/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/page/resources/js/pages/KyoPages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/navigation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/webpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/kyoto/backend/resources/sass/app/webpage.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -553,7 +520,8 @@
       <workItem from="1628617440533" duration="4790000" />
       <workItem from="1628673335342" duration="6327000" />
       <workItem from="1628682719431" duration="7521000" />
-      <workItem from="1628708337049" duration="3531000" />
+      <workItem from="1628708337049" duration="3620000" />
+      <workItem from="1628756524042" duration="4509000" />
     </task>
     <task id="LOCAL-00001" summary="*">
       <created>1611975480432</created>

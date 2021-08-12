@@ -19394,52 +19394,76 @@ readers do not read off random characters that represent icons */
   .padding-10--right\@xl {
     padding-right: 10px; } }
 
-.kyo-layout-language {
+.kyo-language {
   cursor: default;
-  width: 100%; }
+  width: 260px;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
 
-.kyo-layout-language__display {
+.kyo-language__display {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  height: 64px;
-  padding: 0 15px; }
+  height: 48px;
+  width: 244px;
+  padding: 0 14px;
+  border-radius: 3px;
+  transition: background 0.1s; }
 
-.kyo-layout-language__display:hover,
-.kyo-layout-language__display.n-open {
-  background: #22232b; }
+.kyo-language__display:hover,
+.kyo-language__display.n-open {
+  background: rgba(255, 255, 255, 0.15); }
 
-.kyo-layout-language__display .n-icon:last-child {
+.kyo-language__display .n-icon:last-child {
   order: 2;
   flex: 0 0 auto;
   display: block;
   width: 20px;
   margin-left: 12px;
   text-align: center;
-  color: #707076;
+  color: rgba(255, 255, 255, 0.6);
   transition: transform 0.15s; }
 
-.kyo-layout-language__display.n-open .n-icon:last-child {
+.kyo-language__display.n-open .n-icon:last-child {
   transform: scaleY(-1); }
 
-.kyo-layout-language__display span {
+.kyo-language__display span {
   order: 1;
   flex: 1 1 auto;
   line-height: 1.2; }
 
-.kyo-layout-language__display span,
-.n-popover--locale .n-popover-option span {
+.kyo-language__display span {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
 
-.kyo-layout-language__display span i,
-.n-popover--locale .n-popover-option span i {
-  opacity: 0.5;
-  font-size: 12px;
+.kyo-language__display span i {
+  opacity: 0.6;
+  font-size: 13px;
   font-style: normal; }
+
+.kyo-language__item {
+  display: block;
+  padding: 6px 14px;
+  color: rgba(16, 17, 26, 0.8);
+  transition: background 0.1s, color 0.1s; }
+
+.kyo-language__item:hover {
+  background: rgba(16, 17, 26, 0.1); }
+
+.kyo-language__item:first-child {
+  padding-top: 8px; }
+
+.kyo-language__item:last-child {
+  padding-bottom: 8px; }
+
+.kyo-language__item.is-active {
+  color: #3B80FF; }
 
 [v-cloak] {
   display: none; }
@@ -19559,10 +19583,10 @@ th {
           backdrop-filter: blur(4px); }
 
 .n-popover--dark .n-popover__frame {
-  background: rgba(16, 17, 26, 0.7); }
+  background: rgba(16, 17, 26, 0.85); }
 
 .n-popover--light .n-popover__frame {
-  background: rgba(255, 255, 255, 0.7); }
+  background: rgba(255, 255, 255, 0.85); }
 
 .text--primary {
   color: #3B80FF; }
@@ -19721,7 +19745,7 @@ th {
   left: 0;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: stretch;
   width: 100%;
   height: 64px;
@@ -19808,6 +19832,14 @@ th {
 .kyo-webpage__search .n-input input {
   height: 58px; }
 
+.kyo-webpage__search .n-input .n-button {
+  color: #9fa0a3;
+  background-color: rgba(16, 17, 26, 0.1); }
+
+.kyo-webpage__search .n-input .n-button:hover {
+  color: #707076 !important;
+  background-color: rgba(16, 17, 26, 0.15); }
+
 .kyo-webpage__search .n-button .fa-sync {
   transition: transform 0.3s ease; }
 
@@ -19891,7 +19923,7 @@ th {
   font-size: 13px;
   margin-right: 5px;
   text-align: center;
-  color: rgba(59, 128, 255, 0.8); }
+  color: rgba(59, 128, 255, 0.9); }
 
 .kyo-webpage-node[data-type="kyoto/backend::admin"]:before {
   content: '\f7d9'; }
@@ -19913,7 +19945,8 @@ th {
   font-size: 15px; }
 
 .kyo-webpage-node[data-type="kyoto/page::page"]:before {
-  content: '\f15c'; }
+  content: '\f15c';
+  font-size: 14px; }
 
 .kyo-webpage-node[data-type="kyoto/user::login"]:before {
   content: '\f2f6'; }
@@ -20086,8 +20119,10 @@ th {
 
 .kyo-menu li a {
   position: relative;
+  display: inline-block;
   color: rgba(255, 255, 255, 0.6);
-  padding: 8px 12px;
+  padding: 0 12px;
+  line-height: 30px;
   border-radius: 3px;
   transition: background 0.1s, color 0.1s; }
 
@@ -20127,26 +20162,26 @@ th {
 .kyo-dash .n-button {
   z-index: 10;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 9px;
+  right: 9px;
   width: 30px !important;
   height: 30px !important;
   font-size: 12px;
   color: #ffffff;
-  background: #22232b; }
+  background: rgba(255, 255, 255, 0.15); }
 
 .kyo-dash input {
   cursor: default;
   display: block;
   opacity: 0;
   width: 220px;
-  max-width: 40px;
-  height: 40px;
+  max-width: 48px;
+  height: 48px;
   border: 0;
   padding: 0 15px 0 15px;
   border-radius: 3px;
   color: #ffffff;
-  background: #22232b;
+  background: rgba(255, 255, 255, 0.15);
   transition: max-width 0.15s, opacity 0.15s; }
 
 .kyo-dash.is-focus input {
@@ -20171,7 +20206,7 @@ th {
   font-size: 14px;
   text-align: center; }
 
-.kyo-dash__item {
+.kyo-dash-node {
   position: relative;
   cursor: default;
   display: flex;
@@ -20180,14 +20215,14 @@ th {
   justify-content: stretch;
   padding: 15px 0; }
 
-.kyo-dash__item:not(:last-child) {
+.kyo-dash-node:not(:last-child) {
   border-bottom: 1px solid rgba(16, 17, 26, 0.1); }
 
-.kyo-dash__item.is-focus {
+.kyo-dash-node.is-focus {
   background: rgba(59, 128, 255, 0.1);
   border-bottom-color: rgba(16, 17, 26, 0.05); }
 
-.kyo-dash__type {
+.kyo-dash-node__type {
   width: 80px;
   display: flex;
   flex-direction: row;
@@ -20197,29 +20232,29 @@ th {
   text-align: right;
   border-right: 1px solid rgba(16, 17, 26, 0.1); }
 
-.kyo-dash__type span {
+.kyo-dash-node__type span {
   font-size: 13px;
   line-height: 15px;
   color: #5a8eee; }
 
-.kyo-dash__item[data-type="tree"] .kyo-dash__type span {
+.kyo-dash-node[data-type="tree"] .kyo-dash__type span {
   color: #57c1e2; }
 
-.kyo-dash__item[data-type="locale"] .kyo-dash__type span {
+.kyo-dash-node[data-type="locale"] .kyo-dash__type span {
   color: #5ccf93; }
 
-.kyo-dash__title {
+.kyo-dash-node__info {
   padding: 0 7px 0 13px; }
 
-.kyo-dash__title h4 {
+.kyo-dash-node__info h4 {
   font-size: 14px;
   line-height: 16px;
   color: #1c1d25;
   font-weight: 500; }
 
-.kyo-dash__title p {
+.kyo-dash-node__info p {
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 13px;
   color: #707076; }
 
 .kyo-userpanel > a {

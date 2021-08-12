@@ -1,10 +1,23 @@
 
+import Fuse from "fuse.js";
+import KyoDashNode from "./KyoDashNode";
 import { Arr, Obj, Dom, Any, Event } from "@kizmann/pico-js";
-import Fuse from 'fuse.js'
+
 
 export default {
 
     name: 'KyoDash',
+
+    components: {
+        [KyoDashNode.name]: KyoDashNode
+    },
+
+    provide()
+    {
+        return {
+            KyoDash: this
+        };
+    },
 
     computed: {
 
@@ -55,14 +68,12 @@ export default {
         Event.bind('KyoDash:update', (dashes) =>
             this.fuse.setCollection(dashes), this._.uid);
 
-        Dom.find(window).on('keyup', this.onKeyup,
-            this._.uid);
+        Dom.find(window).on('keyup', this.onKeyup, this._.uid);
     },
 
     beforeUnmount()
     {
-        Dom.find(window).on('keydown', null,
-            this._.uid);
+        Dom.find(window).on('keydown', null, this._.uid);
     },
 
     methods: {
@@ -188,7 +199,7 @@ export default {
 
     renderInput()
     {
-        let props = {
+        let inputProps = {
             value: this.search,
             onInput: this.onInput,
             onFocus: this.onFocus,
@@ -197,39 +208,7 @@ export default {
 
         return (
             <div class="kyo-dash__input">
-                <input ref="input" value={this.search} type="text" {...props} />
-            </div>
-        );
-    },
-
-    renderDashItem(dash, index)
-    {
-        let classList = [
-            'kyo-dash__item'
-        ];
-
-        if ( this.index == index ) {
-            classList.push('is-focus');
-        }
-
-        let props = {
-            'data-index': index,
-            'data-type': dash.type,
-            onClick: () => this.pushDash(dash)
-        };
-
-        if ( ! Any.isEmpty(dash.icon) ) {
-            props['data-icon'] = dash.icon;
-        }
-
-        return (
-            <div class={classList} {...props}>
-                <div class="kyo-dash__type">
-                    <span>{ dash.type }</span>
-                </div>
-                <div class="kyo-dash__title">
-                    <h4>{ dash.title }</h4><p>{ dash.description}</p>
-                </div>
+                <input ref="input" {...inputProps} />
             </div>
         );
     },
@@ -267,7 +246,7 @@ export default {
         });
 
         return Arr.each(results, (value, index) => {
-            return this.ctor('renderDashItem')(value.item, index);
+            return (<KyoDashNode item={value.item} index={index} />);
         });
     },
 
@@ -290,7 +269,9 @@ export default {
             trigger: 'click',
         };
 
-        props['onUpdate:modelValue'] = this.onPopover;
+        props['onUpdate:modelValue'] = (value) => {
+            this.onPopover(value);
+        };
 
         return (
             <NPopover class="kyo-dash__popover" {...props}>

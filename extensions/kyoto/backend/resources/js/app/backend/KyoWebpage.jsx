@@ -1,5 +1,5 @@
 import KyoWebpageNode from "./KyoWebpageNode";
-import { Route } from "@kizmann/pico-js";
+import { Event, Route } from "@kizmann/pico-js";
 
 export default {
 
@@ -23,6 +23,14 @@ export default {
     mounted()
     {
         this.fetch();
+
+        Event.bind('locale:changed',
+            () => this.fetch(), this._.uid);
+    },
+
+    beforeUnmount()
+    {
+        Event.unbind('locale:changed', this._.uid);
     },
 
     watch: {
@@ -80,7 +88,16 @@ export default {
 
         let searchProps = {
             modelValue: this.query.search,
+            iconPosition: 'before',
             placeholder: this.trans('Search for ...')
+        };
+
+        if ( this.query.search !== '' ) {
+            searchProps.icon = 'fa fa-times';
+        }
+
+        searchProps['onIconClick'] = () => {
+            this.query.search = '';
         };
 
         searchProps['onKeydown'] = (event) => {

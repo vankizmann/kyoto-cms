@@ -12,13 +12,13 @@
 .kyo-dash .n-button {
     z-index: 10;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 9px;
+    right: 9px;
     width: 30px !important;
     height: 30px !important;
     font-size: 12px;
     color: $color-white;
-    background: $color-black-light;
+    background: rgba($color-white, 0.15);
 }
 
 .kyo-dash input {
@@ -26,13 +26,13 @@
     display: block;
     opacity: 0;
     width: 220px;
-    max-width: 40px;
-    height: 40px;
+    max-width: 48px;
+    height: 48px;
     border: 0;
     padding: 0 15px 0 15px;
     border-radius: $md-radius;
     color: $color-white;
-    background: $color-black-light;
+    background: rgba($color-white, 0.15);
     transition: max-width 0.15s, opacity 0.15s;
 }
 
@@ -62,7 +62,7 @@
     text-align: center;
 }
 
-.kyo-dash__item {
+.kyo-dash-node {
     position: relative;
     cursor: default;
     display: flex;
@@ -72,16 +72,16 @@
     padding: 15px 0;
 }
 
-.kyo-dash__item:not(:last-child) {
+.kyo-dash-node:not(:last-child) {
     border-bottom: 1px solid rgba($color-black, 0.1);
 }
 
-.kyo-dash__item.is-focus {
+.kyo-dash-node.is-focus {
     background: rgba($color-primary, 0.1);
     border-bottom-color: rgba($color-black, 0.05);
 }
 
-.kyo-dash__type {
+.kyo-dash-node__type {
     width: 80px;
     display: flex;
     flex-direction: row;
@@ -92,33 +92,33 @@
     border-right: 1px solid rgba($color-black, 0.1);
 }
 
-.kyo-dash__type span {
+.kyo-dash-node__type span {
     font-size: 13px;
     line-height: 15px;
     color: mix($color-primary, $color-gray-30, 75%);
 }
 
-.kyo-dash__item[data-type="tree"] .kyo-dash__type span {
+.kyo-dash-node[data-type="tree"] .kyo-dash__type span {
     color: mix($color-info, $color-gray-30, 75%);
 }
 
-.kyo-dash__item[data-type="locale"] .kyo-dash__type span {
+.kyo-dash-node[data-type="locale"] .kyo-dash__type span {
     color: mix($color-success, $color-gray-30, 75%);
 }
 
-.kyo-dash__title {
+.kyo-dash-node__info {
     padding: 0 7px 0 13px;
 }
 
-.kyo-dash__title h4 {
+.kyo-dash-node__info h4 {
     font-size: 14px;
     line-height: 16px;
     color: $color-gray-95;
     font-weight: 500;
 }
 
-.kyo-dash__title p {
+.kyo-dash-node__info p {
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 13px;
     color: $color-gray-60;
 }

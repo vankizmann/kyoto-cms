@@ -1,60 +1,86 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
-.kyo-layout-language {
+.kyo-language {
     cursor: default;
-    width: 100%;
+    width: 260px;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-.n-popover--locale {
-    //margin-top: 5px;
-}
-
-.kyo-layout-language__display {
+.kyo-language__display {
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    height: 64px;
-    padding: 0 15px;
+    height: 48px;
+    width: 244px;
+    padding: 0 14px;
+    border-radius: $md-radius;
+    transition: background 0.1s;
 }
 
-.kyo-layout-language__display:hover,
-.kyo-layout-language__display.n-open {
-    background: $color-black-light;
+.kyo-language__display:hover,
+.kyo-language__display.n-open {
+    background: rgba($color-white, 0.15);
 }
 
-.kyo-layout-language__display .n-icon:last-child {
+.kyo-language__display .n-icon:last-child {
     order: 2;
     flex: 0 0 auto;
     display: block;
     width: 20px;
     margin-left: 12px;
     text-align: center;
-    color: $color-gray-60;
+    color: rgba($color-white, 0.6);
     transition: transform 0.15s;
 }
 
-.kyo-layout-language__display.n-open .n-icon:last-child {
+.kyo-language__display.n-open .n-icon:last-child {
     transform: scaleY(-1);
 }
 
-.kyo-layout-language__display span {
+.kyo-language__display span {
     order: 1;
     flex: 1 1 auto;
     line-height: 1.2;
 }
 
-.kyo-layout-language__display span,
-.n-popover--locale .n-popover-option span {
+.kyo-language__display span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.kyo-layout-language__display span i,
-.n-popover--locale .n-popover-option span i {
-    opacity: 0.5;
-    font-size: 12px;
+.kyo-language__display span i {
+    opacity: 0.6;
+    font-size: 13px;
     font-style: normal;
 }
+
+.kyo-language__item {
+    display: block;
+    padding: 6px 14px;
+    color: rgba($color-black, 0.8);
+    transition: background 0.1s, color 0.1s;
+}
+
+.kyo-language__item:hover {
+    background: rgba($color-black, 0.1);
+}
+
+.kyo-language__item:first-child {
+    padding-top: 8px;
+}
+
+.kyo-language__item:last-child {
+    padding-bottom: 8px;
+}
+
+.kyo-language__item.is-active {
+    color: $color-primary;
+}
+

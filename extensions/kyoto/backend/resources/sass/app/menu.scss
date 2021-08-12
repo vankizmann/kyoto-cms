@@ -18,8 +18,10 @@
 
 .kyo-menu li a {
     position: relative;
+    display: inline-block;
     color: rgba($color-white, 0.6);
-    padding: 8px 12px;
+    padding: 0 12px;
+    line-height: 30px;
     border-radius: $md-radius;
     transition: background 0.1s, color 0.1s;
 }
