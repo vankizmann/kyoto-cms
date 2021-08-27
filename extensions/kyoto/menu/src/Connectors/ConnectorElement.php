@@ -50,13 +50,31 @@ class ConnectorElement implements ConnectorInterface
      * @param \Kyoto\Support\Database\Model $source
      * @return mixed
      */
-    public function syncronize($source)
+    public function sync($source)
     {
         $menus = Menu::where('foreign_id', $source->id)
             ->where('type', $source->transaction)->get();
 
         foreach ( $menus as $menu ) {
             $this->transaction($menu, $source)->save();
+        }
+
+        return $this;
+    }
+
+    /**
+     * Provide data for view.
+     *
+     * @param \Kyoto\Support\Database\Model $source
+     * @return mixed
+     */
+    public function unsync($source)
+    {
+        $menus = Menu::where('foreign_id', $source->id)
+            ->where('type', $source->transaction)->get();
+
+        foreach ( $menus as $menu ) {
+            $menu->delete();
         }
 
         return $this;

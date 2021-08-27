@@ -1,7 +1,6 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-webpage {
-    overflow: hidden;
     position: relative;
     flex: 0 0 auto;
     width: 340px;
@@ -11,6 +10,7 @@
 }
 
 .kyo-webpage__body {
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;

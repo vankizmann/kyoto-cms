@@ -45,7 +45,7 @@
   justify-content: stretch;
   border-radius: 3px;
   background: #10111A;
-  box-shadow: 0 0 4px 1px rgba(5, 6, 12, 0.1); }
+  box-shadow: 0 0 4px 1px rgba(3, 6, 13, 0.1); }
 
 .kyo-pagebuilder-widgets__icon {
   order: 2;
@@ -89,8 +89,8 @@
   padding: 15px 25px;
   border-radius: 3px;
   background: #ffffff;
-  border-left: 3px solid #7f8cf2;
-  box-shadow: 0 1px 3px rgba(5, 6, 12, 0.2); }
+  border-left: 3px solid #6299ff;
+  box-shadow: 0 1px 3px rgba(3, 6, 13, 0.2); }
 
 .kyo-pagebuilder-widgets__item h4 {
   font-size: 14px; }
@@ -152,16 +152,16 @@
   border-radius: 3px; }
 
 .kyo-widget-options__title .n-button--default {
-  color: #5F6FEF; }
+  color: #3B80FF; }
 
 .kyo-builder-item.is-hidden .kyo-widget-options__title .n-button--default {
   color: #fd2f51; }
 
 .kyo-widget-options__title .n-button--default:not(.n-disabled) {
-  background: rgba(95, 111, 239, 0.15); }
+  background: rgba(59, 128, 255, 0.15); }
 
 .kyo-widget-options__title .n-button--default:not(.n-disabled):hover {
-  background: rgba(95, 111, 239, 0.25); }
+  background: rgba(59, 128, 255, 0.25); }
 
 .kyo-builder-item.is-hidden .kyo-widget-options__title .n-button--default:not(.n-disabled) {
   background: rgba(253, 47, 81, 0.15); }
@@ -173,10 +173,10 @@
   padding: 0 10px;
   height: 26px;
   border-radius: 3px;
-  background: rgba(55, 196, 239, 0.15); }
+  background: rgba(38, 167, 234, 0.15); }
 
 .kyo-widget-options__copy .n-button:not(.n-disabled):hover {
-  background: rgba(55, 196, 239, 0.25); }
+  background: rgba(38, 167, 234, 0.25); }
 
 .kyo-widget-options__remove .n-button {
   padding: 0 10px;

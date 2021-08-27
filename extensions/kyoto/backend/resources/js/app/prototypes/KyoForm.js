@@ -282,6 +282,7 @@ export default {
         {
             this.result = Obj.get(res.data, 'data', {});
 
+            console.log(this.ctor('refresh', false), 'a');
             if ( this.ctor('refresh', false) ) {
                 Event.fire('website:refresh');
             }
@@ -293,6 +294,7 @@ export default {
         {
             this.result = Obj.get(res.data, 'data', {});
 
+            console.log(this.ctor('refresh', false), 'a');
             if ( this.ctor('refresh', false) ) {
                 Event.fire('website:refresh');
             }

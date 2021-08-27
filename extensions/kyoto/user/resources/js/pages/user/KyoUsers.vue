@@ -3,21 +3,23 @@
 
         <div class="grid grid--col">
 
-            <KyoTitlebar class="col--flex-0-0" @delete="deleteItems">
-
-                <template v-slot:search>
-                    <KyoTitlebarSearch v-model="query.search"></KyoTitlebarSearch>
-                </template>
-
-                <template v-slot:action>
-                    <NButton type="primary" @click="$router.push({ name: 'KyoUserCreate' })">
-                        {{ trans('Create user') }}
-                    </NButton>
-                </template>
-
-            </KyoTitlebar>
-
             <KyoDatatable class="col--flex-1-1" @row-dblclick="gotoEdit">
+
+                <template v-slot:header>
+                    <KyoHeader class="col--flex-0-0">
+
+                        <template v-slot:search>
+                            <KyoSearch v-model="query.search"></KyoSearch>
+                        </template>
+
+                        <template v-slot:action>
+                            <NButton size="lg" @click="$router.push({ name: 'KyoUserCreate' })">
+                                {{ trans('Create user') }}
+                            </NButton>
+                        </template>
+
+                    </KyoHeader>
+                </template>
 
                 <NTableColumn type="string" prop="name" :label="trans('Name')" :fluid="true" :sort="true" :filter="true">
                     <template v-slot:default="{ item }">

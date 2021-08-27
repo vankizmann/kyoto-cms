@@ -12,6 +12,8 @@ export default {
 
     localized: false,
 
+    refresh: false,
+
     stored: [
         'expanded',
         'selected'
@@ -170,7 +172,6 @@ export default {
          */
         onMove(source, target, strategy)
         {
-            console.log(source, target, strategy);
             this.moveItems(source, target, strategy);
         },
 
@@ -239,6 +240,15 @@ export default {
             //
         },
 
+        fetchRefresh(res)
+        {
+            if ( this.ctor('refresh', false) ) {
+                Event.fire('website:refresh');
+            }
+
+            this.loadItems();
+        },
+
         /**
          * Delete items on server
          */
@@ -257,7 +267,7 @@ export default {
                 this.$root.$data);
 
             this.$http.post(route, query, options)
-                .then(this.loadItems, this.fetchError);
+                .then(this.fetchRefresh, this.fetchError);
         },
 
         /**

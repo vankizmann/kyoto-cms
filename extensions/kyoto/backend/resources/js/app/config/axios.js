@@ -27,7 +27,7 @@ axios.interceptors.response.use(
         pi.Obj.get(response.config, 'onDone', () => {})();
 
         if ( pi.Obj.has(response, 'data.message') ) {
-            nano.Notify(response.data.message, 'success');
+            window.Notify(response.data.message, 'success');
         }
 
         // Do something with response data
@@ -38,7 +38,7 @@ axios.interceptors.response.use(
         pi.Obj.get(error.config, 'onDone', () => {})();
 
         if ( pi.Obj.has(error, 'response.data.message') ) {
-            nano.Notify(error.response.data.message, 'danger');
+            window.Notify(error.response.data.message, 'danger');
         }
 
         // Do something with response error

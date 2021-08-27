@@ -1,5 +1,7 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
 .kyo-dashboard {
-    padding: 30px;
+    color: $color-white;
+    background: rgba($color-black, 0.4);
+    //backdrop-filter: blur(9px);
 }

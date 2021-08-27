@@ -1,5 +1,49 @@
 @import "~@kizmann/nano-ui/src/root/vars";
 
-.kyo-header > .grid > * {
-    height: 50px;
+.kyo-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100px;
+    padding: 0 30px;
 }
+
+.kyo-header > *:not(:first-child) {
+    margin-left: 20px;
+}
+
+.kyo-header__back {
+    flex: 0 0 auto;
+    padding-right: 20px;
+    border-right: 1px solid $color-gray-10;
+}
+
+.kyo-header__back i {
+    margin-right: 5px;
+}
+
+.kyo-header__title {
+    flex: 0 0 auto;
+}
+
+.kyo-header__title h1 {
+    font-size: 32px;
+}
+
+.kyo-header__search {
+    flex: 0 0 auto;
+}
+
+.kyo-header__spacer {
+    flex: 1 1 auto;
+}
+
+.kyo-header__action {
+    flex: 0 0 auto;
+}
+
+.kyo-header__action > *:not(:first-child) {
+    margin-left: 5px;
+}
+

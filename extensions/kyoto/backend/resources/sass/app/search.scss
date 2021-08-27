@@ -1,0 +1,41 @@
+@import "~@kizmann/nano-ui/src/root/vars";
+
+.kyo-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+}
+
+.kyo-search__input {
+    margin-right: 5px;
+}
+
+.kyo-search__input .n-input {
+    border: none;
+    background: transparent;
+}
+
+.kyo-search__input .n-button {
+    cursor: default;
+}
+
+.kyo-search__input .n-input .n-button--input {
+    color: $color-gray-40 !important;
+}
+
+.kyo-search__clear .n-button {
+    color: $color-gray-40;
+    background-color: rgba($color-black, 0.1);
+}
+
+.kyo-search__clear .n-button:hover {
+    color: $color-gray-60 !important;
+    background-color: rgba($color-black, 0.15);
+}
+
+.kyo-search__clear .n-button.n-disabled {
+    opacity: 0;
+}
+
+

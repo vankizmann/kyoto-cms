@@ -26,11 +26,15 @@ export default {
 
         Event.bind('locale:changed',
             () => this.fetch(), this._.uid);
+
+        Event.bind('website:refresh',
+            () => this.fetch(), this._.uid);
     },
 
     beforeUnmount()
     {
         Event.unbind('locale:changed', this._.uid);
+        Event.unbind('website:refresh', this._.uid);
     },
 
     watch: {
@@ -156,7 +160,7 @@ export default {
                 <div class="grid grid--row grid--middle grid--5">
                     <div class="col--flex-0-0">
                         <NButton {...deleteProps}>
-                            { this.trans('Remove') }
+                            { this.trans('Delete') }
                         </NButton>
                     </div>
                     <div class="col--flex-1-1">
@@ -202,6 +206,7 @@ export default {
     {
         let resizerProps = {
             minWidth: 320,
+            maxWidth: 640,
         };
 
         resizerProps['onUpdate:modelValue'] = () => {

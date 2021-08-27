@@ -137,7 +137,7 @@ th {
         background: transparent;
     }
 
-    .n-button--default:not(.n-button-link):hover {
+    .n-button--default:not(.n-button-link):not(.n-disabled):hover {
         color: $color-gray-60;
         background-color: rgba($color-black, 0.15);
     }
@@ -147,7 +147,7 @@ th {
         background: transparent;
     }
 
-    .n-button--primary:not(.n-button-link):hover {
+    .n-button--primary:not(.n-button-link):not(.n-disabled):hover {
         color: $color-primary;
         background-color: rgba($color-primary, 0.15);
     }
@@ -157,7 +157,7 @@ th {
         background: transparent;
     }
 
-    .n-button--info:not(.n-button-link):hover {
+    .n-button--info:not(.n-button-link):not(.n-disabled):hover {
         color: $color-info;
         background-color: rgba($color-info, 0.15);
     }
@@ -167,7 +167,7 @@ th {
         background: transparent;
     }
 
-    .n-button--success:not(.n-button-link):hover {
+    .n-button--success:not(.n-button-link):not(.n-disabled):hover {
         color: $color-success;
         background-color: rgba($color-success, 0.15);
     }
@@ -177,7 +177,7 @@ th {
         background: transparent;
     }
 
-    .n-button--warning:not(.n-button-link):hover {
+    .n-button--warning:not(.n-button-link):not(.n-disabled):hover {
         color: $color-warning;
         background-color: rgba($color-warning, 0.15);
     }
@@ -187,7 +187,7 @@ th {
         background: transparent;
     }
 
-    .n-button--danger:not(.n-button-link):hover {
+    .n-button--danger:not(.n-button-link):not(.n-disabled):hover {
         color: $color-danger;
         background-color: rgba($color-danger, 0.15);
     }
@@ -290,10 +290,7 @@ th {
     background: $color-black;
 }
 
-.n-info {
-    border: none;
-    border-radius: 0 !important;
-}
+
 //
 //.n-info .n-info__body {
 //    display: flex;
@@ -335,3 +332,8 @@ th {
 //.n-form-item {
 //    margin-bottom: 28px;
 //}
+
+
+.nowrap {
+    white-space: nowrap;
+}

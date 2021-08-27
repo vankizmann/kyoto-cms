@@ -79,7 +79,7 @@ class Page extends \Kyoto\Support\Database\Model
             }
 
             Kyoto::localized(null, function () use ($model) {
-                KyotoConnector::find('kyoto/page::page')->syncronize($model);
+                KyotoConnector::find('kyoto/page::page')->sync($model);
             });
 
         });
@@ -93,6 +93,10 @@ class Page extends \Kyoto\Support\Database\Model
             if ( Kyoto::isReady() ) {
                 app('kyoto.media')->deleteMediaLinks($model->id);
             }
+
+            Kyoto::localized(null, function () use ($model) {
+                KyotoConnector::find('kyoto/page::page')->unsync($model);
+            });
 
         });
 

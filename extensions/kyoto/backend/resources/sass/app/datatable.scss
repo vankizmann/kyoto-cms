@@ -11,6 +11,76 @@
     background: $color-white;
 }
 
+.kyo-datatable-side__item {
+    padding: 18px 20px;
+}
+
+.kyo-datatable-side__item:not(:last-child) {
+    border-bottom: 1px solid $color-gray-10;
+}
+
+.kyo-datatable-side__head {
+    margin-bottom: 15px;
+}
+
+.kyo-datatable-side__head h6 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-gray-40;
+}
+
+.kyo-datatable-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @include NTransButton();
+}
+
+.kyo-datatable-count__text {
+    overflow: hidden;
+    flex: 1 1 auto;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.kyo-datatable-count__copy,
+.kyo-datatable-count__delete {
+    flex: 0 0 auto;
+    margin-left: 5px;
+}
+
+.kyo-datatable-action > *:not(:first-child) {
+    margin-top: 5px;
+}
+
+.kyo-datatable-action .n-button {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.kyo-datatable-info {
+    margin-bottom: 20px;
+}
+
+.kyo-datatable-info h5 {
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.kyo-datatable-info .n-info {
+    border: none;
+    border-radius: 0;
+}
+
+.kyo-datatable-info .n-info__body {
+    padding: 0 !important;
+}
+
 .kyo-datatable__body {
     flex: 1 1 auto;
     min-height: 100%;

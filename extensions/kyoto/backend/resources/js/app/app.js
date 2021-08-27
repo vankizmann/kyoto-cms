@@ -34,35 +34,20 @@ kyoto.component(NInfoFieldHide.name, NInfoFieldHide);
 import NInfoFieldLink from "./table/info-field/NInfoFieldLink";
 kyoto.component(NInfoFieldLink.name, NInfoFieldLink);
 
-import KyoLayoutMainmenu from "./layout/KyoLayoutMainmenu";
-kyoto.component(KyoLayoutMainmenu.name, KyoLayoutMainmenu);
+import KyoHeader from "./datatable/KyoHeader";
+kyoto.component(KyoHeader.name, KyoHeader);
 
-import KyoLayoutSubmenu from "./layout/KyoLayoutSubmenu";
-kyoto.component(KyoLayoutSubmenu.name, KyoLayoutSubmenu);
+import KyoSearch from "./datatable/KyoSearch";
+kyoto.component(KyoSearch.name, KyoSearch);
 
-import KyoLayoutDash from "./layout/KyoLayoutDash";
-kyoto.component(KyoLayoutDash.name, KyoLayoutDash);
-
-import KyoLayoutBreadcrumbs from "./layout/KyoLayoutBreadcrumbs";
-kyoto.component(KyoLayoutBreadcrumbs.name, KyoLayoutBreadcrumbs);
-
-import KyoLayoutLanguage from "./layout/KyoLayoutLanguage";
-kyoto.component(KyoLayoutLanguage.name, KyoLayoutLanguage);
-
-import KyoLayoutUser from "./layout/KyoLayoutUser";
-kyoto.component(KyoLayoutUser.name, KyoLayoutUser);
-
-import KyoTitlebar from "./helpers/KyoTitlebar";
-kyoto.component(KyoTitlebar.name, KyoTitlebar);
+import KyoDatatable from "./datatable/KyoDatatable";
+kyoto.component(KyoDatatable.name, KyoDatatable);
 
 import KyoTitlebarSearch from "./helpers/KyoTitlebarSearch";
 kyoto.component(KyoTitlebarSearch.name, KyoTitlebarSearch);
 
 import KyoFilterbar from "./helpers/KyoFilterbar";
 kyoto.component(KyoFilterbar.name, KyoFilterbar);
-
-import KyoDatatable from "./helpers/KyoDatatable.jsx";
-kyoto.component(KyoDatatable.name, KyoDatatable);
 
 import KyoWebsite from "./website/KyoWebsite";
 kyoto.component(KyoWebsite.name, KyoWebsite);

@@ -103,12 +103,12 @@ export default {
 
         showWebsite()
         {
-            this.visWebpage = true;
+            this.visWebsite = true;
         },
 
         hideWebsite()
         {
-            this.visWebpage = false;
+            this.visWebsite = false;
         }
 
     },
@@ -122,8 +122,14 @@ export default {
 
     renderPage()
     {
+        let style = {};
+
+        if ( ! this.visWebsite ) {
+            style.display = 'none';
+        }
+
         return (
-            <KyoWebpage />
+            <KyoWebpage style={style} />
         );
     },
 

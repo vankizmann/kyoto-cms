@@ -1,12 +1,5 @@
 <template>
-    <div class="kyo-titlebar-search">
-        <div class="kyo-titlebar-search__input">
-            <NInput v-model="veValue" icon="fa fa-search" icon-position="before" :placeholder="trans('Search')" @keydown.enter="updateSearch" />
-        </div>
-        <div class="kyo-titlebar-search__clear">
-            <NButton icon="fa fa-times" type="default" :square="true" :disabled="! this.veValue" @click="clearSearch" />
-        </div>
-    </div>
+
 </template>
 <script>
     export default {

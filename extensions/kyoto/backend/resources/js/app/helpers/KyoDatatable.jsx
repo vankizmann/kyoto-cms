@@ -87,7 +87,13 @@ export default {
 
     renderAction()
     {
+        if ( ! this.$slots.action ) {
+            return;
+        }
 
+        return (
+            <div>{this.$slots.action()}</div>
+        );
     },
 
     renderInfo()
@@ -105,7 +111,10 @@ export default {
         };
 
         return (
-            <NInfo ref="info" {...infoProps} v-slots={infoSlots} />
+            <div class="kyo-datatable__info">
+                <h5>{this.trans('Info')}</h5>
+                <NInfo ref="info" {...infoProps} v-slots={infoSlots} />
+            </div>
         )
     },
 

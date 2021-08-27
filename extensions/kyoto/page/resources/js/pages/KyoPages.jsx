@@ -7,6 +7,7 @@ export default {
     extends: window.KyoIndex,
 
     localized: true,
+    refresh: true,
 
     urls: {
         index: '/{locale}/kyoto/page/http/controllers/page/index',
@@ -22,36 +23,38 @@ export default {
         return { query };
     },
 
-    mounted()
+    beforeMount()
     {
         this.$root.showWebsite();
     },
 
-    renderTitlebar()
+    renderHeader()
     {
-        let search = () => (
-            <KyoTitlebarSearch vModel={this.query.search}/>
-        );
+        let slots = {};
 
         let gotoCreate = () => {
             this.$router.push({ name: 'KyoPageCreate' });
         }
 
-        let action = () => (
-            <NButton type="primary" onClick={gotoCreate}>
+        slots.action = (
+            <NButton size="lg" onClick={gotoCreate}>
                 { this.trans('Create page') }
             </NButton>
         );
 
+        slots.search = (
+            <KyoSearch vModel={this.query.search} />
+        );
+
         return (
-            <KyoTitlebar class="col--flex-0-0" onDelete={this.deleteItems}>
-                {{ search, action }}
-            </KyoTitlebar>
-        )
+            <KyoHeader v-slots={slots} />
+        );
     },
 
     renderDatatable()
     {
+        let slots = {};
+
         let columns = [
             {
                 type: 'state',
@@ -104,36 +107,34 @@ export default {
             onRowDblclick: this.gotoEdit
         }
 
-        let table = () => {
+        slots.default = () => {
             return Arr.each(columns, (props) => {
                 return (<NTableColumn {...props} />);
             });
         }
 
         let keep = [
-            'type', 'prop', 'label', 'modelValue'
+            'type', 'prop', 'label'
         ];
 
-        let info = () => {
+        slots.info = () => {
             return Arr.each(columns, (props) => {
                 return (<NInfoColumn {...Obj.only(props, keep)} />);
             });
         }
 
+        slots.header = this.ctor('renderHeader');
+
         return (
-            <KyoDatatable class="col--flex-1-1" {...props}>
-                {{ default: table, info: info }}
-            </KyoDatatable>
-        )
+            <KyoDatatable class="col--flex-1-1" {...props} v-slots={slots} />
+        );
     },
 
     render()
     {
         return (
             <NLoader visible={this.load} class="full-height-child">
-                <div class="grid grid--col">
-                    { this.ctor('renderDatatable')() }
-                </div>
+                { this.ctor('renderDatatable')() }
             </NLoader>
         );
     }
