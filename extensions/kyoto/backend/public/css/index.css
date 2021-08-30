@@ -5705,7 +5705,7 @@ div:not(.n-virtualscroller__row) > .n-virtualscroller__item {
      object-fit: contain;
   transition: opacity 0.15s ease-in-out; }
 
-.n-preview-image:not(.n-ready) img {
+.n-preview-image:not(.n-ready):not(.n-cached) img {
   opacity: 0; }
 
 @-webkit-keyframes NImage {

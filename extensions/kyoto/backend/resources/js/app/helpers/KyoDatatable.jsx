@@ -87,7 +87,7 @@ export default {
 
     renderAction()
     {
-        if ( ! this.$slots.action ) {
+        if ( !this.$slots.action ) {
             return;
         }
 
@@ -98,7 +98,7 @@ export default {
 
     renderInfo()
     {
-        if ( ! this.$slots.info ) {
+        if ( !this.$slots.info ) {
             return;
         }
 
@@ -125,30 +125,32 @@ export default {
 
     renderTable()
     {
-        if ( ! this.$slots.default ) {
+        if ( !this.$slots.default ) {
             return;
         }
 
+        console.log(this.KyoIndex.selected);
+
         let tableProps = {
-            current: this.KyoIndex.current,
-            selected: this.KyoIndex.selected,
-            expanded: this.KyoIndex.expanded,
-            allowDrag: this.KyoIndex.allowDrag,
-            allowDrop: this.KyoIndex.allowDrop,
-            safezone: this.KyoIndex.safezone,
-            onMove: this.KyoIndex.onMove,
-            items: this.KyoIndex.result.data,
-            filter: this.KyoIndex.query.filter,
-            sortProp: this.KyoIndex.query.prop,
-            sortDir: this.KyoIndex.query.dir,
-            handle: this.handle,
-            renderHandle: this.renderHandle,
-            renderExpand: this.renderExpand,
-            group: this.group,
-            allowGroups: this.allowGroups,
+            current:       this.KyoIndex.current,
+            selected:      this.KyoIndex.selected,
+            expanded:      this.KyoIndex.expanded,
+            allowDrag:     this.KyoIndex.allowDrag,
+            allowDrop:     this.KyoIndex.allowDrop,
+            safezone:      this.KyoIndex.safezone,
+            onMove:        this.KyoIndex.onMove,
+            items:         this.KyoIndex.result.data,
+            filter:        this.KyoIndex.query.filter,
+            sortProp:      this.KyoIndex.query.prop,
+            sortDir:       this.KyoIndex.query.dir,
+            handle:        this.handle,
+            renderHandle:  this.renderHandle,
+            renderExpand:  this.renderExpand,
+            group:         this.group,
+            allowGroups:   this.allowGroups,
             onRowDblclick: this.onRowDblclick,
-            itemHeight: 40,
-            threshold: 501,
+            itemHeight:    40,
+            threshold:     501,
         };
 
         tableProps['onUpdate:current'] = (value) => {
@@ -187,13 +189,13 @@ export default {
     renderPaging()
     {
         let pagingProps = {
-            page: this.KyoIndex.query.page,
-            limit: this.KyoIndex.query.limit,
-            total: this.KyoIndex.result.total,
+            page:   this.KyoIndex.query.page,
+            limit:  this.KyoIndex.query.limit,
+            total:  this.KyoIndex.result.total,
             layout: ['limit', 'count', 'spacer', 'goto', 'pages']
         };
 
-        if ( ! this.renderPagination ) {
+        if ( !this.renderPagination ) {
             pagingProps.layout = ['count'];
         }
 

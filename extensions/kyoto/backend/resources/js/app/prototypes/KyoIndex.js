@@ -5,8 +5,8 @@ export default {
     name: 'KyoIndex',
 
     urls: {
-        index: null,
-        copy: null,
+        index:  null,
+        copy:   null,
         delete: null
     },
 
@@ -15,11 +15,13 @@ export default {
     refresh: false,
 
     stored: [
+        'query',
         'expanded',
         'selected'
     ],
 
-    defaults() {
+    defaults()
+    {
 
         let query = {
             page: 1, limit: 25, prop: 'updated_at', dir: 'asc', filter: [], search: '', columns: ['title']
@@ -38,15 +40,11 @@ export default {
             query: query, result: {}, current: null, expanded: [], selected: [], load: true
         };
 
-        let data = Obj.assign(defaults,
-            this.ctor('defaults').call(this));
+        let data = Obj.assign(defaults, this.ctor('defaults').call(this));
 
-        let storedKeys = Arr.merge(this.ctor('stored'),
-            ['query']);
-
-        Arr.each(storedKeys, (key) => {
-            if ( Obj.has(this.$root, this.__store(key)) ) {
-                Obj.set(data, key, Obj.get(this.$root, this.__store(key)));
+        Arr.each(this.ctor('stored'), (key) => {
+            if ( Obj.has(window, this.__store(key)) ) {
+                Obj.set(data, key, Obj.get(window, this.__store(key)));
             }
         });
 
@@ -60,15 +58,6 @@ export default {
         };
     },
 
-    beforeMount()
-    {
-        Arr.each(this.ctor('stored'), (key) => {
-            this.$watch(key, (value) => {
-                return Obj.set(this.$root, this.__store(key), value);
-            });
-        });
-    },
-
     mounted()
     {
         this.loadItems();
@@ -76,6 +65,13 @@ export default {
         if ( this.ctor('localized', false) ) {
             Event.bind('locale:changed', this.loadItems, this._.uid);
         }
+    },
+
+    beforeUnmount()
+    {
+        Arr.each(this.ctor('stored'), (key) => {
+            Obj.set(window, this.__store(key), Obj.get(this.$data, key));
+        });
     },
 
     unmounted()
@@ -226,7 +222,9 @@ export default {
          */
         fetchDone(res)
         {
-            this.selected = [];
+            if ( ! Any.isEmpty(this.result) ) {
+                this.selected = [];
+            }
 
             this.result = res.data;
         },

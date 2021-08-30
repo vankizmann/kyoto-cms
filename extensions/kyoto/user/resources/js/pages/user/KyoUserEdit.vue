@@ -2,7 +2,7 @@
     <NLoader :visible="load" class="full-height-child">
         <div class="grid grid--col">
 
-            <KyoTitlebar :link="{ name: 'KyoUsers' }" class="col--flex-0-0" @delete="deleteItem">
+            <KyoHeader :link="{ name: 'KyoUsers' }" class="col--flex-0-0" @delete="deleteItem">
                 <template v-slot:action>
                     <NButtonGroup>
                         <NButton type="primary" @click="updateItem">
@@ -13,7 +13,7 @@
                         </NButton>
                     </NButtonGroup>
                 </template>
-            </KyoTitlebar>
+            </KyoHeader>
 
             <NForm :form="result" :errors="errors" class="kyo-dataform col--flex-1-0">
 
@@ -101,6 +101,16 @@
             show: '/{locale}/kyoto/user/http/controllers/user/show',
             update: '/{locale}/kyoto/user/http/controllers/user/update',
             delete: '/{locale}/kyoto/user/http/controllers/user/delete'
+        },
+
+        beforeMount()
+        {
+            this.$root.hideWebsite();
+        },
+
+        beforeUnmount()
+        {
+            this.$root.showWebsite();
         },
 
         methods: {

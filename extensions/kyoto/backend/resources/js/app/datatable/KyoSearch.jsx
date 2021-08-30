@@ -6,7 +6,7 @@ export default {
 
     props: {
 
-        value: {
+        modelValue: {
             default()
             {
                 return '';
@@ -27,7 +27,15 @@ export default {
     data()
     {
         return {
-            tempValue: this.value
+            tempValue: this.modelValue
+        }
+    },
+
+    watch: {
+        'modelValue': function (value) {
+            if ( value !== this.tempValue ) {
+                this.tempValue = value;
+            }
         }
     },
 

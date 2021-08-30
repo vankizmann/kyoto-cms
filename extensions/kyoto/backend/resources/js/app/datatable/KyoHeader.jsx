@@ -122,7 +122,7 @@ export default {
 
         return (
             <div class="kyo-header__back">
-                {nativeLink()}
+                {this.link ? routerLink() : nativeLink()}
             </div>
         );
 

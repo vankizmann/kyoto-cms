@@ -1,7 +1,7 @@
 <template>
     <NLoader :visible="load" class="grid grid--col">
 
-        <KyoTitlebar :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
+        <KyoHeader :link="{ name: 'KyoPages' }" class="col--flex-0-0" @delete="deleteItem">
             <template v-slot:action>
                 <NButtonGroup>
                     <NButton type="primary" @click="updateItem">
@@ -12,7 +12,7 @@
                     </NButton>
                 </NButtonGroup>
             </template>
-        </KyoTitlebar>
+        </KyoHeader>
 
         <KyoPageWidgets class="col--flex-1-1" v-model="result.widgets">
 
