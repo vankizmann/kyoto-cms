@@ -20180,9 +20180,6 @@ th {
 .kyo-datatable-side__item {
   padding: 18px 20px; }
 
-.kyo-datatable-side__item:not(:last-child) {
-  border-bottom: 1px solid #e7e7e8; }
-
 .kyo-datatable-side__head {
   margin-bottom: 15px; }
 
@@ -20285,7 +20282,6 @@ th {
   position: relative;
   flex: 0 0 auto !important;
   width: 320px;
-  background: #f3f3f4;
   border-left: 1px solid #e7e7e8; }
 
 .kyo-datatable__side > .n-scrollbar {

@@ -15,9 +15,9 @@
     padding: 18px 20px;
 }
 
-.kyo-datatable-side__item:not(:last-child) {
-    border-bottom: 1px solid $color-gray-10;
-}
+//.kyo-datatable-side__item:not(:last-child) {
+//    border-bottom: 1px solid $color-gray-10;
+//}
 
 .kyo-datatable-side__head {
     margin-bottom: 15px;
@@ -96,7 +96,7 @@
     position: relative;
     flex: 0 0 auto !important;
     width: 320px;
-    background: $color-gray-05;
+    //background: $color-gray-05;
     border-left: 1px solid $color-gray-10;
 }
 
