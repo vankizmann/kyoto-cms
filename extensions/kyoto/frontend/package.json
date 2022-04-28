@@ -14,7 +14,7 @@
         "@babel/plugin-proposal-export-default-from": "^7.5.2",
         "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
         "@babel/preset-env": "^7.5.5",
-        "axios": "^0.18.0",
+        "axios": "^0.21.2",
         "backpack.css": "^2.0.0",
         "cross-env": "^5.1",
         "jquery": "^3.4.1",
