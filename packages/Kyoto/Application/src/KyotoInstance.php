@@ -11,4 +11,5 @@ class KyotoInstance extends InstanceElement
     use Plugins\CollectionPlugin;
     use Plugins\RoutingPlugin;
     use Plugins\MenuPlugin;
+    use Plugins\SystemPlugin;
 }

@@ -40,8 +40,14 @@ kyoto.component(KyoHeader.name, KyoHeader);
 import KyoSearch from "./datatable/KyoSearch";
 kyoto.component(KyoSearch.name, KyoSearch);
 
+import KyoBreadcrumbs from "./datatable/KyoBreadcrumbs";
+kyoto.component(KyoBreadcrumbs.name, KyoBreadcrumbs);
+
 import KyoDatatable from "./datatable/KyoDatatable";
 kyoto.component(KyoDatatable.name, KyoDatatable);
+
+import KyoDataform from "./datatable/KyoDataform";
+kyoto.component(KyoDataform.name, KyoDataform);
 
 import KyoTitlebarSearch from "./helpers/KyoTitlebarSearch";
 kyoto.component(KyoTitlebarSearch.name, KyoTitlebarSearch);

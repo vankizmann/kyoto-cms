@@ -37,10 +37,19 @@ export default {
 
     },
 
+    computed: {
+
+        isCreate()
+        {
+            return !! this.ctor('urls.store');
+        }
+
+    },
+
     defaults()
     {
         return {
-            override: {}, result: {}, errors: {}, load: true
+            override: {}, value: {}, errors: {}, load: true
         };
     },
 
@@ -153,7 +162,7 @@ export default {
                 .then(this.fetchDone, this.fetchError);
         },
 
-        updateItem()
+        applyItem()
         {
             let options = {
                 onLoad: () => this.load = true,
@@ -164,17 +173,28 @@ export default {
                 id: this.$route.params.id
             };
 
-            let route = this.Route.get(this.ctor('urls.update'),
+            let type = 'store';
+
+            if ( ! this.isCreate ) {
+                type = 'update';
+            }
+
+            let callback = this.fetchDoneFirst;
+
+            if ( ! this.isCreate ) {
+                callback = this.fetchDoneSave;
+            }
+
+            let route = this.Route.get(this.ctor(`urls.${type}`),
                 this.$root.$data, query);
 
-            let data = Obj.assign({}, this.result,
-                this.override);
+            let data = Obj.assign({}, this.value, this.override);
 
             this.$http.post(route, data, options)
-                .then(this.fetchDoneSave, this.fetchError);
+                .then(callback, this.fetchError);
         },
 
-        updateCloseItem()
+        saveItem()
         {
             let options = {
                 onLoad: () => this.load = true,
@@ -185,47 +205,16 @@ export default {
                 id: this.$route.params.id
             };
 
-            let route = this.Route.get(this.ctor('urls.update'),
+            let type = 'store';
+
+            if ( ! this.isCreate ) {
+                type = 'update';
+            }
+
+            let route = this.Route.get(this.ctor(`urls.${type}`),
                 this.$root.$data, query);
 
-
-            let data = Obj.assign({}, this.result,
-                this.override);
-
-            this.$http.post(route, data, options)
-                .then(this.fetchDoneClose, this.fetchError);
-        },
-
-        storeItem()
-        {
-            let options = {
-                onLoad: () => this.load = true,
-                onDone: () => this.load = false
-            };
-
-            let route = this.Route.get(this.ctor('urls.store'),
-                this.$root.$data);
-
-
-            let data = Obj.assign({}, this.result,
-                this.override);
-
-            this.$http.post(route, data, options)
-                .then(this.fetchDoneFirst, this.fetchError);
-        },
-
-        storeItemClose()
-        {
-            let options = {
-                onLoad: () => this.load = true,
-                onDone: () => this.load = false
-            };
-
-            let route = this.Route.get(this.ctor('urls.store'),
-                this.$root.$data);
-
-            let data = Obj.assign({}, this.result,
-                this.override);
+            let data = Obj.assign({}, this.value, this.override);
 
             this.$http.post(route, data, options)
                 .then(this.fetchDoneClose, this.fetchError);
@@ -258,11 +247,11 @@ export default {
          */
         fetchDone(res)
         {
-            if ( Any.isEmpty(this.result) ) {
+            if ( Any.isEmpty(this.value) ) {
                 Any.delay(this.ctor('ready'), 30);
             }
 
-            this.result = Obj.get(res.data, 'data', {});
+            this.value = Obj.get(res.data, 'data', {});
         },
 
         /**
@@ -275,12 +264,12 @@ export default {
                 Event.fire('website:refresh');
             }
 
-            this.result = Obj.get(res.data, 'data', {});
+            this.value = Obj.get(res.data, 'data', {});
         },
 
         fetchDoneFirst(res)
         {
-            this.result = Obj.get(res.data, 'data', {});
+            this.value = Obj.get(res.data, 'data', {});
 
             console.log(this.ctor('refresh', false), 'a');
             if ( this.ctor('refresh', false) ) {
@@ -292,9 +281,8 @@ export default {
 
         fetchDoneClose(res)
         {
-            this.result = Obj.get(res.data, 'data', {});
+            this.value = Obj.get(res.data, 'data', {});
 
-            console.log(this.ctor('refresh', false), 'a');
             if ( this.ctor('refresh', false) ) {
                 Event.fire('website:refresh');
             }

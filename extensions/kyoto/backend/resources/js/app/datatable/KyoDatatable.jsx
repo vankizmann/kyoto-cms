@@ -1,3 +1,5 @@
+import { Locale } from "@kizmann/pico-js";
+
 export default {
 
     name: 'KyoDatatable',
@@ -11,6 +13,38 @@ export default {
     },
 
     props: {
+
+        showCreate: {
+            default()
+            {
+                return true;
+            },
+            type: [Boolean]
+        },
+
+        showCopy: {
+            default()
+            {
+                return false;
+            },
+            type: [Boolean]
+        },
+
+        showDelete: {
+            default()
+            {
+                return true;
+            },
+            type: [Boolean]
+        },
+
+        createText: {
+            default()
+            {
+                return Locale.trans('Create new');
+            },
+            type: [String]
+        },
 
         group: {
             default()
@@ -65,7 +99,7 @@ export default {
     data()
     {
         return {
-            copyConfirm: false, deleteConfirm: false,
+            collapse: ['info'], copyConfirm: false, deleteConfirm: false,
         };
     },
 
@@ -96,12 +130,43 @@ export default {
         );
     },
 
+    renderCreate()
+    {
+        if ( ! this.showCreate ) {
+            return null;
+        }
+
+        let buttonProps = {
+            class: 'solid',
+            type: 'primary',
+        };
+
+        buttonProps.onClick = () => {
+            this.$emit('create');
+        };
+
+        let buttonHtml = (
+            <NButton {...buttonProps}>
+                {this.createText}
+            </NButton>
+        );
+
+        return (
+            <div class="kyo-datatable-topbar__create">
+                {buttonHtml}
+            </div>
+        );
+    },
+
     renderCopy()
     {
+        if ( ! this.showCopy ) {
+            return null;
+        }
+
         let buttonProps = {
             type: 'primary',
             icon: 'fa fa-clone',
-            square: true,
         };
 
         buttonProps['onClick'] = () => {
@@ -113,19 +178,9 @@ export default {
         }
 
         let buttonHtml = (
-            <NButton {...buttonProps} />
-        );
-
-        let popoverProps = {
-            class: 'nowrap',
-            size: 'xs',
-            type: 'tooltip',
-        };
-
-        let popoverHtml = (
-            <NPopover {...popoverProps}>
+            <NButton {...buttonProps}>
                 {this.trans('Copy')}
-            </NPopover>
+            </NButton>
         );
 
         let confirmProps = {
@@ -134,7 +189,7 @@ export default {
         };
 
         confirmProps['onConfirm'] = () => {
-            //this.KyoIndex.copy();
+            this.KyoIndex.copyItems();
         };
 
         let choice = [
@@ -149,18 +204,21 @@ export default {
         );
 
         return (
-            <div class="kyo-datatable-count__copy">
-                {[buttonHtml, popoverHtml, confirmHtml]}
+            <div class="kyo-datatable-topbar__copy">
+                {[buttonHtml, confirmHtml]}
             </div>
         );
     },
 
     renderDelete()
     {
+        if ( ! this.showDelete ) {
+            return null;
+        }
+
         let buttonProps = {
             type: 'danger',
             icon: 'fa fa-minus-circle',
-            square: true,
         };
 
         buttonProps['onClick'] = () => {
@@ -172,19 +230,9 @@ export default {
         }
 
         let buttonHtml = (
-            <NButton {...buttonProps} />
-        );
-
-        let popoverProps = {
-            class: 'nowrap',
-            size: 'xs',
-            type: 'tooltip',
-        };
-
-        let popoverHtml = (
-            <NPopover {...popoverProps}>
+            <NButton {...buttonProps}>
                 {this.trans('Delete')}
-            </NPopover>
+            </NButton>
         );
 
         let confirmProps = {
@@ -208,13 +256,13 @@ export default {
         );
 
         return (
-            <div class="kyo-datatable-count__delete">
-                {[buttonHtml, popoverHtml, confirmHtml]}
+            <div class="kyo-datatable-topbar__delete">
+                {[buttonHtml, confirmHtml]}
             </div>
         );
     },
 
-    renderCount()
+    renderTopbar()
     {
         let choice = [
             'No item selected',
@@ -222,27 +270,25 @@ export default {
             ':count items selected'
         ];
 
-        let sideHead = (
-            <div class="kyo-datatable-side__head">
-                <h6>{this.trans('Items')}</h6>
-            </div>
+        let singleText = (
+            <KyoBreadcrumbs class="kyo-datatable-topbar__bread" />
         );
 
-        let countText = (
-            <div class="kyo-datatable-count__text">
+        let multiText = (
+            <div class="kyo-datatable-topbar__text">
                 { this.choice(choice.join('|'), this.KyoIndex.selected.length)}
             </div>
         );
 
-        let sideBody = (
-            <div class="kyo-datatable-side__body kyo-datatable-count">
-                {[countText, this.ctor('renderCopy')(), this.ctor('renderDelete')()]}
-            </div>
-        );
+        let renderInfo = singleText;
+
+        if ( this.KyoIndex.selected.length ) {
+            renderInfo = multiText;
+        }
 
         return (
-            <div class="kyo-datatable-side__item">
-                {[sideHead, sideBody]}
+            <div class="kyo-datatable-topbar">
+                {[renderInfo, this.ctor('renderCopy')(), this.ctor('renderDelete')(), this.ctor('renderCreate')()]}
             </div>
         );
     },
@@ -293,15 +339,19 @@ export default {
         };
 
         let sideBody = (
-            <div class="kyo-datatable-side__body">
+            <div class="kyo-datatable-side__body clear">
                 <NInfo ref="info" {...infoProps} v-slots={infoSlots} />
             </div>
         );
 
+        let collapseProps = {
+            name: 'info', label: this.trans('Information'),
+        };
+
         return (
-            <div class="kyo-datatable-side__item kyo-datatable-info">
-                {[sideHead, sideBody]}
-            </div>
+            <NCollapseItem {...collapseProps}>
+                {sideBody}
+            </NCollapseItem>
         );
     },
 
@@ -330,7 +380,7 @@ export default {
         );
     },
 
-    renderTable()
+    renderContent()
     {
         if ( ! this.$slots.default ) {
             return;
@@ -432,25 +482,29 @@ export default {
 
         return (
             <div class="kyo-datatable">
+                <div class="kyo-datatable__head">
+                    {this.ctor('renderTopbar')()}
+                </div>
                 <div class="kyo-datatable__body">
                     {
                         [
                             this.ctor('renderHeader')(),
-                            this.ctor('renderTable')(),
+                            this.ctor('renderContent')(),
                             this.ctor('renderPaging')(),
                         ]
                     }
                 </div>
                 <NResizer class="kyo-datatable__side" {...resizerProps}>
                     <NScrollbar wrapClass="kyo-datatable-side">
-                        {
-                            [
-                                this.ctor('renderCount')(),
-                                this.ctor('renderAction')(),
-                                this.ctor('renderInfo')(),
-                                this.ctor('renderExtra')(),
-                            ]
-                        }
+                        <NCollapse vModel={this.collapse}>
+                            {
+                                [
+                                    this.ctor('renderAction')(),
+                                    this.ctor('renderInfo')(),
+                                    this.ctor('renderExtra')(),
+                                ]
+                            }
+                        </NCollapse>
                     </NScrollbar>
                 </NResizer>
             </div>

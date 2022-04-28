@@ -144,7 +144,6 @@ export default {
                 { this.ctor('renderReturn')() }
                 { this.ctor('renderTitle')() }
                 { this.ctor('renderSearch')() }
-                { this.ctor('renderSpacer')() }
                 { this.ctor('renderAction')() }
             </div>
         );

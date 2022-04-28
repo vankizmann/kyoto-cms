@@ -35,7 +35,7 @@
 
             updateInput(value)
             {
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
             },
 
             loadPolicies()
@@ -58,7 +58,6 @@
 
             fetchDone(res)
             {
-                console.log(res.data);
                 pi.Data.set('kyo-policies', this.items = res.data);
             },
 

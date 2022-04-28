@@ -127,67 +127,67 @@ th {
 
 @mixin NTransButton() {
 
-    .n-button {
+    .n-button:not(.solid) {
         flex: 0 0 auto;
         border: 0 !important;
     }
 
-    .n-button--default:not(.n-button-link) {
+    .n-button--default:not(.solid):not(.n-button-link) {
         color: $color-gray-40;
         background: transparent;
     }
 
-    .n-button--default:not(.n-button-link):not(.n-disabled):hover {
+    .n-button--default:not(.solid):not(.n-button-link):not(.n-disabled):hover {
         color: $color-gray-60;
         background-color: rgba($color-black, 0.15);
     }
 
-    .n-button--primary:not(.n-button-link) {
+    .n-button--primary:not(.solid):not(.n-button-link) {
         color: rgba($color-primary, 0.8);
         background: transparent;
     }
 
-    .n-button--primary:not(.n-button-link):not(.n-disabled):hover {
+    .n-button--primary:not(.solid):not(.n-button-link):not(.n-disabled):hover {
         color: $color-primary;
         background-color: rgba($color-primary, 0.15);
     }
 
-    .n-button--info:not(.n-button-link) {
+    .n-button--info:not(.solid):not(.n-button-link) {
         color: rgba($color-info, 0.8);
         background: transparent;
     }
 
-    .n-button--info:not(.n-button-link):not(.n-disabled):hover {
+    .n-button--info:not(.solid):not(.n-button-link):not(.n-disabled):hover {
         color: $color-info;
         background-color: rgba($color-info, 0.15);
     }
 
-    .n-button--success:not(.n-button-link) {
+    .n-button--success:not(.solid):not(.n-button-link) {
         color: rgba($color-success, 0.8);
         background: transparent;
     }
 
-    .n-button--success:not(.n-button-link):not(.n-disabled):hover {
+    .n-button--success:not(.solid):not(.n-button-link):not(.n-disabled):hover {
         color: $color-success;
         background-color: rgba($color-success, 0.15);
     }
 
-    .n-button--warning:not(.n-button-link) {
+    .n-button--warning:not(.solid):not(.n-button-link) {
         color: rgba($color-warning, 0.8);
         background: transparent;
     }
 
-    .n-button--warning:not(.n-button-link):not(.n-disabled):hover {
+    .n-button--warning:not(.solid):not(.n-button-link):not(.n-disabled):hover {
         color: $color-warning;
         background-color: rgba($color-warning, 0.15);
     }
 
-    .n-button--danger:not(.n-button-link) {
+    .n-button--danger:not(.solid):not(.n-button-link) {
         color: rgba($color-danger, 0.8);
         background: transparent;
     }
 
-    .n-button--danger:not(.n-button-link):not(.n-disabled):hover {
+    .n-button--danger:not(.solid):not(.n-button-link):not(.n-disabled):hover {
         color: $color-danger;
         background-color: rgba($color-danger, 0.15);
     }

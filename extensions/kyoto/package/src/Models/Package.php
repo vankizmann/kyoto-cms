@@ -7,7 +7,7 @@ class Package extends \Kyoto\Support\Database\Model
     protected $table = 'packages';
 
     protected $fillable = [
-        'state', 'name'
+        'state', 'name',
     ];
 
     protected $fields = [
@@ -15,15 +15,15 @@ class Package extends \Kyoto\Support\Database\Model
     ];
 
     protected $attributes = [
-        'id'            => null,
-        'state'         => null,
-        'name'          => null
+        'id'          => null,
+        'state'       => null,
+        'name'        => null,
     ];
 
     protected $casts = [
-        'id'            => 'string',
-        'state'         => 'boolean',
-        'name'          => 'string'
+        'id'          => 'string',
+        'state'       => 'integer',
+        'name'        => 'string',
     ];
 
 }

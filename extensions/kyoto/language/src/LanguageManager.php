@@ -1,11 +1,13 @@
 <?php
 
 namespace Kyoto\Language;
+
 use Kyoto\Support\Php\PhpEditor;
 use Kyoto\Language\Models\Language;
 use Kyoto\Language\Models\Translation;
 
-class LanguageManager {
+class LanguageManager
+{
 
     const LOCALE_PATH = 'kyoto/locale';
 
@@ -38,11 +40,13 @@ class LanguageManager {
         $path = storage_path(str_join('/',
             self::LOCALE_PATH, "locales.php"));
 
-        if ( ! file_exists($path) ) {
-            $this->updateLocales();
+        $locales = PhpEditor::loadFile($path, ['en']);
+
+        if ( ! file_exists($path) || is_array($locales) ) {
+            $locales = $this->updateLocales();
         }
 
-        $this->locales = PhpEditor::loadFile($path, ['en']);
+        $this->locales = $locales;
 
         return $this;
     }
@@ -52,15 +56,12 @@ class LanguageManager {
         $locales = Language::enabled()->get()->pluck('locale')
             ->toArray();
 
-        $cachePath = str_replace('/', DIRECTORY_SEPARATOR,
-            self::LOCALE_PATH);
-
         $path = storage_path(str_join('/',
             self::LOCALE_PATH, "locales.php"));
 
         PhpEditor::saveFile($path, $locales);
 
-        return $this;
+        return $locales;
     }
 
     public function clearLocales()
@@ -187,7 +188,7 @@ class LanguageManager {
 
     public function patchTranslations()
     {
-        foreach ( $this->translations as $locale => $translation) {
+        foreach ( $this->translations as $locale => $translation ) {
 
             $lines = [];
 

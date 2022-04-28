@@ -18,6 +18,10 @@ class Role extends Model
         'policies'
     ];
 
+    protected $fillable = [
+        'policies'
+    ];
+
     protected $attributes = [
         'id'          => null,
         'title'       => null,
@@ -38,6 +42,13 @@ class Role extends Model
     public function getUsersAttribute()
     {
         return $this->users()->get();
+    }
+
+    public function setUsersAttribute($value)
+    {
+        self::saved(function ($model) use ($value) {
+            $model->users()->sync(collect($value)->pluck('id'));
+        });
     }
 
     public function policies()

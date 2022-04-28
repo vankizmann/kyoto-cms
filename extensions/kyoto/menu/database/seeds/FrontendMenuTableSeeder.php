@@ -85,7 +85,7 @@ class FrontendMenuTableSeeder extends Seeder
             'parent' => $default,
         ]);
 
-        for ($x = 0; $x <= 200; $x++) {
+        for ($x = 0; $x <= 1; $x++) {
             Menu::create([
                 'type'   => 'kyoto/menu::redirect',
                 'layout' => null,

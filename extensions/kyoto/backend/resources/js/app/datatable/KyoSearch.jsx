@@ -45,7 +45,7 @@ export default {
             modelValue: this.tempValue,
             icon: 'fa fa-search',
             iconPosition: 'before',
-            placeholder: this.trans('Search')
+            placeholder: this.trans('Search for ...')
         };
 
         inputProps['onKeydown'] = (event) => {

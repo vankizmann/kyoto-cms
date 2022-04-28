@@ -1,0 +1,39 @@
+@import "~@kizmann/nano-ui/src/root/vars";
+
+.kyo-breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.kyo-breadcrumbs ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+}
+
+.kyo-breadcrumbs li {
+    position: relative;
+    flex: 0 1 auto;
+}
+
+.kyo-breadcrumbs li:not(:first-child) {
+    padding-left: 30px;
+}
+
+.kyo-breadcrumbs li:not(:first-child):before {
+    content: '/';
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    display: inline-block;
+    color: $color-gray-20;
+    transform: translate(-50%, -50%);
+}
+
+.kyo-breadcrumbs li:not(:last-child) a {
+    color: $color-gray-40;
+}

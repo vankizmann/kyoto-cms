@@ -16,14 +16,12 @@
         "@vue/babel-plugin-jsx": "^1.0.2",
         "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
         "@vue/compiler-sfc": "^3.0.5",
+        "autoprefixer": "^10.2.3",
         "babel-loader": "^8.0.6",
-        "copy-webpack-plugin": "^5.0.4",
-        "core-js": "^3.0.1",
+        "copy-webpack-plugin": "^5.1.2",
         "cross-env": "^5.1",
         "css-loader": "^3.4.0",
-        "file-loader": "^4.1.0",
-        "ignore-loader": "^0.1.2",
-        "mini-css-extract-plugin": "^0.8.0",
+        "mini-css-extract-plugin": "^0.12.0",
         "node-sass": "^4.12.0",
         "postcss": "^8.1.1",
         "postcss-inline-svg": "^4.1.0",
@@ -33,9 +31,12 @@
         "style-loader": "^1.1.2",
         "terser-webpack-plugin": "^2.3.5",
         "url-loader": "^2.1.0",
-        "vue": "^3.0.5",
         "vue-loader": "^16.1.2",
-        "webpack": "^4.44.2",
+        "webpack": "^4.9.2",
         "webpack-cli": "^3.3.12"
+    },
+    "dependencies": {
+        "@kizmann/pico-js": "^0.2.2",
+        "vue": "^3.0.5"
     }
 }

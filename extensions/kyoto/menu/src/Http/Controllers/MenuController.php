@@ -19,7 +19,7 @@ class MenuController extends \App\Http\Controllers\Controller
 
         $query = new Menu;
 
-        if ( ! isset($_COOKIE['kyoto_sysmode']) || $_COOKIE['kyoto_sysmode'] !== '1' ) {
+        if ( Kyoto::isSystemDisabled() ) {
             $query = $query->where('system', 0);
         }
 

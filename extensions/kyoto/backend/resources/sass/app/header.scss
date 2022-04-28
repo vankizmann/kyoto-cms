@@ -5,8 +5,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    height: 100px;
-    padding: 0 30px;
+    min-height: 90px;
+    padding: 20px 30px;
 }
 
 .kyo-header > *:not(:first-child) {
@@ -24,11 +24,11 @@
 }
 
 .kyo-header__title {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
 }
 
 .kyo-header__title h1 {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .kyo-header__search {
